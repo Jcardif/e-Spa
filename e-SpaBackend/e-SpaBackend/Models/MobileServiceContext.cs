@@ -1,9 +1,9 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using e_SpaBackend.DataObjects;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Tables;
-using e_SpaBackend.DataObjects;
 
 namespace e_SpaBackend.Models
 {
@@ -26,7 +26,8 @@ namespace e_SpaBackend.Models
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Salon> Salons { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
