@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-SpaBackend", "e-SpaBackend\e-SpaBackend.csproj", "{BFD0C047-36F0-4111-B941-109E3F69407A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFD0C047-36F0-4111-B941-109E3F69407A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD0C047-36F0-4111-B941-109E3F69407A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD0C047-36F0-4111-B941-109E3F69407A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD0C047-36F0-4111-B941-109E3F69407A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE209FED-AC30-40EA-AC1C-6714CE4E2213}
+	EndGlobalSection
+EndGlobal
