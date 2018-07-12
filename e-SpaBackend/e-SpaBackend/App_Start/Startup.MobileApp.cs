@@ -20,10 +20,11 @@ namespace e_SpaBackend
 
             new MobileAppConfiguration()
                 .UseDefaultConfiguration()
+                .MapApiControllers()
                 .ApplyTo(config);
 
             // Use Entity Framework Code First to create database tables based on your DbContext
-            Database.SetInitializer(new MobileServiceInitializer());
+            //Database.SetInitializer(new MobileServiceInitializer());
 
             MobileAppSettingsDictionary settings = config.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
@@ -46,21 +47,7 @@ namespace e_SpaBackend
 
     public class MobileServiceInitializer : CreateDatabaseIfNotExists<MobileServiceContext>
     {
-        protected override void Seed(MobileServiceContext context)
-        {
-            List<TodoItem> todoItems = new List<TodoItem>
-            {
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false }
-            };
-
-            foreach (TodoItem todoItem in todoItems)
-            {
-                context.Set<TodoItem>().Add(todoItem);
-            }
-
-            base.Seed(context);
-        }
+       
     }
 }
 

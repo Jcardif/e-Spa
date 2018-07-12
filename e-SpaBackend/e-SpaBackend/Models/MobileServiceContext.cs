@@ -1,9 +1,9 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using e_SpaBackend.DataObjects;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Tables;
-using e_SpaBackend.DataObjects;
 
 namespace e_SpaBackend.Models
 {
@@ -20,16 +20,24 @@ namespace e_SpaBackend.Models
         // service name, set by the 'MS_MobileServiceName' AppSettings in the local 
         // Web.config, is the same as the service name when hosted in Azure.
 
-        private const string connectionStringName = "Name=MS_TableConnectionString";
+        private const string ConnectionStringName = "e-SpaConnectionString";
 
-        public MobileServiceContext() : base(connectionStringName)
+        public MobileServiceContext() : base(ConnectionStringName)
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<SalonService> SalonServices { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Salon> Salons { get; set; }
+        public DbSet<SalonManager> SalonManagers { get; set; }
+        public DbSet<Service> Services { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
