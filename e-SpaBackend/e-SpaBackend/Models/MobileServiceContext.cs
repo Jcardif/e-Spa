@@ -28,6 +28,8 @@ namespace e_SpaBackend.Models
 
         public DbSet<Client> Clients { get; set; }
         public DbSet<Salon> Salons { get; set; }
+        public DbSet<SalonManager> SalonManagers { get; set; }
+        public DbSet<Service> Services { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
