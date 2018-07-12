@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using Microsoft.Azure.Mobile.Server;
 
 namespace e_SpaBackend.DataObjects
 {
-    public class SalonService
+    public class SalonService :EntityData
     {
         [Required, Column(TypeName = "varchar")]
         public string ImageUrl { get; set; }
@@ -25,5 +26,6 @@ namespace e_SpaBackend.DataObjects
 
         public virtual Service Service { get; set; }
         public virtual Salon Salon { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
     }
 }

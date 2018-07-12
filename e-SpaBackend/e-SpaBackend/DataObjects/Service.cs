@@ -16,5 +16,7 @@ namespace e_SpaBackend.DataObjects
         public string Description { get; set; }
         [Required, Column(TypeName = "varchar")]
         public string ImageUrl { get; set; }
+
+        public virtual ICollection<SalonService> SalonServices { get; set; }
     }
 }

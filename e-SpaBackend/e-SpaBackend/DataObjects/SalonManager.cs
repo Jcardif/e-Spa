@@ -21,9 +21,7 @@ namespace e_SpaBackend.DataObjects
         public string ProfilePhotoUrl { get; set; }
         [Required, Column(TypeName = "varchar")]
         public string PhoneNumber { get; set; }
-        [Required,ForeignKey("Salon")]
-        public string Salon_Id { get; set; }
 
-        public virtual  Salon Salon  { get; set; }
+        public virtual  ICollection<Salon> Salons  { get; set; }
     }
 }
