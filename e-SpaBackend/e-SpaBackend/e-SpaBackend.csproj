@@ -186,6 +186,7 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ConnectionStrings.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
