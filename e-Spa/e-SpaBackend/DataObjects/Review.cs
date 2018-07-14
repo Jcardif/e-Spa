@@ -10,9 +10,9 @@ namespace e_SpaBackend.DataObjects
 {
     public class Review : EntityData
     {
-        [Required, Column(TypeName = "varchar")]
+        [Required, Column(TypeName = "VARCHAR")]
         public string Description { get; set; }
-        [Required, Column(TypeName = "varchar")]
+        [Required, Column(TypeName = "VARCHAR")]
         public string Date { get; set; }
         [Required, ForeignKey("Client")]
         public string Client_Id { get; set; }

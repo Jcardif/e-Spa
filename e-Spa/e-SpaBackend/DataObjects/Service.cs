@@ -10,11 +10,11 @@ namespace e_SpaBackend.DataObjects
 {
     public class Service :EntityData
     {
-        [Required, Column(TypeName = "varchar")]
+        [Required, Column(TypeName = "VARCHAR")]
         public string Name { get; set; }
-        [Required, Column(TypeName = "varchar")]
+        [Required, Column(TypeName = "VARCHAR")]
         public string Description { get; set; }
-        [Required, Column(TypeName = "varchar")]
+        [Required, Column(TypeName = "VARCHAR")]
         public string ImageUrl { get; set; }
 
         public virtual ICollection<SalonService> SalonServices { get; set; }

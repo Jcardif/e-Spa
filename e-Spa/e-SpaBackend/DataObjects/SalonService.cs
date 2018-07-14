@@ -10,13 +10,13 @@ namespace e_SpaBackend.DataObjects
 {
     public class SalonService :EntityData
     {
-        [Required, Column(TypeName = "varchar")]
+        [Required, Column(TypeName = "VARCHAR")]
         public string ImageUrl { get; set; }
-        [Required, Column(TypeName = "varchar")]
+        [Required, Column(TypeName = "VARCHAR")]
         public string Description { get; set; }
-        [Required, Column(TypeName = "double")]
+        [Required,Column(TypeName = "FLOAT")]
         public  double Price { get; set; }
-        [Required, Column(TypeName = "double")]
+        [Required, Column(TypeName = "FLOAT")]
         public double Discount { get; set; }
 
         [ForeignKey("Salon"),Required ]

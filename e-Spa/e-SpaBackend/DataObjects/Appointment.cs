@@ -10,9 +10,9 @@ namespace e_SpaBackend.DataObjects
 {
     public class Appointment : EntityData
     {
-        [Required, Column(TypeName = "varchar")]
+        [Required, Column(TypeName = "VARCHAR")]
         public string venue { get; set; }
-        [Required, Column(TypeName = "varchar")]
+        [Required, Column(TypeName = "VARCHAR")]
         public string Date { get; set; }
         [Required, ForeignKey("SalonService")]
         public string SalonService_Id { get; set; }
