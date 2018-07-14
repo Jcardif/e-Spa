@@ -171,26 +171,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
-    <Compile Include="Controllers\AppointmentController.cs" />
-    <Compile Include="Controllers\ClientController.cs" />
-    <Compile Include="Controllers\ReviewController.cs" />
-    <Compile Include="Controllers\SalonController.cs" />
-    <Compile Include="Controllers\SalonManagerController.cs" />
-    <Compile Include="Controllers\SalonServiceController.cs" />
-    <Compile Include="Controllers\ServiceController.cs" />
-    <Compile Include="DataObjects\Appointment.cs" />
-    <Compile Include="DataObjects\Client.cs" />
-    <Compile Include="DataObjects\Review.cs" />
-    <Compile Include="DataObjects\Salon.cs" />
-    <Compile Include="DataObjects\SalonManager.cs" />
-    <Compile Include="DataObjects\SalonService.cs" />
-    <Compile Include="DataObjects\Service.cs" />
+    <Compile Include="Controllers\Tables\AppointmentController.cs" />
+    <Compile Include="Controllers\Tables\ClientController.cs" />
+    <Compile Include="Controllers\Tables\ReviewController.cs" />
+    <Compile Include="Controllers\Tables\SalonController.cs" />
+    <Compile Include="Controllers\Tables\SalonManagerController.cs" />
+    <Compile Include="Controllers\Tables\SalonServiceController.cs" />
+    <Compile Include="Controllers\Tables\ServiceController.cs" />
+    <Compile Include="DataObjects\Tables\Appointment.cs" />
+    <Compile Include="DataObjects\Tables\Client.cs" />
+    <Compile Include="DataObjects\Tables\Review.cs" />
+    <Compile Include="DataObjects\Tables\Salon.cs" />
+    <Compile Include="DataObjects\Tables\SalonManager.cs" />
+    <Compile Include="DataObjects\Tables\SalonService.cs" />
+    <Compile Include="DataObjects\Tables\Service.cs" />
+    <Compile Include="DataObjects\Views\ClientAppointments.cs" />
+    <Compile Include="DataObjects\Views\SalonAppointments.cs" />
+    <Compile Include="DataObjects\Views\SalonServiceView.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Migrations\ClientAppointmentsView.sql" />
+    <Content Include="Migrations\SalonAppointmentsView.sql" />
+    <Content Include="Migrations\SalonServicesView.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -201,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConnectionStrings.config" />
