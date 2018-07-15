@@ -1,6 +1,7 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using System.Reflection;
 using e_SpaBackend.DataObjects;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Tables;
@@ -20,10 +21,21 @@ namespace e_SpaBackend.Models
         // service name, set by the 'MS_MobileServiceName' AppSettings in the local 
         // Web.config, is the same as the service name when hosted in Azure.
 
-        private const string ConnectionStringName = "e-SpaConnectionString";
+        private const string ConnectionStringName = "e-SpaLocalDb";
 
         public MobileServiceContext() : base(ConnectionStringName)
         {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Add(
+                new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
+                    "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
+            modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Client> Clients { get; set; }
@@ -34,13 +46,8 @@ namespace e_SpaBackend.Models
         public DbSet<SalonManager> SalonManagers { get; set; }
         public DbSet<Service> Services { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Conventions.Add(
-                new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
-                    "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
-        }
+        public DbSet<ClientAppointments> ClientAppointments { get; set; }
+        public DbSet<SalonAppointments> SalonAppointments { get; set; }
+        public DbSet<SalonServiceView> SalonServiceViews { get; set; }
     }
 }

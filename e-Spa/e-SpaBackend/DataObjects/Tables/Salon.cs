@@ -10,14 +10,21 @@ namespace e_SpaBackend.DataObjects
 {
     public class Salon : EntityData
     {
-        public string Id { get; set; }
+        [Required, Column(TypeName = "VARCHAR")]
         public string Deescription { get; set; }
+        [Required, Column(TypeName = "VARCHAR")]
         public string Locality{ get; set; }
+        [Required, Column(TypeName = "VARCHAR")]
         public string ImageUrl { get; set; }
+        [Required, Column(TypeName = "VARCHAR")]
         public string Email { get; set; }
+        [Required, Column(TypeName = "VARCHAR")]
         public string Name { get; set; }
+        [Required, Column(TypeName = "INT")]
         public int Rating { get; set; }
+        [Required, Column(TypeName = "VARCHAR")]
         public string TimeIn { get; set; }
+        [Required, Column(TypeName = "VARCHAR")]
         public string TimeOut { get; set; }
         [Required, ForeignKey("SalonManager")]
         public string SalonManager_Id { get; set; }
