@@ -37,7 +37,7 @@ namespace e_SpaBackend.Migrations
             context.Database.ExecuteSqlCommand(File.ReadAllText(baseDirectory2));
 
             //Seed the SalonserviceView script in the configuration file.
-            string codeBase3 = Assembly.GetCallingAssembly().CodeBase;
+            string codeBase3 = Assembly.GetExecutingAssembly().CodeBase;
             UriBuilder uri3 = new UriBuilder(codeBase3);
             string path3 = Uri.UnescapeDataString(uri3.Path);
             var baseDirectory3 = Path.GetDirectoryName(path3) + "\\Migrations\\SalonServicesView.sql";

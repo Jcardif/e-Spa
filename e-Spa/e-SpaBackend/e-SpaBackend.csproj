@@ -194,9 +194,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Migrations\ClientAppointmentsView.sql" />
-    <Content Include="Migrations\SalonAppointmentsView.sql" />
-    <Content Include="Migrations\SalonServicesView.sql" />
+    <Content Include="Migrations\ClientAppointmentsView.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\SalonAppointmentsView.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\SalonServicesView.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

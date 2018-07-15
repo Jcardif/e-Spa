@@ -2,7 +2,7 @@ IF NOT EXISTS(SELECT * FROM sys.views WHERE object_id=OBJECT_ID(N'[dbo].[SalonAp
 EXEC dbo.sp_executesql @statement =N'
 CREATE VIEW [dbo].[SalonAppointments]
 AS
-SELECT  s.ID, s.Name AS SalonName, ap.Date, ap.Venue, ss.Price, ss.Discount, se.Name AS serviceName, c.FirstName, c.LastName, c.PhoneNo, c.Email
+SELECT  s.ID, s.Name AS SalonName, ap.Date, ap.Venue, ss.Price, ss.Discount, se.Name AS serviceName, c.FirstName, c.LastName, c.PhoneNumber, c.Email
 FROM
 Salon s
 JOIN Appointment ap ON  ap.Salon_Id=s.Id
