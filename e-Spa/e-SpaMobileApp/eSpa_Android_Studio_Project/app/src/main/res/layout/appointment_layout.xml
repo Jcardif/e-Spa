@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/client_app_layout_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/appointmentCoordinator"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<android.support.v7.widget.CardView
+    android:id="@+id/appointmentCardView"
+    android:layout_width="match_parent"
+    android:layout_height="206.3dp"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginLeft="18dp"
+    android:layout_marginRight="18dp"
+    android:layout_marginTop="12.7dp"
+    app:cardBackgroundColor="#65496F">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.CircleImageView
+            android:id="@+id/appointmentCircularImgView"
+            android:layout_width="66.7dp"
+            android:layout_height="66.7dp"
+            android:layout_marginBottom="16.7dp"
+            android:layout_marginLeft="9.7dp"
+            android:layout_marginRight="25.3dp"
+            android:layout_marginTop="20.3dp"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="196.3dp"
+            android:layout_height="66.7dp"
+            android:layout_marginRight="20.3dp"
+            android:layout_marginTop="20.3dp"
+            android:layout_toRightOf="@id/appointmentCircularImgView"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/appointmentCircularImgView"
+                android:lineSpacingExtra="-1.3sp"
+                android:padding="4dp"
+                android:text="Service Description"
+                android:textColor="#000000"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/serviceNameTxtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appointmentCircularImgView"
+            android:lineSpacingExtra="-9.3sp"
+            android:text=" Facial and Enhancements"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/serviceCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appointmentCircularImgView"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="14dp"
+            android:layout_toRightOf="@id/serviceNameTxtView"
+            android:lineSpacingExtra="-9.3sp"
+            android:text="Ksh. 800"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/salonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/serviceNameTxtView"
+            android:layout_marginLeft="17dp"
+            android:lineSpacingExtra="-5.3sp"
+            android:text="Ashleys Kenya"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/appointmentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/salonName"
+            android:layout_marginLeft="17dp"
+            android:lineSpacingExtra="-3.3sp"
+            android:text="02:00 pm"
+            android:textColor="#ffffff"
+            android:textSize="10sp" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="43.3dp"
+        android:layout_height="43.3dp"
+        android:background="@color/colorPrimary"
+        app:layout_anchor="@id/appointmentCardView"
+        app:layout_anchorGravity="bottom|end" />
+    <android.support.design.widget.FloatingActionButton
+    android:layout_width="43.3dp"
+    android:layout_height="43.3dp"
+    android:background="@color/colorPrimary"
+    app:layout_anchorGravity="bottom|left"
+    app:layout_anchor="@id/appointmentCardView"/>
+</android.support.design.widget.CoordinatorLayout>
+    <android.support.v4.widget.Space
+        android:id="@+id/appointmentSpace"
+        android:layout_width="wrap_content"
+        android:layout_height="199dp"
+        android:layout_below="@id/appointmentCoordinator" />
+    <TextView
+        android:id="@+id/newAppointmentTxtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appointmentSpace"
+        android:textSize="14sp"
+        android:textColor="#9b26af"
+        android:lineSpacingExtra="-2.7sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="23.7dp"
+        android:text="New Appointment"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@id/newAppointmentTxtView">
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/ringContents"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_marginLeft="15dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/progress_bar_shape"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="55"
+            android:progressDrawable="@drawable/progress_bar" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/frequencyPercentTxtView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#ffffff"
+                    android:lineSpacingExtra="-3.3sp"
+                    android:text="55%"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#ffffff"
+                    android:lineSpacingExtra="-3.3sp"
+                    android:layout_gravity="center"
+                    android:text="Frequency" />
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/salon1NameTxtView"
+            android:layout_below="@id/ringContents"
+            android:textSize="9.3sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="4sp"
+            android:text="Aristocuts Beauty Salon "
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+    <view
+        android:layout_width="1dp"
+        android:layout_height="104dp"
+        android:background="#000000"
+        android:layout_marginLeft="13.7dp"/>
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/ring2Contents"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                android:layout_marginLeft="15dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/progress_bar_shape2"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="23"
+                android:progressDrawable="@drawable/progress_bar2" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/frequency2PercentTxtView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#ffffff"
+                    android:lineSpacingExtra="-3.3sp"
+                    android:text="23%"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#ffffff"
+                    android:lineSpacingExtra="-3.3sp"
+                    android:layout_gravity="center"
+                    android:text="Frequency" />
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/salon12NameTxtView"
+            android:layout_below="@id/ring2Contents"
+            android:textSize="9.3sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="4sp"
+            android:text="Ashleys Kenya"
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+    <view
+        android:layout_width="1dp"
+        android:layout_height="104dp"
+        android:background="#000000"
+        android:layout_marginLeft="13.7dp"/>
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/ring3Contents"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <ProgressBar
+                android:id="@+id/progressBar3"
+                android:layout_marginLeft="15dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/progress_bar_shape3"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="22"
+                android:progressDrawable="@drawable/progress_bar3" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/frequency3PercentTxtView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#ffffff"
+                    android:lineSpacingExtra="-3.3sp"
+                    android:text="22%"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:textColor="#ffffff"
+                    android:lineSpacingExtra="-3.3sp"
+                    android:layout_gravity="center"
+                    android:text="Frequency" />
+            </LinearLayout>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/salon13NameTxtView"
+            android:layout_below="@id/ring3Contents"
+            android:textSize="9.3sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="4sp"
+            android:text="Rapunzel Work and Salon"
+            android:layout_marginLeft="15dp"/>
+
+    </RelativeLayout>
+</LinearLayout>
+</RelativeLayout>
