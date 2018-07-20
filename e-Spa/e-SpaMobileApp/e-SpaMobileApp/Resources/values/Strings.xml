@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">e_SpaMobileApp</string>
+    <string name="app_name">e-Spa</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="fb_appId">243601656365142</string>
 </resources>

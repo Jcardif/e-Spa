@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background=""
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/emailEdtTxtLogIn"
+            android:layout_width="match_parent"
+            android:focusableInTouchMode="true"
+            android:layout_height="wrap_content"
+            android:gravity="left|center"
+            android:hint="Email"
+            android:layout_margin="8dp"
+            android:inputType="textEmailAddress"
+            android:minHeight="52dp"
+            android:background="@drawable/edittext_style"
+            android:padding="5dp"
+            android:layout_alignParentLeft="true" />
+        <EditText
+        android:id="@+id/passEdtTxtLogIn"
+        android:layout_width="match_parent"
+        android:focusableInTouchMode="true"
+        android:layout_height="wrap_content"
+        android:gravity="left|center"
+        android:hint="Password"
+        android:layout_margin="8dp"
+        android:inputType="textEmailAddress"
+        android:minHeight="52dp"
+        android:background="@drawable/edittext_style"
+        android:padding="5dp"
+        android:layout_alignParentLeft="true" />
+        <Button
+            android:layout_width="200dp"
+            android:id="@+id/logInWithEmailBtn"
+            android:layout_height="match_parent"
+            android:background="@drawable/major_btn"
+            android:text="Log In"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:layout_margin="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ForgotPassWordTxTView"
+            android:Clickable="true"
+            android:text="Forgot PassWord?"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+</LinearLayout>
