@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#161823">
+        android:background="#BF161823">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,80 +21,9 @@
             android:text="Reminders"
             android:layout_margin="13dp"/>
         <TableLayout
+            android:paddingBottom="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#ffffff"
-                android:lineSpacingExtra="-5.3sp"
-                android:gravity="center_horizontal"
-                android:text="Appointment Reminders"
-                android:layout_marginLeft="11dp"
-                android:layout_marginRight="11dp"/>
-            <Button
-                android:id="@+id/addAppointmentRemindersBtn"
-                android:background="@drawable/client_home_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add"
-                android:textColor="@android:color/white"
-                android:textSize="12sp"
-                android:lineSpacingExtra="-5.3sp"
-                android:gravity="center"
-                android:layout_marginRight="16.7dp"
-                android:contextClickable="true"/>
-            <Button
-                android:id="@+id/numberAppointmentsBtn"
-                android:background="@drawable/client_home_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2"
-                android:textColor="@android:color/white"
-                android:textSize="12sp"
-                android:lineSpacingExtra="-5.3sp"
-                android:gravity="center"
-                android:layout_marginRight="16.7dp"
-                android:clickable="true"/>
-        </TableRow>
-            <TableRow android:layout_marginTop="10.3dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="#ffffff"
-                    android:lineSpacingExtra="-5.3sp"
-                    android:gravity="center_horizontal"
-                    android:text="Facial and Nail Reminders"
-                    android:layout_marginLeft="11dp"
-                    android:layout_marginRight="11dp"/>
-                <Button
-                    android:id="@+id/addFacialsRemindersBtn"
-                    android:background="@drawable/client_home_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:lineSpacingExtra="-5.3sp"
-                    android:gravity="center"
-                    android:layout_marginRight="16.7dp"
-                    android:contextClickable="true"/>
-                <Button
-                    android:id="@+id/numberFacialssBtn"
-                    android:background="@drawable/client_home_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:lineSpacingExtra="-5.3sp"
-                    android:gravity="center"
-                    android:layout_marginRight="16.7dp"
-                    android:clickable="true"/>
-            </TableRow>
             <TableRow android:layout_marginTop="10.3dp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -204,5 +133,19 @@
                     android:clickable="true"/>
             </TableRow>
         </TableLayout>
+        <android.support.design.widget.TabLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/client_homeTabLayout"
+            android:background="#5065496F"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorHeight="3dp"/>
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/client_homeViewpager"
+            android:background="#9965496F"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        </android.support.v4.view.ViewPager>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

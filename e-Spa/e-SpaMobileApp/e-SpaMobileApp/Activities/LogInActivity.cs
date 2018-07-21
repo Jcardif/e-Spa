@@ -14,24 +14,36 @@ using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.Adapters;
 using e_SpaMobileApp.Fragments;
+using e_SpaMobileApp.Helpers;
+using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
+using Xamarin.Facebook.Login.Widget;
+using Object = Java.Lang.Object;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "LogInActivity", Theme ="@style/AppTheme", MainLauncher=true)]
-    public class LogInActivity : AppCompatActivity
+    [Activity(Label = "@string/app_name", Theme ="@style/AppTheme", MainLauncher=true)]
+    public class LogInActivity : AppCompatActivity, IFacebookCallback
     {
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+
 
             SetContentView(Resource.Layout.activity_login);
 
             var logInTabs = FindViewById<TabLayout>(Resource.Id.loginAppBarTabLayout);
             var logInViewPager = FindViewById<ViewPager>(Resource.Id.loginViewPager);
+            
             SetUpViewPager(logInViewPager);
             logInTabs.SetupWithViewPager(logInViewPager);
+
         }
+
+
 
         private void SetUpViewPager(ViewPager logInViewPager)
         {
@@ -39,6 +51,21 @@ namespace e_SpaMobileApp.Activities
             adapter.AddFragment(new LogInOptionsFragment(), "LogIn");
             logInViewPager.Adapter = adapter;
             logInViewPager.Adapter.NotifyDataSetChanged();
+        }
+
+        public void OnCancel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(FacebookException error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSuccess(Object result)
+        {
+            throw new NotImplementedException();
         }
     }
 }

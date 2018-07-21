@@ -59,6 +59,8 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\TabAdapter.cs" />
     <Compile Include="Fragments\LogInOptionsFragment.cs" />
+    <Compile Include="Helpers\MyProfileTracker.cs" />
+    <Compile Include="Events\OnProfileChangedEventArgs.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -162,6 +164,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\google_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_appointment.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
