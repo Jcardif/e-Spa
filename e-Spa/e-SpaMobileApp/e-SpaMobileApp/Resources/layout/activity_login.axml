@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</LinearLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:background="@drawable/client_app_layout_background"
+    android:layout_width="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#33FFFFFF"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="80dp">
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:id="@+id/loginAppBar">
+            <android.support.design.widget.TabLayout
+                android:id="@+id/loginAppBarTabLayout"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                tools:tabIndicatorColor="#FFFFFF"
+                tools:tabIndicatorHeight="3dp" />
+        </android.support.design.widget.AppBarLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/loginViewPager"
+            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            tools:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </LinearLayout>
+</RelativeLayout>
