@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/client_app_layout_background"
-    android:clickable="true"
     android:fitsSystemWindows="false"
     app:layout_constraintTop_toTopOf="@id/appointmentCardView">
 
@@ -24,33 +23,35 @@
             app:cardBackgroundColor="#65496F"
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <android.support.v4.widget.CircleImageView
                     android:id="@+id/appointmentCircularImgView"
                     android:layout_width="66.7dp"
                     android:layout_height="66.7dp"
                     android:layout_marginBottom="16.7dp"
+                    android:layout_marginStart="9.7dp"
                     android:layout_marginLeft="9.7dp"
+                    android:layout_marginEnd="25.3dp"
                     android:layout_marginRight="25.3dp"
                     android:layout_marginTop="20.3dp"
                     android:scaleType="centerCrop" />
-
                 <LinearLayout
                     android:layout_width="196.3dp"
                     android:layout_height="66.7dp"
                     android:layout_marginRight="20.3dp"
+                    android:layout_marginEnd="20.3dp"
                     android:layout_marginTop="20.3dp"
                     android:layout_toRightOf="@id/appointmentCircularImgView"
+                    android:layout_toEndOf="@id/appointmentCircularImgView"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/appointmentCircularImgView"
+                        android:layout_toEndOf="@id/appointmentCircularImgView"
                         android:lineSpacingExtra="-1.3sp"
                         android:padding="4dp"
                         android:text="Service Description"
@@ -104,7 +105,7 @@
                     android:lineSpacingExtra="-3.3sp"
                     android:text="02:00 pm"
                     android:textColor="#ffffff"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
