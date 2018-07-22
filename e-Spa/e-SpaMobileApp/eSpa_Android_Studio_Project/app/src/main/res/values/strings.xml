@@ -11,4 +11,8 @@
     <string name="add">Add</string>
     <string name="forums_desc">Share, discuss and provide solutions to issues pertaining beauty, grooming, fashion, etc.</string>
     <string name="continue_To_forums">Continue to Forums</string>
+    <string name="reminders">Reminders</string>
+    <string name="grooming_reminders">Grooming Reminders</string>
+    <string name="purchase_reminders">Purchase Reminders</string>
+    <string name="custom_reminders">Custom Reminders</string>
 </resources>
