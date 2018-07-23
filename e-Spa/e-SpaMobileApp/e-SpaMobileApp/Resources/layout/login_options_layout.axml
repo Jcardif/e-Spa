@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fbbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:layout_gravity="center_horizontal"
+        tools:com_facebook_confirm_logout="false"
+        tools:com_facebook_tooltip_mode="never_display" />
+    <Button
+        android:id="@+id/googleBtn"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:drawableLeft="@drawable/google_logo"
+        android:drawablePadding="6dp"
+        android:textAllCaps="false"
+        android:gravity="left|center"
+        android:layout_gravity="center"
+        android:background="@android:color/white"
+        android:text="Continue with Google"
+        android:textColor="@android:color/black" />
+    <Button
+        android:id="@+id/emailBtn"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Continue with Email"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:background="@color/colorPrimaryDark" />
+    <TextView
+        android:id="@+id/SignUpBtn"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Don't Have an Account? Create one."
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+</LinearLayout>

@@ -28,3 +28,10 @@ using Android.App;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+
+[assembly: MetaData("com.facebook.sdk.ApplicationId", Value = "@string/fb_appId")]
+[assembly: MetaData("com.facebook.sdk.ApplicationName", Value = "@string/app_name")]
+
+[assembly: Permission(Name = Android.Manifest.Permission.Internet)]
+[assembly: Permission(Name = Android.Manifest.Permission.WriteExternalStorage)]

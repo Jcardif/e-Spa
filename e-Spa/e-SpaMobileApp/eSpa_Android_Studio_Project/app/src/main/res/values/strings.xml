@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">e-Spa</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="trends_title">Title Goes Here</string>
+    <string name="trend_description">This is what you share, sth new sth trendy sth others may want to know about. Pin it here get up votes and get featured on the app </string>
+    <string name="trend_profile_name">Name Here</string>
+    <string name="trend_desc_edtTxt">Description</string>
+    <string name="trends_title_edtTxt">Title</string>
+    <string name="add">Add</string>
+    <string name="forums_desc">Share, discuss and provide solutions to issues pertaining beauty, grooming, fashion, etc.</string>
+    <string name="continue_To_forums">Continue to Forums</string>
+    <string name="reminders">Reminders</string>
+    <string name="grooming_reminders">Grooming Reminders</string>
+    <string name="purchase_reminders">Purchase Reminders</string>
+    <string name="custom_reminders">Custom Reminders</string>
+</resources>
