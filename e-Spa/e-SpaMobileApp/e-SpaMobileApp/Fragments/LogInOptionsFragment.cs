@@ -9,6 +9,7 @@ using Xamarin.Facebook;
 using Xamarin.Facebook.Login.Widget;
 using Android.Support.V4.App;
 using Android.Widget;
+using Xamarin.Facebook.Login;
 
 namespace e_SpaMobileApp.Fragments
 {
@@ -38,6 +39,7 @@ namespace e_SpaMobileApp.Fragments
             mFBCallManager = CallbackManagerFactory.Create();
             BtnFBLogin.RegisterCallback(mFBCallManager, this);
             googleBtn.Click += GoogleBtn_Click;
+            LoginManager.Instance.RegisterCallback(mFBCallManager, this);
             return logInFragmentView;
         }
 
@@ -50,17 +52,9 @@ namespace e_SpaMobileApp.Fragments
         {
             if (e.mProfile != null)
             {
-                try
-                {
-                    //Toast.MakeText(ApplicationContext, e.mProfile.Name, ToastLength.Long).Show();
-                    
-                }
-                catch (Java.Lang.Exception ex)
-                {
-                    //Toast.MakeText(this, ex.Message, ToastLength.Long).Show();
-                }
             }
         }
+        
 
         public override void OnActivityResult(int requestCode, int resultCode, Intent data)
         {
