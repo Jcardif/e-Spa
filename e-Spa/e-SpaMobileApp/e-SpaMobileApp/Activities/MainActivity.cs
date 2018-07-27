@@ -7,7 +7,7 @@ using Android.Widget;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -16,8 +16,8 @@ namespace e_SpaMobileApp.Activities
             SetContentView(Resource.Layout.activity_main);
             
             
-            BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
-            navigation.SetOnNavigationItemSelectedListener(this);
+            //BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
+            //navigation.SetOnNavigationItemSelectedListener(this);
         }
         
         

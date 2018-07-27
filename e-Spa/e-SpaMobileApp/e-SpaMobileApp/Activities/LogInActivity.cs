@@ -22,7 +22,7 @@ using Object = Java.Lang.Object;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "@string/app_name", Theme ="@style/AppTheme", MainLauncher=true)]
+    [Activity(Label = "@string/app_name", Theme ="@style/AppTheme", MainLauncher=false)]
     public class LogInActivity : AppCompatActivity, IFacebookCallback
     {
 

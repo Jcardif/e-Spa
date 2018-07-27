@@ -15,4 +15,6 @@
     <string name="grooming_reminders">Grooming Reminders</string>
     <string name="purchase_reminders">Purchase Reminders</string>
     <string name="custom_reminders">Custom Reminders</string>
+    <string name="salons">Salons</string>
+    <string name="popularity">Popularity</string>
 </resources>
