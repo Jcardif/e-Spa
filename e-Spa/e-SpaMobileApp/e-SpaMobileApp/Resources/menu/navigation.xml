@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home"/>
+        android:title="@string/title_home"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/navigation_services"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/services" />
+        android:title="@string/services" 
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/navigation_salons"
         android:icon="@drawable/ic_salons_black_24dp"
-        android:title="@string/salons" />
+        android:title="@string/salons" 
+        app:showAsAction="ifRoom"/>
 
     <item
       android:id="@+id/navigation_appointments"
       android:icon="@drawable/ic_appointment_black_24dp"
-      android:title="@string/appointments" />
+      android:title="@string/appointments"
+      app:showAsAction="ifRoom"/>
 
 </menu>
