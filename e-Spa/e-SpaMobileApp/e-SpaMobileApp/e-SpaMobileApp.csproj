@@ -66,6 +66,7 @@
     <Compile Include="Fragments\ServicesFragment.cs" />
     <Compile Include="Fragments\TrendsFragment.cs" />
     <Compile Include="Fragments\TrendsRecyclerViewAdapter.cs" />
+    <Compile Include="Models\Trend.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
