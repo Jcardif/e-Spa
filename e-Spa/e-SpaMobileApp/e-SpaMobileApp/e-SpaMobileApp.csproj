@@ -58,6 +58,7 @@
     <Compile Include="Activities\LogInActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\TabAdapter.cs" />
+    <Compile Include="Adapters\TrendsTabAdapter.cs" />
     <Compile Include="Fragments\AppointmentFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\LogInOptionsFragment.cs" />
@@ -168,7 +169,7 @@
     <AndroidResource Include="Resources\drawable\google_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_appointment.axml">
+    <AndroidResource Include="Resources\layout\fragment_appointment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -176,7 +177,7 @@
     <AndroidResource Include="Resources\drawable\refresh.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_client_home.axml">
+    <AndroidResource Include="Resources\layout\fragment_client_home.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
