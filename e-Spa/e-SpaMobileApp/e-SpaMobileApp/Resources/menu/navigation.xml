@@ -6,24 +6,24 @@
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/navigation_services"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/services" 
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/navigation_salons"
         android:icon="@drawable/ic_salons_black_24dp"
         android:title="@string/salons" 
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 
     <item
       android:id="@+id/navigation_appointments"
       android:icon="@drawable/ic_appointment_black_24dp"
       android:title="@string/appointments"
-      app:showAsAction="ifRoom"/>
+      app:showAsAction="always"/>
 
 </menu>

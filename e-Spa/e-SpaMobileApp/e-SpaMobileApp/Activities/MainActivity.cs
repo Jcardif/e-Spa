@@ -22,10 +22,11 @@ namespace e_SpaMobileApp.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
+
             _mainToolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.mainToolbar);
             _mainFrameLayout = FindViewById<FrameLayout>(Resource.Id.mainFrameLayout);
 
-            _mainToolbar.Title ="e-Spa";
+            _mainToolbar.Title = "e-Spa";
             SetSupportActionBar(_mainToolbar);
             SupportActionBar.SetHomeButtonEnabled(false);
             SupportActionBar.SetDisplayHomeAsUpEnabled(false);
@@ -43,10 +44,10 @@ namespace e_SpaMobileApp.Activities
                     _fragment = new HomeFragment();
                     break;
                 case Resource.Id.navigation_salons:
-                    _fragment=new SalonsFragment();
+                  //  _fragment=new SalonsFragment();
                     break;
                 case Resource.Id.navigation_services:
-                    _fragment=new ServicesFragment();
+                   // _fragment=new ServicesFragment();
                     break;
                 case Resource.Id.navigation_appointments:
                     _fragment=new AppointmentFragment();

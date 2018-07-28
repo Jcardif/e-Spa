@@ -3,7 +3,8 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
-using  Fragment=Android.Support.V4.App.Fragment;
+using e_SpaMobileApp.Adapters;
+using Android.Support.V4.App;
 
 namespace e_SpaMobileApp.Fragments
 {
@@ -48,7 +49,10 @@ namespace e_SpaMobileApp.Fragments
 
         private void SetUpViewPager(ViewPager viewPager)
         {
-            
+            var adapter = new TrendsTabAdapter(FragmentManager);
+          //  adapter.AddFragment(new LogInOptionsFragment(), "LogIn");
+            viewPager.Adapter = adapter;
+            viewPager.Adapter.NotifyDataSetChanged();
         }
     }
 }

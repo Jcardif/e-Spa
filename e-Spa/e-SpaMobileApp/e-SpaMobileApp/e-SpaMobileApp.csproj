@@ -55,17 +55,13 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\LogInActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\TabAdapter.cs" />
     <Compile Include="Adapters\TrendsTabAdapter.cs" />
     <Compile Include="Fragments\AppointmentFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
-    <Compile Include="Fragments\LogInOptionsFragment.cs" />
     <Compile Include="Fragments\SalonsFragment.cs" />
     <Compile Include="Fragments\ServicesFragment.cs" />
-    <Compile Include="Helpers\MyProfileTracker.cs" />
-    <Compile Include="Events\OnProfileChangedEventArgs.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -112,18 +108,13 @@
     <PackageReference Include="Refractored.Controls.CircleImageView">
       <Version>1.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2" />
-    <PackageReference Include="Xamarin.Facebook.Android">
-      <Version>4.33.0</Version>
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView">
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Auth">
       <Version>60.1142.1</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_login.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\client_app_layout_background.xml" />
@@ -154,16 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\progress_bar3.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\email_login_layout.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\login_options_layout.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\google_logo.png" />
@@ -209,6 +190,10 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_salons_black_24dp.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Events\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
