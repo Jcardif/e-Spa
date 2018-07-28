@@ -16,8 +16,8 @@ namespace e_SpaMobileApp.Activities
             SetContentView(Resource.Layout.activity_main);
             
             
-            //BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
-            //navigation.SetOnNavigationItemSelectedListener(this);
+            BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
+            navigation.SetOnNavigationItemSelectedListener(this);
         }
         
         

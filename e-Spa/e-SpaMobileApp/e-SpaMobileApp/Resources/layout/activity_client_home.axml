@@ -1,5 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:orientation="vertical"
+    android:background="@drawable/client_app_layout_background"
+    android:layout_height="match_parent">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="#66000000">
+        <TableRow>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/reminders"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/grooming_reminders"
+                android:padding="4dp" />
+            <Button
+                android:id="@+id/addGroomingReminderBtn"
+                android:text="@string/add"
+                android:background="@drawable/client_home_btn"
+                android:layout_margin="2dp"
+                android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/groomingReminderNoBtn"
+                android:text="2"
+                android:background="@drawable/client_home_btn"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:textColor="@android:color/white" />
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="8dp">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/purchase_reminders"
+                android:padding="4dp" />
+            <Button
+                android:id="@+id/addPurchaseReminderBtn"
+                android:text="@string/add"
+                android:background="@drawable/client_home_btn"
+                android:layout_margin="2dp"
+                android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/PurchaseReminderNoBtn"
+                android:text="0"
+                android:background="@drawable/client_home_btn"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:textColor="@android:color/white" />
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="8dp">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/custom_reminders"
+                android:padding="4dp" />
+            <Button
+                android:id="@+id/addCustomReminderBtn"
+                android:text="@string/add"
+                android:background="@drawable/client_home_btn"
+                android:layout_margin="2dp"
+                android:textColor="@android:color/white" />
+            <Button
+                android:id="@+id/CustomReminderNoBtn"
+                android:text="7"
+                android:background="@drawable/client_home_btn"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:textColor="@android:color/white" />
+        </TableRow>
+    </TableLayout>
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:background="#cc000000"
+            android:id="@+id/clientHomeTrendsAppBar">
+            <android.support.design.widget.TabLayout
+                android:id="@+id/clientHomeTrendsTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                app:tabIndicatorColor="@android:color/white"
+                app:tabIndicatorHeight="3dp" />
+        </android.support.design.widget.AppBarLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/clientHomeTrendsViewPager"
+            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>
