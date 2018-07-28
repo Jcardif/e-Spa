@@ -43,14 +43,16 @@ namespace e_SpaMobileApp.Fragments
             _tabLayout = view.FindViewById<TabLayout>(Resource.Id.clientHomeTrendsTabLayout);
 
             SetUpViewPager(_viewPager);
-
+            _tabLayout.SetupWithViewPager(_viewPager);
             return view;
         }
 
         private void SetUpViewPager(ViewPager viewPager)
         {
             var adapter = new TrendsTabAdapter(FragmentManager);
-          //  adapter.AddFragment(new LogInOptionsFragment(), "LogIn");
+            adapter.AddFragment(new TrendsFragment(), "Trends");
+            adapter.AddFragment(new AddTrendFragment(), "Add Trend");
+            adapter.AddFragment(new ForumsFragment(), "Forums");
             viewPager.Adapter = adapter;
             viewPager.Adapter.NotifyDataSetChanged();
         }

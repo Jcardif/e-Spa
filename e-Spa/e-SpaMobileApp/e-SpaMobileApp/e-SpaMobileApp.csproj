@@ -58,10 +58,14 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\TabAdapter.cs" />
     <Compile Include="Adapters\TrendsTabAdapter.cs" />
+    <Compile Include="Fragments\AddTrendFragment.cs" />
     <Compile Include="Fragments\AppointmentFragment.cs" />
+    <Compile Include="Fragments\ForumsFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\SalonsFragment.cs" />
     <Compile Include="Fragments\ServicesFragment.cs" />
+    <Compile Include="Fragments\TrendsFragment.cs" />
+    <Compile Include="Fragments\TrendsRecyclerViewAdapter.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
