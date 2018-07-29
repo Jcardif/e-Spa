@@ -74,10 +74,19 @@ namespace e_SpaMobileApp
 			public const int design_snackbar_out = 2131034125;
 			
 			// aapt resource value: 0x7f05000e
-			public const int tooltip_enter = 2131034126;
+			public const int slide_up = 2131034126;
 			
 			// aapt resource value: 0x7f05000f
-			public const int tooltip_exit = 2131034127;
+			public const int SlideRight = 2131034127;
+			
+			// aapt resource value: 0x7f050010
+			public const int SlideUp = 2131034128;
+			
+			// aapt resource value: 0x7f050011
+			public const int tooltip_enter = 2131034129;
+			
+			// aapt resource value: 0x7f050012
+			public const int tooltip_exit = 2131034130;
 			
 			static Animation()
 			{
