@@ -31,9 +31,30 @@ namespace e_SpaMobileApp.Fragments
 
             _trends = new List<Trend>
             {
-                new Trend(),
-                new Trend(),
-                new Trend()
+                #region trendItems
+                
+                new Trend{SenderName = "Josh Cardif", SenderProfileImageUrl = "some Url",
+                    TrendDescripton = "Share something Share something Share" +
+                                      " something Share something Share something " +
+                                      "Share something Share something " +
+                                      "Share something Share something" +
+                                      " Share something Share something Share something ",
+                    TrendTitle = "My Title"},
+                new Trend{SenderName = "Josh Cardif", SenderProfileImageUrl = "some Url",
+                    TrendDescripton = "Share something Share something Share" +
+                                      " something Share something Share something " +
+                                      "Share something Share something " +
+                                      "Share something Share something" +
+                                      " Share something Share something Share something ",
+                    TrendTitle = "My Title"},
+                new Trend{SenderName = "Josh Cardif", SenderProfileImageUrl = "some Url",
+                    TrendDescripton = "Share something Share something Share" +
+                                      " something Share something Share something " +
+                                      "Share something Share something " +
+                                      "Share something Share something" +
+                                      " Share something Share something Share something ",
+                    TrendTitle = "My Title"},
+                #endregion
             };
 
             _layoutManager=new LinearLayoutManager(Context.ApplicationContext);

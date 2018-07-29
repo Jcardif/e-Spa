@@ -11,7 +11,6 @@
         android:layout_margin="11dp"
         android:gravity="center_horizontal"
         android:lineSpacingExtra="-5.3sp"
-        android:text="@string/trends_title"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -23,7 +22,6 @@
         android:layout_marginRight="11dp"
         android:gravity="start"
         android:lineSpacingExtra="2sp"
-        android:text="@string/trend_description"
         android:textColor="@android:color/white"
         android:textSize="14sp" />
     <View
@@ -47,7 +45,6 @@
             android:layout_gravity="bottom"
             android:padding="8dp"
             android:id="@+id/trendsProfileNameTxtView"
-            android:textColor="@android:color/white"
-            android:text="@string/trend_profile_name" />
+            android:textColor="@android:color/white" />
     </LinearLayout>
 </LinearLayout>

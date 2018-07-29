@@ -3670,8 +3670,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f070028
 			public const int abc_toolbar_collapse_description = 2131165224;
 			
-			// aapt resource value: 0x7f070048
-			public const int add = 2131165256;
+			// aapt resource value: 0x7f070045
+			public const int add = 2131165253;
 			
 			// aapt resource value: 0x7f070040
 			public const int app_name = 2131165248;
@@ -3679,8 +3679,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f070036
 			public const int appbar_scrolling_view_behavior = 2131165238;
 			
-			// aapt resource value: 0x7f070051
-			public const int appointments = 2131165265;
+			// aapt resource value: 0x7f07004e
+			public const int appointments = 2131165262;
 			
 			// aapt resource value: 0x7f070037
 			public const int bottom_sheet_behavior = 2131165239;
@@ -3739,11 +3739,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f070017
 			public const int common_signin_button_text_long = 2131165207;
 			
-			// aapt resource value: 0x7f07004a
-			public const int continue_To_forums = 2131165258;
+			// aapt resource value: 0x7f070047
+			public const int continue_To_forums = 2131165255;
 			
-			// aapt resource value: 0x7f07004e
-			public const int custom_reminders = 2131165262;
+			// aapt resource value: 0x7f07004b
+			public const int custom_reminders = 2131165259;
 			
 			// aapt resource value: 0x7f070002
 			public const int default_web_client_id = 2131165186;
@@ -3754,8 +3754,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f070003
 			public const int firebase_database_url = 2131165187;
 			
-			// aapt resource value: 0x7f070049
-			public const int forums_desc = 2131165257;
+			// aapt resource value: 0x7f070046
+			public const int forums_desc = 2131165254;
 			
 			// aapt resource value: 0x7f070000
 			public const int gcm_defaultSenderId = 2131165184;
@@ -3772,8 +3772,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f070006
 			public const int google_storage_bucket = 2131165190;
 			
-			// aapt resource value: 0x7f07004c
-			public const int grooming_reminders = 2131165260;
+			// aapt resource value: 0x7f070049
+			public const int grooming_reminders = 2131165257;
 			
 			// aapt resource value: 0x7f070039
 			public const int password_toggle_content_description = 2131165241;
@@ -3790,17 +3790,17 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f07003d
 			public const int path_password_strike_through = 2131165245;
 			
-			// aapt resource value: 0x7f070050
-			public const int popularity = 2131165264;
-			
 			// aapt resource value: 0x7f07004d
-			public const int purchase_reminders = 2131165261;
+			public const int popularity = 2131165261;
 			
-			// aapt resource value: 0x7f07004b
-			public const int reminders = 2131165259;
+			// aapt resource value: 0x7f07004a
+			public const int purchase_reminders = 2131165258;
 			
-			// aapt resource value: 0x7f07004f
-			public const int salons = 2131165263;
+			// aapt resource value: 0x7f070048
+			public const int reminders = 2131165256;
+			
+			// aapt resource value: 0x7f07004c
+			public const int salons = 2131165260;
 			
 			// aapt resource value: 0x7f070029
 			public const int search_menu_title = 2131165225;
@@ -3814,20 +3814,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f070041
 			public const int title_home = 2131165249;
 			
-			// aapt resource value: 0x7f070046
-			public const int trend_desc_edtTxt = 2131165254;
+			// aapt resource value: 0x7f070043
+			public const int trend_desc_edtTxt = 2131165251;
 			
 			// aapt resource value: 0x7f070044
-			public const int trend_description = 2131165252;
-			
-			// aapt resource value: 0x7f070045
-			public const int trend_profile_name = 2131165253;
-			
-			// aapt resource value: 0x7f070043
-			public const int trends_title = 2131165251;
-			
-			// aapt resource value: 0x7f070047
-			public const int trends_title_edtTxt = 2131165255;
+			public const int trends_title_edtTxt = 2131165252;
 			
 			static String()
 			{

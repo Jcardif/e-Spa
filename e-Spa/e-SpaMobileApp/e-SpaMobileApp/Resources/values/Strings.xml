@@ -4,9 +4,6 @@
     <string name="app_name">e-Spa</string>
     <string name="title_home">Home</string>
     <string name="services">Services</string>
-    <string name="trends_title">Title Goes Here</string>
-    <string name="trend_description">This is where you share, something new something trending something others may want to know about. Pin it here get up votes and get featured on e-Spa </string>
-    <string name="trend_profile_name">Name Here</string>
     <string name="trend_desc_edtTxt">Description</string>
     <string name="trends_title_edtTxt">Title</string>
     <string name="add">Add</string>
