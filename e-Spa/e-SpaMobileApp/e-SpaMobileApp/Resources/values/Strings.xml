@@ -16,4 +16,8 @@
     <string name="salons">Salons</string>
     <string name="popularity">Popularity</string>
     <string name="appointments">Appointments</string>
+
+  <string name="trends_title">Title Goes Here</string>
+  <string name="trend_description">This is what you share, sth new sth trendy sth others may want to know about. Pin it here get up votes and get featured on the app </string>
+  <string name="trend_profile_name">Name Here</string>
 </resources>
