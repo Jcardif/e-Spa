@@ -15,8 +15,7 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
-
-    <TextView
+ <TextView
         android:id="@+id/trendsDescTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +26,6 @@
         android:text="@string/trend_description"
         android:textColor="@android:color/white"
         android:textSize="14sp" />
-
     <view
         android:layout_width="match_parent"
         android:layout_height="1dp"
