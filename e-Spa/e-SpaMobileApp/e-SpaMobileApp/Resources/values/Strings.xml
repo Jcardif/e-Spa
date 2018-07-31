@@ -1,12 +1,9 @@
 <resources>
+    <string name="fb_appId">431776767327991</string>
+
     <string name="app_name">e-Spa</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="fb_appId">431776767327991</string>
-    <string name="trends_title">Title Goes Here</string>
-    <string name="trend_description">This is where you share, something new sth trendy something others may want to know about. Pin it here get up votes and get featured on e-Spa </string>
-    <string name="trend_profile_name">Name Here</string>
+    <string name="services">Services</string>
     <string name="trend_desc_edtTxt">Description</string>
     <string name="trends_title_edtTxt">Title</string>
     <string name="add">Add</string>
@@ -18,4 +15,9 @@
     <string name="custom_reminders">Custom Reminders</string>
     <string name="salons">Salons</string>
     <string name="popularity">Popularity</string>
+    <string name="appointments">Appointments</string>
+
+  <string name="trends_title">Title Goes Here</string>
+  <string name="trend_description">This is what you share, sth new sth trendy sth others may want to know about. Pin it here get up votes and get featured on the app </string>
+  <string name="trend_profile_name">Name Here</string>
 </resources>
