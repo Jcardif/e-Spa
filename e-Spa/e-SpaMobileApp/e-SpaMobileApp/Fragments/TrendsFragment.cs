@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
@@ -7,15 +6,15 @@ using Android.Views;
 using e_SpaMobileApp.Adapters;
 using e_SpaMobileApp.Models;
 
-
 namespace e_SpaMobileApp.Fragments
 {
     public class TrendsFragment : Fragment
     {
-        private RecyclerView _recyclerView;
         private RecyclerView.Adapter _adapter;
         private RecyclerView.LayoutManager _layoutManager;
+        private RecyclerView _recyclerView;
         private List<Trend> _trends;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,34 +31,47 @@ namespace e_SpaMobileApp.Fragments
             _trends = new List<Trend>
             {
                 #region trendItems
-                
-                new Trend{SenderName = "Josh Cardif", SenderProfileImageUrl = "some Url",
+
+                new Trend
+                {
+                    SenderName = "Josh Cardif",
+                    SenderProfileImageUrl = "some Url",
                     TrendDescripton = "Share something Share something Share" +
                                       " something Share something Share something " +
                                       "Share something Share something " +
                                       "Share something Share something" +
                                       " Share something Share something Share something ",
-                    TrendTitle = "My Title"},
-                new Trend{SenderName = "Josh Cardif", SenderProfileImageUrl = "some Url",
+                    TrendTitle = "My Title"
+                },
+                new Trend
+                {
+                    SenderName = "Josh Cardif",
+                    SenderProfileImageUrl = "some Url",
                     TrendDescripton = "Share something Share something Share" +
                                       " something Share something Share something " +
                                       "Share something Share something " +
                                       "Share something Share something" +
                                       " Share something Share something Share something ",
-                    TrendTitle = "My Title"},
-                new Trend{SenderName = "Josh Cardif", SenderProfileImageUrl = "some Url",
+                    TrendTitle = "My Title"
+                },
+                new Trend
+                {
+                    SenderName = "Josh Cardif",
+                    SenderProfileImageUrl = "some Url",
                     TrendDescripton = "Share something Share something Share" +
                                       " something Share something Share something " +
                                       "Share something Share something " +
                                       "Share something Share something" +
                                       " Share something Share something Share something ",
-                    TrendTitle = "My Title"},
+                    TrendTitle = "My Title"
+                },
+
                 #endregion
             };
 
-            _layoutManager=new LinearLayoutManager(Context.ApplicationContext);
+            _layoutManager = new LinearLayoutManager(Context.ApplicationContext);
             _recyclerView.SetLayoutManager(_layoutManager);
-            _adapter=new TrendsRecyclerViewAdapter(_trends, Context.ApplicationContext);
+            _adapter = new TrendsRecyclerViewAdapter(_trends, Context.ApplicationContext);
             _recyclerView.SetAdapter(_adapter);
 
             return view;

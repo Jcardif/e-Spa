@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Android;
 using Android.App;
 
 // General Information about an assembly is controlled through the following 
@@ -33,5 +33,5 @@ using Android.App;
 [assembly: MetaData("com.facebook.sdk.ApplicationId", Value = "@string/fb_appId")]
 [assembly: MetaData("com.facebook.sdk.ApplicationName", Value = "@string/app_name")]
 
-[assembly: Permission(Name = Android.Manifest.Permission.Internet)]
-[assembly: Permission(Name = Android.Manifest.Permission.WriteExternalStorage)]
+[assembly: Permission(Name = Manifest.Permission.Internet)]
+[assembly: Permission(Name = Manifest.Permission.WriteExternalStorage)]
