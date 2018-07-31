@@ -44,6 +44,7 @@
                     android:textColor="@android:color/white"
                     android:id="@+id/serviceNameIdTxtView" />
                 <TextView
+                    android:id="@+id/serviceDescTxtView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Description"

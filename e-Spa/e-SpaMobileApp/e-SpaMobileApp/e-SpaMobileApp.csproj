@@ -69,6 +69,7 @@
     <Compile Include="Fragments\TrendsFragment.cs" />
     <Compile Include="Adapters\TrendsRecyclerViewAdapter.cs" />
     <Compile Include="Models\Salon.cs" />
+    <Compile Include="Models\SService.cs" />
     <Compile Include="Models\Trend.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

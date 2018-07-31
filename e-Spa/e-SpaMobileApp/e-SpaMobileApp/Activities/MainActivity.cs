@@ -65,10 +65,10 @@ namespace e_SpaMobileApp.Activities
                     _fragment = new HomeFragment();
                     break;
                 case Resource.Id.navigation_salons:
-                    //  _fragment=new SalonsFragment();
+                      _fragment=new SalonsFragment();
                     break;
                 case Resource.Id.navigation_services:
-                    // _fragment=new ServicesFragment();
+                    _fragment=new ServicesFragment();
                     break;
                 case Resource.Id.navigation_appointments:
                     _fragment = new AppointmentFragment();
