@@ -17,17 +17,17 @@ using Plugin.Connectivity;
 
 namespace e_SpaManagedClient.AzureService
 {
-    public class AzureService
+    public class SalonAzureService
     {
         private MobileServiceClient client;
         private IMobileServiceSyncTable<Salon> salonTable;
 
         public async Task Initialise()
         {
-            if (client?.SyncContext?.IsInitialized ?? false) 
+            if (client?.SyncContext?.IsInitialized ?? false)
                 return;
-            var appUrl = "https://something.azurewebsites.net";
-            client=new MobileServiceClient(appUrl);
+            var appUrl = "https://e-spa.azurewebsites.net/";
+            client = new MobileServiceClient(appUrl);
             var fileName = "espa.db";
             var store = new MobileServiceSQLiteStore(fileName);
             store.DefineTable<Salon>();
@@ -42,7 +42,7 @@ namespace e_SpaManagedClient.AzureService
             await Initialise();
             try
             {
-                if(!CrossConnectivity.Current.IsConnected)
+                if (!CrossConnectivity.Current.IsConnected)
                     return;
                 await client.SyncContext.PushAsync();
                 await salonTable.PullAsync("allSalons", salonTable.CreateQuery());
