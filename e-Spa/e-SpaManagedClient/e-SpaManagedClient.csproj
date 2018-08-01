@@ -45,6 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AzureService\AzureService.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\Salon.cs" />
+    <Compile Include="Models\SalonManager.cs" />
+    <Compile Include="Models\SalonService.cs" />
+    <Compile Include="Models\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
