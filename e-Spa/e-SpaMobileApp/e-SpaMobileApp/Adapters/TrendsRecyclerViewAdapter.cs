@@ -49,8 +49,7 @@ namespace e_SpaMobileApp.Adapters
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var trend = LayoutInflater.From(parent.Context)
-                .Inflate(Resource.Layout.client_home_trend_item, parent, false);
+            var trend = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.client_home_trend_item, parent, false);
             var trendTitleTxtView = trend.FindViewById<TextView>(Resource.Id.trendsTitleTxtView);
             var trendDescTxtView = trend.FindViewById<TextView>(Resource.Id.trendsDescTxtView);
             var userProfilePic = trend.FindViewById<CircleImageView>(Resource.Id.trendProfilePicCircleImgView);
