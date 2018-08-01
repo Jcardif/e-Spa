@@ -265,4 +265,6 @@ __pycache__/
 /.git
 
 ConnectionStrings.config
+/e-Spa/e-SpaBackend/Properties/PublishProfiles/e-Spa - Web Deploy.pubxml
+ConnectionStrings.config
 e-Spa Cheat Sheet.txt
