@@ -2,15 +2,12 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <android.support.v7.widget.CardView
         android:id="@+id/servicesCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="12.7dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="10dp"
         android:clipChildren="true"
         app:cardBackgroundColor="#65496F"
         app:cardCornerRadius="10dp"
@@ -74,7 +71,7 @@
                     android:text="@string/salons"
                     android:padding="3dp"
                     android:textSize="18dp" />
-                <view
+                <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@android:color/black" />
@@ -94,7 +91,7 @@
                     android:text="@string/popularity"
                     android:padding="3dp"
                     android:textSize="18dp" />
-                <view
+                <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@android:color/black" />
