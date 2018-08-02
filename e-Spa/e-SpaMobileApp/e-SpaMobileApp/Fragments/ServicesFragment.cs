@@ -12,7 +12,7 @@ namespace e_SpaMobileApp.Fragments
     {
         private RecyclerView.Adapter adapter;
         private RecyclerView.LayoutManager layoutManager;
-        private List<SService> services;
+        private List<MyService> services;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -26,9 +26,9 @@ namespace e_SpaMobileApp.Fragments
             var view = inflater.Inflate(Resource.Layout.fragment_services, container, false);
             var recyclerView = view.FindViewById<RecyclerView>(Resource.Id.servicesRecyclerView);
             #region listServices
-            services = new List<SService>()
+            services = new List<MyService>()
             {
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -37,7 +37,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -46,7 +46,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -55,7 +55,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -64,7 +64,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -73,7 +73,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -82,7 +82,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -91,7 +91,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -100,7 +100,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -109,7 +109,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new SService()
+                new MyService()
                 {
                     SalonsOffering = 12,
                     ServiceDescription =

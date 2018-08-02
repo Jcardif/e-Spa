@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace e_SpaMobileApp.Models
 {
-    public class Salon
+    public class MySalon
     {
         public string SalonProfilePicUrl { get; set; }
         public string SalonName { get; set; }

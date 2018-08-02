@@ -13,12 +13,12 @@ namespace e_SpaMobileApp.Adapters
 {
     internal class ServicesRecyclerViewAdapter : RecyclerView.Adapter
     {
-        private List<SService> _services;
+        private List<MyService> _services;
         private Context _context;
         private RecyclerView.Adapter adapter;
         private RecyclerView.LayoutManager layoutManager;
 
-        public ServicesRecyclerViewAdapter(Context context, List<SService> services)
+        public ServicesRecyclerViewAdapter(Context context, List<MyService> services)
         {
             _context = context;
             _services = services;

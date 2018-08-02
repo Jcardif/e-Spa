@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace e_SpaMobileApp.Models
 {
-   public class SService
+   public class MyService
     {
         public String ServiceProfileImgUrl { get; set; }
         public string ServiceName { get; set; }

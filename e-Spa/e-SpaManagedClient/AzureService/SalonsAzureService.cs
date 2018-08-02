@@ -54,12 +54,12 @@ namespace e_SpaManagedClient.AzureService
             }
         }
 
-        public async Task<IEnumerable<Salon>> GetSalons()
+        public async Task<List<Salon>> GetSalons()
         {
             await Initialise();
             await SyncSalons();
             var data = await salonTable.OrderBy(s => s.Name)
-                .ToEnumerableAsync();
+                .ToListAsync();
             return data;
         }
 

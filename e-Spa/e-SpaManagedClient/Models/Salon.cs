@@ -14,6 +14,7 @@ namespace e_SpaManagedClient.Models
 {
     public class Salon
     {
+        public string Id { get; set; }
         public string Deescription { get; set; }
         public string Locality { get; set; }
         public string ImageUrl { get; set; }
@@ -23,5 +24,14 @@ namespace e_SpaManagedClient.Models
         public string TimeIn { get; set; }
         public string TimeOut { get; set; }
         public string SalonManager_Id { get; set; }
+        
+        [Microsoft.WindowsAzure.MobileServices.Version]
+        public string AzureVersion { get; set; }
+        [Microsoft.WindowsAzure.MobileServices.CreatedAt]
+        public string AzureCreated { get; set; }
+        [Microsoft.WindowsAzure.MobileServices.UpdatedAt]
+        public string AzureUpdated { get; set; }
+        [Microsoft.WindowsAzure.MobileServices.Deleted]
+        public string AzureDeleted { get; set; }
     }
 }

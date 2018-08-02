@@ -12,9 +12,9 @@ namespace e_SpaMobileApp.Adapters
     public class SalonsRecyclerViewAdapter : RecyclerView.Adapter
     {
         private Context _context;
-        private List<Salon> _salons;
+        private List<MySalon> _salons;
 
-        public SalonsRecyclerViewAdapter(Context context, List<Salon> salons)
+        public SalonsRecyclerViewAdapter(Context context, List<MySalon> salons)
         {
             _context = context;
             _salons = salons;
@@ -29,7 +29,7 @@ namespace e_SpaMobileApp.Adapters
                 vh.SalonName.Text = _salons[position].SalonName;
                 vh.SalonManager.Text = _salons[position].SalonManager;
                 vh.Location.Text = _salons[position].Location;
-                vh.PhoneNo.Text = _salons[position].Location;
+                vh.PhoneNo.Text = _salons[position].PhoneNumber;
             }
         }
 

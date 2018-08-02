@@ -13,7 +13,7 @@ namespace e_SpaMobileApp.Fragments
         private RecyclerView.Adapter _adapter;
         private RecyclerView.LayoutManager _layoutManager;
         private RecyclerView _recyclerView;
-        private List<Trend> _trends;
+        private List<MyTrend> _trends;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,11 +28,11 @@ namespace e_SpaMobileApp.Fragments
             var view = inflater.Inflate(Resource.Layout.client_home_trends_tab, container, false);
             _recyclerView = view.FindViewById<RecyclerView>(Resource.Id.trendsRecyclerView);
 
-            _trends = new List<Trend>
+            _trends = new List<MyTrend>
             {
                 #region trendItems
 
-                new Trend
+                new MyTrend
                 {
                     SenderName = "Josh Cardif",
                     SenderProfileImageUrl = "some Url",
@@ -43,7 +43,7 @@ namespace e_SpaMobileApp.Fragments
                                       " Share something Share something Share something ",
                     TrendTitle = "My Title"
                 },
-                new Trend
+                new MyTrend
                 {
                     SenderName = "Josh Cardif",
                     SenderProfileImageUrl = "some Url",
@@ -54,7 +54,7 @@ namespace e_SpaMobileApp.Fragments
                                       " Share something Share something Share something ",
                     TrendTitle = "My Title"
                 },
-                new Trend
+                new MyTrend
                 {
                     SenderName = "Josh Cardif",
                     SenderProfileImageUrl = "some Url",

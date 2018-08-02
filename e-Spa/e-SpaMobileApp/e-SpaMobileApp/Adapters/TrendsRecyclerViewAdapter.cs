@@ -14,9 +14,9 @@ namespace e_SpaMobileApp.Adapters
     {
         private readonly Context _context;
         private int _pos = -1;
-        private readonly List<Trend> _trends;
+        private readonly List<MyTrend> _trends;
 
-        public TrendsRecyclerViewAdapter(List<Trend> trends, Context context)
+        public TrendsRecyclerViewAdapter(List<MyTrend> trends, Context context)
         {
             _trends = trends;
             _context = context;
