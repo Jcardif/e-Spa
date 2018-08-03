@@ -8,6 +8,9 @@ using Android.Views;
 using e_SpaManagedClient.AzureService;
 using e_SpaMobileApp.Fragments;
 using e_SpaMobileApp.Models;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Fragment = Android.Support.V4.App.Fragment;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
@@ -23,6 +26,7 @@ namespace e_SpaMobileApp.Activities
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
             SetContentView(Resource.Layout.activity_main);
 
 
