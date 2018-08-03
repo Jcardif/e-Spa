@@ -236,7 +236,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_salons_black_24dp.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\login_button_style.xml" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\slide_up.xml" />
   </ItemGroup>
@@ -267,6 +269,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\email_login_layout.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rose.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
