@@ -231,7 +231,7 @@
                 android:layout_width="1dp"
                 android:layout_height="104dp"
                 android:layout_marginLeft="13.7dp"
-                android:background="#000000" />
+                android:background="@android:color/white" />
             <RelativeLayout
                 android:layout_width="100dp"
                 android:layout_height="wrap_content">
@@ -289,7 +289,7 @@
                 android:layout_width="1dp"
                 android:layout_height="104dp"
                 android:layout_marginLeft="13.7dp"
-                android:background="#000000" />
+                android:background="@android:color/white" />
             <RelativeLayout
                 android:layout_width="100dp"
                 android:layout_height="wrap_content">

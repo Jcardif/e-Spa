@@ -1,10 +1,10 @@
 ﻿using Android.OS;
 using Android.Support.Design.Widget;
+using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.Adapters;
-using Android.Support.V4.App;
 
 namespace e_SpaMobileApp.Fragments
 {
@@ -17,9 +17,11 @@ namespace e_SpaMobileApp.Fragments
             _addCustomReminderBtn,
             _customReminderNoBtn;
 
-        private ViewPager _viewPager;
         private AppBarLayout _appBarLayout;
         private TabLayout _tabLayout;
+
+        private ViewPager _viewPager;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,7 +31,7 @@ namespace e_SpaMobileApp.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-             base.OnCreateView(inflater, container, savedInstanceState);
+            base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.fragment_client_home, container, false);
             _addGroomingRemindersBtn = view.FindViewById<Button>(Resource.Id.addGroomingReminderBtn);

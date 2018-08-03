@@ -12,15 +12,18 @@ namespace e_SpaMobileApp.Adapters
 {
     public class TrendsRecyclerViewAdapter : RecyclerView.Adapter
     {
-        private List<Trend> _trends;
-        private Context _context;
+        private readonly Context _context;
         private int _pos = -1;
+        private readonly List<MyTrend> _trends;
 
-        public TrendsRecyclerViewAdapter(List<Trend>trends, Context context)
+        public TrendsRecyclerViewAdapter(List<MyTrend> trends, Context context)
         {
             _trends = trends;
             _context = context;
         }
+
+        public override int ItemCount => _trends.Count;
+
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             var trendsVh = holder as TrendsRecyclerViewHolder;
@@ -33,7 +36,7 @@ namespace e_SpaMobileApp.Adapters
 
             if (position > _pos)
             {
-                SetAnimation(trendsVh.TView);
+                SetAnimation(trendsVh.Tview);
                 _pos = position;
             }
         }
@@ -46,8 +49,7 @@ namespace e_SpaMobileApp.Adapters
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var trend = LayoutInflater.From(parent.Context)
-                .Inflate(Resource.Layout.client_home_trend_item, parent, false);
+            var trend = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.client_home_trend_item, parent, false);
             var trendTitleTxtView = trend.FindViewById<TextView>(Resource.Id.trendsTitleTxtView);
             var trendDescTxtView = trend.FindViewById<TextView>(Resource.Id.trendsDescTxtView);
             var userProfilePic = trend.FindViewById<CircleImageView>(Resource.Id.trendProfilePicCircleImgView);
@@ -62,7 +64,5 @@ namespace e_SpaMobileApp.Adapters
             };
             return vh;
         }
-
-        public override int ItemCount => _trends.Count;
     }
 }

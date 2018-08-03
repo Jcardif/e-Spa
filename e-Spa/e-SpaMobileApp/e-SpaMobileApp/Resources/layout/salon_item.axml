@@ -2,16 +2,13 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
     <android.support.v7.widget.CardView
         android:id="@+id/salonsCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="12.7dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="10dp"
         android:clipChildren="true"
         app:cardBackgroundColor="#65496F"
         app:cardCornerRadius="10dp"
@@ -20,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#00000000"
-            android:padding="8dp">
+            android:padding="4dp">
             <Refractored.Controls.CircleImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
@@ -41,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:text="Salon Name"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
+                    android:textSize="24sp"
                     android:id="@+id/salonNameTxtView" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -49,7 +46,7 @@
                     android:text="Location"
                     android:layout_marginTop="3dp"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     android:id="@+id/salonLocationTxtView" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -71,13 +68,13 @@
                             android:text="Manager's Name : "
                             android:textStyle="bold"
                             android:textColor="@android:color/white"
-                            android:textSize="12sp" />
+                            android:textSize="13sp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Susan Powner"
                             android:textColor="@android:color/white"
-                            android:textSize="12sp"
+                            android:textSize="13sp"
                             android:textStyle="bold"
                             android:id="@+id/salonManagerTxtView" />
                     </TableRow>

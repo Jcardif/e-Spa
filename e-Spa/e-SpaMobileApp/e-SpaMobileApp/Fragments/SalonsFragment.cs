@@ -1,34 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using System.Collections.Generic;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
+using Android.Support.V4.App;
+using Android.Support.V7.Widget;
 using Android.Views;
-using Android.Widget;
-using Fragment = Android.Support.V4.App.Fragment;
+using e_SpaMobileApp.Adapters;
+using e_SpaMobileApp.Models;
 
 namespace e_SpaMobileApp.Fragments
 {
     public class SalonsFragment : Fragment
     {
-        public override void OnCreate(Bundle savedInstanceState)
+        private RecyclerView.Adapter _adapter;
+        private RecyclerView.LayoutManager _layoutManager;
+        private List<MySalon> _salons;
+        public SalonsFragment(List<MySalon> salons)
         {
-            base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
+            _salons = salons;
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+             base.OnCreateView(inflater, container, savedInstanceState);
+            var view = inflater.Inflate(Resource.Layout.fragment_salons, container, false);
+            var recyclerView = view.FindViewById<RecyclerView>(Resource.Id.salonsRecyclerView);
 
-            return base.OnCreateView(inflater, container, savedInstanceState);
+         
+            _layoutManager = new LinearLayoutManager(Context.ApplicationContext);
+            recyclerView.SetLayoutManager(_layoutManager);
+            _adapter =new SalonsRecyclerViewAdapter(Context.ApplicationContext, _salons);
+            recyclerView.SetAdapter(_adapter);
+            return view;
         }
     }
 }
