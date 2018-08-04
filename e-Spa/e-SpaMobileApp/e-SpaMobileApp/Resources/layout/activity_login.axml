@@ -35,14 +35,17 @@
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <com.google.android.gms.common.SignInButton
+            <Button
                 android:layout_width="match_parent"
+                android:id="@+id/googleLoginBtn"
                 android:layout_height="wrap_content"
-                android:text="Google" />
+                android:text="@string/google"
+                android:textAllCaps="false" />
             <com.facebook.login.widget.LoginButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:com_facebook_login_text="Facebook"
+                android:id="@+id/fbBtnLogin"
+                app:com_facebook_login_text="@string/facebook"
                 android:editable="false" />
         </LinearLayout>
         <LinearLayout
