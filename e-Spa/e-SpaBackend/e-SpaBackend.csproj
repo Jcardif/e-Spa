@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
+    <Compile Include="Controllers\Tables\PlatformIDController.cs" />
     <Compile Include="Controllers\Tables\AppointmentController.cs" />
     <Compile Include="Controllers\Tables\ClientController.cs" />
     <Compile Include="Controllers\Tables\ReviewController.cs" />
