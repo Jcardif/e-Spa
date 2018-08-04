@@ -12,7 +12,7 @@ namespace e_SpaMobileApp.Adapters
     public class SalonsRecyclerViewAdapter : RecyclerView.Adapter
     {
         private Context _context;
-        private List<MySalon> _salons;
+        private readonly List<MySalon> _salons;
 
         public SalonsRecyclerViewAdapter(Context context, List<MySalon> salons)
         {

@@ -13,6 +13,7 @@ namespace e_SpaMobileApp.Fragments
         private RecyclerView.Adapter adapter;
         private RecyclerView.LayoutManager layoutManager;
         private List<MyService> services;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -25,10 +26,12 @@ namespace e_SpaMobileApp.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_services, container, false);
             var recyclerView = view.FindViewById<RecyclerView>(Resource.Id.servicesRecyclerView);
+
             #region listServices
-            services = new List<MyService>()
+
+            services = new List<MyService>
             {
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -37,7 +40,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -46,7 +49,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -55,7 +58,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -64,7 +67,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -73,7 +76,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -82,7 +85,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -91,7 +94,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -100,7 +103,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -109,7 +112,7 @@ namespace e_SpaMobileApp.Fragments
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
                 },
-                new MyService()
+                new MyService
                 {
                     SalonsOffering = 12,
                     ServiceDescription =
@@ -117,12 +120,14 @@ namespace e_SpaMobileApp.Fragments
                     ServiceName = "Service Name",
                     ServicePopularity = 34,
                     ServiceProfileImgUrl = "someurl"
-                },
+                }
             };
+
             #endregion
-            adapter=new ServicesRecyclerViewAdapter(Context.ApplicationContext, services);
+
+            adapter = new ServicesRecyclerViewAdapter(Context.ApplicationContext, services);
             recyclerView.SetAdapter(adapter);
-            layoutManager=new LinearLayoutManager(Context.ApplicationContext);
+            layoutManager = new LinearLayoutManager(Context.ApplicationContext);
             recyclerView.SetLayoutManager(layoutManager);
             return view;
         }

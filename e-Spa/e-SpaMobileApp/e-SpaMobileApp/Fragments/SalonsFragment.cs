@@ -12,7 +12,8 @@ namespace e_SpaMobileApp.Fragments
     {
         private RecyclerView.Adapter _adapter;
         private RecyclerView.LayoutManager _layoutManager;
-        private List<MySalon> _salons;
+        private readonly List<MySalon> _salons;
+
         public SalonsFragment(List<MySalon> salons)
         {
             _salons = salons;
@@ -20,14 +21,14 @@ namespace e_SpaMobileApp.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-             base.OnCreateView(inflater, container, savedInstanceState);
+            base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_salons, container, false);
             var recyclerView = view.FindViewById<RecyclerView>(Resource.Id.salonsRecyclerView);
 
-         
+
             _layoutManager = new LinearLayoutManager(Context.ApplicationContext);
             recyclerView.SetLayoutManager(_layoutManager);
-            _adapter =new SalonsRecyclerViewAdapter(Context.ApplicationContext, _salons);
+            _adapter = new SalonsRecyclerViewAdapter(Context.ApplicationContext, _salons);
             recyclerView.SetAdapter(_adapter);
             return view;
         }

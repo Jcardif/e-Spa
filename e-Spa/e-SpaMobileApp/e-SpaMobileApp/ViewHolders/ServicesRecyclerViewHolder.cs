@@ -18,6 +18,5 @@ namespace e_SpaMobileApp.ViewHolders
         public TextView Description { get; set; }
         public TextView SalonsNumber { get; set; }
         public TextView ServicePopularity { get; set; }
-
     }
 }

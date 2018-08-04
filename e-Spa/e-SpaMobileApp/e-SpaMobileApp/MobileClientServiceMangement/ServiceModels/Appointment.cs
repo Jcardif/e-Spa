@@ -1,6 +1,6 @@
 ﻿namespace e_SpaMobileApp.ServiceModels
 {
-   public class Appointment
+    public class Appointment
     {
         public string venue { get; set; }
         public string Date { get; set; }
