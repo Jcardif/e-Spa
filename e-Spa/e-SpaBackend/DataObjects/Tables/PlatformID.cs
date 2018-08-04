@@ -8,12 +8,17 @@ using System.Web;
 
 namespace e_SpaBackend.DataObjects
 {
-    public enum SocialPlatform { facebook, google }
+    public enum SocialPlatform
+    {
+        facebook=1,
+        google=2,
+        mail=3
+    }
     public class PlatformID : EntityData
     {
         [Required, Column(TypeName = "VARCHAR")]
         public string PlatformId { get; set; }
-        [Required]
+        [Required, Range(1,3)]
         public SocialPlatform SocialPlatform { get; set; }
 
         public virtual Client Client { get; set; }
