@@ -11,10 +11,12 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using e_SpaBackend.DataObjects;
 using e_SpaBackend.Models;
+using Microsoft.Azure.Mobile.Server.Config;
 using PlatformID = e_SpaBackend.DataObjects.PlatformID;
 
 namespace e_SpaBackend.Controllers.WebController
 {
+    [MobileAppController]
     public class PlatformIDController : ApiController
     {
         private MobileServiceContext db = new MobileServiceContext();

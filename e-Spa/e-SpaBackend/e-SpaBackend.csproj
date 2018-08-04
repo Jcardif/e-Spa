@@ -190,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
+    <Compile Include="App_Start\Startup.WebApi.cs" />
     <Compile Include="Controllers\TablesController\AppointmentController.cs" />
     <Compile Include="Controllers\TablesController\ClientController.cs" />
     <Compile Include="Controllers\TablesController\ReviewController.cs" />
