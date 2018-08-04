@@ -1,4 +1,4 @@
-﻿namespace e_SpaManagedClient.Models
+﻿namespace e_SpaMobileApp.ServiceModels
 {
     public class SalonService
     {

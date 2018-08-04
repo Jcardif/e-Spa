@@ -55,6 +55,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\LogInActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\SalonsRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\ServicesRecyclerViewAdapter.cs" />
@@ -68,6 +69,14 @@
     <Compile Include="Fragments\ServicesFragment.cs" />
     <Compile Include="Fragments\TrendsFragment.cs" />
     <Compile Include="Adapters\TrendsRecyclerViewAdapter.cs" />
+    <Compile Include="MobileClientServiceMangement\AzureService\SalonsAzureService.cs" />
+    <Compile Include="MobileClientServiceMangement\ServiceModels\Appointment.cs" />
+    <Compile Include="MobileClientServiceMangement\ServiceModels\Client.cs" />
+    <Compile Include="MobileClientServiceMangement\ServiceModels\Review.cs" />
+    <Compile Include="MobileClientServiceMangement\ServiceModels\Salon.cs" />
+    <Compile Include="MobileClientServiceMangement\ServiceModels\SalonManager.cs" />
+    <Compile Include="MobileClientServiceMangement\ServiceModels\SalonService.cs" />
+    <Compile Include="MobileClientServiceMangement\ServiceModels\Service.cs" />
     <Compile Include="Models\MySalon.cs" />
     <Compile Include="Models\MyService.cs" />
     <Compile Include="Models\MyTrend.cs" />
@@ -78,8 +87,8 @@
     <Compile Include="ViewHolders\TrendsRecyclerViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <GoogleServicesJson Include="google-services.json" />
     <None Include="Connected Services\e-SpaMobileApp\ConnectedService.json" />
+    <GoogleServicesJson Include="google-services.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
@@ -192,9 +201,6 @@
     <AndroidResource Include="Resources\drawable\progress_bar3.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\google_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\fragment_appointment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -262,13 +268,12 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\e-SpaManagedClient\e-SpaManagedClient.csproj">
-      <Project>{5bd7743b-1e02-4838-8c42-2ed52a3da545}</Project>
-      <Name>e-SpaManagedClient</Name>
-    </ProjectReference>
+    <AndroidResource Include="Resources\layout\email_login_layout.axml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\email_login_layout.axml" />
+    <AndroidResource Include="Resources\layout\activity_login.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\rose.jpg" />

@@ -16,6 +16,14 @@
   <string name="salons">Salons</string>
   <string name="popularity">Popularity</string>
   <string name="appointments">Appointments</string>
+  <string name="e_spa_welcome">Welcome to e-Spa</string>
+  <string name="sign_in_with_social_networks">Log In with Social Networks</string>
+  <string name="or">OR</string>
+  <string name="username">Username</string>
+  <string name="password">Password</string>
+  <string name="log_in">Log In</string>
+  <string name="create_account">Create Account</string>
+  <string name="forgot_password">Forgot Password?</string>
 
   <string name="trends_title">Title Goes Here</string>
   <string name="trend_description">This is what you share, sth new sth trendy sth others may want to know about. Pin it here get up votes and get featured on the app </string>

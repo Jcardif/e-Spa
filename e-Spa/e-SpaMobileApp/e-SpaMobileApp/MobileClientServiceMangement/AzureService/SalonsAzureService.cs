@@ -9,13 +9,13 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using e_SpaManagedClient.Models;
+using e_SpaMobileApp.ServiceModels;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using Plugin.Connectivity;
 
-namespace e_SpaManagedClient.AzureService
+namespace e_SpaMobileApp.AzureService
 {
     public class SalonAzureService
     {

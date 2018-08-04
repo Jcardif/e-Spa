@@ -5,7 +5,7 @@ using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
-using e_SpaManagedClient.AzureService;
+using e_SpaMobileApp.AzureService;
 using e_SpaMobileApp.Fragments;
 using e_SpaMobileApp.Models;
 using Microsoft.AppCenter;
@@ -16,7 +16,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
     public class MainActivity : AppCompatActivity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
         private Toolbar _mainToolbar;
