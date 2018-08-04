@@ -6,7 +6,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
-using e_SpaMobileApp.AzureService;
+using e_SpaMobileApp.AzureClientServices;
 using e_SpaMobileApp.Fragments;
 using e_SpaMobileApp.Models;
 using Microsoft.AppCenter;
@@ -68,8 +68,8 @@ namespace e_SpaMobileApp.Activities
 
         private async Task<List<MySalon>> GetSalons()
         {
-            var salonAzureService = new SalonAzureService();
-            var salonList = await salonAzureService.GetSalons();
+            var salonApiClient = new SalonsAPIClient();
+            var salonList = await salonApiClient.GetSalons();
             var salons = new List<MySalon>();
             foreach (var cmSalon in salonList)
             {

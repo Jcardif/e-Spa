@@ -69,9 +69,12 @@
     <Compile Include="Fragments\ServicesFragment.cs" />
     <Compile Include="Fragments\TrendsFragment.cs" />
     <Compile Include="Adapters\TrendsRecyclerViewAdapter.cs" />
-    <Compile Include="MobileClientServiceMangement\AzureService\SalonsAzureService.cs" />
+    <Compile Include="MobileClientServiceMangement\APIClients\APIClient.cs" />
+    <Compile Include="MobileClientServiceMangement\APIClients\PlatformIdAPIClient.cs" />
+    <Compile Include="MobileClientServiceMangement\APIClients\SalonsAPIClient.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Appointment.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Client.cs" />
+    <Compile Include="MobileClientServiceMangement\ServiceModels\PlatformID.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Review.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Salon.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\SalonManager.cs" />

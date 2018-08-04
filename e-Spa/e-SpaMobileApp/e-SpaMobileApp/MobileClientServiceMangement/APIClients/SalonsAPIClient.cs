@@ -3,31 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using e_SpaMobileApp.ServiceModels;
 using Microsoft.WindowsAzure.MobileServices;
-using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
-using Microsoft.WindowsAzure.MobileServices.Sync;
 using Plugin.Connectivity;
+using static e_SpaMobileApp.AzureClientServices.ApiClient;
 
-namespace e_SpaMobileApp.AzureService
+namespace e_SpaMobileApp.AzureClientServices
 {
-    public class SalonAzureService
-    {
-        private MobileServiceClient client;
-        private IMobileServiceSyncTable<Salon> salonTable;
-
-        public async Task Initialise()
-        {
-            if (client?.SyncContext?.IsInitialized ?? false)
-                return;
-            var appUrl = "https://e-spa.azurewebsites.net/";
-            client = new MobileServiceClient(appUrl);
-            var fileName = "espa.db";
-            var store = new MobileServiceSQLiteStore(fileName);
-            store.DefineTable<Salon>();
-
-            await client.SyncContext.InitializeAsync(store);
-            salonTable = client.GetSyncTable<Salon>();
-        }
-
+    public class SalonsAPIClient
+    {        
         public async Task SyncSalons()
         {
             await Initialise();
