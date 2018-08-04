@@ -190,14 +190,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\Startup.MobileApp.cs" />
-    <Compile Include="Controllers\Tables\PlatformIDController.cs" />
-    <Compile Include="Controllers\Tables\AppointmentController.cs" />
-    <Compile Include="Controllers\Tables\ClientController.cs" />
-    <Compile Include="Controllers\Tables\ReviewController.cs" />
-    <Compile Include="Controllers\Tables\SalonController.cs" />
-    <Compile Include="Controllers\Tables\SalonManagerController.cs" />
-    <Compile Include="Controllers\Tables\SalonServiceController.cs" />
-    <Compile Include="Controllers\Tables\ServiceController.cs" />
+    <Compile Include="Controllers\TablesController\AppointmentController.cs" />
+    <Compile Include="Controllers\TablesController\ClientController.cs" />
+    <Compile Include="Controllers\TablesController\ReviewController.cs" />
+    <Compile Include="Controllers\TablesController\SalonController.cs" />
+    <Compile Include="Controllers\TablesController\SalonManagerController.cs" />
+    <Compile Include="Controllers\TablesController\SalonServiceController.cs" />
+    <Compile Include="Controllers\TablesController\ServiceController.cs" />
+    <Compile Include="Controllers\WebController\PlatformIDController.cs" />
     <Compile Include="DataObjects\Tables\Appointment.cs" />
     <Compile Include="DataObjects\Tables\Client.cs" />
     <Compile Include="DataObjects\Tables\PlatformID.cs" />
@@ -228,7 +228,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConnectionStrings.config" />
