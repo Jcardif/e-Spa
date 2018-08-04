@@ -17,4 +17,12 @@
     <string name="custom_reminders">Custom Reminders</string>
     <string name="salons">Salons</string>
     <string name="popularity">Popularity</string>
+    <string name="e_spa_welcome">Welcome to e-Spa</string>
+    <string name="sign_in_with_social_networks">Log In with Social Networks</string>
+    <string name="or">OR</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="create_account">Create Account</string>
+    <string name="forgot_password">Forgot Password?</string>
 </resources>

@@ -13,8 +13,8 @@ namespace e_SpaMobileApp.Adapters
     public class TrendsRecyclerViewAdapter : RecyclerView.Adapter
     {
         private readonly Context _context;
-        private int _pos = -1;
         private readonly List<MyTrend> _trends;
+        private int _pos = -1;
 
         public TrendsRecyclerViewAdapter(List<MyTrend> trends, Context context)
         {
@@ -49,7 +49,8 @@ namespace e_SpaMobileApp.Adapters
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-            var trend = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.client_home_trend_item, parent, false);
+            var trend = LayoutInflater.From(parent.Context)
+                .Inflate(Resource.Layout.client_home_trend_item, parent, false);
             var trendTitleTxtView = trend.FindViewById<TextView>(Resource.Id.trendsTitleTxtView);
             var trendDescTxtView = trend.FindViewById<TextView>(Resource.Id.trendsDescTxtView);
             var userProfilePic = trend.FindViewById<CircleImageView>(Resource.Id.trendProfilePicCircleImgView);

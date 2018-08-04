@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Android.Content;
-using Android.Support.V4.Util;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
@@ -13,8 +11,8 @@ namespace e_SpaMobileApp.Adapters
 {
     internal class ServicesRecyclerViewAdapter : RecyclerView.Adapter
     {
-        private List<MyService> _services;
         private Context _context;
+        private readonly List<MyService> _services;
         private RecyclerView.Adapter adapter;
         private RecyclerView.LayoutManager layoutManager;
 
@@ -23,6 +21,7 @@ namespace e_SpaMobileApp.Adapters
             _context = context;
             _services = services;
         }
+
         public override int ItemCount => _services.Count;
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
