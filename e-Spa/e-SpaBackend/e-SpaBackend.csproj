@@ -180,6 +180,7 @@
     <Compile Include="Controllers\Tables\ServiceController.cs" />
     <Compile Include="DataObjects\Tables\Appointment.cs" />
     <Compile Include="DataObjects\Tables\Client.cs" />
+    <Compile Include="DataObjects\Tables\PlatformID.cs" />
     <Compile Include="DataObjects\Tables\Review.cs" />
     <Compile Include="DataObjects\Tables\Salon.cs" />
     <Compile Include="DataObjects\Tables\SalonManager.cs" />
