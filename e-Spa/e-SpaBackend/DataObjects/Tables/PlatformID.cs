@@ -10,18 +10,17 @@ namespace e_SpaBackend.DataObjects
 {
     public enum SocialPlatform
     {
-        facebook=1,
-        google=2,
-        mail=3
+        facebook=0,
+        google=1,
+        mail=2
     }
     public class PlatformID : EntityData
     {
         [Required, Column(TypeName = "VARCHAR")]
         public string PlatformId { get; set; }
-        [Required, Range(1,3)]
+        [Required, Range(0,2, ErrorMessage ="Platform Does not exist")]
         public SocialPlatform SocialPlatform { get; set; }
 
-        public virtual Client Client { get; set; }
 
     }
 }
