@@ -10,6 +10,7 @@ namespace e_SpaMobileApp.APIClients
     {
         public static MobileServiceClient client;
         public static IMobileServiceSyncTable<Salon> salonTable;
+        public static IMobileServiceSyncTable<Client> clientTable;
 
         public static async Task Initialise()
         {
@@ -20,9 +21,11 @@ namespace e_SpaMobileApp.APIClients
             var fileName = "espa.db";
             var store = new MobileServiceSQLiteStore(fileName);
             store.DefineTable<Salon>();
+            store.DefineTable<Client>();
 
             await client.SyncContext.InitializeAsync(store);
             salonTable = client.GetSyncTable<Salon>();
+            clientTable = client.GetSyncTable<Client>();
         }
     }
 }

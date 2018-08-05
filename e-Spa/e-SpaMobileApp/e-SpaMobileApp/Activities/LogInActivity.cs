@@ -88,7 +88,7 @@ namespace e_SpaMobileApp.Activities
             else
             {
                 Snackbar.Make(parentLayout, "Account Does not exist.", Snackbar.LengthLong)
-                    .SetAction("Register", (view) => { StartActivity(new Intent(this, typeof(MainActivity))); })
+                    .SetAction("Register", (view) => { StartActivity(new Intent(this, typeof(RegisterActivity))); })
                     .Show();
             }
         }

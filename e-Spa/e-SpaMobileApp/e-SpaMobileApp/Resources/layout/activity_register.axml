@@ -31,10 +31,14 @@
                 android:layout_marginLeft="16dp" />
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <Button
+                android:layout_height="wrap_content"
+                android:id="@+id/googleRegisterButton" />
+            <com.facebook.login.widget.LoginButton
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/facebookRegisterBtn"
+                app:com_facebook_login_text="@string/facebook"
+                android:editable="false" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,6 +139,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:hintTextAppearance="@style/LogInTheme"
                     android:textColorHint="@android:color/white">
                     <android.support.design.widget.TextInputEditText
                         android:layout_width="match_parent"
@@ -146,7 +151,7 @@
                         android:inputType="textPassword"
                         android:maxLines="1" />
                 </android.support.design.widget.TextInputLayout>
-                <android.support.v7.widget.AppCompatCheckBox
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="false"

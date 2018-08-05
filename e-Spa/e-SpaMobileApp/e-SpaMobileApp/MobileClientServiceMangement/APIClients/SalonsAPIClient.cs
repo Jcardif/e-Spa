@@ -8,8 +8,8 @@ using Plugin.Connectivity;
 namespace e_SpaMobileApp.APIClients
 {
     public class SalonsAPIClient
-    {        
-        public async Task SyncSalons()
+    {
+        private async Task SyncSalons()
         {
             await ApiClient.Initialise();
             try
