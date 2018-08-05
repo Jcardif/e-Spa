@@ -10,6 +10,7 @@ namespace e_SpaMobileApp.ServiceModels
     }
     public class SocialPlatformID
     {        
+        public string Id { get; set; }
         public string PlatformId { get; set; }       
 
         public SocialPlatform SocialPlatform { get; set; }

@@ -6,21 +6,24 @@ using Plugin.Connectivity;
 
 namespace e_SpaMobileApp.APIClients
 {
-    class SocialPlatformIdAPI
+    public class SocialPlatformIdApi
     {
         private IMobileServiceTable<SocialPlatformID> socialPlatformIDTable;
-        public SocialPlatformIdAPI()
+        private MobileServiceClient client; 
+        public SocialPlatformIdApi()
         {
-            GetSocialPlatformIdTable();
+            //GetSocialPlatformIdTable();
+            client = new MobileServiceClient("https://e-spa.azurewebsites.net/");
+            socialPlatformIDTable = client.GetTable<SocialPlatformID>();
         }
 
-        private async void GetSocialPlatformIdTable()
-        {
-            if (!CrossConnectivity.Current.IsConnected)
-                return;
-            await ApiClient.Initialise();
-            socialPlatformIDTable = ApiClient.client.GetTable<SocialPlatformID>();
-        }
+        //private async void GetSocialPlatformIdTable()
+        //{
+        //    if (!CrossConnectivity.Current.IsConnected)
+        //        return;
+        //    await ApiClient.Initialise();
+        //    socialPlatformIDTable = ApiClient.client.GetTable<SocialPlatformID>();
+        //}
         public async Task<bool> CheeckIfPlatforIdExistAsync(string id, SocialPlatform sp)
         {
             var idList = await socialPlatformIDTable.OrderBy(i => i.PlatformId).ToListAsync();

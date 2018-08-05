@@ -9,6 +9,8 @@ using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Widget;
+using e_SpaMobileApp.APIClients;
+using e_SpaMobileApp.ServiceModels;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -25,6 +27,7 @@ namespace e_SpaMobileApp.Activities
         private TextView createAccountTxtView, forgotPassTxtView;
         private GoogleApiClient googleApiClient;
         private int googleSignInID = 1498;
+        private RelativeLayout parentLayout;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -34,6 +37,7 @@ namespace e_SpaMobileApp.Activities
             googleLogInBtn = FindViewById<Button>(Resource.Id.googleLoginBtn);
             emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
             facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
+            parentLayout = FindViewById<RelativeLayout>(Resource.Id.loginParentLayout);
 
             googleLogInBtn.Click += GoogleLogInBtn_Click;
             ConfigureGoogleSignIn();
@@ -66,9 +70,26 @@ namespace e_SpaMobileApp.Activities
                 var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
                 if (result.IsSuccess)
                 {
-                    var details = result.SignInAccount;
-                    Toast.MakeText(this, details.DisplayName.ToString(), ToastLength.Long).Show();
+                    var account = result.SignInAccount;
+                    CheckAccountExistence(account);
                 }
+            }
+        }
+
+        private async void CheckAccountExistence(GoogleSignInAccount account)
+        {
+            var socialPlatformApi = new SocialPlatformIdApi();
+            var exists=await socialPlatformApi.CheeckIfPlatforIdExistAsync(account.Id, SocialPlatform.google);
+            if (exists)
+            {
+                Toast.MakeText(this, $"Welcome {account.DisplayName}", ToastLength.Short).Show();
+                StartActivity(new Intent(this, typeof(MainActivity)));
+            }
+            else
+            {
+                Snackbar.Make(parentLayout, "Account Does not exist.", Snackbar.LengthLong)
+                    .SetAction("Register", (view) => { StartActivity(new Intent(this, typeof(MainActivity))); })
+                    .Show();
             }
         }
 
