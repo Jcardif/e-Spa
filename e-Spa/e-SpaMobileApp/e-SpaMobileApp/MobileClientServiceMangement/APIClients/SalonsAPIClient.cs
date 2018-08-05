@@ -4,21 +4,20 @@ using System.Threading.Tasks;
 using e_SpaMobileApp.ServiceModels;
 using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Connectivity;
-using static e_SpaMobileApp.AzureClientServices.ApiClient;
 
-namespace e_SpaMobileApp.AzureClientServices
+namespace e_SpaMobileApp.APIClients
 {
     public class SalonsAPIClient
     {        
         public async Task SyncSalons()
         {
-            await Initialise();
+            await ApiClient.Initialise();
             try
             {
                 if (!CrossConnectivity.Current.IsConnected)
                     return;
-                await client.SyncContext.PushAsync();
-                await salonTable.PullAsync("allSalons", salonTable.CreateQuery());
+                await ApiClient.client.SyncContext.PushAsync();
+                await ApiClient.salonTable.PullAsync("allSalons", ApiClient.salonTable.CreateQuery());
             }
             catch (Exception e)
             {
@@ -29,17 +28,17 @@ namespace e_SpaMobileApp.AzureClientServices
 
         public async Task<List<Salon>> GetSalons()
         {
-            await Initialise();
+            await ApiClient.Initialise();
             await SyncSalons();
-            var data = await salonTable.OrderBy(s => s.Name)
+            var data = await ApiClient.salonTable.OrderBy(s => s.Name)
                 .ToListAsync();
             return data;
         }
 
         public async Task<Salon> AddSalon(Salon s)
         {
-            await Initialise();
-            await salonTable.InsertAsync(s);
+            await ApiClient.Initialise();
+            await ApiClient.salonTable.InsertAsync(s);
             await SyncSalons();
             return null;
         }

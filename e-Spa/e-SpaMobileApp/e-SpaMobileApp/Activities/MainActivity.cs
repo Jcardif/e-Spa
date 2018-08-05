@@ -6,7 +6,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
-using e_SpaMobileApp.AzureClientServices;
+using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.Fragments;
 using e_SpaMobileApp.Models;
 using Microsoft.AppCenter;

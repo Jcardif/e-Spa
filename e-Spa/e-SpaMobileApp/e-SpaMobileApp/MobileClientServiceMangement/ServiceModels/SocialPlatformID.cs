@@ -8,7 +8,7 @@ namespace e_SpaMobileApp.ServiceModels
         google = 1,
         mail = 2
     }
-    public class PlatformID
+    public class SocialPlatformID
     {        
         public string PlatformId { get; set; }       
 
