@@ -25,4 +25,15 @@
     <string name="log_in">Log In</string>
     <string name="create_account">Create Account</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="register_with_social_networks">Register with Social Networks</string>
+    <string name="email">E-Mail</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">LastName</string>
+    <string name="phoneNo">Phone Number</string>
+    <string name="accept_conditions">I accept the the terms of use of this application</string>
+    <string name="register">Register</string>
+    <string name="terms_of_use">Terms of use</string>
+    <string name="verify_details">Verify Details</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
 </resources>
