@@ -5,21 +5,28 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Gms.Auth.Api;
+using Android.Gms.Auth.Api.SignIn;
+using Android.Gms.Common;
+using Android.Gms.Common.Apis;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using e_SpaMobileApp.APIClients;
+using e_SpaMobileApp.ServiceModels;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Newtonsoft.Json;
 using Xamarin.Facebook.Login.Widget;
 
 namespace e_SpaMobileApp.Activities
 {
     [Activity(Label = "RegisterActivity")]
-    public class RegisterActivity : AppCompatActivity
+    public class RegisterActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener
     {
         private Button googleBtn, registerBtn;
         private LoginButton facebookLoginBtn;
@@ -30,6 +37,8 @@ namespace e_SpaMobileApp.Activities
             passwordInputEditText;
         private CheckBox acceptConditionsCheckBox;
         private TextView termsofUseTxtView, privacyPolicyTxtView;
+        private GoogleApiClient googleApiClient;
+        private int signInCode;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -48,6 +57,77 @@ namespace e_SpaMobileApp.Activities
             acceptConditionsCheckBox = FindViewById<CheckBox>(Resource.Id.acceptConditionsCheckBox);
             termsofUseTxtView = FindViewById<TextView>(Resource.Id.termsOfUseTxtView);
             privacyPolicyTxtView = FindViewById<TextView>(Resource.Id.privacyPolicyTxtView);
+
+            googleBtn.Click += GoogleBtn_Click;
+            ConfigureGoogleSigIn();
+        }
+
+        private void GoogleBtn_Click(object sender, EventArgs e)
+        {
+            Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
+            StartActivityForResult(intent, signInCode);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if(requestCode!=signInCode)return;
+            var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
+            if(!result.IsSuccess)return;
+            var account = result.SignInAccount;
+            CreateAccountForUser(account);
+        }
+
+        private async void CreateAccountForUser(GoogleSignInAccount account)
+        {
+            var user = new Client
+            {
+                Email = account.Email,
+                FirstName = account.DisplayName,
+                LastName = account.FamilyName,
+                ProfilePhotoUrl = account.PhotoUrl.ToString(),
+                Residence = "",
+                PhoneNumber = "",
+                SocialPlatformID_Id = account.Id
+            };
+            var socialPlatformId = new SocialPlatformID
+            {
+                SocialPlatform = SocialPlatform.google,
+                PlatformId = account.Id
+            };
+            var platformIdApiClient = new SocialPlatformIdApi();
+            await platformIdApiClient.AddSocialPlatformId(socialPlatformId);
+            Intent intent=new Intent(this, typeof(SocialNetworksRegisterActivity));
+            intent.PutExtra("user", JsonConvert.SerializeObject(user));
+            StartActivity(intent);
+        }
+
+        private void ConfigureGoogleSigIn()
+        {
+            GoogleSignInOptions options = new GoogleSignInOptions
+                    .Builder(GoogleSignInOptions.DefaultSignIn)
+                .RequestId()
+                .RequestEmail()
+                .RequestProfile()
+                .Build();
+            googleApiClient = new GoogleApiClient
+                    .Builder(this)
+                .EnableAutoManage(this, this)
+                .AddApi(Auth.GOOGLE_SIGN_IN_API)
+                .AddConnectionCallbacks(this)
+                .Build();
+        }
+
+        public void OnConnected(Bundle connectionHint)
+        {
+        }
+
+        public void OnConnectionSuspended(int cause)
+        {
+        }
+
+        public void OnConnectionFailed(ConnectionResult result)
+        {
         }
     }
 }

@@ -65,15 +65,11 @@ namespace e_SpaMobileApp.Activities
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            if (requestCode == googleSignInID)
-            {
-                var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
-                if (result.IsSuccess)
-                {
-                    var account = result.SignInAccount;
-                    CheckAccountExistence(account);
-                }
-            }
+            if (requestCode != googleSignInID) return;
+            var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
+            if (!result.IsSuccess) return;
+            var account = result.SignInAccount;
+            CheckAccountExistence(account);
         }
 
         private async void CheckAccountExistence(GoogleSignInAccount account)
