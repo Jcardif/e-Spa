@@ -21,8 +21,8 @@ namespace e_SpaBackend.Models
         // service name, set by the 'MS_MobileServiceName' AppSettings in the local 
         // Web.config, is the same as the service name when hosted in Azure.
 
-        private const string ConnectionStringName = "e-SpaLocalDb";
-        //private const string ConnectionStringName = "e-SpaRemoteDb";
+        //private const string ConnectionStringName = "e-SpaLocalDb";
+        private const string ConnectionStringName = "e-SpaRemoteDb";
         public MobileServiceContext() : base(ConnectionStringName)
         {
         }
