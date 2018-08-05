@@ -25,7 +25,7 @@ using Xamarin.Facebook.Login.Widget;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "RegisterActivity")]
+    [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = false)]
     public class RegisterActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener
     {
         private Button googleBtn, registerBtn;
@@ -38,7 +38,7 @@ namespace e_SpaMobileApp.Activities
         private CheckBox acceptConditionsCheckBox;
         private TextView termsofUseTxtView, privacyPolicyTxtView;
         private GoogleApiClient googleApiClient;
-        private int signInCode;
+        private int signInCode=1001;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -65,15 +65,15 @@ namespace e_SpaMobileApp.Activities
         private void GoogleBtn_Click(object sender, EventArgs e)
         {
             Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
-            StartActivityForResult(intent, signInCode);
+            StartActivityForResult(intent,signInCode);
         }
 
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            if(requestCode!=signInCode)return;
+            if (requestCode != signInCode) return;
             var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
-            if(!result.IsSuccess)return;
+            if (!result.IsSuccess) return;
             var account = result.SignInAccount;
             CreateAccountForUser(account);
         }
@@ -106,14 +106,14 @@ namespace e_SpaMobileApp.Activities
         {
             GoogleSignInOptions options = new GoogleSignInOptions
                     .Builder(GoogleSignInOptions.DefaultSignIn)
-                .RequestId()
                 .RequestEmail()
+                .RequestId()
                 .RequestProfile()
                 .Build();
             googleApiClient = new GoogleApiClient
                     .Builder(this)
                 .EnableAutoManage(this, this)
-                .AddApi(Auth.GOOGLE_SIGN_IN_API)
+                .AddApi(Auth.GOOGLE_SIGN_IN_API, options)
                 .AddConnectionCallbacks(this)
                 .Build();
         }
