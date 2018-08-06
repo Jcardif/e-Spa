@@ -9,12 +9,15 @@ using Android.Gms.Auth.Api;
 using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using Com.Syncfusion.Sfbusyindicator;
+using Com.Syncfusion.Sfbusyindicator.Enums;
 using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ServiceModels;
 using Microsoft.AppCenter;
@@ -39,7 +42,7 @@ namespace e_SpaMobileApp.Activities
         private TextView termsofUseTxtView, privacyPolicyTxtView;
         private GoogleApiClient googleApiClient;
         private int signInCode=1001;
-
+        private SfBusyIndicator _isBusyIndicator;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -58,12 +61,22 @@ namespace e_SpaMobileApp.Activities
             termsofUseTxtView = FindViewById<TextView>(Resource.Id.termsOfUseTxtView);
             privacyPolicyTxtView = FindViewById<TextView>(Resource.Id.privacyPolicyTxtView);
 
+             _isBusyIndicator = new SfBusyIndicator(this)
+            {
+                AnimationType = AnimationTypes.Ecg,
+                TextColor = Color.Purple,
+                ViewBoxHeight = 20,
+                ViewBoxWidth = 20,
+                IsBusy = true
+            };
+
             googleBtn.Click += GoogleBtn_Click;
             ConfigureGoogleSigIn();
         }
 
         private void GoogleBtn_Click(object sender, EventArgs e)
         {
+            _isBusyIndicator.IsBusy = true;
             Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
             StartActivityForResult(intent,signInCode);
         }
@@ -98,6 +111,7 @@ namespace e_SpaMobileApp.Activities
             var intent=new Intent(this, typeof(SocialNetworksRegisterActivity));
             intent.PutExtra("user", JsonConvert.SerializeObject(user));
             intent.PutExtra("socialPlatformId", JsonConvert.SerializeObject(socialPlatformId));
+            _isBusyIndicator.IsBusy = false;
             StartActivity(intent);
         }
 

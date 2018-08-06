@@ -4,11 +4,14 @@ using Android.Gms.Auth.Api;
 using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Widget;
+using Com.Syncfusion.Sfbusyindicator;
+using Com.Syncfusion.Sfbusyindicator.Enums;
 using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ServiceModels;
 using Microsoft.AppCenter;
@@ -28,6 +31,7 @@ namespace e_SpaMobileApp.Activities
         private GoogleApiClient googleApiClient;
         private int googleSignInID = 1498;
         private RelativeLayout parentLayout;
+        private SfBusyIndicator _isBusyIndicator;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -38,6 +42,16 @@ namespace e_SpaMobileApp.Activities
             emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
             facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
             parentLayout = FindViewById<RelativeLayout>(Resource.Id.loginParentLayout);
+
+
+            _isBusyIndicator = new SfBusyIndicator(this)
+            {
+                AnimationType = AnimationTypes.Ecg,
+                TextColor = Color.Purple,
+                ViewBoxHeight = 20,
+                ViewBoxWidth = 20,
+                IsBusy = false
+            };
 
             googleLogInBtn.Click += GoogleLogInBtn_Click;
             ConfigureGoogleSignIn();
@@ -59,6 +73,7 @@ namespace e_SpaMobileApp.Activities
 
         private void GoogleLogInBtn_Click(object sender, System.EventArgs e)
         {
+            _isBusyIndicator.IsBusy = true;
             Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
             StartActivityForResult(intent, googleSignInID);
         }
@@ -76,6 +91,7 @@ namespace e_SpaMobileApp.Activities
         {
             var socialPlatformApi = new SocialPlatformIdApi();
             var exists=await socialPlatformApi.CheeckIfPlatforIdExistAsync(account.Id, SocialPlatform.google);
+            _isBusyIndicator.IsBusy = false;
             if (exists)
             {
                 Toast.MakeText(this, $"Welcome {account.DisplayName}", ToastLength.Short).Show();
