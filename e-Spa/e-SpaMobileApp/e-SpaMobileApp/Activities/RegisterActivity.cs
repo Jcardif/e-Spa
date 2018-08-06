@@ -78,7 +78,7 @@ namespace e_SpaMobileApp.Activities
             CreateAccountForUser(account);
         }
 
-        private async void CreateAccountForUser(GoogleSignInAccount account)
+        private  void CreateAccountForUser(GoogleSignInAccount account)
         {
             var user = new Client
             {
@@ -95,10 +95,9 @@ namespace e_SpaMobileApp.Activities
                 SocialPlatform = SocialPlatform.google,
                 PlatformId = account.Id
             };
-            var platformIdApiClient = new SocialPlatformIdApi();
-            await platformIdApiClient.AddSocialPlatformId(socialPlatformId);
-            Intent intent=new Intent(this, typeof(SocialNetworksRegisterActivity));
+            var intent=new Intent(this, typeof(SocialNetworksRegisterActivity));
             intent.PutExtra("user", JsonConvert.SerializeObject(user));
+            intent.PutExtra("socialPlatformId", JsonConvert.SerializeObject(socialPlatformId));
             StartActivity(intent);
         }
 
