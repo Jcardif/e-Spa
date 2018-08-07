@@ -31,27 +31,20 @@ namespace e_SpaMobileApp.Activities
         private GoogleApiClient googleApiClient;
         private int googleSignInID = 1498;
         private RelativeLayout parentLayout;
-        private SfBusyIndicator _isBusyIndicator;
+        private SfBusyIndicator busyIndicator;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
             SetContentView(Resource.Layout.activity_login);
             googleLogInBtn = FindViewById<Button>(Resource.Id.googleLoginBtn);
             emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
             facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
             parentLayout = FindViewById<RelativeLayout>(Resource.Id.loginParentLayout);
-
-
-            _isBusyIndicator = new SfBusyIndicator(this)
-            {
-                AnimationType = AnimationTypes.Ecg,
-                TextColor = Color.Purple,
-                ViewBoxHeight = 20,
-                ViewBoxWidth = 20,
-                IsBusy = false
-            };
+            // _isBusyIndicator = FindViewById<SfBusyIndicator>(Resource.Id.isBusyIndicator);
+         
 
             googleLogInBtn.Click += GoogleLogInBtn_Click;
             ConfigureGoogleSignIn();
@@ -73,7 +66,14 @@ namespace e_SpaMobileApp.Activities
 
         private void GoogleLogInBtn_Click(object sender, System.EventArgs e)
         {
-            _isBusyIndicator.IsBusy = true;
+            busyIndicator = new SfBusyIndicator(this);
+            SetContentView(busyIndicator);
+            busyIndicator.AnimationType = AnimationTypes.DoubleCircle;
+            busyIndicator.Title = "Loading";
+            busyIndicator.TextColor = Color.Purple;
+            busyIndicator.ViewBoxHeight = 200;
+            busyIndicator.ViewBoxWidth = 200;
+            busyIndicator.IsBusy = true;
             Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
             StartActivityForResult(intent, googleSignInID);
         }
@@ -91,7 +91,7 @@ namespace e_SpaMobileApp.Activities
         {
             var socialPlatformApi = new SocialPlatformIdApi();
             var exists=await socialPlatformApi.CheeckIfPlatforIdExistAsync(account.Id, SocialPlatform.google);
-            _isBusyIndicator.IsBusy = false;
+            busyIndicator.IsBusy = false;
             if (exists)
             {
                 Toast.MakeText(this, $"Welcome {account.DisplayName}", ToastLength.Short).Show();

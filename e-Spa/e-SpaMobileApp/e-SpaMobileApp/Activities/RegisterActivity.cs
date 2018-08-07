@@ -48,6 +48,7 @@ namespace e_SpaMobileApp.Activities
         {
             base.OnCreate(savedInstanceState);
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
             SetContentView(Resource.Layout.activity_register);
             registerBtn = FindViewById<Button>(Resource.Id.registerBtn);
             googleBtn = FindViewById<Button>(Resource.Id.googleRegisterButton);
