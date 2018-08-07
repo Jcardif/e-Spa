@@ -116,10 +116,10 @@ namespace e_SpaMobileApp.Activities
                 SocialPlatformID_Id = _client.SocialPlatformID_Id,
                 Residence = "RESIDENCE"
             };
+            var socialPlatformIdApi = new SocialPlatformIdApi();
+            await socialPlatformIdApi.AddSocialPlatformId(_socialPlatformId);
             var userApiClient = new UserApiClient();
             await userApiClient.AddClientAsync(newUser);
-            var socialPlatformIdApi=new SocialPlatformIdApi();
-            await socialPlatformIdApi.AddSocialPlatformId(_socialPlatformId);
             Toast.MakeText(this, $"Welcome {newUser.FirstName}, Thanks for Registering", ToastLength.Short).Show();
             var intent = new Intent(this, typeof(MainActivity));
             intent = Intent.PutExtra("user", JsonConvert.SerializeObject(newUser));
