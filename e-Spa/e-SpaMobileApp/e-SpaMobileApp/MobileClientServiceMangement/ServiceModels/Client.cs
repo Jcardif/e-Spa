@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json;
 
 namespace e_SpaMobileApp.ServiceModels
 {
@@ -12,6 +13,9 @@ namespace e_SpaMobileApp.ServiceModels
         public string Residence { get; set; }
         public string PhoneNumber { get; set; }
         public string SocialPlatformID_Id { get; set; }
+
+        [JsonIgnore]
+        public bool IsLoggedIn { get; set; }
 
         [Version] public string AzureVersion { get; set; }
 

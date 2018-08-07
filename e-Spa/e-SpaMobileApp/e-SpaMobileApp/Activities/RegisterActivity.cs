@@ -1,70 +1,67 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.Gms.Auth.Api;
 using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
-using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
-using Com.Syncfusion.Sfbusyindicator;
-using Com.Syncfusion.Sfbusyindicator.Enums;
-using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ServiceModels;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
+using Xamarin.Facebook;
 using Xamarin.Facebook.Login.Widget;
+using Object = Java.Lang.Object;
 
 namespace e_SpaMobileApp.Activities
 {
     [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = false)]
-    public class RegisterActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener
+    public class RegisterActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, IFacebookCallback
     {
-        private Button googleBtn, registerBtn;
-        private LoginButton facebookLoginBtn;
-        private TextInputEditText firstNameInputEditText,
-            lastNameInputEditText,
-            phoneNoInputEditText,
-            emailInputEditText,
-            passwordInputEditText;
-        private CheckBox acceptConditionsCheckBox;
-        private TextView termsofUseTxtView, privacyPolicyTxtView;
-        private GoogleApiClient googleApiClient;
+        private Button googleBtn, _registerBtn;
+        private LoginButton _facebookLoginBtn;
+        private TextInputEditText _firstNameInputEditText,
+            _lastNameInputEditText,
+            _phoneNoInputEditText,
+            _emailInputEditText,
+            _passwordInputEditText;
+        private CheckBox _acceptConditionsCheckBox;
+        private TextView _termsofUseTxtView, _privacyPolicyTxtView;
+        private GoogleApiClient _googleApiClient;
         private int signInCode=1001;
-        private LinearLayout container1;
-        private ProgressBar registerProgressBar;
+        private LinearLayout _container1;
+        private ProgressBar _registerProgressBar;
 
+        public GoogleApiClient GoogleApiClient { get => _googleApiClient; set => _googleApiClient = value; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
+            
+
             SetContentView(Resource.Layout.activity_register);
-            registerBtn = FindViewById<Button>(Resource.Id.registerBtn);
+            _registerBtn = FindViewById<Button>(Resource.Id.registerBtn);
             googleBtn = FindViewById<Button>(Resource.Id.googleRegisterButton);
-            facebookLoginBtn = FindViewById<LoginButton>(Resource.Id.facebookRegisterBtn);
-            firstNameInputEditText = FindViewById<TextInputEditText>(Resource.Id.firstNameInputEdtTxt);
-            lastNameInputEditText = FindViewById<TextInputEditText>(Resource.Id.lastNameInputEdtTxt);
-            phoneNoInputEditText = FindViewById<TextInputEditText>(Resource.Id.phoneNoInputEdtTxt);
-            emailInputEditText = FindViewById<TextInputEditText>(Resource.Id.emailInputEdtTxt);
-            passwordInputEditText = FindViewById<TextInputEditText>(Resource.Id.passwordInputEdtTxt);
-            acceptConditionsCheckBox = FindViewById<CheckBox>(Resource.Id.acceptConditionsCheckBox);
-            termsofUseTxtView = FindViewById<TextView>(Resource.Id.termsOfUseTxtView);
-            privacyPolicyTxtView = FindViewById<TextView>(Resource.Id.privacyPolicyTxtView);
-            container1 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer1);
-            registerProgressBar = FindViewById<ProgressBar>(Resource.Id.progressbarRegister);
+            _facebookLoginBtn = FindViewById<LoginButton>(Resource.Id.facebookRegisterBtn);
+            _firstNameInputEditText = FindViewById<TextInputEditText>(Resource.Id.firstNameInputEdtTxt);
+            _lastNameInputEditText = FindViewById<TextInputEditText>(Resource.Id.lastNameInputEdtTxt);
+            _phoneNoInputEditText = FindViewById<TextInputEditText>(Resource.Id.phoneNoInputEdtTxt);
+            _emailInputEditText = FindViewById<TextInputEditText>(Resource.Id.emailInputEdtTxt);
+            _passwordInputEditText = FindViewById<TextInputEditText>(Resource.Id.passwordInputEdtTxt);
+            _acceptConditionsCheckBox = FindViewById<CheckBox>(Resource.Id.acceptConditionsCheckBox);
+            _termsofUseTxtView = FindViewById<TextView>(Resource.Id.termsOfUseTxtView);
+            _privacyPolicyTxtView = FindViewById<TextView>(Resource.Id.privacyPolicyTxtView);
+            _container1 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer1);
+            _registerProgressBar = FindViewById<ProgressBar>(Resource.Id.progressbarRegister);
 
             googleBtn.Click += GoogleBtn_Click;
             ConfigureGoogleSigIn();
@@ -72,11 +69,11 @@ namespace e_SpaMobileApp.Activities
 
         private void GoogleBtn_Click(object sender, EventArgs e)
         {
-            registerProgressBar.Visibility = ViewStates.Visible;
-            container1.Visibility = ViewStates.Invisible;
-            privacyPolicyTxtView.Visibility = ViewStates.Invisible;
-            termsofUseTxtView.Visibility = ViewStates.Invisible;
-            Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
+            _registerProgressBar.Visibility = ViewStates.Visible;
+            _container1.Visibility = ViewStates.Invisible;
+            _privacyPolicyTxtView.Visibility = ViewStates.Invisible;
+            _termsofUseTxtView.Visibility = ViewStates.Invisible;
+            Intent intent = Auth.GoogleSignInApi.GetSignInIntent(GoogleApiClient);
             StartActivityForResult(intent,signInCode);
         }
 
@@ -95,7 +92,7 @@ namespace e_SpaMobileApp.Activities
             var user = new Client
             {
                 Email = account.Email,
-                FirstName = account.DisplayName,
+                FirstName = account.GivenName,
                 LastName = account.FamilyName,
                 ProfilePhotoUrl = account.PhotoUrl.ToString(),
                 Residence = "",
@@ -111,10 +108,10 @@ namespace e_SpaMobileApp.Activities
             intent.PutExtra("user", JsonConvert.SerializeObject(user));
             intent.PutExtra("socialPlatformId", JsonConvert.SerializeObject(socialPlatformId));
 
-            registerProgressBar.Visibility = ViewStates.Invisible;
-            container1.Visibility = ViewStates.Visible;
-            privacyPolicyTxtView.Visibility = ViewStates.Visible;
-            termsofUseTxtView.Visibility = ViewStates.Visible;
+            _registerProgressBar.Visibility = ViewStates.Invisible;
+            _container1.Visibility = ViewStates.Visible;
+            _privacyPolicyTxtView.Visibility = ViewStates.Visible;
+            _termsofUseTxtView.Visibility = ViewStates.Visible;
 
             StartActivity(intent);
         }
@@ -127,7 +124,7 @@ namespace e_SpaMobileApp.Activities
                 .RequestId()
                 .RequestProfile()
                 .Build();
-            googleApiClient = new GoogleApiClient
+            GoogleApiClient = new GoogleApiClient
                     .Builder(this)
                 .EnableAutoManage(this, this)
                 .AddApi(Auth.GOOGLE_SIGN_IN_API, options)
@@ -145,6 +142,21 @@ namespace e_SpaMobileApp.Activities
 
         public void OnConnectionFailed(ConnectionResult result)
         {
+        }
+
+        public void OnCancel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(FacebookException error)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSuccess(Object result)
+        {
+            throw new NotImplementedException();
         }
     }
 }
