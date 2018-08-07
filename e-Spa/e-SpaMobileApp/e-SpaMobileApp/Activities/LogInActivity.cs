@@ -4,15 +4,12 @@ using Android.Gms.Auth.Api;
 using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
-using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
-using Com.Syncfusion.Sfbusyindicator;
-using Com.Syncfusion.Sfbusyindicator.Enums;
 using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ServiceModels;
 using Microsoft.AppCenter;
@@ -25,16 +22,16 @@ namespace e_SpaMobileApp.Activities
     [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = true)]
     public class LogInActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener
     {
-        private Button googleLogInBtn, emailLoginButton;
-        private LoginButton facebookLoginButton;
-        private TextInputEditText usernameTxtInputedtTxt, passwordTxtInputTxt;
-        private TextView createAccountTxtView, forgotPassTxtView;
-        private GoogleApiClient googleApiClient;
+        private Button _googleLogInBtn, _emailLoginButton;
+        private LoginButton _facebookLoginButton;
+        private TextInputEditText _usernameTxtInputedtTxt, _passwordTxtInputTxt;
+        private TextView _createAccountTxtView, _forgotPassTxtView;
+        private GoogleApiClient _googleApiClient;
         private int googleSignInID = 1498;
-        private RelativeLayout parentLayout;
-        private LinearLayout container1;
-        private LinearLayout container2;
-        private ProgressBar loginProgressBar;
+        private RelativeLayout _parentLayout;
+        private LinearLayout _container1;
+        private LinearLayout _container2;
+        private ProgressBar _loginProgressBar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,16 +39,21 @@ namespace e_SpaMobileApp.Activities
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
             SetContentView(Resource.Layout.activity_login);
-            googleLogInBtn = FindViewById<Button>(Resource.Id.googleLoginBtn);
-            emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
-            facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
-            parentLayout = FindViewById<RelativeLayout>(Resource.Id.loginParentLayout);
-            loginProgressBar = FindViewById<ProgressBar>(Resource.Id.progressbarLogin);
-            container1 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer1);
-            container2 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer2);
+            _googleLogInBtn = FindViewById<Button>(Resource.Id.googleLoginBtn);
+            _emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
+            _facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
+            _parentLayout = FindViewById<RelativeLayout>(Resource.Id.loginParentLayout);
+            _loginProgressBar = FindViewById<ProgressBar>(Resource.Id.progressbarLogin);
+            _container1 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer1);
+            _container2 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer2);
+            _createAccountTxtView = FindViewById<TextView>(Resource.Id.createAccountTxtView);
+            _forgotPassTxtView = FindViewById<TextView>(Resource.Id.ForgotPassWordTxTView);
+            _usernameTxtInputedtTxt = FindViewById<TextInputEditText>(Resource.Id.usernameInputEdtTxt);
+            _passwordTxtInputTxt = FindViewById<TextInputEditText>(Resource.Id.passwordInputEdtTxt);
+            _emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
          
 
-            googleLogInBtn.Click += GoogleLogInBtn_Click;
+            _googleLogInBtn.Click += GoogleLogInBtn_Click;
             ConfigureGoogleSignIn();
         }
 
@@ -62,7 +64,7 @@ namespace e_SpaMobileApp.Activities
                                                                  .RequestId()
                                                                  .RequestProfile()
                                                                  .Build();
-            googleApiClient = new GoogleApiClient.Builder(this)
+            _googleApiClient = new GoogleApiClient.Builder(this)
                 .EnableAutoManage(this, this)
                 .AddApi(Auth.GOOGLE_SIGN_IN_API, options)
                 .AddConnectionCallbacks(this)
@@ -71,12 +73,12 @@ namespace e_SpaMobileApp.Activities
 
         private void GoogleLogInBtn_Click(object sender, System.EventArgs e)
         {
-            container1.Visibility = ViewStates.Invisible;
-            container2.Visibility = ViewStates.Invisible;
-            createAccountTxtView.Visibility = ViewStates.Invisible;
-            forgotPassTxtView.Visibility = ViewStates.Invisible;
-            loginProgressBar.Visibility = ViewStates.Visible;
-            Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
+            _container1.Visibility = ViewStates.Invisible;
+            _container2.Visibility = ViewStates.Invisible;
+            _createAccountTxtView.Visibility = ViewStates.Invisible;
+            _forgotPassTxtView.Visibility = ViewStates.Invisible;
+            _loginProgressBar.Visibility = ViewStates.Visible;
+            Intent intent = Auth.GoogleSignInApi.GetSignInIntent(_googleApiClient);
             StartActivityForResult(intent, googleSignInID);
         }
 
@@ -96,11 +98,11 @@ namespace e_SpaMobileApp.Activities
             var socialPlatformApi = new SocialPlatformIdApi();
             var exists=await socialPlatformApi.CheeckIfPlatforIdExistAsync(account.Id, SocialPlatform.google);
 
-            loginProgressBar.Visibility = ViewStates.Invisible;
-            container1.Visibility = ViewStates.Visible;
-            container2.Visibility = ViewStates.Visible;
-            createAccountTxtView.Visibility = ViewStates.Visible;
-            forgotPassTxtView.Visibility = ViewStates.Visible;
+            _loginProgressBar.Visibility = ViewStates.Invisible;
+            _container1.Visibility = ViewStates.Visible;
+            _container2.Visibility = ViewStates.Visible;
+            _createAccountTxtView.Visibility = ViewStates.Visible;
+            _forgotPassTxtView.Visibility = ViewStates.Visible;
 
             if (exists)
             {
@@ -109,7 +111,7 @@ namespace e_SpaMobileApp.Activities
             }
             else
             {
-                Snackbar.Make(parentLayout, "Account Does not exist.", Snackbar.LengthLong)
+                Snackbar.Make(_parentLayout, "Account Does not exist.", Snackbar.LengthLong)
                     .SetAction("Register", (view) => { StartActivity(new Intent(this, typeof(RegisterActivity))); })
                     .Show();
             }
