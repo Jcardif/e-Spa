@@ -106,6 +106,10 @@ namespace e_SpaMobileApp.Activities
 
         private async void CreateUserAccount()
         {
+            var socialPlatformIdApi = new SocialPlatformIdApi();
+            await socialPlatformIdApi.AddSocialPlatformId(_socialPlatformId);
+            var spltId =
+                await socialPlatformIdApi.GetSocialPlatformIdBySocialPlatformAsync(_socialPlatformId.PlatformId);
             var newUser = new Client
             {
                 FirstName = _firstNameInputEditText.Text,
@@ -113,22 +117,16 @@ namespace e_SpaMobileApp.Activities
                 Email = _emailInputEditText.Text,
                 PhoneNumber = _phoneNoInputEditText.Text,
                 ProfilePhotoUrl = _client.ProfilePhotoUrl,
-                SocialPlatformID_Id = _client.SocialPlatformID_Id,
+                SocialPlatformID_Id = spltId.Id,
                 Residence = "RESIDENCE"
             };
-            var socialPlatformIdApi = new SocialPlatformIdApi();
-            await socialPlatformIdApi.AddSocialPlatformId(_socialPlatformId);
             var userApiClient = new UserApiClient();
             await userApiClient.AddClientAsync(newUser);
+
+
             Toast.MakeText(this, $"Welcome {newUser.FirstName}, Thanks for Registering", ToastLength.Short).Show();
             var intent = new Intent(this, typeof(MainActivity));
             intent = Intent.PutExtra("user", JsonConvert.SerializeObject(newUser));
-
-            socialRegisterProgressBar.Visibility = ViewStates.Invisible;
-            container1.Visibility = ViewStates.Visible;
-            _privacyPolicyTxtView.Visibility = ViewStates.Visible;
-            _termsOfUseTxtView.Visibility = ViewStates.Visible;
-
             StartActivity(intent);
         }
 
