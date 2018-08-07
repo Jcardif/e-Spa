@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
+using Android.Views;
 using Android.Widget;
 using Com.Syncfusion.Sfbusyindicator;
 using Com.Syncfusion.Sfbusyindicator.Enums;
@@ -31,7 +32,9 @@ namespace e_SpaMobileApp.Activities
         private GoogleApiClient googleApiClient;
         private int googleSignInID = 1498;
         private RelativeLayout parentLayout;
-        private SfBusyIndicator busyIndicator;
+        private LinearLayout container1;
+        private LinearLayout container2;
+        private ProgressBar loginProgressBar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,7 +46,9 @@ namespace e_SpaMobileApp.Activities
             emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
             facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
             parentLayout = FindViewById<RelativeLayout>(Resource.Id.loginParentLayout);
-            // _isBusyIndicator = FindViewById<SfBusyIndicator>(Resource.Id.isBusyIndicator);
+            loginProgressBar = FindViewById<ProgressBar>(Resource.Id.progressbarLogin);
+            container1 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer1);
+            container2 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer2);
          
 
             googleLogInBtn.Click += GoogleLogInBtn_Click;
@@ -66,17 +71,16 @@ namespace e_SpaMobileApp.Activities
 
         private void GoogleLogInBtn_Click(object sender, System.EventArgs e)
         {
-            busyIndicator = new SfBusyIndicator(this);
-            SetContentView(busyIndicator);
-            busyIndicator.AnimationType = AnimationTypes.DoubleCircle;
-            busyIndicator.Title = "Loading";
-            busyIndicator.TextColor = Color.Purple;
-            busyIndicator.ViewBoxHeight = 200;
-            busyIndicator.ViewBoxWidth = 200;
-            busyIndicator.IsBusy = true;
+            container1.Visibility = ViewStates.Invisible;
+            container2.Visibility = ViewStates.Invisible;
+            createAccountTxtView.Visibility = ViewStates.Invisible;
+            forgotPassTxtView.Visibility = ViewStates.Invisible;
+            loginProgressBar.Visibility = ViewStates.Visible;
             Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
             StartActivityForResult(intent, googleSignInID);
         }
+
+
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
@@ -91,7 +95,13 @@ namespace e_SpaMobileApp.Activities
         {
             var socialPlatformApi = new SocialPlatformIdApi();
             var exists=await socialPlatformApi.CheeckIfPlatforIdExistAsync(account.Id, SocialPlatform.google);
-            busyIndicator.IsBusy = false;
+
+            loginProgressBar.Visibility = ViewStates.Invisible;
+            container1.Visibility = ViewStates.Visible;
+            container2.Visibility = ViewStates.Visible;
+            createAccountTxtView.Visibility = ViewStates.Visible;
+            forgotPassTxtView.Visibility = ViewStates.Visible;
+
             if (exists)
             {
                 Toast.MakeText(this, $"Welcome {account.DisplayName}", ToastLength.Short).Show();

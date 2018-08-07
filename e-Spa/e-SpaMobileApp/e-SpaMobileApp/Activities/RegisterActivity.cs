@@ -42,7 +42,9 @@ namespace e_SpaMobileApp.Activities
         private TextView termsofUseTxtView, privacyPolicyTxtView;
         private GoogleApiClient googleApiClient;
         private int signInCode=1001;
-        private SfBusyIndicator _isBusyIndicator;
+        private LinearLayout container1;
+        private ProgressBar registerProgressBar;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -61,15 +63,8 @@ namespace e_SpaMobileApp.Activities
             acceptConditionsCheckBox = FindViewById<CheckBox>(Resource.Id.acceptConditionsCheckBox);
             termsofUseTxtView = FindViewById<TextView>(Resource.Id.termsOfUseTxtView);
             privacyPolicyTxtView = FindViewById<TextView>(Resource.Id.privacyPolicyTxtView);
-
-             _isBusyIndicator = new SfBusyIndicator(this)
-            {
-                AnimationType = AnimationTypes.Ecg,
-                TextColor = Color.Purple,
-                ViewBoxHeight = 20,
-                ViewBoxWidth = 20,
-                IsBusy = true
-            };
+            container1 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer1);
+            registerProgressBar = FindViewById<ProgressBar>(Resource.Id.progressbarRegister);
 
             googleBtn.Click += GoogleBtn_Click;
             ConfigureGoogleSigIn();
@@ -77,7 +72,10 @@ namespace e_SpaMobileApp.Activities
 
         private void GoogleBtn_Click(object sender, EventArgs e)
         {
-            _isBusyIndicator.IsBusy = true;
+            registerProgressBar.Visibility = ViewStates.Visible;
+            container1.Visibility = ViewStates.Invisible;
+            privacyPolicyTxtView.Visibility = ViewStates.Invisible;
+            termsofUseTxtView.Visibility = ViewStates.Invisible;
             Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
             StartActivityForResult(intent,signInCode);
         }
@@ -112,7 +110,12 @@ namespace e_SpaMobileApp.Activities
             var intent=new Intent(this, typeof(SocialNetworksRegisterActivity));
             intent.PutExtra("user", JsonConvert.SerializeObject(user));
             intent.PutExtra("socialPlatformId", JsonConvert.SerializeObject(socialPlatformId));
-            _isBusyIndicator.IsBusy = false;
+
+            registerProgressBar.Visibility = ViewStates.Invisible;
+            container1.Visibility = ViewStates.Visible;
+            privacyPolicyTxtView.Visibility = ViewStates.Visible;
+            termsofUseTxtView.Visibility = ViewStates.Visible;
+
             StartActivity(intent);
         }
 

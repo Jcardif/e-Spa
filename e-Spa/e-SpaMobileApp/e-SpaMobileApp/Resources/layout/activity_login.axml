@@ -76,6 +76,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:id="@+id/linearLayoutContainer2"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         android:layout_alignParentBottom="true"
@@ -144,4 +145,18 @@
                 android:id="@+id/ForgotPassWordTxTView" />
         </RelativeLayout>
     </LinearLayout>
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressbarLogin"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"
+            android:indeterminate="true" />
+    </RelativeLayout>
 </RelativeLayout>

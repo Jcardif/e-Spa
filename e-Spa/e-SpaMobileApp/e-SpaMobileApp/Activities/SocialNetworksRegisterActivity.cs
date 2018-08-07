@@ -4,6 +4,7 @@ using Android.Content;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
+using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ServiceModels;
@@ -27,6 +28,9 @@ namespace e_SpaMobileApp.Activities
         private CheckBox _acceptConditionsCheckBox;
         private Button _registerBtn;
         private TextView _termsOfUseTxtView, _privacyPolicyTxtView;
+        private LinearLayout container1;
+        private ProgressBar socialRegisterProgressBar;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -44,6 +48,8 @@ namespace e_SpaMobileApp.Activities
             _registerBtn = FindViewById<Button>(Resource.Id.registerBtn);
             _termsOfUseTxtView = FindViewById<TextView>(Resource.Id.termsOfUseTxtView);
             _privacyPolicyTxtView = FindViewById<TextView>(Resource.Id.privacyPolicyTxtView);
+            container1 = FindViewById<LinearLayout>(Resource.Id.linearLayoutContainer1);
+            socialRegisterProgressBar = FindViewById<ProgressBar>(Resource.Id.progressbarSocialRegister);
 
             _firstNameInputEditText.Text = _client.FirstName;
             _lastNameInputEditText.Text = _client.LastName;
@@ -55,6 +61,11 @@ namespace e_SpaMobileApp.Activities
 
         private void RegisterBtn_Click(object sender, EventArgs e)
         {
+            socialRegisterProgressBar.Visibility = ViewStates.Visible;
+            container1.Visibility = ViewStates.Invisible;
+            _privacyPolicyTxtView.Visibility = ViewStates.Invisible;
+            _termsOfUseTxtView.Visibility = ViewStates.Invisible;
+
             if (string.IsNullOrEmpty(_firstNameInputEditText.Text))
             {
                 MakeToast("First Name");
@@ -112,11 +123,21 @@ namespace e_SpaMobileApp.Activities
             Toast.MakeText(this, $"Welcome {newUser.FirstName}, Thanks for Registering", ToastLength.Short).Show();
             var intent = new Intent(this, typeof(MainActivity));
             intent = Intent.PutExtra("user", JsonConvert.SerializeObject(newUser));
+
+            socialRegisterProgressBar.Visibility = ViewStates.Invisible;
+            container1.Visibility = ViewStates.Visible;
+            _privacyPolicyTxtView.Visibility = ViewStates.Visible;
+            _termsOfUseTxtView.Visibility = ViewStates.Visible;
+
             StartActivity(intent);
         }
 
         private void MakeToast(string field)
         {
+            socialRegisterProgressBar.Visibility = ViewStates.Invisible;
+            container1.Visibility = ViewStates.Visible;
+            _privacyPolicyTxtView.Visibility = ViewStates.Visible;
+            _termsOfUseTxtView.Visibility = ViewStates.Visible;
             Toast.MakeText(this, $"The Field {field} Cannot be empty", ToastLength.Short).Show();
         }
 
