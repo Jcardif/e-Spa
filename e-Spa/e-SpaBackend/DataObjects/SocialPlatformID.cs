@@ -14,7 +14,7 @@ namespace e_SpaBackend.DataObjects
         google=1,
         mail=2
     }
-    public class PlatformID : EntityData
+    public class SocialPlatformID : EntityData
     {
         [Required, Column(TypeName = "VARCHAR")]
         public string PlatformId { get; set; }
