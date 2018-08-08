@@ -50,6 +50,9 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Syncfusion.SfBusyIndicator.Android">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfBusyIndicator.Android.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -58,6 +61,8 @@
   <ItemGroup>
     <Compile Include="Activities\LogInActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\RegisterActivity.cs" />
+    <Compile Include="Activities\SocialNetworksRegisterActivity.cs" />
     <Compile Include="Adapters\SalonsRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\ServicesRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\TabAdapter.cs" />
@@ -70,9 +75,13 @@
     <Compile Include="Fragments\ServicesFragment.cs" />
     <Compile Include="Fragments\TrendsFragment.cs" />
     <Compile Include="Adapters\TrendsRecyclerViewAdapter.cs" />
-    <Compile Include="MobileClientServiceMangement\AzureService\SalonsAzureService.cs" />
+    <Compile Include="MobileClientServiceMangement\APIClients\APIClient.cs" />
+    <Compile Include="MobileClientServiceMangement\APIClients\SalonsAPIClient.cs" />
+    <Compile Include="MobileClientServiceMangement\APIClients\SocialPlatformIdApi.cs" />
+    <Compile Include="MobileClientServiceMangement\APIClients\UserApiClient.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Appointment.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Client.cs" />
+    <Compile Include="MobileClientServiceMangement\ServiceModels\SocialPlatformID.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Review.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Salon.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\SalonManager.cs" />
@@ -148,6 +157,9 @@
     </PackageReference>
     <PackageReference Include="Refractored.Controls.CircleImageView">
       <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator.Android">
+      <Version>16.2.0.46</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>3.2.0</Version>
@@ -285,6 +297,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\rose.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_register.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_social_networks_register.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

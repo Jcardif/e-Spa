@@ -2,14 +2,19 @@
 
 namespace e_SpaMobileApp.ServiceModels
 {
-    public class SalonService
+    public enum SocialPlatform
     {
-        public string ImageUrl { get; set; }
-        public string Description { get; set; }
-        public double Price { get; set; }
-        public double Discount { get; set; }
-        public string Salon_Id { get; set; }
-        public string Service_Id { get; set; }
+        facebook = 0,
+        google = 1,
+        mail = 2
+    }
+    public class SocialPlatformID
+    {        
+        public string Id { get; set; }
+        public string PlatformId { get; set; }       
+
+        public SocialPlatform SocialPlatform { get; set; }
+
 
         [Version] public string AzureVersion { get; set; }
 
