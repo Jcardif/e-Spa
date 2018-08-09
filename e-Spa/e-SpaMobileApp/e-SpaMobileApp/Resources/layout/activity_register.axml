@@ -30,16 +30,28 @@
                 android:textColor="@android:color/white"
                 android:text="@string/register_with_social_networks"
                 android:layout_marginLeft="16dp" />
-            <Button
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                android:id="@+id/googleRegisterButton" />
-            <com.facebook.login.widget.LoginButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/facebookRegisterBtn"
-                app:com_facebook_login_text="@string/facebook"
-                android:editable="false" />
+                android:weightSum="100"
+                android:layout_width="match_parent">
+                <Button
+                    android:layout_width="0dp"
+                    android:drawableLeft="@drawable/ic_google"
+                    android:layout_weight="50"
+                    android:textAllCaps="false"
+                    android:text="@string/google"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/googleRegisterButton" />
+                <com.facebook.login.widget.LoginButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/facebookRegisterBtn"
+                    app:com_facebook_login_text="@string/facebook"
+                    android:editable="false" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
