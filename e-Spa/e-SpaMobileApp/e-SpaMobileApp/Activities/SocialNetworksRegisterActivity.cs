@@ -127,7 +127,7 @@ namespace e_SpaMobileApp.Activities
 
             Toast.MakeText(this, $"Welcome {newUser.FirstName}, Thanks for Registering", ToastLength.Short).Show();
             var intent = new Intent(this, typeof(MainActivity));
-            intent = Intent.PutExtra("user", JsonConvert.SerializeObject(newUser));
+            intent.PutExtra("user", JsonConvert.SerializeObject(newUser));
 
             socialRegisterProgressBar.Visibility = ViewStates.Invisible;
             container1.Visibility = ViewStates.Visible;
