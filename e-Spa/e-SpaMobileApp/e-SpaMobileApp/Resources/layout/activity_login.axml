@@ -32,19 +32,25 @@
             android:textStyle="normal"
             android:textColor="@android:color/white" />
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
+            android:weightSum="100"
             android:orientation="horizontal">
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="50"
                 android:id="@+id/googleLoginBtn"
                 android:layout_height="wrap_content"
                 android:text="@string/google"
+                android:drawableLeft="@drawable/ic_google"
                 android:textAllCaps="false" />
             <com.facebook.login.widget.LoginButton
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
                 android:id="@+id/fbBtnLogin"
                 app:com_facebook_login_text="@string/facebook"
                 android:editable="false" />
@@ -145,18 +151,4 @@
                 android:id="@+id/ForgotPassWordTxTView" />
         </RelativeLayout>
     </LinearLayout>
-    <RelativeLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_centerInParent="true"
-        android:minWidth="25px"
-        android:minHeight="25px">
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressbarLogin"
-            android:layout_centerInParent="true"
-            android:visibility="invisible"
-            android:indeterminate="true" />
-    </RelativeLayout>
 </RelativeLayout>
