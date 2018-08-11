@@ -48,7 +48,7 @@
                             android:textColorHint="@android:color/white"
                             android:textColor="@android:color/white"
                             android:id="@+id/firstNameInputEdtTxt"
-                            android:inputType="text"
+                            android:inputType="textCapWords"
                             android:maxLines="1" />
                     </android.support.design.widget.TextInputLayout>
                     <android.support.design.widget.TextInputLayout
@@ -64,7 +64,7 @@
                             android:textColorHint="@android:color/white"
                             android:textColor="@android:color/white"
                             android:id="@+id/lastNameInputEdtTxt"
-                            android:inputType="text"
+                            android:inputType="textCapWords"
                             android:maxLines="1" />
                     </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
@@ -80,7 +80,7 @@
                         android:textColorHint="@android:color/white"
                         android:textColor="@android:color/white"
                         android:id="@+id/phoneNoInputEdtTxt"
-                        android:inputType="text"
+                        android:inputType="phone"
                         android:maxLines="1" />
                 </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout

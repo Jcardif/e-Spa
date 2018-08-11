@@ -63,7 +63,8 @@ namespace e_SpaMobileApp.Activities
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(
                 "MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
-            FirebaseHelper.InitFirebaseAuth(auth, this);
+            FirebaseHelper.InitFirebaseAuth(this);
+            auth = FirebaseAuth.GetInstance(FirebaseHelper.app);
 
             SetContentView(Resource.Layout.activity_register);
             _registerBtn = FindViewById<Button>(Resource.Id.registerBtn);

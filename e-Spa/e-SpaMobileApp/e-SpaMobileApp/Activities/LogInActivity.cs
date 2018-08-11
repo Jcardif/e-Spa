@@ -58,7 +58,7 @@ namespace e_SpaMobileApp.Activities
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
            SetContentView(Resource.Layout.activity_login);
             //init firebase
-            FirebaseHelper.InitFirebaseAuth(auth, this);
+            FirebaseHelper.InitFirebaseAuth(this);
             _googleLogInBtn = FindViewById<Button>(Resource.Id.googleLoginBtn);
             _emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
             _facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
