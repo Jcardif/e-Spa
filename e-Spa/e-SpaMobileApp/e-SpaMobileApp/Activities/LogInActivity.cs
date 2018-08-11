@@ -7,6 +7,7 @@ using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Gms.Tasks;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -14,6 +15,8 @@ using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Com.Syncfusion.Sfbusyindicator;
+using Com.Syncfusion.Sfbusyindicator.Enums;
 using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.Helpers;
 using e_SpaMobileApp.ServiceModels;
@@ -49,6 +52,7 @@ namespace e_SpaMobileApp.Activities
         private ProgressBar _loginProgressBar;
         private ICallbackManager callbackManager;
         private FirebaseAuth auth;
+        private AlertDialog.Builder isBusyBuilder;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -112,6 +116,7 @@ namespace e_SpaMobileApp.Activities
             {
                 auth.SignInWithEmailAndPassword(username, password)
                     .AddOnCompleteListener(this);
+                ShowIsBusyAlertDialog("Logging in with email", true);
             }
         }
 
@@ -131,15 +136,38 @@ namespace e_SpaMobileApp.Activities
 
         private void GoogleLogInBtn_Click(object sender, System.EventArgs e)
         {
-            _container1.Visibility = ViewStates.Invisible;
-            _container2.Visibility = ViewStates.Invisible;
-            _createAccountTxtView.Visibility = ViewStates.Invisible;
-            _forgotPassTxtView.Visibility = ViewStates.Invisible;
-            _loginProgressBar.Visibility = ViewStates.Visible;
+            //_container1.Visibility = ViewStates.Invisible;
+            //_container2.Visibility = ViewStates.Invisible;
+            //_createAccountTxtView.Visibility = ViewStates.Invisible;
+            //_forgotPassTxtView.Visibility = ViewStates.Invisible;
+            //_loginProgressBar.Visibility = ViewStates.Visible;
+            ShowIsBusyAlertDialog("Signing In", true);
             Intent intent = Auth.GoogleSignInApi.GetSignInIntent(_googleApiClient);
             StartActivityForResult(intent, googleSignInID);
         }
 
+        private void ShowIsBusyAlertDialog(string busyIndicatorTitle, bool isBusy)
+        {
+            isBusyBuilder = new AlertDialog.Builder(this, Resource.Style.AlertDialogTheme);
+           
+            SfBusyIndicator busyIndicator = new SfBusyIndicator(isBusyBuilder.Context);
+            busyIndicator.AnimationType = AnimationTypes.RollingBall;
+            busyIndicator.Title = busyIndicatorTitle;
+            busyIndicator.TextColor = Color.Purple;
+            busyIndicator.ViewBoxHeight = 100;
+            busyIndicator.ViewBoxWidth = 100;
+            busyIndicator.IsBusy = isBusy;
+            isBusyBuilder.SetView(busyIndicator);
+            if (isBusy)
+            {
+                isBusyBuilder.Show().Window.SetLayout(1000, 700);
+            }
+            else
+            {
+                isBusyBuilder.Dispose();
+            }
+        }
+        
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
@@ -162,14 +190,16 @@ namespace e_SpaMobileApp.Activities
             var socialPlatformApi = new SocialPlatformIdApi();
             var exists=await socialPlatformApi.CheeckIfPlatforIdExistAsync(account.Id, SocialPlatform.google);
 
-            _loginProgressBar.Visibility = ViewStates.Invisible;
-            _container1.Visibility = ViewStates.Visible;
-            _container2.Visibility = ViewStates.Visible;
-            _createAccountTxtView.Visibility = ViewStates.Visible;
-            _forgotPassTxtView.Visibility = ViewStates.Visible;
+           
+            //_loginProgressBar.Visibility = ViewStates.Invisible;
+            //_container1.Visibility = ViewStates.Visible;
+            //_container2.Visibility = ViewStates.Visible;
+            //_createAccountTxtView.Visibility = ViewStates.Visible;
+            //_forgotPassTxtView.Visibility = ViewStates.Visible;
 
             if (exists)
             {
+                isBusyBuilder.Dispose();
                 Toast.MakeText(this, $"Welcome {account.DisplayName}", ToastLength.Short).Show();
                 StartActivity(new Intent(this, typeof(MainActivity)));
             }
@@ -199,7 +229,7 @@ namespace e_SpaMobileApp.Activities
             Intent intent = new Intent(this, typeof(SocialNetworksRegisterActivity));
             intent.PutExtra("user", JsonConvert.SerializeObject(user));
             intent.PutExtra("socialPlatformId", JsonConvert.SerializeObject(socialPlatformId));
-
+            ShowIsBusyAlertDialog("", false);
             var builder = new AlertDialog.Builder(this, Resource.Style.AlertDialogTheme);
             builder.SetTitle("Account Does not Exists")
                 .SetMessage(
@@ -282,6 +312,7 @@ namespace e_SpaMobileApp.Activities
 
         public void OnComplete(Task task)
         {
+            isBusyBuilder.Dispose();
             if (!task.IsSuccessful)
             {
                 var builder = new AlertDialog.Builder(this, Resource.Style.AlertDialogTheme);
