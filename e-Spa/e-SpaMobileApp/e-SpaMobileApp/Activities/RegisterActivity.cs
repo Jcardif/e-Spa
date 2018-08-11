@@ -70,10 +70,65 @@ namespace e_SpaMobileApp.Activities
             _registerProgressBar = FindViewById<ProgressBar>(Resource.Id.progressbarRegister);
 
             googleBtn.Click += GoogleBtn_Click;
+            _registerBtn.Click += _registerBtn_Click;
             _facebookLoginBtn.SetReadPermissions(new List<string>{"public_profile", "email"});
             callbackManager = CallbackManagerFactory.Create();
             _facebookLoginBtn.RegisterCallback(callbackManager, this);
             ConfigureGoogleSigIn();
+        }
+
+        private void _registerBtn_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(_firstNameInputEditText.Text))
+            {
+                MakeToast("First Name");
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(_lastNameInputEditText.Text))
+                {
+                    MakeToast("Last Name");
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(_emailInputEditText.Text))
+                    {
+                        MakeToast("Email");
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(_phoneNoInputEditText.Text))
+                        {
+                            MakeToast("Phone Number");
+                        }
+                        else
+                        {
+                            if (!_acceptConditionsCheckBox.Checked)
+                            {
+                                Toast.MakeText(this, "Accept the terms of use of the application", ToastLength.Short).Show();
+                            }
+                            else
+                            {
+                                CreateUserAccount();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CreateUserAccount()
+        {
+            
+        }
+
+        private void MakeToast(string field)
+        {
+        //    socialRegisterProgressBar.Visibility = ViewStates.Invisible;
+        //    container1.Visibility = ViewStates.Visible;
+        //    _privacyPolicyTxtView.Visibility = ViewStates.Visible;
+        //    _termsOfUseTxtView.Visibility = ViewStates.Visible;
+            Toast.MakeText(this, $"The Field {field} Cannot be empty", ToastLength.Short).Show();
         }
 
         private void GoogleBtn_Click(object sender, EventArgs e)

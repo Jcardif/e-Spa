@@ -15,6 +15,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.APIClients;
+using e_SpaMobileApp.Helpers;
 using e_SpaMobileApp.ServiceModels;
 using Firebase;
 using Firebase.Auth;
@@ -49,7 +50,6 @@ namespace e_SpaMobileApp.Activities
         private ICallbackManager callbackManager;
         private FirebaseAuth auth;
 
-        public static FirebaseApp app;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -58,8 +58,7 @@ namespace e_SpaMobileApp.Activities
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
            SetContentView(Resource.Layout.activity_login);
             //init firebase
-            InitFirebaseAuth();
-            auth = FirebaseAuth.GetInstance(app);
+            FirebaseHelper.InitFirebaseAuth(auth, this);
             _googleLogInBtn = FindViewById<Button>(Resource.Id.googleLoginBtn);
             _emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
             _facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
@@ -82,23 +81,17 @@ namespace e_SpaMobileApp.Activities
             ConfigureGoogleSignIn();
         }
 
-        private void InitFirebaseAuth()
-        {
-
-            if (app == null)
-                app = FirebaseApp.InitializeApp(this);
-            auth = FirebaseAuth.GetInstance(app);
-        }
+    
 
         private void _emailLoginButton_Click(object sender, System.EventArgs e)
         {
-            if (_usernameTxtInputedtTxt.Text == null)
+            if (string.IsNullOrEmpty(_usernameTxtInputedtTxt.Text))
             {
                 Toast.MakeText(this,"Username Field Cannot be empty", ToastLength.Long).Show();
             }
             else
             {
-                if (_passwordTxtInputTxt.Text==null)
+                if (string.IsNullOrEmpty(_passwordTxtInputTxt.Text))
                 {
                     Toast.MakeText(this,"Username Field Cannot be empty", ToastLength.Long).Show();
                 }
@@ -288,14 +281,13 @@ namespace e_SpaMobileApp.Activities
         {
             if (!task.IsSuccessful)
             {
-                var builder = new AlertDialog.Builder(this);
+                var builder = new AlertDialog.Builder(this, Resource.Style.AlertDialogTheme);
                 builder.SetTitle("Log In Error")
                     .SetMessage(
-                        "Log In was Unsuccessful. The password or Email is incorrect. Please try again or reset your password.")
+                        "Log In was Unsuccessful. The password or Email is incorrect. Please try again, reset your password or if you have no account Create one. If the problem persists contact us.")
                     .SetNeutralButton("Ok", delegate { builder.Dispose(); });
                 builder.Show();
             }
-            StartActivity(new Intent(this, typeof(MainActivity)));
         }
     }
 }

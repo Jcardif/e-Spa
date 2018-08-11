@@ -78,6 +78,7 @@
     <Compile Include="MobileClientServiceMangement\APIClients\SalonsAPIClient.cs" />
     <Compile Include="MobileClientServiceMangement\APIClients\SocialPlatformIdApi.cs" />
     <Compile Include="MobileClientServiceMangement\APIClients\UserApiClient.cs" />
+    <Compile Include="MobileClientServiceMangement\Helpers\FirebaseHelper.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Appointment.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Client.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\SocialPlatformID.cs" />
