@@ -108,8 +108,11 @@ namespace e_SpaMobileApp.Activities
             {
                 Toast.MakeText(this, "No Internet Connection", ToastLength.Long).Show();
             }
-            auth.SignInWithEmailAndPassword(username, password)
-                .AddOnCompleteListener(this);
+            else
+            {
+                auth.SignInWithEmailAndPassword(username, password)
+                    .AddOnCompleteListener(this);
+            }
         }
 
         private void ConfigureGoogleSignIn()

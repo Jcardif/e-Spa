@@ -7,6 +7,7 @@ using Android.Gms.Auth.Api;
 using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
+using Android.Gms.Tasks;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -14,11 +15,15 @@ using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using e_SpaMobileApp.APIClients;
+using e_SpaMobileApp.Helpers;
 using e_SpaMobileApp.ServiceModels;
+using Firebase.Auth;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
+using Plugin.Connectivity;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
 using Xamarin.Facebook.Login.Widget;
@@ -26,24 +31,29 @@ using Object = Java.Lang.Object;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class RegisterActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, IFacebookCallback
+    [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = false,
+        ScreenOrientation = ScreenOrientation.Portrait)]
+    public class RegisterActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks,
+        GoogleApiClient.IOnConnectionFailedListener, IFacebookCallback, IOnCompleteListener
     {
         private Button googleBtn, _registerBtn;
         private LoginButton _facebookLoginBtn;
+
         private TextInputEditText _firstNameInputEditText,
             _lastNameInputEditText,
             _phoneNoInputEditText,
             _emailInputEditText,
             _passwordInputEditText;
+
         private CheckBox _acceptConditionsCheckBox;
         private TextView _termsofUseTxtView, _privacyPolicyTxtView;
-        private int signInCode=1001;
+        private int signInCode = 1001;
         private int fbSignInID = 1498;
         private LinearLayout _container1;
         private ProgressBar _registerProgressBar;
         private GoogleApiClient googleApiClient;
         private ICallbackManager callbackManager;
+        private FirebaseAuth auth;
 
 
 
@@ -51,8 +61,9 @@ namespace e_SpaMobileApp.Activities
         {
             base.OnCreate(savedInstanceState);
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
-            
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(
+                "MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
+            FirebaseHelper.InitFirebaseAuth(auth, this);
 
             SetContentView(Resource.Layout.activity_register);
             _registerBtn = FindViewById<Button>(Resource.Id.registerBtn);
@@ -71,7 +82,7 @@ namespace e_SpaMobileApp.Activities
 
             googleBtn.Click += GoogleBtn_Click;
             _registerBtn.Click += _registerBtn_Click;
-            _facebookLoginBtn.SetReadPermissions(new List<string>{"public_profile", "email"});
+            _facebookLoginBtn.SetReadPermissions(new List<string> {"public_profile", "email"});
             callbackManager = CallbackManagerFactory.Create();
             _facebookLoginBtn.RegisterCallback(callbackManager, this);
             ConfigureGoogleSigIn();
@@ -79,7 +90,7 @@ namespace e_SpaMobileApp.Activities
 
         private void _registerBtn_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(_firstNameInputEditText.Text))
+            if (string.IsNullOrEmpty(_firstNameInputEditText.Text))
             {
                 MakeToast("First Name");
             }
@@ -105,11 +116,12 @@ namespace e_SpaMobileApp.Activities
                         {
                             if (!_acceptConditionsCheckBox.Checked)
                             {
-                                Toast.MakeText(this, "Accept the terms of use of the application", ToastLength.Short).Show();
+                                Toast.MakeText(this, "Accept the terms of use of the application", ToastLength.Short)
+                                    .Show();
                             }
                             else
                             {
-                                CreateUserAccount();
+                                CreateUserAccount(_emailInputEditText.Text, _passwordInputEditText.Text);
                             }
                         }
                     }
@@ -117,17 +129,26 @@ namespace e_SpaMobileApp.Activities
             }
         }
 
-        private void CreateUserAccount()
+        private void CreateUserAccount(string email, string password)
         {
-            
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                Toast.MakeText(this, "No Internet Connection", ToastLength.Long).Show();
+            }
+            else
+            {
+                auth.CreateUserWithEmailAndPassword(email, password)
+                    .AddOnCompleteListener(this, this);
+            }
         }
+
 
         private void MakeToast(string field)
         {
-        //    socialRegisterProgressBar.Visibility = ViewStates.Invisible;
-        //    container1.Visibility = ViewStates.Visible;
-        //    _privacyPolicyTxtView.Visibility = ViewStates.Visible;
-        //    _termsOfUseTxtView.Visibility = ViewStates.Visible;
+            //    socialRegisterProgressBar.Visibility = ViewStates.Invisible;
+            //    container1.Visibility = ViewStates.Visible;
+            //    _privacyPolicyTxtView.Visibility = ViewStates.Visible;
+            //    _termsOfUseTxtView.Visibility = ViewStates.Visible;
             Toast.MakeText(this, $"The Field {field} Cannot be empty", ToastLength.Short).Show();
         }
 
@@ -138,7 +159,7 @@ namespace e_SpaMobileApp.Activities
             _privacyPolicyTxtView.Visibility = ViewStates.Invisible;
             _termsofUseTxtView.Visibility = ViewStates.Invisible;
             Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
-            StartActivityForResult(intent,signInCode);
+            StartActivityForResult(intent, signInCode);
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
@@ -154,11 +175,11 @@ namespace e_SpaMobileApp.Activities
             }
             else if (requestCode == fbSignInID)
             {
-                callbackManager.OnActivityResult(requestCode, (int)resultCode, data);
+                callbackManager.OnActivityResult(requestCode, (int) resultCode, data);
             }
         }
 
-        private  void CreateAccountForUserWithGoogle(GoogleSignInAccount account)
+        private void CreateAccountForUserWithGoogle(GoogleSignInAccount account)
         {
             var user = new Client
             {
@@ -222,12 +243,12 @@ namespace e_SpaMobileApp.Activities
 
         public void OnCancel()
         {
-            
+
         }
 
         public void OnError(FacebookException error)
         {
-            
+
         }
 
         public void OnSuccess(Object result)
@@ -239,7 +260,7 @@ namespace e_SpaMobileApp.Activities
                 Email = "",
                 FirstName = profile.FirstName,
                 LastName = profile.LastName,
-                ProfilePhotoUrl = profile.GetProfilePictureUri(220,220).ToString(),
+                ProfilePhotoUrl = profile.GetProfilePictureUri(220, 220).ToString(),
                 Residence = "",
                 PhoneNumber = "",
                 SocialPlatformID_Id = profile.Id
@@ -251,6 +272,46 @@ namespace e_SpaMobileApp.Activities
             };
             RegisterNewUser(user, socialPlatformId);
             Log.Info("FB", "Login Success!");
+        }
+
+        public async void OnComplete(Task task)
+        {
+            if (task.IsSuccessful)
+            {
+                await auth.SignInWithEmailAndPasswordAsync(_emailInputEditText.Text, _passwordInputEditText.Text);
+
+                var _socialPlatformId = new SocialPlatformID
+                {
+                    SocialPlatform = SocialPlatform.mail,
+                    PlatformId = auth.CurrentUser.Uid
+                };
+                var socialPlatformIdApi = new SocialPlatformIdApi();
+                await socialPlatformIdApi.AddSocialPlatformId(_socialPlatformId);
+                var spltId =
+                    await socialPlatformIdApi.GetSocialPlatformIdBySocialPlatformAsync(_socialPlatformId.PlatformId);
+                var newUser = new Client
+                {
+                    Email = _emailInputEditText.Text,
+                    FirstName = _firstNameInputEditText.Text,
+                    LastName = _lastNameInputEditText.Text,
+                    ProfilePhotoUrl = "null",
+                    Residence = "null",
+                    PhoneNumber = _phoneNoInputEditText.Text,
+                    SocialPlatformID_Id = spltId.Id
+                };
+                var userApiClient = new UserApiClient();
+                await userApiClient.AddClientAsync(newUser);
+
+
+                Toast.MakeText(this, $"Welcome {newUser.FirstName}, Thanks for Registering", ToastLength.Short).Show();
+                var intent = new Intent(this, typeof(MainActivity));
+                intent.PutExtra("user", JsonConvert.SerializeObject(newUser));
+                StartActivity(intent);
+            }
+            else
+            {
+                Toast.MakeText(this, "Registry In Failed", ToastLength.Long).Show();
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ namespace e_SpaMobileApp.Helpers
 {
     public class FirebaseHelper
     {
-        public static FirebaseApp app;
+        private static FirebaseApp app;
         public static void InitFirebaseAuth(FirebaseAuth auth, Context context)
         {
 
