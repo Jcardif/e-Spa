@@ -19,6 +19,7 @@ using Java.Lang;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Newtonsoft.Json;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
 using Xamarin.Facebook.Login.Widget;
@@ -59,11 +60,37 @@ namespace e_SpaMobileApp.Activities
             _passwordTxtInputTxt = FindViewById<TextInputEditText>(Resource.Id.passwordInputEdtTxt);
             _emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
 
-            _facebookLoginButton.SetReadPermissions(new List<string>{"public_profile"});
+            _createAccountTxtView.Click += (o, e) => { StartActivity(new Intent(this, typeof(RegisterActivity))); };
+            _emailLoginButton.Click += _emailLoginButton_Click;
+            _facebookLoginButton.SetReadPermissions(new List<string>{"public_profile", "email"});
             callbackManager = CallbackManagerFactory.Create();
             _facebookLoginButton.RegisterCallback(callbackManager, this);
             _googleLogInBtn.Click += GoogleLogInBtn_Click;
             ConfigureGoogleSignIn();
+        }
+
+        private void _emailLoginButton_Click(object sender, System.EventArgs e)
+        {
+            if (_usernameTxtInputedtTxt.Text == null)
+            {
+                Toast.MakeText(this,"Username Field Cannot be empty", ToastLength.Long).Show();
+            }
+            else
+            {
+                if (_passwordTxtInputTxt.Text==null)
+                {
+                    Toast.MakeText(this,"Username Field Cannot be empty", ToastLength.Long).Show();
+                }
+                else
+                {
+                    LoginWithEmail(_usernameTxtInputedtTxt.Text, _passwordTxtInputTxt.Text);
+                }
+            }
+        }
+
+        private void LoginWithEmail(string username, string password)
+        {
+            
         }
 
         private void ConfigureGoogleSignIn()
@@ -126,10 +153,33 @@ namespace e_SpaMobileApp.Activities
             }
             else
             {
-                Snackbar.Make(_parentLayout, "Account Does not exist.", Snackbar.LengthLong)
-                    .SetAction("Register", (view) => { StartActivity(new Intent(this, typeof(RegisterActivity))); })
-                    .Show();
+                var user = new Client
+                {
+                    Email = account.Email,
+                    FirstName = account.GivenName,
+                    LastName = account.FamilyName,
+                    ProfilePhotoUrl = account.PhotoUrl.ToString(),
+                    Residence = "",
+                    PhoneNumber = "",
+                    SocialPlatformID_Id = account.Id
+                };
+                var socialPlatformId = new SocialPlatformID
+                {
+                    SocialPlatform = SocialPlatform.google,
+                    PlatformId = account.Id
+                };
+                HandleAccountDoesNotExist(user, socialPlatformId);
             }
+        }
+
+        private void HandleAccountDoesNotExist(Client user, SocialPlatformID socialPlatformId)
+        {
+            Intent intent = new Intent(this, typeof(SocialPlatformID));
+            intent.PutExtra("user", JsonConvert.SerializeObject(user));
+            intent.PutExtra("socialPlatformId", JsonConvert.SerializeObject(socialPlatformId));
+            Snackbar.Make(_parentLayout, "Account Does not exist.", Snackbar.LengthLong)
+                .SetAction("Register", (view) => { StartActivity(intent); })
+                .Show();
         }
 
         public void OnConnected(Bundle connectionHint)
@@ -182,9 +232,22 @@ namespace e_SpaMobileApp.Activities
             }
             else
             {
-                Snackbar.Make(_parentLayout, "Account Does not exist.", Snackbar.LengthLong)
-                    .SetAction("Register", (view) => { StartActivity(new Intent(this, typeof(RegisterActivity))); })
-                    .Show();
+                var user = new Client
+                {
+                    Email = "",
+                    FirstName = profile.FirstName,
+                    LastName = profile.LastName,
+                    ProfilePhotoUrl = profile.LinkUri.ToString(),
+                    Residence = "",
+                    PhoneNumber = "",
+                    SocialPlatformID_Id = profile.Id
+                };
+                var socialPlatformId = new SocialPlatformID
+                {
+                    SocialPlatform = SocialPlatform.google,
+                    PlatformId = profile.Id
+                };
+                HandleAccountDoesNotExist(user, socialPlatformId);
             }
         }
     }
