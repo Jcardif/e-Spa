@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -10,6 +11,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.ServiceModels;
@@ -18,6 +20,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using Xamarin.Facebook;
+using Xamarin.Facebook.Login;
 using Xamarin.Facebook.Login.Widget;
 using Object = Java.Lang.Object;
 
@@ -35,12 +38,14 @@ namespace e_SpaMobileApp.Activities
             _passwordInputEditText;
         private CheckBox _acceptConditionsCheckBox;
         private TextView _termsofUseTxtView, _privacyPolicyTxtView;
-        private GoogleApiClient _googleApiClient;
         private int signInCode=1001;
+        private int fbSignInID = 1498;
         private LinearLayout _container1;
         private ProgressBar _registerProgressBar;
+        private GoogleApiClient googleApiClient;
+        private ICallbackManager callbackManager;
 
-        public GoogleApiClient GoogleApiClient { get => _googleApiClient; set => _googleApiClient = value; }
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -65,6 +70,9 @@ namespace e_SpaMobileApp.Activities
             _registerProgressBar = FindViewById<ProgressBar>(Resource.Id.progressbarRegister);
 
             googleBtn.Click += GoogleBtn_Click;
+            _facebookLoginBtn.SetReadPermissions(new List<string>{"public_profile", "email"});
+            callbackManager = CallbackManagerFactory.Create();
+            _facebookLoginBtn.RegisterCallback(callbackManager, this);
             ConfigureGoogleSigIn();
         }
 
@@ -74,21 +82,28 @@ namespace e_SpaMobileApp.Activities
             _container1.Visibility = ViewStates.Invisible;
             _privacyPolicyTxtView.Visibility = ViewStates.Invisible;
             _termsofUseTxtView.Visibility = ViewStates.Invisible;
-            Intent intent = Auth.GoogleSignInApi.GetSignInIntent(GoogleApiClient);
+            Intent intent = Auth.GoogleSignInApi.GetSignInIntent(googleApiClient);
             StartActivityForResult(intent,signInCode);
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            if (requestCode != signInCode) return;
-            var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
-            if (!result.IsSuccess) return;
-            var account = result.SignInAccount;
-            CreateAccountForUser(account);
+            if (requestCode == signInCode)
+            {
+                var result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
+
+                if (!result.IsSuccess) return;
+                var account = result.SignInAccount;
+                CreateAccountForUserWithGoogle(account);
+            }
+            else if (requestCode == fbSignInID)
+            {
+                callbackManager.OnActivityResult(requestCode, (int)resultCode, data);
+            }
         }
 
-        private  void CreateAccountForUser(GoogleSignInAccount account)
+        private  void CreateAccountForUserWithGoogle(GoogleSignInAccount account)
         {
             var user = new Client
             {
@@ -105,7 +120,12 @@ namespace e_SpaMobileApp.Activities
                 SocialPlatform = SocialPlatform.google,
                 PlatformId = account.Id
             };
-            var intent=new Intent(this, typeof(SocialNetworksRegisterActivity));
+            RegisterNewUser(user, socialPlatformId);
+        }
+
+        private void RegisterNewUser(Client user, SocialPlatformID socialPlatformId)
+        {
+            var intent = new Intent(this, typeof(SocialNetworksRegisterActivity));
             intent.PutExtra("user", JsonConvert.SerializeObject(user));
             intent.PutExtra("socialPlatformId", JsonConvert.SerializeObject(socialPlatformId));
 
@@ -125,7 +145,7 @@ namespace e_SpaMobileApp.Activities
                 .RequestId()
                 .RequestProfile()
                 .Build();
-            GoogleApiClient = new GoogleApiClient
+            googleApiClient = new GoogleApiClient
                     .Builder(this)
                 .EnableAutoManage(this, this)
                 .AddApi(Auth.GOOGLE_SIGN_IN_API, options)
@@ -147,17 +167,35 @@ namespace e_SpaMobileApp.Activities
 
         public void OnCancel()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void OnError(FacebookException error)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void OnSuccess(Object result)
         {
-            throw new NotImplementedException();
+            var loginResult = result as LoginResult;
+            var profile = Profile.CurrentProfile;
+            var user = new Client
+            {
+                Email = "",
+                FirstName = profile.FirstName,
+                LastName = profile.LastName,
+                ProfilePhotoUrl = profile.GetProfilePictureUri(220,220).ToString(),
+                Residence = "",
+                PhoneNumber = "",
+                SocialPlatformID_Id = profile.Id
+            };
+            var socialPlatformId = new SocialPlatformID
+            {
+                SocialPlatform = SocialPlatform.facebook,
+                PlatformId = profile.Id
+            };
+            RegisterNewUser(user, socialPlatformId);
+            Log.Info("FB", "Login Success!");
         }
     }
 }

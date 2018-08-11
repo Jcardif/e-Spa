@@ -40,6 +40,7 @@ namespace e_SpaMobileApp.Activities
         private TextView _createAccountTxtView, _forgotPassTxtView;
         private GoogleApiClient _googleApiClient;
         private int googleSignInID = 1498;
+        private int fbSignInID = 1001;
         private RelativeLayout _parentLayout;
         private LinearLayout _container1;
         private LinearLayout _container2;
@@ -151,7 +152,7 @@ namespace e_SpaMobileApp.Activities
                 var account = result.SignInAccount;
                 CheckGoogleAccountExistence(account);
             }
-            else
+            else if(requestCode==fbSignInID)
             {
                 callbackManager.OnActivityResult(requestCode, (int)resultCode, data);
             }
@@ -259,14 +260,14 @@ namespace e_SpaMobileApp.Activities
                     Email = "",
                     FirstName = profile.FirstName,
                     LastName = profile.LastName,
-                    ProfilePhotoUrl = profile.LinkUri.ToString(),
+                    ProfilePhotoUrl = profile.GetProfilePictureUri(220,220).ToString(),
                     Residence = "",
                     PhoneNumber = "",
                     SocialPlatformID_Id = profile.Id
                 };
                 var socialPlatformId = new SocialPlatformID
                 {
-                    SocialPlatform = SocialPlatform.google,
+                    SocialPlatform = SocialPlatform.facebook,
                     PlatformId = profile.Id
                 };
                 HandleAccountDoesNotExist(user, socialPlatformId);
