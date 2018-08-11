@@ -27,6 +27,7 @@ using Plugin.Connectivity;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
 using Xamarin.Facebook.Login.Widget;
+using AlertDialog=Android.Support.V7.App.AlertDialog;
 
 namespace e_SpaMobileApp.Activities
 {
@@ -110,8 +111,10 @@ namespace e_SpaMobileApp.Activities
 
         private void LoginWithEmail(string username, string password)
         {
-            if(!CrossConnectivity.Current.IsConnected)
+            if (!CrossConnectivity.Current.IsConnected)
+            {
                 Toast.MakeText(this, "No Internet Connection", ToastLength.Long).Show();
+            }
             auth.SignInWithEmailAndPassword(username, password)
                 .AddOnCompleteListener(this);
         }
@@ -197,12 +200,18 @@ namespace e_SpaMobileApp.Activities
 
         private void HandleAccountDoesNotExist(Client user, SocialPlatformID socialPlatformId)
         {
-            Intent intent = new Intent(this, typeof(SocialPlatformID));
+            Intent intent = new Intent(this, typeof(SocialNetworksRegisterActivity));
             intent.PutExtra("user", JsonConvert.SerializeObject(user));
             intent.PutExtra("socialPlatformId", JsonConvert.SerializeObject(socialPlatformId));
-            Snackbar.Make(_parentLayout, "Account Does not exist.", Snackbar.LengthLong)
-                .SetAction("Register", (view) => { StartActivity(intent); })
-                .Show();
+
+            var builder = new AlertDialog.Builder(this, Resource.Style.AlertDialogTheme);
+            builder.SetTitle("Account Does not Exists")
+                .SetMessage(
+                    "No e-Spa account was found associated with that account. If you have no account create one. If the problem persits contact us.")
+                .SetNeutralButton("Contact Us", delegate { builder.Dispose(); })
+                .SetPositiveButton("Register", delegate { StartActivity(intent); })
+                .SetNegativeButton("Cancel", delegate { builder.Dispose(); });
+            builder.Show();
         }
 
         public void OnConnected(Bundle connectionHint)
@@ -279,7 +288,7 @@ namespace e_SpaMobileApp.Activities
         {
             if (!task.IsSuccessful)
             {
-                var builder = new Android.Support.V7.App.AlertDialog.Builder(this);
+                var builder = new AlertDialog.Builder(this);
                 builder.SetTitle("Log In Error")
                     .SetMessage(
                         "Log In was Unsuccessful. The password or Email is incorrect. Please try again or reset your password.")

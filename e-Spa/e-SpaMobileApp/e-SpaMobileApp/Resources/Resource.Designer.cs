@@ -4546,6 +4546,9 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0a00b2
 			public const int AlertDialog_AppCompat_Light = 2131361970;
 			
+			// aapt resource value: 0x7f0a019e
+			public const int AlertDialogTheme = 2131362206;
+			
 			// aapt resource value: 0x7f0a00b3
 			public const int Animation_AppCompat_Dialog = 2131361971;
 			
