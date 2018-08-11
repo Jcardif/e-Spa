@@ -6,6 +6,7 @@ using Android.Gms.Auth.Api;
 using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
+using Android.Gms.Tasks;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -15,11 +16,14 @@ using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ServiceModels;
+using Firebase;
+using Firebase.Auth;
 using Java.Lang;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
+using Plugin.Connectivity;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
 using Xamarin.Facebook.Login.Widget;
@@ -27,7 +31,8 @@ using Xamarin.Facebook.Login.Widget;
 namespace e_SpaMobileApp.Activities
 {
     [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class LogInActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, IFacebookCallback
+    public class LogInActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, IFacebookCallback,
+         Android.Gms.Tasks.IOnCompleteListener
     {
         private Button _googleLogInBtn, _emailLoginButton;
         private LoginButton _facebookLoginButton;
@@ -40,6 +45,9 @@ namespace e_SpaMobileApp.Activities
         private LinearLayout _container2;
         private ProgressBar _loginProgressBar;
         private ICallbackManager callbackManager;
+        private FirebaseAuth auth;
+
+        public static FirebaseApp app;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -47,6 +55,9 @@ namespace e_SpaMobileApp.Activities
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
            SetContentView(Resource.Layout.activity_login);
+            //init firebase
+            InitFirebaseAuth();
+            auth = FirebaseAuth.GetInstance(app);
             _googleLogInBtn = FindViewById<Button>(Resource.Id.googleLoginBtn);
             _emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
             _facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
@@ -67,6 +78,14 @@ namespace e_SpaMobileApp.Activities
             _facebookLoginButton.RegisterCallback(callbackManager, this);
             _googleLogInBtn.Click += GoogleLogInBtn_Click;
             ConfigureGoogleSignIn();
+        }
+
+        private void InitFirebaseAuth()
+        {
+
+            if (app == null)
+                app = FirebaseApp.InitializeApp(this);
+            auth = FirebaseAuth.GetInstance(app);
         }
 
         private void _emailLoginButton_Click(object sender, System.EventArgs e)
@@ -90,7 +109,10 @@ namespace e_SpaMobileApp.Activities
 
         private void LoginWithEmail(string username, string password)
         {
-            
+            if(!CrossConnectivity.Current.IsConnected)
+                Toast.MakeText(this, "No Internet Connection", ToastLength.Long).Show();
+            auth.SignInWithEmailAndPassword(username, password)
+                .AddOnCompleteListener(this);
         }
 
         private void ConfigureGoogleSignIn()
@@ -249,6 +271,21 @@ namespace e_SpaMobileApp.Activities
                 };
                 HandleAccountDoesNotExist(user, socialPlatformId);
             }
+        }
+
+
+        public void OnComplete(Task task)
+        {
+            if (!task.IsSuccessful)
+            {
+                var builder = new Android.Support.V7.App.AlertDialog.Builder(this);
+                builder.SetTitle("Log In Error")
+                    .SetMessage(
+                        "Log In was Unsuccessful. The password or Email is incorrect. Please try again or reset your password.")
+                    .SetNeutralButton("Ok", delegate { builder.Dispose(); });
+                builder.Show();
+            }
+            StartActivity(new Intent(this, typeof(MainActivity)));
         }
     }
 }
