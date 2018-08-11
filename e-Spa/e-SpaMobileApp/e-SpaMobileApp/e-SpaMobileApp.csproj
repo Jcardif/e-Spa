@@ -62,6 +62,7 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
     <Compile Include="Activities\SocialNetworksRegisterActivity.cs" />
+    <Compile Include="Activities\SplashScreenActivity.cs" />
     <Compile Include="Adapters\SalonsRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\ServicesRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\TabAdapter.cs" />
@@ -309,6 +310,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_google.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splashImage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

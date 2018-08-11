@@ -2529,26 +2529,26 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f0200b9
-			public const int avd_hide_password_1 = 2130837689;
-			
 			// aapt resource value: 0x7f0200ba
-			public const int avd_hide_password_2 = 2130837690;
+			public const int avd_hide_password_1 = 2130837690;
 			
 			// aapt resource value: 0x7f0200bb
-			public const int avd_hide_password_3 = 2130837691;
+			public const int avd_hide_password_2 = 2130837691;
+			
+			// aapt resource value: 0x7f0200bc
+			public const int avd_hide_password_3 = 2130837692;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f0200bc
-			public const int avd_show_password_1 = 2130837692;
-			
 			// aapt resource value: 0x7f0200bd
-			public const int avd_show_password_2 = 2130837693;
+			public const int avd_show_password_1 = 2130837693;
 			
 			// aapt resource value: 0x7f0200be
-			public const int avd_show_password_3 = 2130837694;
+			public const int avd_show_password_2 = 2130837694;
+			
+			// aapt resource value: 0x7f0200bf
+			public const int avd_show_password_3 = 2130837695;
 			
 			// aapt resource value: 0x7f020055
 			public const int client_app_layout_background = 2130837589;
@@ -2805,11 +2805,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0200a9
 			public const int notification_icon_background = 2130837673;
 			
-			// aapt resource value: 0x7f0200b7
-			public const int notification_template_icon_bg = 2130837687;
-			
 			// aapt resource value: 0x7f0200b8
-			public const int notification_template_icon_low_bg = 2130837688;
+			public const int notification_template_icon_bg = 2130837688;
+			
+			// aapt resource value: 0x7f0200b9
+			public const int notification_template_icon_low_bg = 2130837689;
 			
 			// aapt resource value: 0x7f0200aa
 			public const int notification_tile_bg = 2130837674;
@@ -2842,13 +2842,16 @@ namespace e_SpaMobileApp
 			public const int rose = 2130837683;
 			
 			// aapt resource value: 0x7f0200b4
-			public const int title_trend_edittext_style = 2130837684;
+			public const int splashImage = 2130837684;
 			
 			// aapt resource value: 0x7f0200b5
-			public const int tooltip_frame_dark = 2130837685;
+			public const int title_trend_edittext_style = 2130837685;
 			
 			// aapt resource value: 0x7f0200b6
-			public const int tooltip_frame_light = 2130837686;
+			public const int tooltip_frame_dark = 2130837686;
+			
+			// aapt resource value: 0x7f0200b7
+			public const int tooltip_frame_light = 2130837687;
 			
 			static Drawable()
 			{
@@ -5194,6 +5197,9 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0a0054
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131361876;
 			
+			// aapt resource value: 0x7f0a019f
+			public const int SplashTheme = 2131362207;
+			
 			// aapt resource value: 0x7f0a00e3
 			public const int TextAppearance_AppCompat = 2131362019;
 			
@@ -5781,6 +5787,9 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 0x7f0a0011
 			public const int com_facebook_loginview_silver_style = 2131361809;
+			
+			// aapt resource value: 0x7f0a01a0
+			public const int splashScreen_Base = 2131362208;
 			
 			// aapt resource value: 0x7f0a0012
 			public const int tooltip_bubble_text = 2131361810;

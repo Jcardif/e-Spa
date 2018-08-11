@@ -32,7 +32,7 @@ using AlertDialog=Android.Support.V7.App.AlertDialog;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class LogInActivity : AppCompatActivity, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, IFacebookCallback,
          Android.Gms.Tasks.IOnCompleteListener
     {
@@ -57,8 +57,8 @@ namespace e_SpaMobileApp.Activities
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTMyNjRAMzEzNjJlMzIyZTMwVCtqVm51dVJSdThoQW1lOXNLN2dVQjRnSG9VMkYxL245QlhQODVISmhjRT0=");
            SetContentView(Resource.Layout.activity_login);
-            //init firebase
             FirebaseHelper.InitFirebaseAuth(this);
+            auth = FirebaseAuth.GetInstance(FirebaseHelper.app);
             _googleLogInBtn = FindViewById<Button>(Resource.Id.googleLoginBtn);
             _emailLoginButton = FindViewById<Button>(Resource.Id.loginBtn);
             _facebookLoginButton = FindViewById<LoginButton>(Resource.Id.fbBtnLogin);
