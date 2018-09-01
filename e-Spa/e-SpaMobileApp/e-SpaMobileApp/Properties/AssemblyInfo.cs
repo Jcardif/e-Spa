@@ -30,8 +30,5 @@ using Android.App;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 
-[assembly: MetaData("com.facebook.sdk.ApplicationId", Value = "@string/facebook_app_id")]
-[assembly: MetaData("com.facebook.sdk.ApplicationName", Value = "@string/app_name")]
-
 [assembly: Permission(Name = Manifest.Permission.Internet)]
 [assembly: Permission(Name = Manifest.Permission.WriteExternalStorage)]
