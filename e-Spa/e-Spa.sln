@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-SpaFunctions", "e-SpaFunctions\e-SpaFunctions.csproj", "{5C1ED2DA-5C8D-4B9C-8B11-6BAC5FC00208}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-SpaMobileApp", "e-SpaMobileApp\e-SpaMobileApp\e-SpaMobileApp.csproj", "{52381C0D-EAAA-42D6-BAE9-66657B9E0A21}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-SpaBackend", "e-SpaBackend\e-SpaBackend.csproj", "{BFD0C047-36F0-4111-B941-109E3F69407A}"
