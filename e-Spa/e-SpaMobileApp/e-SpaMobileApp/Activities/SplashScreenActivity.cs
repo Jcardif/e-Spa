@@ -22,7 +22,7 @@ using Xamarin.Facebook;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/SplashTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/app_name", Theme = "@style/SplashTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
  public class SplashScreenActivity : AppCompatActivity
     {
         private FirebaseAuth auth;
