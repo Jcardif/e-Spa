@@ -14,9 +14,9 @@ namespace e_SpaMobileApp.Models
 {
     public class UserInfo
     {
-        private string firstName;
-        private string lastName;
-        public string email;
-        public string phoneNumber;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
     }
 }
