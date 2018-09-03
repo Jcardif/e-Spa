@@ -18,7 +18,6 @@ using Firebase.Auth;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Xamarin.Facebook;
 
 namespace e_SpaMobileApp.Activities
 {
@@ -38,41 +37,41 @@ namespace e_SpaMobileApp.Activities
         {
             base.OnResume();
             var startUpTask = new Task(() => { Task.Delay(7000); });
-            startUpTask.ContinueWith(t =>
-            {
-                FirebaseAuth.Instance.AuthState += (sender, e) =>
-                {
-                    var user = e?.Auth?.CurrentUser;
+            //startUpTask.ContinueWith(t =>
+            //{
+            //    FirebaseAuth.Instance.AuthState += (sender, e) =>
+            //    {
+            //        var user = e?.Auth?.CurrentUser;
 
-                    if (user != null)
-                    {
-                        StartActivity(new Intent(Application.Context, typeof(MainActivity)));
-                        Finish();
-                    }
-                    else
-                    {
-                        var token = AccessToken.CurrentAccessToken;
-                        if (token != null && !token.IsExpired)
-                        {
-                            StartActivity(new Intent(Application.Context, typeof(MainActivity)));
-                            Finish();
-                        }
-                        else
-                        {
-                            if (GoogleSignInOptions.DefaultSignIn.Account != null)
-                            {
-                                StartActivity(new Intent(Application.Context, typeof(MainActivity)));
-                                Finish();
-                            }
-                            else
-                            {
-                                StartActivity(new Intent(Application.Context, typeof(LogInActivity)));
-                                Finish();
-                            }
-                        }
-                    }
-                };
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+            //        if (user != null)
+            //        {
+            //            StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+            //            Finish();
+            //        }
+            //        else
+            //        {
+            //            var token = AccessToken.CurrentAccessToken;
+            //            if (token != null && !token.IsExpired)
+            //            {
+            //                StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+            //                Finish();
+            //            }
+            //            else
+            //            {
+            //                if (GoogleSignInOptions.DefaultSignIn.Account != null)
+            //                {
+            //                    StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+            //                    Finish();
+            //                }
+            //                else
+            //                {
+            //                    StartActivity(new Intent(Application.Context, typeof(LogInActivity)));
+            //                    Finish();
+            //                }
+            //            }
+            //        }
+            //    };
+            //}, TaskScheduler.FromCurrentSynchronizationContext());
             startUpTask.Start();
         }
     }
