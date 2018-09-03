@@ -16,7 +16,13 @@ namespace e_SpaMobileApp.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string Residence { get; set; }
+    }
+
+    public class PhoneInfo
+    {
+        public string CountryCode { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }
