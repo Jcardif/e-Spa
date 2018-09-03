@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -14,7 +15,7 @@ using e_SpaMobileApp.Fragments;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "AuthorizationActivity")]
+    [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class AuthorizationActivity : AppCompatActivity
     {
         private FrameLayout _authorisationFrameLayout;
@@ -23,9 +24,10 @@ namespace e_SpaMobileApp.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_authorization);
             _authorisationFrameLayout = FindViewById<FrameLayout>(Resource.Id.authorizationContainer);
+            LoadFragment();
         }
 
-        public void LoadFragment(object obj)
+        public void LoadFragment()
         {
             var fragment = new AuthorizationFragment();
             SupportFragmentManager.BeginTransaction()
