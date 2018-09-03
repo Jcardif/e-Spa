@@ -22,11 +22,8 @@ namespace e_SpaBackend.DataObjects
         public string Residence { get; set; }
         [Required, Column(TypeName = "VARCHAR")]
         public string PhoneNumber { get; set; }
-        [Required, ForeignKey("PlatformID")]
-        public string SocialPlatformID_Id { get; set; }
 
         public virtual ICollection<Appointment> Appointments { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
-        public virtual SocialPlatformID PlatformID { get; set; }
     }
 }

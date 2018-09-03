@@ -198,10 +198,8 @@
     <Compile Include="Controllers\SalonManagerController.cs" />
     <Compile Include="Controllers\SalonServiceController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
-    <Compile Include="Controllers\SocialPlatformIDController.cs" />
     <Compile Include="DataObjects\Appointment.cs" />
     <Compile Include="DataObjects\Client.cs" />
-    <Compile Include="DataObjects\SocialPlatformID.cs" />
     <Compile Include="DataObjects\Review.cs" />
     <Compile Include="DataObjects\Salon.cs" />
     <Compile Include="DataObjects\SalonManager.cs" />
