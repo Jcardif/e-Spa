@@ -64,8 +64,10 @@
     <Compile Include="Adapters\TrendsTabAdapter.cs" />
     <Compile Include="Fragments\AddTrendFragment.cs" />
     <Compile Include="Fragments\AppointmentFragment.cs" />
+    <Compile Include="Fragments\AuthorizationFragment.cs" />
     <Compile Include="Fragments\ForumsFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
+    <Compile Include="Fragments\RegisterNewUserFragment.cs" />
     <Compile Include="Fragments\SalonsFragment.cs" />
     <Compile Include="Fragments\ServicesFragment.cs" />
     <Compile Include="Fragments\TrendsFragment.cs" />
@@ -288,12 +290,12 @@
     <AndroidResource Include="Resources\drawable\splashImage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\activity_authorization.axml">
+    <AndroidResource Include="Resources\layout\fragment_authorisation.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_authorisation.axml">
+    <AndroidResource Include="Resources\layout\activity_authorization.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
