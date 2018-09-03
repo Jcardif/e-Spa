@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
@@ -59,6 +60,8 @@ namespace e_SpaMobileApp.Fragments
             dataForm2.DataObject = phoneInfo;
             dataForm2.LabelPosition = LabelPosition.Top;
             dataForm2.ColumnCount = 2;
+            dataForm2.SourceProvider = new CountryCodeSourceProvider(Context.ApplicationContext);
+            dataForm2.RegisterEditor("CountryCode", "DropDown");
             view.AddView(dataForm2, dataForm2Params);
 
             var txtView = new TextView(Context.ApplicationContext);

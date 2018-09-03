@@ -26,6 +26,291 @@ namespace e_SpaMobileApp
 		
 		public static void UpdateIdValues()
 		{
+			global::Com.Mukesh.CountryPickerLib.Resource.Attribute.layoutManager = global::e_SpaMobileApp.Resource.Attribute.layoutManager;
+			global::Com.Mukesh.CountryPickerLib.Resource.Attribute.reverseLayout = global::e_SpaMobileApp.Resource.Attribute.reverseLayout;
+			global::Com.Mukesh.CountryPickerLib.Resource.Attribute.spanCount = global::e_SpaMobileApp.Resource.Attribute.spanCount;
+			global::Com.Mukesh.CountryPickerLib.Resource.Attribute.stackFromEnd = global::e_SpaMobileApp.Resource.Attribute.stackFromEnd;
+			global::Com.Mukesh.CountryPickerLib.Resource.Dimension.cp_dialog_height = global::e_SpaMobileApp.Resource.Dimension.cp_dialog_height;
+			global::Com.Mukesh.CountryPickerLib.Resource.Dimension.cp_dialog_width = global::e_SpaMobileApp.Resource.Dimension.cp_dialog_width;
+			global::Com.Mukesh.CountryPickerLib.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::e_SpaMobileApp.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
+			global::Com.Mukesh.CountryPickerLib.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::e_SpaMobileApp.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
+			global::Com.Mukesh.CountryPickerLib.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::e_SpaMobileApp.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ac = global::e_SpaMobileApp.Resource.Drawable.flag_ac;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ad = global::e_SpaMobileApp.Resource.Drawable.flag_ad;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ae = global::e_SpaMobileApp.Resource.Drawable.flag_ae;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_af = global::e_SpaMobileApp.Resource.Drawable.flag_af;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ag = global::e_SpaMobileApp.Resource.Drawable.flag_ag;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ai = global::e_SpaMobileApp.Resource.Drawable.flag_ai;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_al = global::e_SpaMobileApp.Resource.Drawable.flag_al;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_am = global::e_SpaMobileApp.Resource.Drawable.flag_am;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_an = global::e_SpaMobileApp.Resource.Drawable.flag_an;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ao = global::e_SpaMobileApp.Resource.Drawable.flag_ao;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_aq = global::e_SpaMobileApp.Resource.Drawable.flag_aq;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ar = global::e_SpaMobileApp.Resource.Drawable.flag_ar;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_as = global::e_SpaMobileApp.Resource.Drawable.flag_as;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_at = global::e_SpaMobileApp.Resource.Drawable.flag_at;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_au = global::e_SpaMobileApp.Resource.Drawable.flag_au;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_aw = global::e_SpaMobileApp.Resource.Drawable.flag_aw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ax = global::e_SpaMobileApp.Resource.Drawable.flag_ax;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_az = global::e_SpaMobileApp.Resource.Drawable.flag_az;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ba = global::e_SpaMobileApp.Resource.Drawable.flag_ba;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bb = global::e_SpaMobileApp.Resource.Drawable.flag_bb;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bd = global::e_SpaMobileApp.Resource.Drawable.flag_bd;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_be = global::e_SpaMobileApp.Resource.Drawable.flag_be;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bf = global::e_SpaMobileApp.Resource.Drawable.flag_bf;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bg = global::e_SpaMobileApp.Resource.Drawable.flag_bg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bh = global::e_SpaMobileApp.Resource.Drawable.flag_bh;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bi = global::e_SpaMobileApp.Resource.Drawable.flag_bi;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bj = global::e_SpaMobileApp.Resource.Drawable.flag_bj;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bl = global::e_SpaMobileApp.Resource.Drawable.flag_bl;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bm = global::e_SpaMobileApp.Resource.Drawable.flag_bm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bn = global::e_SpaMobileApp.Resource.Drawable.flag_bn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bo = global::e_SpaMobileApp.Resource.Drawable.flag_bo;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bq = global::e_SpaMobileApp.Resource.Drawable.flag_bq;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_br = global::e_SpaMobileApp.Resource.Drawable.flag_br;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bs = global::e_SpaMobileApp.Resource.Drawable.flag_bs;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bt = global::e_SpaMobileApp.Resource.Drawable.flag_bt;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bv = global::e_SpaMobileApp.Resource.Drawable.flag_bv;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bw = global::e_SpaMobileApp.Resource.Drawable.flag_bw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_by = global::e_SpaMobileApp.Resource.Drawable.flag_by;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_bz = global::e_SpaMobileApp.Resource.Drawable.flag_bz;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ca = global::e_SpaMobileApp.Resource.Drawable.flag_ca;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cc = global::e_SpaMobileApp.Resource.Drawable.flag_cc;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cd = global::e_SpaMobileApp.Resource.Drawable.flag_cd;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cf = global::e_SpaMobileApp.Resource.Drawable.flag_cf;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cg = global::e_SpaMobileApp.Resource.Drawable.flag_cg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ch = global::e_SpaMobileApp.Resource.Drawable.flag_ch;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ci = global::e_SpaMobileApp.Resource.Drawable.flag_ci;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ck = global::e_SpaMobileApp.Resource.Drawable.flag_ck;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cl = global::e_SpaMobileApp.Resource.Drawable.flag_cl;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cm = global::e_SpaMobileApp.Resource.Drawable.flag_cm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cn = global::e_SpaMobileApp.Resource.Drawable.flag_cn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_co = global::e_SpaMobileApp.Resource.Drawable.flag_co;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cr = global::e_SpaMobileApp.Resource.Drawable.flag_cr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cu = global::e_SpaMobileApp.Resource.Drawable.flag_cu;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cv = global::e_SpaMobileApp.Resource.Drawable.flag_cv;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cw = global::e_SpaMobileApp.Resource.Drawable.flag_cw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cx = global::e_SpaMobileApp.Resource.Drawable.flag_cx;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cy = global::e_SpaMobileApp.Resource.Drawable.flag_cy;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_cz = global::e_SpaMobileApp.Resource.Drawable.flag_cz;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_de = global::e_SpaMobileApp.Resource.Drawable.flag_de;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_dj = global::e_SpaMobileApp.Resource.Drawable.flag_dj;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_dk = global::e_SpaMobileApp.Resource.Drawable.flag_dk;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_dm = global::e_SpaMobileApp.Resource.Drawable.flag_dm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_do = global::e_SpaMobileApp.Resource.Drawable.flag_do;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_dz = global::e_SpaMobileApp.Resource.Drawable.flag_dz;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ec = global::e_SpaMobileApp.Resource.Drawable.flag_ec;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ee = global::e_SpaMobileApp.Resource.Drawable.flag_ee;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_eg = global::e_SpaMobileApp.Resource.Drawable.flag_eg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_eh = global::e_SpaMobileApp.Resource.Drawable.flag_eh;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_er = global::e_SpaMobileApp.Resource.Drawable.flag_er;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_es = global::e_SpaMobileApp.Resource.Drawable.flag_es;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_et = global::e_SpaMobileApp.Resource.Drawable.flag_et;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_fi = global::e_SpaMobileApp.Resource.Drawable.flag_fi;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_fj = global::e_SpaMobileApp.Resource.Drawable.flag_fj;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_fk = global::e_SpaMobileApp.Resource.Drawable.flag_fk;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_fm = global::e_SpaMobileApp.Resource.Drawable.flag_fm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_fo = global::e_SpaMobileApp.Resource.Drawable.flag_fo;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_fr = global::e_SpaMobileApp.Resource.Drawable.flag_fr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_fx = global::e_SpaMobileApp.Resource.Drawable.flag_fx;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ga = global::e_SpaMobileApp.Resource.Drawable.flag_ga;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gb = global::e_SpaMobileApp.Resource.Drawable.flag_gb;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gd = global::e_SpaMobileApp.Resource.Drawable.flag_gd;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ge = global::e_SpaMobileApp.Resource.Drawable.flag_ge;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gf = global::e_SpaMobileApp.Resource.Drawable.flag_gf;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gg = global::e_SpaMobileApp.Resource.Drawable.flag_gg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gh = global::e_SpaMobileApp.Resource.Drawable.flag_gh;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gi = global::e_SpaMobileApp.Resource.Drawable.flag_gi;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gl = global::e_SpaMobileApp.Resource.Drawable.flag_gl;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gm = global::e_SpaMobileApp.Resource.Drawable.flag_gm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gn = global::e_SpaMobileApp.Resource.Drawable.flag_gn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gp = global::e_SpaMobileApp.Resource.Drawable.flag_gp;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gq = global::e_SpaMobileApp.Resource.Drawable.flag_gq;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gr = global::e_SpaMobileApp.Resource.Drawable.flag_gr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gs = global::e_SpaMobileApp.Resource.Drawable.flag_gs;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gt = global::e_SpaMobileApp.Resource.Drawable.flag_gt;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gu = global::e_SpaMobileApp.Resource.Drawable.flag_gu;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gw = global::e_SpaMobileApp.Resource.Drawable.flag_gw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_gy = global::e_SpaMobileApp.Resource.Drawable.flag_gy;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_hk = global::e_SpaMobileApp.Resource.Drawable.flag_hk;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_hm = global::e_SpaMobileApp.Resource.Drawable.flag_hm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_hn = global::e_SpaMobileApp.Resource.Drawable.flag_hn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_hr = global::e_SpaMobileApp.Resource.Drawable.flag_hr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ht = global::e_SpaMobileApp.Resource.Drawable.flag_ht;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_hu = global::e_SpaMobileApp.Resource.Drawable.flag_hu;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_id = global::e_SpaMobileApp.Resource.Drawable.flag_id;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ie = global::e_SpaMobileApp.Resource.Drawable.flag_ie;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_il = global::e_SpaMobileApp.Resource.Drawable.flag_il;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_im = global::e_SpaMobileApp.Resource.Drawable.flag_im;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_in = global::e_SpaMobileApp.Resource.Drawable.flag_in;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_io = global::e_SpaMobileApp.Resource.Drawable.flag_io;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_iq = global::e_SpaMobileApp.Resource.Drawable.flag_iq;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ir = global::e_SpaMobileApp.Resource.Drawable.flag_ir;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_is = global::e_SpaMobileApp.Resource.Drawable.flag_is;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_it = global::e_SpaMobileApp.Resource.Drawable.flag_it;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_je = global::e_SpaMobileApp.Resource.Drawable.flag_je;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_jm = global::e_SpaMobileApp.Resource.Drawable.flag_jm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_jo = global::e_SpaMobileApp.Resource.Drawable.flag_jo;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_jp = global::e_SpaMobileApp.Resource.Drawable.flag_jp;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ke = global::e_SpaMobileApp.Resource.Drawable.flag_ke;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_kg = global::e_SpaMobileApp.Resource.Drawable.flag_kg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_kh = global::e_SpaMobileApp.Resource.Drawable.flag_kh;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ki = global::e_SpaMobileApp.Resource.Drawable.flag_ki;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_km = global::e_SpaMobileApp.Resource.Drawable.flag_km;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_kn = global::e_SpaMobileApp.Resource.Drawable.flag_kn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_kp = global::e_SpaMobileApp.Resource.Drawable.flag_kp;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_kr = global::e_SpaMobileApp.Resource.Drawable.flag_kr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_kw = global::e_SpaMobileApp.Resource.Drawable.flag_kw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ky = global::e_SpaMobileApp.Resource.Drawable.flag_ky;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_kz = global::e_SpaMobileApp.Resource.Drawable.flag_kz;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_la = global::e_SpaMobileApp.Resource.Drawable.flag_la;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_lb = global::e_SpaMobileApp.Resource.Drawable.flag_lb;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_lc = global::e_SpaMobileApp.Resource.Drawable.flag_lc;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_li = global::e_SpaMobileApp.Resource.Drawable.flag_li;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_lk = global::e_SpaMobileApp.Resource.Drawable.flag_lk;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_lr = global::e_SpaMobileApp.Resource.Drawable.flag_lr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ls = global::e_SpaMobileApp.Resource.Drawable.flag_ls;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_lt = global::e_SpaMobileApp.Resource.Drawable.flag_lt;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_lu = global::e_SpaMobileApp.Resource.Drawable.flag_lu;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_lv = global::e_SpaMobileApp.Resource.Drawable.flag_lv;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ly = global::e_SpaMobileApp.Resource.Drawable.flag_ly;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ma = global::e_SpaMobileApp.Resource.Drawable.flag_ma;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mc = global::e_SpaMobileApp.Resource.Drawable.flag_mc;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_md = global::e_SpaMobileApp.Resource.Drawable.flag_md;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_me = global::e_SpaMobileApp.Resource.Drawable.flag_me;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mf = global::e_SpaMobileApp.Resource.Drawable.flag_mf;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mg = global::e_SpaMobileApp.Resource.Drawable.flag_mg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mh = global::e_SpaMobileApp.Resource.Drawable.flag_mh;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mk = global::e_SpaMobileApp.Resource.Drawable.flag_mk;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ml = global::e_SpaMobileApp.Resource.Drawable.flag_ml;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mm = global::e_SpaMobileApp.Resource.Drawable.flag_mm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mn = global::e_SpaMobileApp.Resource.Drawable.flag_mn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mo = global::e_SpaMobileApp.Resource.Drawable.flag_mo;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mp = global::e_SpaMobileApp.Resource.Drawable.flag_mp;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mq = global::e_SpaMobileApp.Resource.Drawable.flag_mq;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mr = global::e_SpaMobileApp.Resource.Drawable.flag_mr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ms = global::e_SpaMobileApp.Resource.Drawable.flag_ms;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mt = global::e_SpaMobileApp.Resource.Drawable.flag_mt;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mu = global::e_SpaMobileApp.Resource.Drawable.flag_mu;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mv = global::e_SpaMobileApp.Resource.Drawable.flag_mv;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mw = global::e_SpaMobileApp.Resource.Drawable.flag_mw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mx = global::e_SpaMobileApp.Resource.Drawable.flag_mx;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_my = global::e_SpaMobileApp.Resource.Drawable.flag_my;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_mz = global::e_SpaMobileApp.Resource.Drawable.flag_mz;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_na = global::e_SpaMobileApp.Resource.Drawable.flag_na;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_nc = global::e_SpaMobileApp.Resource.Drawable.flag_nc;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ne = global::e_SpaMobileApp.Resource.Drawable.flag_ne;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_nf = global::e_SpaMobileApp.Resource.Drawable.flag_nf;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ng = global::e_SpaMobileApp.Resource.Drawable.flag_ng;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ni = global::e_SpaMobileApp.Resource.Drawable.flag_ni;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_nl = global::e_SpaMobileApp.Resource.Drawable.flag_nl;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_no = global::e_SpaMobileApp.Resource.Drawable.flag_no;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_np = global::e_SpaMobileApp.Resource.Drawable.flag_np;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_nr = global::e_SpaMobileApp.Resource.Drawable.flag_nr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_nu = global::e_SpaMobileApp.Resource.Drawable.flag_nu;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_nz = global::e_SpaMobileApp.Resource.Drawable.flag_nz;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_om = global::e_SpaMobileApp.Resource.Drawable.flag_om;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pa = global::e_SpaMobileApp.Resource.Drawable.flag_pa;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pe = global::e_SpaMobileApp.Resource.Drawable.flag_pe;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pf = global::e_SpaMobileApp.Resource.Drawable.flag_pf;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pg = global::e_SpaMobileApp.Resource.Drawable.flag_pg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ph = global::e_SpaMobileApp.Resource.Drawable.flag_ph;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pk = global::e_SpaMobileApp.Resource.Drawable.flag_pk;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pl = global::e_SpaMobileApp.Resource.Drawable.flag_pl;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pm = global::e_SpaMobileApp.Resource.Drawable.flag_pm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pn = global::e_SpaMobileApp.Resource.Drawable.flag_pn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pr = global::e_SpaMobileApp.Resource.Drawable.flag_pr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ps = global::e_SpaMobileApp.Resource.Drawable.flag_ps;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pt = global::e_SpaMobileApp.Resource.Drawable.flag_pt;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_pw = global::e_SpaMobileApp.Resource.Drawable.flag_pw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_py = global::e_SpaMobileApp.Resource.Drawable.flag_py;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_qa = global::e_SpaMobileApp.Resource.Drawable.flag_qa;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_re = global::e_SpaMobileApp.Resource.Drawable.flag_re;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ro = global::e_SpaMobileApp.Resource.Drawable.flag_ro;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_rs = global::e_SpaMobileApp.Resource.Drawable.flag_rs;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ru = global::e_SpaMobileApp.Resource.Drawable.flag_ru;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_rw = global::e_SpaMobileApp.Resource.Drawable.flag_rw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sa = global::e_SpaMobileApp.Resource.Drawable.flag_sa;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sb = global::e_SpaMobileApp.Resource.Drawable.flag_sb;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sc = global::e_SpaMobileApp.Resource.Drawable.flag_sc;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sd = global::e_SpaMobileApp.Resource.Drawable.flag_sd;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_se = global::e_SpaMobileApp.Resource.Drawable.flag_se;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sg = global::e_SpaMobileApp.Resource.Drawable.flag_sg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sh = global::e_SpaMobileApp.Resource.Drawable.flag_sh;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_si = global::e_SpaMobileApp.Resource.Drawable.flag_si;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sj = global::e_SpaMobileApp.Resource.Drawable.flag_sj;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sk = global::e_SpaMobileApp.Resource.Drawable.flag_sk;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sl = global::e_SpaMobileApp.Resource.Drawable.flag_sl;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sm = global::e_SpaMobileApp.Resource.Drawable.flag_sm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sn = global::e_SpaMobileApp.Resource.Drawable.flag_sn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_so = global::e_SpaMobileApp.Resource.Drawable.flag_so;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sr = global::e_SpaMobileApp.Resource.Drawable.flag_sr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ss = global::e_SpaMobileApp.Resource.Drawable.flag_ss;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_st = global::e_SpaMobileApp.Resource.Drawable.flag_st;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sv = global::e_SpaMobileApp.Resource.Drawable.flag_sv;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sx = global::e_SpaMobileApp.Resource.Drawable.flag_sx;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sy = global::e_SpaMobileApp.Resource.Drawable.flag_sy;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_sz = global::e_SpaMobileApp.Resource.Drawable.flag_sz;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tc = global::e_SpaMobileApp.Resource.Drawable.flag_tc;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_td = global::e_SpaMobileApp.Resource.Drawable.flag_td;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tf = global::e_SpaMobileApp.Resource.Drawable.flag_tf;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tg = global::e_SpaMobileApp.Resource.Drawable.flag_tg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_th = global::e_SpaMobileApp.Resource.Drawable.flag_th;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tj = global::e_SpaMobileApp.Resource.Drawable.flag_tj;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tk = global::e_SpaMobileApp.Resource.Drawable.flag_tk;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tl = global::e_SpaMobileApp.Resource.Drawable.flag_tl;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tm = global::e_SpaMobileApp.Resource.Drawable.flag_tm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tn = global::e_SpaMobileApp.Resource.Drawable.flag_tn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_to = global::e_SpaMobileApp.Resource.Drawable.flag_to;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tr = global::e_SpaMobileApp.Resource.Drawable.flag_tr;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tt = global::e_SpaMobileApp.Resource.Drawable.flag_tt;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tv = global::e_SpaMobileApp.Resource.Drawable.flag_tv;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tw = global::e_SpaMobileApp.Resource.Drawable.flag_tw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_tz = global::e_SpaMobileApp.Resource.Drawable.flag_tz;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ua = global::e_SpaMobileApp.Resource.Drawable.flag_ua;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ug = global::e_SpaMobileApp.Resource.Drawable.flag_ug;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_um = global::e_SpaMobileApp.Resource.Drawable.flag_um;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_us = global::e_SpaMobileApp.Resource.Drawable.flag_us;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_uy = global::e_SpaMobileApp.Resource.Drawable.flag_uy;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_uz = global::e_SpaMobileApp.Resource.Drawable.flag_uz;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_va = global::e_SpaMobileApp.Resource.Drawable.flag_va;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_vc = global::e_SpaMobileApp.Resource.Drawable.flag_vc;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ve = global::e_SpaMobileApp.Resource.Drawable.flag_ve;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_vg = global::e_SpaMobileApp.Resource.Drawable.flag_vg;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_vi = global::e_SpaMobileApp.Resource.Drawable.flag_vi;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_vn = global::e_SpaMobileApp.Resource.Drawable.flag_vn;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_vu = global::e_SpaMobileApp.Resource.Drawable.flag_vu;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_wf = global::e_SpaMobileApp.Resource.Drawable.flag_wf;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ws = global::e_SpaMobileApp.Resource.Drawable.flag_ws;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_xk = global::e_SpaMobileApp.Resource.Drawable.flag_xk;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_ye = global::e_SpaMobileApp.Resource.Drawable.flag_ye;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_yt = global::e_SpaMobileApp.Resource.Drawable.flag_yt;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_yu = global::e_SpaMobileApp.Resource.Drawable.flag_yu;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_za = global::e_SpaMobileApp.Resource.Drawable.flag_za;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_zm = global::e_SpaMobileApp.Resource.Drawable.flag_zm;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.flag_zw = global::e_SpaMobileApp.Resource.Drawable.flag_zw;
+			global::Com.Mukesh.CountryPickerLib.Resource.Drawable.ic_search = global::e_SpaMobileApp.Resource.Drawable.ic_search;
+			global::Com.Mukesh.CountryPickerLib.Resource.Id.countries_recycler_view = global::e_SpaMobileApp.Resource.Id.countries_recycler_view;
+			global::Com.Mukesh.CountryPickerLib.Resource.Id.country_code_picker_search = global::e_SpaMobileApp.Resource.Id.country_code_picker_search;
+			global::Com.Mukesh.CountryPickerLib.Resource.Id.country_flag = global::e_SpaMobileApp.Resource.Id.country_flag;
+			global::Com.Mukesh.CountryPickerLib.Resource.Id.country_title = global::e_SpaMobileApp.Resource.Id.country_title;
+			global::Com.Mukesh.CountryPickerLib.Resource.Id.item_touch_helper_previous_elevation = global::e_SpaMobileApp.Resource.Id.item_touch_helper_previous_elevation;
+			global::Com.Mukesh.CountryPickerLib.Resource.Id.rootView = global::e_SpaMobileApp.Resource.Id.rootView;
+			global::Com.Mukesh.CountryPickerLib.Resource.Layout.country_picker = global::e_SpaMobileApp.Resource.Layout.country_picker;
+			global::Com.Mukesh.CountryPickerLib.Resource.Layout.item_country = global::e_SpaMobileApp.Resource.Layout.item_country;
+			global::Com.Mukesh.CountryPickerLib.Resource.String.app_name = global::e_SpaMobileApp.Resource.String.app_name;
+			global::Com.Mukesh.CountryPickerLib.Resource.String.country_picker_header = global::e_SpaMobileApp.Resource.String.country_picker_header;
+			global::Com.Mukesh.CountryPickerLib.Resource.String.error_listener_not_set = global::e_SpaMobileApp.Resource.String.error_listener_not_set;
+			global::Com.Mukesh.CountryPickerLib.Resource.String.error_no_countries_found = global::e_SpaMobileApp.Resource.String.error_no_countries_found;
+			global::Com.Mukesh.CountryPickerLib.Resource.String.no_sim_detected = global::e_SpaMobileApp.Resource.String.no_sim_detected;
+			global::Com.Mukesh.CountryPickerLib.Resource.String.search = global::e_SpaMobileApp.Resource.String.search;
+			global::Com.Mukesh.CountryPickerLib.Resource.Styleable.RecyclerView = global::e_SpaMobileApp.Resource.Styleable.RecyclerView;
+			global::Com.Mukesh.CountryPickerLib.Resource.Styleable.RecyclerView_android_descendantFocusability = global::e_SpaMobileApp.Resource.Styleable.RecyclerView_android_descendantFocusability;
+			global::Com.Mukesh.CountryPickerLib.Resource.Styleable.RecyclerView_android_orientation = global::e_SpaMobileApp.Resource.Styleable.RecyclerView_android_orientation;
+			global::Com.Mukesh.CountryPickerLib.Resource.Styleable.RecyclerView_layoutManager = global::e_SpaMobileApp.Resource.Styleable.RecyclerView_layoutManager;
+			global::Com.Mukesh.CountryPickerLib.Resource.Styleable.RecyclerView_reverseLayout = global::e_SpaMobileApp.Resource.Styleable.RecyclerView_reverseLayout;
+			global::Com.Mukesh.CountryPickerLib.Resource.Styleable.RecyclerView_spanCount = global::e_SpaMobileApp.Resource.Styleable.RecyclerView_spanCount;
+			global::Com.Mukesh.CountryPickerLib.Resource.Styleable.RecyclerView_stackFromEnd = global::e_SpaMobileApp.Resource.Styleable.RecyclerView_stackFromEnd;
 			global::Xamarin.Auth._MobileServices.Resource.Animation.slide_in_right = global::e_SpaMobileApp.Resource.Animation.slide_in_right;
 			global::Xamarin.Auth._MobileServices.Resource.Animation.slide_out_left = global::e_SpaMobileApp.Resource.Animation.slide_out_left;
 			global::Xamarin.Auth._MobileServices.Resource.Drawable.ic_arrow_back = global::e_SpaMobileApp.Resource.Drawable.ic_arrow_back;
@@ -1864,11 +2149,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0a000d
 			public const int abc_text_size_title_material_toolbar = 2131361805;
 			
-			// aapt resource value: 0x7f0a009e
-			public const int activity_horizontal_margin = 2131361950;
+			// aapt resource value: 0x7f0a00a0
+			public const int activity_horizontal_margin = 2131361952;
 			
-			// aapt resource value: 0x7f0a009f
-			public const int activity_vertical_margin = 2131361951;
+			// aapt resource value: 0x7f0a00a1
+			public const int activity_vertical_margin = 2131361953;
 			
 			// aapt resource value: 0x7f0a0006
 			public const int cardview_compat_inset_shadow = 2131361798;
@@ -1893,6 +2178,12 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 0x7f0a0092
 			public const int compat_control_corner_material = 2131361938;
+			
+			// aapt resource value: 0x7f0a009f
+			public const int cp_dialog_height = 2131361951;
+			
+			// aapt resource value: 0x7f0a009e
+			public const int cp_dialog_width = 2131361950;
 			
 			// aapt resource value: 0x7f0a006c
 			public const int design_appbar_elevation = 2131361900;
@@ -2387,26 +2678,26 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020097
-			public const int avd_hide_password_1 = 2130837655;
+			// aapt resource value: 0x7f020196
+			public const int avd_hide_password_1 = 2130837910;
 			
-			// aapt resource value: 0x7f020098
-			public const int avd_hide_password_2 = 2130837656;
+			// aapt resource value: 0x7f020197
+			public const int avd_hide_password_2 = 2130837911;
 			
-			// aapt resource value: 0x7f020099
-			public const int avd_hide_password_3 = 2130837657;
+			// aapt resource value: 0x7f020198
+			public const int avd_hide_password_3 = 2130837912;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02009a
-			public const int avd_show_password_1 = 2130837658;
+			// aapt resource value: 0x7f020199
+			public const int avd_show_password_1 = 2130837913;
 			
-			// aapt resource value: 0x7f02009b
-			public const int avd_show_password_2 = 2130837659;
+			// aapt resource value: 0x7f02019a
+			public const int avd_show_password_2 = 2130837914;
 			
-			// aapt resource value: 0x7f02009c
-			public const int avd_show_password_3 = 2130837660;
+			// aapt resource value: 0x7f02019b
+			public const int avd_show_password_3 = 2130837915;
 			
 			// aapt resource value: 0x7f020055
 			public const int client_app_layout_background = 2130837589;
@@ -2493,118 +2784,883 @@ namespace e_SpaMobileApp
 			public const int edittext_style = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int googleg_disabled_color_18 = 2130837617;
+			public const int flag_ac = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int googleg_standard_color_18 = 2130837618;
+			public const int flag_ad = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int GroupCollapse = 2130837619;
+			public const int flag_ae = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int GroupExpander = 2130837620;
+			public const int flag_af = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int ic_appointment_black_24dp = 2130837621;
+			public const int flag_ag = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int ic_arrow_back = 2130837622;
+			public const int flag_ai = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int ic_dashboard_black_24dp = 2130837623;
+			public const int flag_al = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int ic_google = 2130837624;
+			public const int flag_am = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int ic_home_black_24dp = 2130837625;
+			public const int flag_an = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int ic_notifications_black_24dp = 2130837626;
+			public const int flag_ao = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int ic_salons_black_24dp = 2130837627;
+			public const int flag_aq = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int login_button_style = 2130837628;
+			public const int flag_ar = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int major_btn = 2130837629;
+			public const int flag_as = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int navigation_empty_icon = 2130837630;
+			public const int flag_at = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int notification_action_background = 2130837631;
+			public const int flag_au = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int notification_bg = 2130837632;
+			public const int flag_aw = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int notification_bg_low = 2130837633;
+			public const int flag_ax = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int notification_bg_low_normal = 2130837634;
+			public const int flag_az = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int notification_bg_low_pressed = 2130837635;
+			public const int flag_ba = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int notification_bg_normal = 2130837636;
+			public const int flag_bb = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int notification_bg_normal_pressed = 2130837637;
+			public const int flag_bd = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int notification_icon_background = 2130837638;
-			
-			// aapt resource value: 0x7f020095
-			public const int notification_template_icon_bg = 2130837653;
-			
-			// aapt resource value: 0x7f020096
-			public const int notification_template_icon_low_bg = 2130837654;
+			public const int flag_be = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int notification_tile_bg = 2130837639;
+			public const int flag_bf = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int notify_panel_notification_icon_bg = 2130837640;
+			public const int flag_bg = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int progress_bar = 2130837641;
+			public const int flag_bh = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int progress_bar2 = 2130837642;
+			public const int flag_bi = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int progress_bar3 = 2130837643;
+			public const int flag_bj = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int progress_bar_shape = 2130837644;
+			public const int flag_bl = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int progress_bar_shape2 = 2130837645;
+			public const int flag_bm = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int progress_bar_shape3 = 2130837646;
+			public const int flag_bn = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int refresh = 2130837647;
+			public const int flag_bo = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int rose = 2130837648;
+			public const int flag_bq = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int splashImage = 2130837649;
+			public const int flag_br = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int title_trend_edittext_style = 2130837650;
+			public const int flag_bs = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int tooltip_frame_dark = 2130837651;
+			public const int flag_bt = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int tooltip_frame_light = 2130837652;
+			public const int flag_bv = 2130837652;
+			
+			// aapt resource value: 0x7f020095
+			public const int flag_bw = 2130837653;
+			
+			// aapt resource value: 0x7f020096
+			public const int flag_by = 2130837654;
+			
+			// aapt resource value: 0x7f020097
+			public const int flag_bz = 2130837655;
+			
+			// aapt resource value: 0x7f020098
+			public const int flag_ca = 2130837656;
+			
+			// aapt resource value: 0x7f020099
+			public const int flag_cc = 2130837657;
+			
+			// aapt resource value: 0x7f02009a
+			public const int flag_cd = 2130837658;
+			
+			// aapt resource value: 0x7f02009b
+			public const int flag_cf = 2130837659;
+			
+			// aapt resource value: 0x7f02009c
+			public const int flag_cg = 2130837660;
+			
+			// aapt resource value: 0x7f02009d
+			public const int flag_ch = 2130837661;
+			
+			// aapt resource value: 0x7f02009e
+			public const int flag_ci = 2130837662;
+			
+			// aapt resource value: 0x7f02009f
+			public const int flag_ck = 2130837663;
+			
+			// aapt resource value: 0x7f0200a0
+			public const int flag_cl = 2130837664;
+			
+			// aapt resource value: 0x7f0200a1
+			public const int flag_cm = 2130837665;
+			
+			// aapt resource value: 0x7f0200a2
+			public const int flag_cn = 2130837666;
+			
+			// aapt resource value: 0x7f0200a3
+			public const int flag_co = 2130837667;
+			
+			// aapt resource value: 0x7f0200a4
+			public const int flag_cr = 2130837668;
+			
+			// aapt resource value: 0x7f0200a5
+			public const int flag_cu = 2130837669;
+			
+			// aapt resource value: 0x7f0200a6
+			public const int flag_cv = 2130837670;
+			
+			// aapt resource value: 0x7f0200a7
+			public const int flag_cw = 2130837671;
+			
+			// aapt resource value: 0x7f0200a8
+			public const int flag_cx = 2130837672;
+			
+			// aapt resource value: 0x7f0200a9
+			public const int flag_cy = 2130837673;
+			
+			// aapt resource value: 0x7f0200aa
+			public const int flag_cz = 2130837674;
+			
+			// aapt resource value: 0x7f0200ab
+			public const int flag_de = 2130837675;
+			
+			// aapt resource value: 0x7f0200ac
+			public const int flag_dj = 2130837676;
+			
+			// aapt resource value: 0x7f0200ad
+			public const int flag_dk = 2130837677;
+			
+			// aapt resource value: 0x7f0200ae
+			public const int flag_dm = 2130837678;
+			
+			// aapt resource value: 0x7f0200af
+			public const int flag_do = 2130837679;
+			
+			// aapt resource value: 0x7f0200b0
+			public const int flag_dz = 2130837680;
+			
+			// aapt resource value: 0x7f0200b1
+			public const int flag_ec = 2130837681;
+			
+			// aapt resource value: 0x7f0200b2
+			public const int flag_ee = 2130837682;
+			
+			// aapt resource value: 0x7f0200b3
+			public const int flag_eg = 2130837683;
+			
+			// aapt resource value: 0x7f0200b4
+			public const int flag_eh = 2130837684;
+			
+			// aapt resource value: 0x7f0200b5
+			public const int flag_er = 2130837685;
+			
+			// aapt resource value: 0x7f0200b6
+			public const int flag_es = 2130837686;
+			
+			// aapt resource value: 0x7f0200b7
+			public const int flag_et = 2130837687;
+			
+			// aapt resource value: 0x7f0200b8
+			public const int flag_fi = 2130837688;
+			
+			// aapt resource value: 0x7f0200b9
+			public const int flag_fj = 2130837689;
+			
+			// aapt resource value: 0x7f0200ba
+			public const int flag_fk = 2130837690;
+			
+			// aapt resource value: 0x7f0200bb
+			public const int flag_fm = 2130837691;
+			
+			// aapt resource value: 0x7f0200bc
+			public const int flag_fo = 2130837692;
+			
+			// aapt resource value: 0x7f0200bd
+			public const int flag_fr = 2130837693;
+			
+			// aapt resource value: 0x7f0200be
+			public const int flag_fx = 2130837694;
+			
+			// aapt resource value: 0x7f0200bf
+			public const int flag_ga = 2130837695;
+			
+			// aapt resource value: 0x7f0200c0
+			public const int flag_gb = 2130837696;
+			
+			// aapt resource value: 0x7f0200c1
+			public const int flag_gd = 2130837697;
+			
+			// aapt resource value: 0x7f0200c2
+			public const int flag_ge = 2130837698;
+			
+			// aapt resource value: 0x7f0200c3
+			public const int flag_gf = 2130837699;
+			
+			// aapt resource value: 0x7f0200c4
+			public const int flag_gg = 2130837700;
+			
+			// aapt resource value: 0x7f0200c5
+			public const int flag_gh = 2130837701;
+			
+			// aapt resource value: 0x7f0200c6
+			public const int flag_gi = 2130837702;
+			
+			// aapt resource value: 0x7f0200c7
+			public const int flag_gl = 2130837703;
+			
+			// aapt resource value: 0x7f0200c8
+			public const int flag_gm = 2130837704;
+			
+			// aapt resource value: 0x7f0200c9
+			public const int flag_gn = 2130837705;
+			
+			// aapt resource value: 0x7f0200ca
+			public const int flag_gp = 2130837706;
+			
+			// aapt resource value: 0x7f0200cb
+			public const int flag_gq = 2130837707;
+			
+			// aapt resource value: 0x7f0200cc
+			public const int flag_gr = 2130837708;
+			
+			// aapt resource value: 0x7f0200cd
+			public const int flag_gs = 2130837709;
+			
+			// aapt resource value: 0x7f0200ce
+			public const int flag_gt = 2130837710;
+			
+			// aapt resource value: 0x7f0200cf
+			public const int flag_gu = 2130837711;
+			
+			// aapt resource value: 0x7f0200d0
+			public const int flag_gw = 2130837712;
+			
+			// aapt resource value: 0x7f0200d1
+			public const int flag_gy = 2130837713;
+			
+			// aapt resource value: 0x7f0200d2
+			public const int flag_hk = 2130837714;
+			
+			// aapt resource value: 0x7f0200d3
+			public const int flag_hm = 2130837715;
+			
+			// aapt resource value: 0x7f0200d4
+			public const int flag_hn = 2130837716;
+			
+			// aapt resource value: 0x7f0200d5
+			public const int flag_hr = 2130837717;
+			
+			// aapt resource value: 0x7f0200d6
+			public const int flag_ht = 2130837718;
+			
+			// aapt resource value: 0x7f0200d7
+			public const int flag_hu = 2130837719;
+			
+			// aapt resource value: 0x7f0200d8
+			public const int flag_id = 2130837720;
+			
+			// aapt resource value: 0x7f0200d9
+			public const int flag_ie = 2130837721;
+			
+			// aapt resource value: 0x7f0200da
+			public const int flag_il = 2130837722;
+			
+			// aapt resource value: 0x7f0200db
+			public const int flag_im = 2130837723;
+			
+			// aapt resource value: 0x7f0200dc
+			public const int flag_in = 2130837724;
+			
+			// aapt resource value: 0x7f0200dd
+			public const int flag_io = 2130837725;
+			
+			// aapt resource value: 0x7f0200de
+			public const int flag_iq = 2130837726;
+			
+			// aapt resource value: 0x7f0200df
+			public const int flag_ir = 2130837727;
+			
+			// aapt resource value: 0x7f0200e0
+			public const int flag_is = 2130837728;
+			
+			// aapt resource value: 0x7f0200e1
+			public const int flag_it = 2130837729;
+			
+			// aapt resource value: 0x7f0200e2
+			public const int flag_je = 2130837730;
+			
+			// aapt resource value: 0x7f0200e3
+			public const int flag_jm = 2130837731;
+			
+			// aapt resource value: 0x7f0200e4
+			public const int flag_jo = 2130837732;
+			
+			// aapt resource value: 0x7f0200e5
+			public const int flag_jp = 2130837733;
+			
+			// aapt resource value: 0x7f0200e6
+			public const int flag_ke = 2130837734;
+			
+			// aapt resource value: 0x7f0200e7
+			public const int flag_kg = 2130837735;
+			
+			// aapt resource value: 0x7f0200e8
+			public const int flag_kh = 2130837736;
+			
+			// aapt resource value: 0x7f0200e9
+			public const int flag_ki = 2130837737;
+			
+			// aapt resource value: 0x7f0200ea
+			public const int flag_km = 2130837738;
+			
+			// aapt resource value: 0x7f0200eb
+			public const int flag_kn = 2130837739;
+			
+			// aapt resource value: 0x7f0200ec
+			public const int flag_kp = 2130837740;
+			
+			// aapt resource value: 0x7f0200ed
+			public const int flag_kr = 2130837741;
+			
+			// aapt resource value: 0x7f0200ee
+			public const int flag_kw = 2130837742;
+			
+			// aapt resource value: 0x7f0200ef
+			public const int flag_ky = 2130837743;
+			
+			// aapt resource value: 0x7f0200f0
+			public const int flag_kz = 2130837744;
+			
+			// aapt resource value: 0x7f0200f1
+			public const int flag_la = 2130837745;
+			
+			// aapt resource value: 0x7f0200f2
+			public const int flag_lb = 2130837746;
+			
+			// aapt resource value: 0x7f0200f3
+			public const int flag_lc = 2130837747;
+			
+			// aapt resource value: 0x7f0200f4
+			public const int flag_li = 2130837748;
+			
+			// aapt resource value: 0x7f0200f5
+			public const int flag_lk = 2130837749;
+			
+			// aapt resource value: 0x7f0200f6
+			public const int flag_lr = 2130837750;
+			
+			// aapt resource value: 0x7f0200f7
+			public const int flag_ls = 2130837751;
+			
+			// aapt resource value: 0x7f0200f8
+			public const int flag_lt = 2130837752;
+			
+			// aapt resource value: 0x7f0200f9
+			public const int flag_lu = 2130837753;
+			
+			// aapt resource value: 0x7f0200fa
+			public const int flag_lv = 2130837754;
+			
+			// aapt resource value: 0x7f0200fb
+			public const int flag_ly = 2130837755;
+			
+			// aapt resource value: 0x7f0200fc
+			public const int flag_ma = 2130837756;
+			
+			// aapt resource value: 0x7f0200fd
+			public const int flag_mc = 2130837757;
+			
+			// aapt resource value: 0x7f0200fe
+			public const int flag_md = 2130837758;
+			
+			// aapt resource value: 0x7f0200ff
+			public const int flag_me = 2130837759;
+			
+			// aapt resource value: 0x7f020100
+			public const int flag_mf = 2130837760;
+			
+			// aapt resource value: 0x7f020101
+			public const int flag_mg = 2130837761;
+			
+			// aapt resource value: 0x7f020102
+			public const int flag_mh = 2130837762;
+			
+			// aapt resource value: 0x7f020103
+			public const int flag_mk = 2130837763;
+			
+			// aapt resource value: 0x7f020104
+			public const int flag_ml = 2130837764;
+			
+			// aapt resource value: 0x7f020105
+			public const int flag_mm = 2130837765;
+			
+			// aapt resource value: 0x7f020106
+			public const int flag_mn = 2130837766;
+			
+			// aapt resource value: 0x7f020107
+			public const int flag_mo = 2130837767;
+			
+			// aapt resource value: 0x7f020108
+			public const int flag_mp = 2130837768;
+			
+			// aapt resource value: 0x7f020109
+			public const int flag_mq = 2130837769;
+			
+			// aapt resource value: 0x7f02010a
+			public const int flag_mr = 2130837770;
+			
+			// aapt resource value: 0x7f02010b
+			public const int flag_ms = 2130837771;
+			
+			// aapt resource value: 0x7f02010c
+			public const int flag_mt = 2130837772;
+			
+			// aapt resource value: 0x7f02010d
+			public const int flag_mu = 2130837773;
+			
+			// aapt resource value: 0x7f02010e
+			public const int flag_mv = 2130837774;
+			
+			// aapt resource value: 0x7f02010f
+			public const int flag_mw = 2130837775;
+			
+			// aapt resource value: 0x7f020110
+			public const int flag_mx = 2130837776;
+			
+			// aapt resource value: 0x7f020111
+			public const int flag_my = 2130837777;
+			
+			// aapt resource value: 0x7f020112
+			public const int flag_mz = 2130837778;
+			
+			// aapt resource value: 0x7f020113
+			public const int flag_na = 2130837779;
+			
+			// aapt resource value: 0x7f020114
+			public const int flag_nc = 2130837780;
+			
+			// aapt resource value: 0x7f020115
+			public const int flag_ne = 2130837781;
+			
+			// aapt resource value: 0x7f020116
+			public const int flag_nf = 2130837782;
+			
+			// aapt resource value: 0x7f020117
+			public const int flag_ng = 2130837783;
+			
+			// aapt resource value: 0x7f020118
+			public const int flag_ni = 2130837784;
+			
+			// aapt resource value: 0x7f020119
+			public const int flag_nl = 2130837785;
+			
+			// aapt resource value: 0x7f02011a
+			public const int flag_no = 2130837786;
+			
+			// aapt resource value: 0x7f02011b
+			public const int flag_np = 2130837787;
+			
+			// aapt resource value: 0x7f02011c
+			public const int flag_nr = 2130837788;
+			
+			// aapt resource value: 0x7f02011d
+			public const int flag_nu = 2130837789;
+			
+			// aapt resource value: 0x7f02011e
+			public const int flag_nz = 2130837790;
+			
+			// aapt resource value: 0x7f02011f
+			public const int flag_om = 2130837791;
+			
+			// aapt resource value: 0x7f020120
+			public const int flag_pa = 2130837792;
+			
+			// aapt resource value: 0x7f020121
+			public const int flag_pe = 2130837793;
+			
+			// aapt resource value: 0x7f020122
+			public const int flag_pf = 2130837794;
+			
+			// aapt resource value: 0x7f020123
+			public const int flag_pg = 2130837795;
+			
+			// aapt resource value: 0x7f020124
+			public const int flag_ph = 2130837796;
+			
+			// aapt resource value: 0x7f020125
+			public const int flag_pk = 2130837797;
+			
+			// aapt resource value: 0x7f020126
+			public const int flag_pl = 2130837798;
+			
+			// aapt resource value: 0x7f020127
+			public const int flag_pm = 2130837799;
+			
+			// aapt resource value: 0x7f020128
+			public const int flag_pn = 2130837800;
+			
+			// aapt resource value: 0x7f020129
+			public const int flag_pr = 2130837801;
+			
+			// aapt resource value: 0x7f02012a
+			public const int flag_ps = 2130837802;
+			
+			// aapt resource value: 0x7f02012b
+			public const int flag_pt = 2130837803;
+			
+			// aapt resource value: 0x7f02012c
+			public const int flag_pw = 2130837804;
+			
+			// aapt resource value: 0x7f02012d
+			public const int flag_py = 2130837805;
+			
+			// aapt resource value: 0x7f02012e
+			public const int flag_qa = 2130837806;
+			
+			// aapt resource value: 0x7f02012f
+			public const int flag_re = 2130837807;
+			
+			// aapt resource value: 0x7f020130
+			public const int flag_ro = 2130837808;
+			
+			// aapt resource value: 0x7f020131
+			public const int flag_rs = 2130837809;
+			
+			// aapt resource value: 0x7f020132
+			public const int flag_ru = 2130837810;
+			
+			// aapt resource value: 0x7f020133
+			public const int flag_rw = 2130837811;
+			
+			// aapt resource value: 0x7f020134
+			public const int flag_sa = 2130837812;
+			
+			// aapt resource value: 0x7f020135
+			public const int flag_sb = 2130837813;
+			
+			// aapt resource value: 0x7f020136
+			public const int flag_sc = 2130837814;
+			
+			// aapt resource value: 0x7f020137
+			public const int flag_sd = 2130837815;
+			
+			// aapt resource value: 0x7f020138
+			public const int flag_se = 2130837816;
+			
+			// aapt resource value: 0x7f020139
+			public const int flag_sg = 2130837817;
+			
+			// aapt resource value: 0x7f02013a
+			public const int flag_sh = 2130837818;
+			
+			// aapt resource value: 0x7f02013b
+			public const int flag_si = 2130837819;
+			
+			// aapt resource value: 0x7f02013c
+			public const int flag_sj = 2130837820;
+			
+			// aapt resource value: 0x7f02013d
+			public const int flag_sk = 2130837821;
+			
+			// aapt resource value: 0x7f02013e
+			public const int flag_sl = 2130837822;
+			
+			// aapt resource value: 0x7f02013f
+			public const int flag_sm = 2130837823;
+			
+			// aapt resource value: 0x7f020140
+			public const int flag_sn = 2130837824;
+			
+			// aapt resource value: 0x7f020141
+			public const int flag_so = 2130837825;
+			
+			// aapt resource value: 0x7f020142
+			public const int flag_sr = 2130837826;
+			
+			// aapt resource value: 0x7f020143
+			public const int flag_ss = 2130837827;
+			
+			// aapt resource value: 0x7f020144
+			public const int flag_st = 2130837828;
+			
+			// aapt resource value: 0x7f020145
+			public const int flag_sv = 2130837829;
+			
+			// aapt resource value: 0x7f020146
+			public const int flag_sx = 2130837830;
+			
+			// aapt resource value: 0x7f020147
+			public const int flag_sy = 2130837831;
+			
+			// aapt resource value: 0x7f020148
+			public const int flag_sz = 2130837832;
+			
+			// aapt resource value: 0x7f020149
+			public const int flag_tc = 2130837833;
+			
+			// aapt resource value: 0x7f02014a
+			public const int flag_td = 2130837834;
+			
+			// aapt resource value: 0x7f02014b
+			public const int flag_tf = 2130837835;
+			
+			// aapt resource value: 0x7f02014c
+			public const int flag_tg = 2130837836;
+			
+			// aapt resource value: 0x7f02014d
+			public const int flag_th = 2130837837;
+			
+			// aapt resource value: 0x7f02014e
+			public const int flag_tj = 2130837838;
+			
+			// aapt resource value: 0x7f02014f
+			public const int flag_tk = 2130837839;
+			
+			// aapt resource value: 0x7f020150
+			public const int flag_tl = 2130837840;
+			
+			// aapt resource value: 0x7f020151
+			public const int flag_tm = 2130837841;
+			
+			// aapt resource value: 0x7f020152
+			public const int flag_tn = 2130837842;
+			
+			// aapt resource value: 0x7f020153
+			public const int flag_to = 2130837843;
+			
+			// aapt resource value: 0x7f020154
+			public const int flag_tr = 2130837844;
+			
+			// aapt resource value: 0x7f020155
+			public const int flag_tt = 2130837845;
+			
+			// aapt resource value: 0x7f020156
+			public const int flag_tv = 2130837846;
+			
+			// aapt resource value: 0x7f020157
+			public const int flag_tw = 2130837847;
+			
+			// aapt resource value: 0x7f020158
+			public const int flag_tz = 2130837848;
+			
+			// aapt resource value: 0x7f020159
+			public const int flag_ua = 2130837849;
+			
+			// aapt resource value: 0x7f02015a
+			public const int flag_ug = 2130837850;
+			
+			// aapt resource value: 0x7f02015b
+			public const int flag_um = 2130837851;
+			
+			// aapt resource value: 0x7f02015c
+			public const int flag_us = 2130837852;
+			
+			// aapt resource value: 0x7f02015d
+			public const int flag_uy = 2130837853;
+			
+			// aapt resource value: 0x7f02015e
+			public const int flag_uz = 2130837854;
+			
+			// aapt resource value: 0x7f02015f
+			public const int flag_va = 2130837855;
+			
+			// aapt resource value: 0x7f020160
+			public const int flag_vc = 2130837856;
+			
+			// aapt resource value: 0x7f020161
+			public const int flag_ve = 2130837857;
+			
+			// aapt resource value: 0x7f020162
+			public const int flag_vg = 2130837858;
+			
+			// aapt resource value: 0x7f020163
+			public const int flag_vi = 2130837859;
+			
+			// aapt resource value: 0x7f020164
+			public const int flag_vn = 2130837860;
+			
+			// aapt resource value: 0x7f020165
+			public const int flag_vu = 2130837861;
+			
+			// aapt resource value: 0x7f020166
+			public const int flag_wf = 2130837862;
+			
+			// aapt resource value: 0x7f020167
+			public const int flag_ws = 2130837863;
+			
+			// aapt resource value: 0x7f020168
+			public const int flag_xk = 2130837864;
+			
+			// aapt resource value: 0x7f020169
+			public const int flag_ye = 2130837865;
+			
+			// aapt resource value: 0x7f02016a
+			public const int flag_yt = 2130837866;
+			
+			// aapt resource value: 0x7f02016b
+			public const int flag_yu = 2130837867;
+			
+			// aapt resource value: 0x7f02016c
+			public const int flag_za = 2130837868;
+			
+			// aapt resource value: 0x7f02016d
+			public const int flag_zm = 2130837869;
+			
+			// aapt resource value: 0x7f02016e
+			public const int flag_zw = 2130837870;
+			
+			// aapt resource value: 0x7f02016f
+			public const int googleg_disabled_color_18 = 2130837871;
+			
+			// aapt resource value: 0x7f020170
+			public const int googleg_standard_color_18 = 2130837872;
+			
+			// aapt resource value: 0x7f020171
+			public const int GroupCollapse = 2130837873;
+			
+			// aapt resource value: 0x7f020172
+			public const int GroupExpander = 2130837874;
+			
+			// aapt resource value: 0x7f020173
+			public const int ic_appointment_black_24dp = 2130837875;
+			
+			// aapt resource value: 0x7f020174
+			public const int ic_arrow_back = 2130837876;
+			
+			// aapt resource value: 0x7f020175
+			public const int ic_dashboard_black_24dp = 2130837877;
+			
+			// aapt resource value: 0x7f020176
+			public const int ic_google = 2130837878;
+			
+			// aapt resource value: 0x7f020177
+			public const int ic_home_black_24dp = 2130837879;
+			
+			// aapt resource value: 0x7f020178
+			public const int ic_notifications_black_24dp = 2130837880;
+			
+			// aapt resource value: 0x7f020179
+			public const int ic_salons_black_24dp = 2130837881;
+			
+			// aapt resource value: 0x7f02017a
+			public const int ic_search = 2130837882;
+			
+			// aapt resource value: 0x7f02017b
+			public const int login_button_style = 2130837883;
+			
+			// aapt resource value: 0x7f02017c
+			public const int major_btn = 2130837884;
+			
+			// aapt resource value: 0x7f02017d
+			public const int navigation_empty_icon = 2130837885;
+			
+			// aapt resource value: 0x7f02017e
+			public const int notification_action_background = 2130837886;
+			
+			// aapt resource value: 0x7f02017f
+			public const int notification_bg = 2130837887;
+			
+			// aapt resource value: 0x7f020180
+			public const int notification_bg_low = 2130837888;
+			
+			// aapt resource value: 0x7f020181
+			public const int notification_bg_low_normal = 2130837889;
+			
+			// aapt resource value: 0x7f020182
+			public const int notification_bg_low_pressed = 2130837890;
+			
+			// aapt resource value: 0x7f020183
+			public const int notification_bg_normal = 2130837891;
+			
+			// aapt resource value: 0x7f020184
+			public const int notification_bg_normal_pressed = 2130837892;
+			
+			// aapt resource value: 0x7f020185
+			public const int notification_icon_background = 2130837893;
+			
+			// aapt resource value: 0x7f020194
+			public const int notification_template_icon_bg = 2130837908;
+			
+			// aapt resource value: 0x7f020195
+			public const int notification_template_icon_low_bg = 2130837909;
+			
+			// aapt resource value: 0x7f020186
+			public const int notification_tile_bg = 2130837894;
+			
+			// aapt resource value: 0x7f020187
+			public const int notify_panel_notification_icon_bg = 2130837895;
+			
+			// aapt resource value: 0x7f020188
+			public const int progress_bar = 2130837896;
+			
+			// aapt resource value: 0x7f020189
+			public const int progress_bar2 = 2130837897;
+			
+			// aapt resource value: 0x7f02018a
+			public const int progress_bar3 = 2130837898;
+			
+			// aapt resource value: 0x7f02018b
+			public const int progress_bar_shape = 2130837899;
+			
+			// aapt resource value: 0x7f02018c
+			public const int progress_bar_shape2 = 2130837900;
+			
+			// aapt resource value: 0x7f02018d
+			public const int progress_bar_shape3 = 2130837901;
+			
+			// aapt resource value: 0x7f02018e
+			public const int refresh = 2130837902;
+			
+			// aapt resource value: 0x7f02018f
+			public const int rose = 2130837903;
+			
+			// aapt resource value: 0x7f020190
+			public const int splashImage = 2130837904;
+			
+			// aapt resource value: 0x7f020191
+			public const int title_trend_edittext_style = 2130837905;
+			
+			// aapt resource value: 0x7f020192
+			public const int tooltip_frame_dark = 2130837906;
+			
+			// aapt resource value: 0x7f020193
+			public const int tooltip_frame_light = 2130837907;
 			
 			static Drawable()
 			{
@@ -2625,8 +3681,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b003b
 			public const int CTRL = 2131427387;
 			
-			// aapt resource value: 0x7f0b00d1
-			public const int CustomReminderNoBtn = 2131427537;
+			// aapt resource value: 0x7f0b00d3
+			public const int CustomReminderNoBtn = 2131427539;
 			
 			// aapt resource value: 0x7f0b003c
 			public const int FUNCTION = 2131427388;
@@ -2634,8 +3690,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b003d
 			public const int META = 2131427389;
 			
-			// aapt resource value: 0x7f0b00cf
-			public const int PurchaseReminderNoBtn = 2131427535;
+			// aapt resource value: 0x7f0b00d1
+			public const int PurchaseReminderNoBtn = 2131427537;
 			
 			// aapt resource value: 0x7f0b003e
 			public const int SHIFT = 2131427390;
@@ -2643,8 +3699,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b003f
 			public const int SYM = 2131427391;
 			
-			// aapt resource value: 0x7f0b00da
-			public const int action0 = 2131427546;
+			// aapt resource value: 0x7f0b00df
+			public const int action0 = 2131427551;
 			
 			// aapt resource value: 0x7f0b0083
 			public const int action_bar = 2131427459;
@@ -2667,17 +3723,17 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0061
 			public const int action_bar_title = 2131427425;
 			
-			// aapt resource value: 0x7f0b00d7
-			public const int action_container = 2131427543;
+			// aapt resource value: 0x7f0b00dc
+			public const int action_container = 2131427548;
 			
 			// aapt resource value: 0x7f0b0084
 			public const int action_context_bar = 2131427460;
 			
-			// aapt resource value: 0x7f0b00de
-			public const int action_divider = 2131427550;
+			// aapt resource value: 0x7f0b00e3
+			public const int action_divider = 2131427555;
 			
-			// aapt resource value: 0x7f0b00d8
-			public const int action_image = 2131427544;
+			// aapt resource value: 0x7f0b00dd
+			public const int action_image = 2131427549;
 			
 			// aapt resource value: 0x7f0b0003
 			public const int action_menu_divider = 2131427331;
@@ -2694,11 +3750,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0063
 			public const int action_mode_close_button = 2131427427;
 			
-			// aapt resource value: 0x7f0b00d9
-			public const int action_text = 2131427545;
+			// aapt resource value: 0x7f0b00de
+			public const int action_text = 2131427550;
 			
-			// aapt resource value: 0x7f0b00e7
-			public const int actions = 2131427559;
+			// aapt resource value: 0x7f0b00ec
+			public const int actions = 2131427564;
 			
 			// aapt resource value: 0x7f0b0064
 			public const int activity_chooser_view_content = 2131427428;
@@ -2706,14 +3762,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b002f
 			public const int add = 2131427375;
 			
-			// aapt resource value: 0x7f0b00d0
-			public const int addCustomReminderBtn = 2131427536;
-			
-			// aapt resource value: 0x7f0b00cc
-			public const int addGroomingReminderBtn = 2131427532;
+			// aapt resource value: 0x7f0b00d2
+			public const int addCustomReminderBtn = 2131427538;
 			
 			// aapt resource value: 0x7f0b00ce
-			public const int addPurchaseReminderBtn = 2131427534;
+			public const int addGroomingReminderBtn = 2131427534;
+			
+			// aapt resource value: 0x7f0b00d0
+			public const int addPurchaseReminderBtn = 2131427536;
 			
 			// aapt resource value: 0x7f0b001d
 			public const int adjust_height = 2131427357;
@@ -2730,26 +3786,26 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0040
 			public const int always = 2131427392;
 			
-			// aapt resource value: 0x7f0b00b1
-			public const int appointmentCardView = 2131427505;
+			// aapt resource value: 0x7f0b00b3
+			public const int appointmentCardView = 2131427507;
+			
+			// aapt resource value: 0x7f0b00b4
+			public const int appointmentCircularImgView = 2131427508;
 			
 			// aapt resource value: 0x7f0b00b2
-			public const int appointmentCircularImgView = 2131427506;
+			public const int appointmentCoordinator = 2131427506;
 			
-			// aapt resource value: 0x7f0b00b0
-			public const int appointmentCoordinator = 2131427504;
-			
-			// aapt resource value: 0x7f0b00b5
-			public const int appointmentDate = 2131427509;
-			
-			// aapt resource value: 0x7f0b00b8
-			public const int appointmentNoFab = 2131427512;
+			// aapt resource value: 0x7f0b00b7
+			public const int appointmentDate = 2131427511;
 			
 			// aapt resource value: 0x7f0b00ba
-			public const int appointmentSpace = 2131427514;
+			public const int appointmentNoFab = 2131427514;
 			
-			// aapt resource value: 0x7f0b00b6
-			public const int appointmentTime = 2131427510;
+			// aapt resource value: 0x7f0b00bc
+			public const int appointmentSpace = 2131427516;
+			
+			// aapt resource value: 0x7f0b00b8
+			public const int appointmentTime = 2131427512;
 			
 			// aapt resource value: 0x7f0b005d
 			public const int async = 2131427421;
@@ -2775,8 +3831,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b006a
 			public const int buttonPanel = 2131427434;
 			
-			// aapt resource value: 0x7f0b00db
-			public const int cancel_action = 2131427547;
+			// aapt resource value: 0x7f0b00e0
+			public const int cancel_action = 2131427552;
 			
 			// aapt resource value: 0x7f0b004c
 			public const int center = 2131427404;
@@ -2790,17 +3846,17 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b007a
 			public const int checkbox = 2131427450;
 			
-			// aapt resource value: 0x7f0b00e3
-			public const int chronometer = 2131427555;
-			
-			// aapt resource value: 0x7f0b00d2
-			public const int clientHomeTrendsAppBar = 2131427538;
-			
-			// aapt resource value: 0x7f0b00d3
-			public const int clientHomeTrendsTabLayout = 2131427539;
+			// aapt resource value: 0x7f0b00e8
+			public const int chronometer = 2131427560;
 			
 			// aapt resource value: 0x7f0b00d4
-			public const int clientHomeTrendsViewPager = 2131427540;
+			public const int clientHomeTrendsAppBar = 2131427540;
+			
+			// aapt resource value: 0x7f0b00d5
+			public const int clientHomeTrendsTabLayout = 2131427541;
+			
+			// aapt resource value: 0x7f0b00d6
+			public const int clientHomeTrendsViewPager = 2131427542;
 			
 			// aapt resource value: 0x7f0b0055
 			public const int clip_horizontal = 2131427413;
@@ -2820,8 +3876,20 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b009c
 			public const int continueToForumsBtn = 2131427484;
 			
-			// aapt resource value: 0x7f0b00a5
-			public const int coordinator = 2131427493;
+			// aapt resource value: 0x7f0b00a7
+			public const int coordinator = 2131427495;
+			
+			// aapt resource value: 0x7f0b00a4
+			public const int countries_recycler_view = 2131427492;
+			
+			// aapt resource value: 0x7f0b00a3
+			public const int country_code_picker_search = 2131427491;
+			
+			// aapt resource value: 0x7f0b00da
+			public const int country_flag = 2131427546;
+			
+			// aapt resource value: 0x7f0b00db
+			public const int country_title = 2131427547;
 			
 			// aapt resource value: 0x7f0b0074
 			public const int custom = 2131427444;
@@ -2838,20 +3906,20 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0067
 			public const int default_activity_button = 2131427431;
 			
-			// aapt resource value: 0x7f0b00a7
-			public const int design_bottom_sheet = 2131427495;
+			// aapt resource value: 0x7f0b00a9
+			public const int design_bottom_sheet = 2131427497;
+			
+			// aapt resource value: 0x7f0b00b0
+			public const int design_menu_item_action_area = 2131427504;
+			
+			// aapt resource value: 0x7f0b00af
+			public const int design_menu_item_action_area_stub = 2131427503;
 			
 			// aapt resource value: 0x7f0b00ae
-			public const int design_menu_item_action_area = 2131427502;
+			public const int design_menu_item_text = 2131427502;
 			
 			// aapt resource value: 0x7f0b00ad
-			public const int design_menu_item_action_area_stub = 2131427501;
-			
-			// aapt resource value: 0x7f0b00ac
-			public const int design_menu_item_text = 2131427500;
-			
-			// aapt resource value: 0x7f0b00ab
-			public const int design_navigation_view = 2131427499;
+			public const int design_navigation_view = 2131427501;
 			
 			// aapt resource value: 0x7f0b0029
 			public const int disableHome = 2131427369;
@@ -2862,8 +3930,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0038
 			public const int end = 2131427384;
 			
-			// aapt resource value: 0x7f0b00e9
-			public const int end_padder = 2131427561;
+			// aapt resource value: 0x7f0b00ee
+			public const int end_padder = 2131427566;
 			
 			// aapt resource value: 0x7f0b0047
 			public const int enterAlways = 2131427399;
@@ -2895,20 +3963,20 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b005f
 			public const int forever = 2131427423;
 			
-			// aapt resource value: 0x7f0b00c2
-			public const int frequency2PercentTxtView = 2131427522;
+			// aapt resource value: 0x7f0b00c4
+			public const int frequency2PercentTxtView = 2131427524;
 			
-			// aapt resource value: 0x7f0b00c6
-			public const int frequency3PercentTxtView = 2131427526;
+			// aapt resource value: 0x7f0b00c8
+			public const int frequency3PercentTxtView = 2131427528;
 			
-			// aapt resource value: 0x7f0b00be
-			public const int frequencyPercentTxtView = 2131427518;
+			// aapt resource value: 0x7f0b00c0
+			public const int frequencyPercentTxtView = 2131427520;
 			
 			// aapt resource value: 0x7f0b000a
 			public const int ghost_view = 2131427338;
 			
-			// aapt resource value: 0x7f0b00cd
-			public const int groomingReminderNoBtn = 2131427533;
+			// aapt resource value: 0x7f0b00cf
+			public const int groomingReminderNoBtn = 2131427535;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int home = 2131427333;
@@ -2919,8 +3987,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0069
 			public const int icon = 2131427433;
 			
-			// aapt resource value: 0x7f0b00e8
-			public const int icon_group = 2131427560;
+			// aapt resource value: 0x7f0b00ed
+			public const int icon_group = 2131427565;
 			
 			// aapt resource value: 0x7f0b0020
 			public const int icon_only = 2131427360;
@@ -2931,8 +3999,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0066
 			public const int image = 2131427430;
 			
-			// aapt resource value: 0x7f0b00e4
-			public const int info = 2131427556;
+			// aapt resource value: 0x7f0b00e9
+			public const int info = 2131427561;
 			
 			// aapt resource value: 0x7f0b0060
 			public const int italic = 2131427424;
@@ -2940,8 +4008,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0000
 			public const int item_touch_helper_previous_elevation = 2131427328;
 			
-			// aapt resource value: 0x7f0b00a4
-			public const int largeLabel = 2131427492;
+			// aapt resource value: 0x7f0b00a6
+			public const int largeLabel = 2131427494;
 			
 			// aapt resource value: 0x7f0b0050
 			public const int left = 2131427408;
@@ -2961,8 +4029,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0068
 			public const int list_item = 2131427432;
 			
-			// aapt resource value: 0x7f0b00c8
-			public const int loginBtn = 2131427528;
+			// aapt resource value: 0x7f0b00ca
+			public const int loginBtn = 2131427530;
 			
 			// aapt resource value: 0x7f0b0097
 			public const int mainBottomNavigationView = 2131427479;
@@ -2973,14 +4041,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0095
 			public const int mainToolbar = 2131427477;
 			
-			// aapt resource value: 0x7f0b00fa
-			public const int masked = 2131427578;
+			// aapt resource value: 0x7f0b00ff
+			public const int masked = 2131427583;
 			
-			// aapt resource value: 0x7f0b00dd
-			public const int media_actions = 2131427549;
+			// aapt resource value: 0x7f0b00e2
+			public const int media_actions = 2131427554;
 			
-			// aapt resource value: 0x7f0b00f8
-			public const int message = 2131427576;
+			// aapt resource value: 0x7f0b00fd
+			public const int message = 2131427581;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int middle = 2131427385;
@@ -2991,26 +4059,26 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0030
 			public const int multiply = 2131427376;
 			
-			// aapt resource value: 0x7f0b00fe
-			public const int navigation_appointments = 2131427582;
+			// aapt resource value: 0x7f0b0103
+			public const int navigation_appointments = 2131427587;
 			
-			// aapt resource value: 0x7f0b00aa
-			public const int navigation_header_container = 2131427498;
+			// aapt resource value: 0x7f0b00ac
+			public const int navigation_header_container = 2131427500;
 			
-			// aapt resource value: 0x7f0b00fb
-			public const int navigation_home = 2131427579;
+			// aapt resource value: 0x7f0b0100
+			public const int navigation_home = 2131427584;
 			
-			// aapt resource value: 0x7f0b00fd
-			public const int navigation_salons = 2131427581;
+			// aapt resource value: 0x7f0b0102
+			public const int navigation_salons = 2131427586;
 			
-			// aapt resource value: 0x7f0b00fc
-			public const int navigation_services = 2131427580;
+			// aapt resource value: 0x7f0b0101
+			public const int navigation_services = 2131427585;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int never = 2131427395;
 			
-			// aapt resource value: 0x7f0b00bb
-			public const int newAppointmentTxtView = 2131427515;
+			// aapt resource value: 0x7f0b00bd
+			public const int newAppointmentTxtView = 2131427517;
 			
 			// aapt resource value: 0x7f0b001f
 			public const int none = 2131427359;
@@ -3018,14 +4086,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0027
 			public const int normal = 2131427367;
 			
-			// aapt resource value: 0x7f0b00e6
-			public const int notification_background = 2131427558;
+			// aapt resource value: 0x7f0b00eb
+			public const int notification_background = 2131427563;
 			
-			// aapt resource value: 0x7f0b00e0
-			public const int notification_main_column = 2131427552;
+			// aapt resource value: 0x7f0b00e5
+			public const int notification_main_column = 2131427557;
 			
-			// aapt resource value: 0x7f0b00df
-			public const int notification_main_column_container = 2131427551;
+			// aapt resource value: 0x7f0b00e4
+			public const int notification_main_column_container = 2131427556;
 			
 			// aapt resource value: 0x7f0b0053
 			public const int parallax = 2131427411;
@@ -3042,17 +4110,17 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b009b
 			public const int postTrendBtn = 2131427483;
 			
-			// aapt resource value: 0x7f0b00ca
-			public const int privacyPolicyTxtView = 2131427530;
+			// aapt resource value: 0x7f0b00cc
+			public const int privacyPolicyTxtView = 2131427532;
 			
-			// aapt resource value: 0x7f0b00bd
-			public const int progressBar = 2131427517;
+			// aapt resource value: 0x7f0b00bf
+			public const int progressBar = 2131427519;
 			
-			// aapt resource value: 0x7f0b00c1
-			public const int progressBar2 = 2131427521;
+			// aapt resource value: 0x7f0b00c3
+			public const int progressBar2 = 2131427523;
 			
-			// aapt resource value: 0x7f0b00c5
-			public const int progressBar3 = 2131427525;
+			// aapt resource value: 0x7f0b00c7
+			public const int progressBar3 = 2131427527;
 			
 			// aapt resource value: 0x7f0b0006
 			public const int progress_circular = 2131427334;
@@ -3063,68 +4131,71 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b007c
 			public const int radio = 2131427452;
 			
-			// aapt resource value: 0x7f0b00b9
-			public const int refreshAppointmentFab = 2131427513;
+			// aapt resource value: 0x7f0b00bb
+			public const int refreshAppointmentFab = 2131427515;
 			
-			// aapt resource value: 0x7f0b00c9
-			public const int resgisterBtn = 2131427529;
+			// aapt resource value: 0x7f0b00cb
+			public const int resgisterBtn = 2131427531;
 			
 			// aapt resource value: 0x7f0b0051
 			public const int right = 2131427409;
 			
-			// aapt resource value: 0x7f0b00e5
-			public const int right_icon = 2131427557;
+			// aapt resource value: 0x7f0b00ea
+			public const int right_icon = 2131427562;
 			
-			// aapt resource value: 0x7f0b00e1
-			public const int right_side = 2131427553;
+			// aapt resource value: 0x7f0b00e6
+			public const int right_side = 2131427558;
 			
-			// aapt resource value: 0x7f0b00c0
-			public const int ring2Contents = 2131427520;
+			// aapt resource value: 0x7f0b00c2
+			public const int ring2Contents = 2131427522;
 			
-			// aapt resource value: 0x7f0b00c4
-			public const int ring3Contents = 2131427524;
+			// aapt resource value: 0x7f0b00c6
+			public const int ring3Contents = 2131427526;
 			
-			// aapt resource value: 0x7f0b00bc
-			public const int ringContents = 2131427516;
+			// aapt resource value: 0x7f0b00be
+			public const int ringContents = 2131427518;
 			
-			// aapt resource value: 0x7f0b00c3
-			public const int salon12NameTxtView = 2131427523;
+			// aapt resource value: 0x7f0b00d9
+			public const int rootView = 2131427545;
 			
-			// aapt resource value: 0x7f0b00c7
-			public const int salon13NameTxtView = 2131427527;
+			// aapt resource value: 0x7f0b00c5
+			public const int salon12NameTxtView = 2131427525;
 			
-			// aapt resource value: 0x7f0b00bf
-			public const int salon1NameTxtView = 2131427519;
+			// aapt resource value: 0x7f0b00c9
+			public const int salon13NameTxtView = 2131427529;
 			
-			// aapt resource value: 0x7f0b00ec
-			public const int salonCardLinearLayout1 = 2131427564;
+			// aapt resource value: 0x7f0b00c1
+			public const int salon1NameTxtView = 2131427521;
 			
-			// aapt resource value: 0x7f0b00eb
-			public const int salonCircleImageView = 2131427563;
-			
-			// aapt resource value: 0x7f0b00ee
-			public const int salonLocationTxtView = 2131427566;
+			// aapt resource value: 0x7f0b00f1
+			public const int salonCardLinearLayout1 = 2131427569;
 			
 			// aapt resource value: 0x7f0b00f0
-			public const int salonManagerTxtView = 2131427568;
+			public const int salonCircleImageView = 2131427568;
 			
-			// aapt resource value: 0x7f0b00b7
-			public const int salonName = 2131427511;
+			// aapt resource value: 0x7f0b00f3
+			public const int salonLocationTxtView = 2131427571;
 			
-			// aapt resource value: 0x7f0b00ed
-			public const int salonNameTxtView = 2131427565;
+			// aapt resource value: 0x7f0b00f5
+			public const int salonManagerTxtView = 2131427573;
+			
+			// aapt resource value: 0x7f0b00b9
+			public const int salonName = 2131427513;
+			
+			// aapt resource value: 0x7f0b00f2
+			public const int salonNameTxtView = 2131427570;
+			
+			// aapt resource value: 0x7f0b00f4
+			public const int salonPhoneTxtView = 2131427572;
 			
 			// aapt resource value: 0x7f0b00ef
-			public const int salonPhoneTxtView = 2131427567;
+			public const int salonsCardView = 2131427567;
 			
-			// aapt resource value: 0x7f0b00ea
-			public const int salonsCardView = 2131427562;
+			// aapt resource value: 0x7f0b00fb
+			public const int salonsNumberTxtView = 2131427579;
 			
-			// aapt resource value: 0x7f0b00f6
-			public const int salonsNumberTxtView = 2131427574;
-			
-			// aapt resource value: 0x7f0b00d5
-			public const int salonsRecyclerView = 2131427541;
+			// aapt resource value: 0x7f0b00d7
+			public const int salonsRecyclerView = 2131427543;
 			
 			// aapt resource value: 0x7f0b000c
 			public const int save_image_matrix = 2131427340;
@@ -3186,32 +4257,32 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0091
 			public const int select_dialog_listview = 2131427473;
 			
-			// aapt resource value: 0x7f0b00f2
-			public const int serviceCircleImageView = 2131427570;
-			
-			// aapt resource value: 0x7f0b00b4
-			public const int serviceCost = 2131427508;
-			
-			// aapt resource value: 0x7f0b00f5
-			public const int serviceDescTxtView = 2131427573;
-			
-			// aapt resource value: 0x7f0b00f4
-			public const int serviceNameIdTxtView = 2131427572;
-			
-			// aapt resource value: 0x7f0b00b3
-			public const int serviceNameTxtView = 2131427507;
-			
 			// aapt resource value: 0x7f0b00f7
-			public const int servicePopularityTxtView = 2131427575;
+			public const int serviceCircleImageView = 2131427575;
 			
-			// aapt resource value: 0x7f0b00f3
-			public const int servicesCardLinearLayout1 = 2131427571;
+			// aapt resource value: 0x7f0b00b6
+			public const int serviceCost = 2131427510;
 			
-			// aapt resource value: 0x7f0b00f1
-			public const int servicesCardView = 2131427569;
+			// aapt resource value: 0x7f0b00fa
+			public const int serviceDescTxtView = 2131427578;
 			
-			// aapt resource value: 0x7f0b00d6
-			public const int servicesRecyclerView = 2131427542;
+			// aapt resource value: 0x7f0b00f9
+			public const int serviceNameIdTxtView = 2131427577;
+			
+			// aapt resource value: 0x7f0b00b5
+			public const int serviceNameTxtView = 2131427509;
+			
+			// aapt resource value: 0x7f0b00fc
+			public const int servicePopularityTxtView = 2131427580;
+			
+			// aapt resource value: 0x7f0b00f8
+			public const int servicesCardLinearLayout1 = 2131427576;
+			
+			// aapt resource value: 0x7f0b00f6
+			public const int servicesCardView = 2131427574;
+			
+			// aapt resource value: 0x7f0b00d8
+			public const int servicesRecyclerView = 2131427544;
 			
 			// aapt resource value: 0x7f0b007b
 			public const int shortcut = 2131427451;
@@ -3225,14 +4296,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b002d
 			public const int showTitle = 2131427373;
 			
-			// aapt resource value: 0x7f0b00a3
-			public const int smallLabel = 2131427491;
+			// aapt resource value: 0x7f0b00a5
+			public const int smallLabel = 2131427493;
 			
-			// aapt resource value: 0x7f0b00a9
-			public const int snackbar_action = 2131427497;
+			// aapt resource value: 0x7f0b00ab
+			public const int snackbar_action = 2131427499;
 			
-			// aapt resource value: 0x7f0b00a8
-			public const int snackbar_text = 2131427496;
+			// aapt resource value: 0x7f0b00aa
+			public const int snackbar_text = 2131427498;
 			
 			// aapt resource value: 0x7f0b004b
 			public const int snap = 2131427403;
@@ -3258,8 +4329,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0052
 			public const int start = 2131427410;
 			
-			// aapt resource value: 0x7f0b00dc
-			public const int status_bar_latest_event_content = 2131427548;
+			// aapt resource value: 0x7f0b00e1
+			public const int status_bar_latest_event_content = 2131427553;
 			
 			// aapt resource value: 0x7f0b007d
 			public const int submenuarrow = 2131427453;
@@ -3273,8 +4344,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0019
 			public const int tag_transition_group = 2131427353;
 			
-			// aapt resource value: 0x7f0b00cb
-			public const int termsofUsetxtView = 2131427531;
+			// aapt resource value: 0x7f0b00cd
+			public const int termsofUsetxtView = 2131427533;
 			
 			// aapt resource value: 0x7f0b001a
 			public const int text = 2131427354;
@@ -3288,8 +4359,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0070
 			public const int textSpacerNoTitle = 2131427440;
 			
-			// aapt resource value: 0x7f0b00af
-			public const int text_input_password_toggle = 2131427503;
+			// aapt resource value: 0x7f0b00b1
+			public const int text_input_password_toggle = 2131427505;
 			
 			// aapt resource value: 0x7f0b0014
 			public const int textinput_counter = 2131427348;
@@ -3297,8 +4368,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0015
 			public const int textinput_error = 2131427349;
 			
-			// aapt resource value: 0x7f0b00e2
-			public const int time = 2131427554;
+			// aapt resource value: 0x7f0b00e7
+			public const int time = 2131427559;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int title = 2131427356;
@@ -3315,8 +4386,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0075
 			public const int topPanel = 2131427445;
 			
-			// aapt resource value: 0x7f0b00a6
-			public const int touch_outside = 2131427494;
+			// aapt resource value: 0x7f0b00a8
+			public const int touch_outside = 2131427496;
 			
 			// aapt resource value: 0x7f0b000f
 			public const int transition_current_scene = 2131427343;
@@ -3369,8 +4440,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0016
 			public const int view_offset_helper = 2131427350;
 			
-			// aapt resource value: 0x7f0b00f9
-			public const int visible = 2131427577;
+			// aapt resource value: 0x7f0b00fe
+			public const int visible = 2131427582;
 			
 			// aapt resource value: 0x7f0b0098
 			public const int webview = 2131427480;
@@ -3543,130 +4614,136 @@ namespace e_SpaMobileApp
 			public const int client_home_trends_tab = 2130968608;
 			
 			// aapt resource value: 0x7f040021
-			public const int design_bottom_navigation_item = 2130968609;
+			public const int country_picker = 2130968609;
 			
 			// aapt resource value: 0x7f040022
-			public const int design_bottom_sheet_dialog = 2130968610;
+			public const int design_bottom_navigation_item = 2130968610;
 			
 			// aapt resource value: 0x7f040023
-			public const int design_layout_snackbar = 2130968611;
+			public const int design_bottom_sheet_dialog = 2130968611;
 			
 			// aapt resource value: 0x7f040024
-			public const int design_layout_snackbar_include = 2130968612;
+			public const int design_layout_snackbar = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int design_layout_tab_icon = 2130968613;
+			public const int design_layout_snackbar_include = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int design_layout_tab_text = 2130968614;
+			public const int design_layout_tab_icon = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int design_menu_item_action_area = 2130968615;
+			public const int design_layout_tab_text = 2130968615;
 			
 			// aapt resource value: 0x7f040028
-			public const int design_navigation_item = 2130968616;
+			public const int design_menu_item_action_area = 2130968616;
 			
 			// aapt resource value: 0x7f040029
-			public const int design_navigation_item_header = 2130968617;
+			public const int design_navigation_item = 2130968617;
 			
 			// aapt resource value: 0x7f04002a
-			public const int design_navigation_item_separator = 2130968618;
+			public const int design_navigation_item_header = 2130968618;
 			
 			// aapt resource value: 0x7f04002b
-			public const int design_navigation_item_subheader = 2130968619;
+			public const int design_navigation_item_separator = 2130968619;
 			
 			// aapt resource value: 0x7f04002c
-			public const int design_navigation_menu = 2130968620;
+			public const int design_navigation_item_subheader = 2130968620;
 			
 			// aapt resource value: 0x7f04002d
-			public const int design_navigation_menu_item = 2130968621;
+			public const int design_navigation_menu = 2130968621;
 			
 			// aapt resource value: 0x7f04002e
-			public const int design_text_input_password_icon = 2130968622;
+			public const int design_navigation_menu_item = 2130968622;
 			
 			// aapt resource value: 0x7f04002f
-			public const int fragment_appointment = 2130968623;
+			public const int design_text_input_password_icon = 2130968623;
 			
 			// aapt resource value: 0x7f040030
-			public const int fragment_authorisation = 2130968624;
+			public const int fragment_appointment = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int fragment_client_home = 2130968625;
+			public const int fragment_authorisation = 2130968625;
 			
 			// aapt resource value: 0x7f040032
-			public const int fragment_salons = 2130968626;
+			public const int fragment_client_home = 2130968626;
 			
 			// aapt resource value: 0x7f040033
-			public const int fragment_services = 2130968627;
+			public const int fragment_salons = 2130968627;
 			
 			// aapt resource value: 0x7f040034
-			public const int notification_action = 2130968628;
+			public const int fragment_services = 2130968628;
 			
 			// aapt resource value: 0x7f040035
-			public const int notification_action_tombstone = 2130968629;
+			public const int item_country = 2130968629;
 			
 			// aapt resource value: 0x7f040036
-			public const int notification_media_action = 2130968630;
+			public const int notification_action = 2130968630;
 			
 			// aapt resource value: 0x7f040037
-			public const int notification_media_cancel_action = 2130968631;
+			public const int notification_action_tombstone = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int notification_template_big_media = 2130968632;
+			public const int notification_media_action = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int notification_template_big_media_custom = 2130968633;
+			public const int notification_media_cancel_action = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int notification_template_big_media_narrow = 2130968634;
+			public const int notification_template_big_media = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int notification_template_big_media_narrow_custom = 2130968635;
+			public const int notification_template_big_media_custom = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int notification_template_custom_big = 2130968636;
+			public const int notification_template_big_media_narrow = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int notification_template_icon_group = 2130968637;
+			public const int notification_template_big_media_narrow_custom = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int notification_template_lines_media = 2130968638;
+			public const int notification_template_custom_big = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int notification_template_media = 2130968639;
+			public const int notification_template_icon_group = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int notification_template_media_custom = 2130968640;
+			public const int notification_template_lines_media = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int notification_template_part_chronometer = 2130968641;
+			public const int notification_template_media = 2130968641;
 			
 			// aapt resource value: 0x7f040042
-			public const int notification_template_part_time = 2130968642;
+			public const int notification_template_media_custom = 2130968642;
 			
 			// aapt resource value: 0x7f040043
-			public const int salon_item = 2130968643;
+			public const int notification_template_part_chronometer = 2130968643;
 			
 			// aapt resource value: 0x7f040044
-			public const int select_dialog_item_material = 2130968644;
+			public const int notification_template_part_time = 2130968644;
 			
 			// aapt resource value: 0x7f040045
-			public const int select_dialog_multichoice_material = 2130968645;
+			public const int salon_item = 2130968645;
 			
 			// aapt resource value: 0x7f040046
-			public const int select_dialog_singlechoice_material = 2130968646;
+			public const int select_dialog_item_material = 2130968646;
 			
 			// aapt resource value: 0x7f040047
-			public const int services_item = 2130968647;
+			public const int select_dialog_multichoice_material = 2130968647;
 			
 			// aapt resource value: 0x7f040048
-			public const int Spinner_item = 2130968648;
+			public const int select_dialog_singlechoice_material = 2130968648;
 			
 			// aapt resource value: 0x7f040049
-			public const int support_simple_spinner_dropdown_item = 2130968649;
+			public const int services_item = 2130968649;
 			
 			// aapt resource value: 0x7f04004a
-			public const int tooltip = 2130968650;
+			public const int Spinner_item = 2130968650;
+			
+			// aapt resource value: 0x7f04004b
+			public const int support_simple_spinner_dropdown_item = 2130968651;
+			
+			// aapt resource value: 0x7f04004c
+			public const int tooltip = 2130968652;
 			
 			static Layout()
 			{
@@ -3812,20 +4889,20 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f080021
 			public const int abc_toolbar_collapse_description = 2131230753;
 			
-			// aapt resource value: 0x7f08005c
-			public const int accept_conditions = 2131230812;
+			// aapt resource value: 0x7f080061
+			public const int accept_conditions = 2131230817;
 			
-			// aapt resource value: 0x7f080043
-			public const int add = 2131230787;
+			// aapt resource value: 0x7f080048
+			public const int add = 2131230792;
 			
-			// aapt resource value: 0x7f08003e
-			public const int app_name = 2131230782;
+			// aapt resource value: 0x7f08003c
+			public const int app_name = 2131230780;
 			
 			// aapt resource value: 0x7f08002f
 			public const int appbar_scrolling_view_behavior = 2131230767;
 			
-			// aapt resource value: 0x7f08004c
-			public const int appointments = 2131230796;
+			// aapt resource value: 0x7f080051
+			public const int appointments = 2131230801;
 			
 			// aapt resource value: 0x7f080030
 			public const int bottom_sheet_behavior = 2131230768;
@@ -3884,59 +4961,71 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f080010
 			public const int common_signin_button_text_long = 2131230736;
 			
-			// aapt resource value: 0x7f080045
-			public const int continue_To_forums = 2131230789;
+			// aapt resource value: 0x7f08004a
+			public const int continue_To_forums = 2131230794;
 			
-			// aapt resource value: 0x7f080053
-			public const int create_account = 2131230803;
-			
-			// aapt resource value: 0x7f080049
-			public const int custom_reminders = 2131230793;
-			
-			// aapt resource value: 0x7f08004d
-			public const int e_spa_welcome = 2131230797;
+			// aapt resource value: 0x7f080041
+			public const int country_picker_header = 2131230785;
 			
 			// aapt resource value: 0x7f080058
-			public const int email = 2131230808;
+			public const int create_account = 2131230808;
 			
-			// aapt resource value: 0x7f080056
-			public const int facebook = 2131230806;
+			// aapt resource value: 0x7f08004e
+			public const int custom_reminders = 2131230798;
 			
-			// aapt resource value: 0x7f08003c
-			public const int facebook_app_id = 2131230780;
+			// aapt resource value: 0x7f080052
+			public const int e_spa_welcome = 2131230802;
 			
-			// aapt resource value: 0x7f08003d
-			public const int fb_login_protocol_scheme = 2131230781;
+			// aapt resource value: 0x7f08005d
+			public const int email = 2131230813;
+			
+			// aapt resource value: 0x7f08003f
+			public const int error_listener_not_set = 2131230783;
+			
+			// aapt resource value: 0x7f080040
+			public const int error_no_countries_found = 2131230784;
+			
+			// aapt resource value: 0x7f08005b
+			public const int facebook = 2131230811;
+			
+			// aapt resource value: 0x7f080042
+			public const int facebook_app_id = 2131230786;
+			
+			// aapt resource value: 0x7f080043
+			public const int fb_login_protocol_scheme = 2131230787;
+			
+			// aapt resource value: 0x7f08005e
+			public const int firstName = 2131230814;
 			
 			// aapt resource value: 0x7f080059
-			public const int firstName = 2131230809;
+			public const int forgot_password = 2131230809;
 			
-			// aapt resource value: 0x7f080054
-			public const int forgot_password = 2131230804;
-			
-			// aapt resource value: 0x7f080044
-			public const int forums_desc = 2131230788;
-			
-			// aapt resource value: 0x7f080055
-			public const int google = 2131230805;
-			
-			// aapt resource value: 0x7f080047
-			public const int grooming_reminders = 2131230791;
+			// aapt resource value: 0x7f080049
+			public const int forums_desc = 2131230793;
 			
 			// aapt resource value: 0x7f08005a
-			public const int lastName = 2131230810;
+			public const int google = 2131230810;
+			
+			// aapt resource value: 0x7f08004c
+			public const int grooming_reminders = 2131230796;
+			
+			// aapt resource value: 0x7f08005f
+			public const int lastName = 2131230815;
 			
 			// aapt resource value: 0x7f08003a
 			public const int library_name = 2131230778;
 			
-			// aapt resource value: 0x7f080052
-			public const int log_in = 2131230802;
+			// aapt resource value: 0x7f080057
+			public const int log_in = 2131230807;
 			
-			// aapt resource value: 0x7f08004f
-			public const int or = 2131230799;
+			// aapt resource value: 0x7f08003e
+			public const int no_sim_detected = 2131230782;
 			
-			// aapt resource value: 0x7f080051
-			public const int password = 2131230801;
+			// aapt resource value: 0x7f080054
+			public const int or = 2131230804;
+			
+			// aapt resource value: 0x7f080056
+			public const int password = 2131230806;
 			
 			// aapt resource value: 0x7f080032
 			public const int password_toggle_content_description = 2131230770;
@@ -3953,71 +5042,74 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f080036
 			public const int path_password_strike_through = 2131230774;
 			
-			// aapt resource value: 0x7f08005b
-			public const int phoneNo = 2131230811;
+			// aapt resource value: 0x7f080060
+			public const int phoneNo = 2131230816;
+			
+			// aapt resource value: 0x7f080050
+			public const int popularity = 2131230800;
+			
+			// aapt resource value: 0x7f080065
+			public const int privacy_policy = 2131230821;
+			
+			// aapt resource value: 0x7f08004d
+			public const int purchase_reminders = 2131230797;
+			
+			// aapt resource value: 0x7f080062
+			public const int register = 2131230818;
+			
+			// aapt resource value: 0x7f08005c
+			public const int register_with_social_networks = 2131230812;
 			
 			// aapt resource value: 0x7f08004b
-			public const int popularity = 2131230795;
+			public const int reminders = 2131230795;
 			
-			// aapt resource value: 0x7f080060
-			public const int privacy_policy = 2131230816;
+			// aapt resource value: 0x7f08004f
+			public const int salons = 2131230799;
 			
-			// aapt resource value: 0x7f080048
-			public const int purchase_reminders = 2131230792;
-			
-			// aapt resource value: 0x7f08005d
-			public const int register = 2131230813;
-			
-			// aapt resource value: 0x7f080057
-			public const int register_with_social_networks = 2131230807;
-			
-			// aapt resource value: 0x7f080046
-			public const int reminders = 2131230790;
-			
-			// aapt resource value: 0x7f08004a
-			public const int salons = 2131230794;
+			// aapt resource value: 0x7f08003d
+			public const int search = 2131230781;
 			
 			// aapt resource value: 0x7f080022
 			public const int search_menu_title = 2131230754;
 			
-			// aapt resource value: 0x7f080040
-			public const int services = 2131230784;
+			// aapt resource value: 0x7f080045
+			public const int services = 2131230789;
 			
-			// aapt resource value: 0x7f08004e
-			public const int sign_in_with_social_networks = 2131230798;
+			// aapt resource value: 0x7f080053
+			public const int sign_in_with_social_networks = 2131230803;
 			
 			// aapt resource value: 0x7f080037
 			public const int status_bar_notification_info_overflow = 2131230775;
 			
-			// aapt resource value: 0x7f08005e
-			public const int terms_of_use = 2131230814;
+			// aapt resource value: 0x7f080063
+			public const int terms_of_use = 2131230819;
 			
 			// aapt resource value: 0x7f08003b
 			public const int title_activity_webview = 2131230779;
 			
-			// aapt resource value: 0x7f08003f
-			public const int title_home = 2131230783;
+			// aapt resource value: 0x7f080044
+			public const int title_home = 2131230788;
 			
-			// aapt resource value: 0x7f080041
-			public const int trend_desc_edtTxt = 2131230785;
+			// aapt resource value: 0x7f080046
+			public const int trend_desc_edtTxt = 2131230790;
 			
-			// aapt resource value: 0x7f080062
-			public const int trend_description = 2131230818;
+			// aapt resource value: 0x7f080067
+			public const int trend_description = 2131230823;
 			
-			// aapt resource value: 0x7f080063
-			public const int trend_profile_name = 2131230819;
+			// aapt resource value: 0x7f080068
+			public const int trend_profile_name = 2131230824;
 			
-			// aapt resource value: 0x7f080061
-			public const int trends_title = 2131230817;
+			// aapt resource value: 0x7f080066
+			public const int trends_title = 2131230822;
 			
-			// aapt resource value: 0x7f080042
-			public const int trends_title_edtTxt = 2131230786;
+			// aapt resource value: 0x7f080047
+			public const int trends_title_edtTxt = 2131230791;
 			
-			// aapt resource value: 0x7f080050
-			public const int username = 2131230800;
+			// aapt resource value: 0x7f080055
+			public const int username = 2131230805;
 			
-			// aapt resource value: 0x7f08005f
-			public const int verify_details = 2131230815;
+			// aapt resource value: 0x7f080064
+			public const int verify_details = 2131230820;
 			
 			static String()
 			{
