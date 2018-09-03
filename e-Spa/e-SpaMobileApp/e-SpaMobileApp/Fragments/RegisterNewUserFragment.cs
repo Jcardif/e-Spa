@@ -20,6 +20,8 @@ namespace e_SpaMobileApp.Fragments
 {
     public class RegisterNewUserFragment : Fragment
     {
+        private SfDataForm dataForm;
+        private SfDataForm dataForm2;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,36 +34,37 @@ namespace e_SpaMobileApp.Fragments
             var view=new RelativeLayout(Context.ApplicationContext);
             view.SetBackgroundColor(Color.ParseColor("#80000000"));
 
-            var txtViewLayoutParams = new RelativeLayout.LayoutParams(200, 200);
+            var txtViewLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             txtViewLayoutParams.AddRule(LayoutRules.AlignParentBottom);
             txtViewLayoutParams.AddRule(LayoutRules.AlignParentRight);
             txtViewLayoutParams.Width=ViewGroup.LayoutParams.WrapContent;
             txtViewLayoutParams.Height = ViewGroup.LayoutParams.WrapContent;
 
-            var dataFormParams = new RelativeLayout.LayoutParams(200, 200);
+            var dataFormParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             dataFormParams.AddRule(LayoutRules.CenterInParent);
             dataFormParams.Width = ViewGroup.LayoutParams.MatchParent;
             dataFormParams.Height = ViewGroup.LayoutParams.WrapContent;
 
-            var dataForm=new SfDataForm(Context.ApplicationContext);
+            dataForm=new SfDataForm(Context.ApplicationContext);
             dataForm.Id=View.GenerateViewId();
             var userInfo = new UserInfo();
             dataForm.DataObject=userInfo;
             dataForm.LabelPosition = LabelPosition.Top;
             view.AddView(dataForm,dataFormParams);
             
-            var dataForm2Params = new RelativeLayout.LayoutParams(200, 200);
+            var dataForm2Params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             dataForm2Params.AddRule(LayoutRules.Below, dataForm.Id);
             dataForm2Params.Width = ViewGroup.LayoutParams.MatchParent;
             dataForm2Params.Height = ViewGroup.LayoutParams.WrapContent;
 
-            var dataForm2 = new SfDataForm(Context.ApplicationContext);
+            dataForm2 = new SfDataForm(Context.ApplicationContext);
             var phoneInfo = new PhoneInfo();
             dataForm2.DataObject = phoneInfo;
             dataForm2.LabelPosition = LabelPosition.Top;
             dataForm2.ColumnCount = 2;
             dataForm2.SourceProvider = new CountryCodeSourceProvider(Context.ApplicationContext);
             dataForm2.RegisterEditor("CountryCode", "DropDown");
+            dataForm2.CommitMode = CommitMode.LostFocus;
             view.AddView(dataForm2, dataForm2Params);
 
             var txtView = new TextView(Context.ApplicationContext);
@@ -71,13 +74,16 @@ namespace e_SpaMobileApp.Fragments
             txtView.Clickable = true;
             txtView.SetTextColor(Color.White);
             view.AddView(txtView, txtViewLayoutParams);
-
+            
             txtView.Click += TxtView_Click;
             return view;
         }
 
+      
         private void TxtView_Click(object sender, EventArgs e)
         {
+            dataForm.Commit();
+            dataForm2.Commit();
         }
     }
 }

@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using e_SpaMobileApp.ExtensionsAndHelpers;
 
 namespace e_SpaMobileApp.Models
 {
@@ -20,9 +21,10 @@ namespace e_SpaMobileApp.Models
         public string Residence { get; set; }
     }
 
-    public class PhoneInfo
+    public class PhoneInfo : NotificationObject
     {
         public string CountryCode { get; set; }
         public string PhoneNumber { get; set; }
+        
     }
 }
