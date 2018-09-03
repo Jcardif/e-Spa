@@ -9,6 +9,7 @@ using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using FragmentTransaction = Android.App.FragmentTransaction;
 
 namespace e_SpaMobileApp.Fragments
 {
@@ -26,9 +27,28 @@ namespace e_SpaMobileApp.Fragments
             var registerBtn = view.FindViewById<Button>(Resource.Id.resgisterBtn);
             var privacyPolicy = view.FindViewById<TextView>(Resource.Id.privacyPolicyTxtView);
             var termsOfUse = view.FindViewById<TextView>(Resource.Id.termsofUsetxtView);
+            loginBtn.Click += (s, e) => { ReplaceFragment("login"); };
+            registerBtn.Click += (s, e) => { ReplaceFragment("register"); };
             return view;
         }
 
-      
+        private void ReplaceFragment(string sender)
+        {
+            var transaction = FragmentManager.BeginTransaction();
+            switch (sender)
+            {
+                case "login":
+                    transaction.Replace(Resource.Id.authorizationContainer, new LoginUserFragment())
+                        .AddToBackStack(null)
+                        .Commit();
+                    break;
+                case "register":
+                    transaction.Replace(Resource.Id.authorizationContainer, new RegisterNewUserFragment())
+                        .AddToBackStack(null)
+                        .Commit();
+                    break;
+            }
+            
+        }
     }
 }

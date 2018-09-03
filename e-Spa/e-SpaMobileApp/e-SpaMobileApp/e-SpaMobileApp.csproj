@@ -49,6 +49,18 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Syncfusion.SfCarousel.Android">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfCarousel.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfDataForm.Android">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfDataForm.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNumericTextBox.Android">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfNumericTextBox.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfNumericUpDown.Android">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfNumericUpDown.Android.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -67,6 +79,7 @@
     <Compile Include="Fragments\AuthorizationFragment.cs" />
     <Compile Include="Fragments\ForumsFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
+    <Compile Include="Fragments\LoginUserFragment.cs" />
     <Compile Include="Fragments\RegisterNewUserFragment.cs" />
     <Compile Include="Fragments\SalonsFragment.cs" />
     <Compile Include="Fragments\ServicesFragment.cs" />
@@ -88,6 +101,7 @@
     <Compile Include="Models\MySalon.cs" />
     <Compile Include="Models\MyService.cs" />
     <Compile Include="Models\MyTrend.cs" />
+    <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewHolders\SalonsRecyclerViewHolder.cs" />

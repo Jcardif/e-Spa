@@ -10,23 +10,19 @@ using Android.Support.V4.App;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Syncfusion.Android.DataForm;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class RegisterNewUserFragment : Fragment
+    public class LoginUserFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = new SfDataForm(Context.ApplicationContext);
-            return view;
+            return base.OnCreateView(inflater, container, savedInstanceState);
         }
     }
 }
