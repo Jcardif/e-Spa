@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "132251193521",
+    "firebase_url": "https://e-spa-2c240.firebaseio.com",
+    "project_id": "e-spa-2c240",
+    "storage_bucket": "e-spa-2c240.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132251193521:android:27a1d64e2e62dc66",
+        "android_client_info": {
+          "package_name": "com.StandwakTech.e_Spa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132251193521-lp51e3k9rutt8vgj6eicnq5mntpkn243.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.StandwakTech.e_Spa",
+            "certificate_hash": "462e2f11fdff37276b71b4d3b7407901c710c3eb"
+          }
+        },
+        {
+          "client_id": "132251193521-gq0mu2785j5kdlufclbueiiop0ju5gf1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV7bTvZRRj5MmovlNuxDPiefdBdmhN2No"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132251193521-gq0mu2785j5kdlufclbueiiop0ju5gf1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

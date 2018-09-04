@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using Syncfusion.Android.DataForm;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 
 namespace e_SpaMobileApp.Models
@@ -19,6 +12,7 @@ namespace e_SpaMobileApp.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Residence { get; set; }
+        
     }
 
     public class PhoneInfo : NotificationObject
