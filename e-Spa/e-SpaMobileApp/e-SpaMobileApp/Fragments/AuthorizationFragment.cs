@@ -38,11 +38,13 @@ namespace e_SpaMobileApp.Fragments
             switch (sender)
             {
                 case "login":
+                    transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit);
                     transaction.Replace(Resource.Id.authorizationContainer, new LoginUserFragment())
                         .AddToBackStack(null)
                         .Commit();
                     break;
                 case "register":
+                    transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit);
                     transaction.Replace(Resource.Id.authorizationContainer, new RegisterNewUserFragment())
                         .AddToBackStack(null)
                         .Commit();

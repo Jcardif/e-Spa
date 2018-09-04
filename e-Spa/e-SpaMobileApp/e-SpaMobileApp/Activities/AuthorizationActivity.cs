@@ -27,7 +27,7 @@ namespace e_SpaMobileApp.Activities
             LoadFragment();
         }
 
-        public void LoadFragment()
+        private void LoadFragment()
         {
             var fragment = new AuthorizationFragment();
             SupportFragmentManager.BeginTransaction()
