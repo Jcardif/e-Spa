@@ -179,9 +179,6 @@
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator.Android">
       <Version>16.2.0.50</Version>
     </PackageReference>
-    <PackageReference Include="Syncfusion.Xamarin.SfDataForm.Android">
-      <Version>16.2.0.50</Version>
-    </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>4.0.0.190-beta</Version>
     </PackageReference>

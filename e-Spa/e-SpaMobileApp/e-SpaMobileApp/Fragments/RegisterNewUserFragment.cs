@@ -50,6 +50,8 @@ namespace e_SpaMobileApp.Fragments
             var userInfo = new UserInfo();
             dataForm.DataObject=userInfo;
             dataForm.LabelPosition = LabelPosition.Top;
+            dataForm.ValidationMode = ValidationMode.LostFocus;
+            dataForm.CommitMode = CommitMode.LostFocus;
             view.AddView(dataForm,dataFormParams);
             
             var dataForm2Params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
@@ -64,6 +66,7 @@ namespace e_SpaMobileApp.Fragments
             dataForm2.ColumnCount = 2;
             dataForm2.SourceProvider = new CountryCodeSourceProvider(Context.ApplicationContext);
             dataForm2.RegisterEditor("CountryCode", "DropDown");
+            dataForm2.ValidationMode = ValidationMode.LostFocus;
             dataForm2.CommitMode = CommitMode.LostFocus;
             view.AddView(dataForm2, dataForm2Params);
 
@@ -82,6 +85,8 @@ namespace e_SpaMobileApp.Fragments
       
         private void TxtView_Click(object sender, EventArgs e)
         {
+            var isValid = dataForm.Validate() && dataForm2.Validate();
+            if (!isValid) return;
             dataForm.Commit();
             dataForm2.Commit();
         }
