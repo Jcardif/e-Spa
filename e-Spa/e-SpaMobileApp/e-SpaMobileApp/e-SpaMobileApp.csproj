@@ -85,6 +85,7 @@
     <Compile Include="Fragments\ForumsFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\LoginUserFragment.cs" />
+    <Compile Include="Fragments\PhoneNumberVerificationFragment.cs" />
     <Compile Include="Fragments\RegisterNewUserFragment.cs" />
     <Compile Include="Fragments\SalonsFragment.cs" />
     <Compile Include="Fragments\ServicesFragment.cs" />

@@ -89,6 +89,14 @@ namespace e_SpaMobileApp.Fragments
             if (!isValid) return;
             dataForm.Commit();
             dataForm2.Commit();
+
+            var fragment = new PhoneNumberVerificationFragment();
+
+            var transaction = FragmentManager.BeginTransaction();
+            transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
+                .Replace(Resource.Id.authorizationContainer, fragment)
+                .AddToBackStack(null)
+                .Commit();
         }
     }
 }
