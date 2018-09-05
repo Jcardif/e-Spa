@@ -75,9 +75,6 @@
     <Compile Include="Adapters\ServicesRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\TabAdapter.cs" />
     <Compile Include="Adapters\TrendsTabAdapter.cs" />
-    <Compile Include="ExtensionsAndHelpers\CountryCodeSourceProvider.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ExtensionsAndHelpers\NotificationObject.cs" />
     <Compile Include="Fragments\AddTrendFragment.cs" />
     <Compile Include="Fragments\AppointmentFragment.cs" />

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Syncfusion.Android.DataForm;
 
 using e_SpaMobileApp.ExtensionsAndHelpers;
+using Newtonsoft.Json;
 
 namespace e_SpaMobileApp.Models
 {
@@ -20,9 +21,9 @@ namespace e_SpaMobileApp.Models
 
     public class PhoneInfo : NotificationObject
     {
-        [Display(Name ="Country Code"), Required(AllowEmptyStrings =false, ErrorMessage ="Select your Country Dial Code")]
+        [Display(AutoGenerateField = false)]
         public string CountryCode { get; set; }
-        [Display(Name ="Phone Number, 712345678"), Required(AllowEmptyStrings =false, ErrorMessage ="Phone Number Cannot be Empty"), StringLength(9, ErrorMessage ="Enter a valid Phone Number")]
+        [Display(Name ="Phone Number(eg 712345678)"), Required(AllowEmptyStrings =false, ErrorMessage ="Phone Number Cannot be Empty"), StringLength(9, ErrorMessage ="Enter a valid Phone Number")]
          public string PhoneNumber { get; set; }
         
     }

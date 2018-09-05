@@ -12,6 +12,7 @@ using Android.Text;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Com.Mukesh.CountryPickerLib;
 using e_SpaMobileApp.Models;
 using Java.Lang;
 using Newtonsoft.Json;
@@ -19,7 +20,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class PhoneNumberVerificationFragment : Fragment, ITextWatcher
+    public class PhoneNumberVerificationFragment : Fragment, ITextWatcher, IOnCountryPickerListener
     {
         private RelativeLayout _relativeLayout;
 
@@ -61,14 +62,29 @@ namespace e_SpaMobileApp.Fragments
             _textInputEditText6 = view.FindViewById<TextInputEditText>(Resource.Id.textInputEditText6);
             _codeInputEdtTxt = view.FindViewById<TextInputEditText>(Resource.Id.countryCodeTxtInputEdtTxt);
             _phoneInputEdtTxt = view.FindViewById<TextInputEditText>(Resource.Id.phoneNumberTxtInputEdtTxt);
-            
+
+            _codeInputEdtTxt.Text = _phoneInfo.CountryCode;
+            _phoneInputEdtTxt.Text = _phoneInfo.PhoneNumber;
+
             _textInputEditText1.AddTextChangedListener(this);
             _textInputEditText2.AddTextChangedListener(this);
             _textInputEditText3.AddTextChangedListener(this);
             _textInputEditText4.AddTextChangedListener(this);
             _textInputEditText5.AddTextChangedListener(this);
             _textInputEditText6.AddTextChangedListener(this);
+
+            _codeInputEdtTxt.Focusable = false;
+            _codeInputEdtTxt.Click += (s, e) => { GetCountryCode(); };
             return view;
+        }
+
+        private void GetCountryCode()
+        {
+            var builder = new CountryPicker.Builder()
+                .With(Context.ApplicationContext)
+                .Listener(this);
+            var picker = builder.Build();
+            picker.ShowDialog(FragmentManager);
         }
 
         public void AfterTextChanged(IEditable s)
@@ -105,6 +121,11 @@ namespace e_SpaMobileApp.Fragments
             }
 
             return null;
+        }
+
+        public void OnSelectCountry(Country country)
+        {
+            _codeInputEdtTxt.Text = country.DialCode;
         }
     }
 }

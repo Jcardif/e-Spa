@@ -8,9 +8,11 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.Design.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Com.Mukesh.CountryPickerLib;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using Newtonsoft.Json;
@@ -19,12 +21,13 @@ using Fragment = Android.Support.V4.App.Fragment;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class RegisterNewUserFragment : Fragment
+    public class RegisterNewUserFragment : Fragment, IOnCountryPickerListener
     {
         private SfDataForm dataForm;
         private SfDataForm dataForm2;
         private UserInfo userInfo;
         private PhoneInfo phoneInfo;
+        private EditText edtTxt;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -56,19 +59,36 @@ namespace e_SpaMobileApp.Fragments
             dataForm.ValidationMode = ValidationMode.LostFocus;
             dataForm.CommitMode = CommitMode.LostFocus;
             view.AddView(dataForm,dataFormParams);
+
+            var edtParams=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
+            edtParams.AddRule(LayoutRules.Below, dataForm.Id);
+            edtParams.Width=ViewGroup.LayoutParams.WrapContent;
+            edtParams.LeftMargin = 48;
+            edtParams.Height=ViewGroup.LayoutParams.WrapContent;
+
+            edtTxt = new EditText(Context.ApplicationContext);
+            edtTxt.Id = View.GenerateViewId();
+            edtTxt.Hint = "Code";
+            edtTxt.SetHintTextColor(Color.White);
+            edtTxt.Focusable = false;
+            edtTxt.SetTextColor(Color.White);
+            edtTxt.SetMaxLines(1);
+            edtTxt.SetMinHeight(48);
+            edtTxt.Gravity = GravityFlags.Top;
+            view.AddView(edtTxt, edtParams);
             
             var dataForm2Params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             dataForm2Params.AddRule(LayoutRules.Below, dataForm.Id);
+            dataForm2Params.AddRule(LayoutRules.RightOf, edtTxt.Id);
             dataForm2Params.Width = ViewGroup.LayoutParams.MatchParent;
+            dataForm2Params.RightMargin = 48;
             dataForm2Params.Height = ViewGroup.LayoutParams.WrapContent;
 
             dataForm2 = new SfDataForm(Context.ApplicationContext);
             phoneInfo = new PhoneInfo();
             dataForm2.DataObject = phoneInfo;
             dataForm2.LabelPosition = LabelPosition.Top;
-            dataForm2.ColumnCount = 2;
-            dataForm2.SourceProvider = new CountryCodeSourceProvider(Context.ApplicationContext);
-            dataForm2.RegisterEditor("CountryCode", "DropDown");
+            dataForm2.RegisterEditor("PhoneNumber", "Text");
             dataForm2.ValidationMode = ValidationMode.LostFocus;
             dataForm2.CommitMode = CommitMode.LostFocus;
             view.AddView(dataForm2, dataForm2Params);
@@ -80,12 +100,22 @@ namespace e_SpaMobileApp.Fragments
             txtView.Clickable = true;
             txtView.SetTextColor(Color.White);
             view.AddView(txtView, txtViewLayoutParams);
-            
+
+            edtTxt.Click += (s,e) => { GetCountryCode(); };
             txtView.Click += TxtView_Click;
             return view;
         }
 
-      
+        private void GetCountryCode()
+        {
+            var builder = new CountryPicker.Builder()
+                .With(Context.ApplicationContext)
+                .Listener(this);
+            var picker = builder.Build();
+            picker.ShowDialog(FragmentManager);
+        }
+
+
         private void TxtView_Click(object sender, EventArgs e)
         {
             var isValid = dataForm.Validate() && dataForm2.Validate();
@@ -107,6 +137,12 @@ namespace e_SpaMobileApp.Fragments
                 .Replace(Resource.Id.authorizationContainer, fragment)
                 .AddToBackStack(null)
                 .Commit();
+        }
+
+        public void OnSelectCountry(Country country)
+        {
+            phoneInfo.CountryCode = country.DialCode;
+            edtTxt.Text = phoneInfo.CountryCode;
         }
     }
 }
