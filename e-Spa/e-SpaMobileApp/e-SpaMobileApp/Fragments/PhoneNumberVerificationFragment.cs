@@ -63,17 +63,20 @@ namespace e_SpaMobileApp.Fragments
             _phoneInputEdtTxt = view.FindViewById<TextInputEditText>(Resource.Id.phoneNumberTxtInputEdtTxt);
             
             _textInputEditText1.AddTextChangedListener(this);
+            _textInputEditText2.AddTextChangedListener(this);
+            _textInputEditText3.AddTextChangedListener(this);
+            _textInputEditText4.AddTextChangedListener(this);
+            _textInputEditText5.AddTextChangedListener(this);
+            _textInputEditText6.AddTextChangedListener(this);
             return view;
         }
 
         public void AfterTextChanged(IEditable s)
         {
-            throw new NotImplementedException();
         }
 
         public void BeforeTextChanged(ICharSequence s, int start, int count, int after)
         {
-            throw new NotImplementedException();
         }
 
         public void OnTextChanged(ICharSequence s, int start, int before, int count)
@@ -95,7 +98,7 @@ namespace e_SpaMobileApp.Fragments
                 _textInputEditText5,
                 _textInputEditText6
             };
-            for (var i = 0; i < 5; i++)
+            for (var i = 0; i <= 5; i++)
             {
                 if (lst[i].HasFocus)
                     return lst[i];
