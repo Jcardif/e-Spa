@@ -167,9 +167,9 @@
 		android:layout_toRightOf="@id/verifyCodeTxtView"
 		android:clickable="true"
 		android:layout_below="@+id/textInputEditText1"/>
-	<RelativeLayout
+	<FrameLayout
 		android:layout_below="@+id/verifyCodeTxtView"
-		android:id="@+id/relativeLayout1"
+		android:id="@+id/frameLayout1"
 		android:layout_width="match_parent"
 		android:layout_marginTop="8dp"
 		android:layout_marginBottom="8dp"

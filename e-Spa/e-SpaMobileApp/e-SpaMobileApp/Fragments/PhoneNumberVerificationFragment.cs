@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using Android.Text;
 using Android.Util;
 using Android.Views;
@@ -19,13 +20,14 @@ using e_SpaMobileApp.Models;
 using Java.Lang;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Syncfusion.Android.ProgressBar;
 using Timer = System.Timers.Timer;
 
 namespace e_SpaMobileApp.Fragments
 {
     public class PhoneNumberVerificationFragment : Fragment, ITextWatcher, IOnCountryPickerListener
     {
-        private RelativeLayout _relativeLayout;
+        private FrameLayout _frameLayout;
 
         private TextInputEditText _textInputEditText1,
             _textInputEditText2,
@@ -37,12 +39,10 @@ namespace e_SpaMobileApp.Fragments
             _phoneInputEdtTxt;
 
         private Button _authorizeVerificationBtn;
-        private TextView _verifyTxtView, _resendCodeTxtView, _timerTxtView;
+        private TextView _verifyTxtView, _resendCodeTxtView;
         private PhoneInfo _phoneInfo;
         private UserInfo _userInfo;
-        private Timer _timer;
-        private int _min=3;
-        private int _sec=59;
+ 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -57,7 +57,7 @@ namespace e_SpaMobileApp.Fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.fragment_phoneVerification, container, false);
-            _relativeLayout = view.FindViewById<RelativeLayout>(Resource.Id.relativeLayout1);
+            _frameLayout = view.FindViewById<FrameLayout>(Resource.Id.frameLayout1);
             _authorizeVerificationBtn = view.FindViewById<Button>(Resource.Id.authorizeVerificationBtn);
             _verifyTxtView = view.FindViewById<TextView>(Resource.Id.verifyCodeTxtView);
             _textInputEditText1 = view.FindViewById<TextInputEditText>(Resource.Id.textInputEditText1);
@@ -90,48 +90,16 @@ namespace e_SpaMobileApp.Fragments
             _authorizeVerificationBtn.Click += (s, e) =>
             {
                 EnableAndDisableViews(true);
-                LoadRelativeLayout();
+                LoadTimerFragment();
             };
             return view;
         }
 
-        private  void LoadRelativeLayout()
+        private void LoadTimerFragment()
         {
-            var timerParams=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
-            timerParams.AddRule(LayoutRules.CenterInParent);
-            timerParams.Width = ViewGroup.LayoutParams.WrapContent;
-            timerParams.Height = ViewGroup.LayoutParams.WrapContent;
-
-            _timerTxtView =new TextView(Context.ApplicationContext);
-            _timerTxtView.Text = $"{_min} : {_sec}";
-            _timerTxtView.SetTextColor(Color.White);
-            _timerTxtView.TextSize = 16;
-
-            _relativeLayout.AddView(_timerTxtView, timerParams);
-            ThreadPool.QueueUserWorkItem(o => BeginTimer());
-        }
-
-        private void BeginTimer()
-        {
-            _timer = new Timer();
-            _timer.Interval = 1000;
-            _timer.Elapsed += _timer_Elapsed;
-            _timer.Enabled = true;
-        }
-
-        private void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            _sec--;
-            if (_sec == 0)
-            {
-                _min--;
-                _sec = 59;
-            }
-            Activity.RunOnUiThread(() => { _timerTxtView.Text = $"{_min} : {_sec}"; });
             
-            if (_min==0&&_sec==0)
-                _timer.Stop();
         }
+
 
         private void EnableAndDisableViews(bool isEnabled)
         {
@@ -146,7 +114,7 @@ namespace e_SpaMobileApp.Fragments
             _textInputEditText6.Enabled = isEnabled;
             _verifyTxtView.Enabled = isEnabled;
             _resendCodeTxtView.Enabled = isEnabled;
-            _relativeLayout.Enabled = isEnabled;
+            _frameLayout.Enabled = isEnabled;
         }
 
         private void GetCountryCode()

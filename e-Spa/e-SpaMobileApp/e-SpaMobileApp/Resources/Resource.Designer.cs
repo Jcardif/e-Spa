@@ -327,6 +327,66 @@ namespace e_SpaMobileApp
 			global::Syncfusion.Android.DataForm.Resource.Layout.Spinner_item = global::e_SpaMobileApp.Resource.Layout.Spinner_item;
 			global::Syncfusion.Android.DataForm.Resource.String.ApplicationName = global::e_SpaMobileApp.Resource.String.ApplicationName;
 			global::Syncfusion.Android.DataForm.Resource.String.Hello = global::e_SpaMobileApp.Resource.String.Hello;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.animationDuration = global::e_SpaMobileApp.Resource.Attribute.animationDuration;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.cornerRadius = global::e_SpaMobileApp.Resource.Attribute.cornerRadius;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.endAngle = global::e_SpaMobileApp.Resource.Attribute.endAngle;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.gapWidth = global::e_SpaMobileApp.Resource.Attribute.gapWidth;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.indeterminateAnimationDuration = global::e_SpaMobileApp.Resource.Attribute.indeterminateAnimationDuration;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.indicatorInnerRadius = global::e_SpaMobileApp.Resource.Attribute.indicatorInnerRadius;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.indicatorOuterRadius = global::e_SpaMobileApp.Resource.Attribute.indicatorOuterRadius;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.indicatorPaddingBottom = global::e_SpaMobileApp.Resource.Attribute.indicatorPaddingBottom;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.indicatorPaddingLeft = global::e_SpaMobileApp.Resource.Attribute.indicatorPaddingLeft;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.indicatorPaddingRight = global::e_SpaMobileApp.Resource.Attribute.indicatorPaddingRight;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.indicatorPaddingTop = global::e_SpaMobileApp.Resource.Attribute.indicatorPaddingTop;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.isIndeterminate = global::e_SpaMobileApp.Resource.Attribute.isIndeterminate;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.maximum = global::e_SpaMobileApp.Resource.Attribute.maximum;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.minimum = global::e_SpaMobileApp.Resource.Attribute.minimum;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.progress = global::e_SpaMobileApp.Resource.Attribute.progress;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.progressColor = global::e_SpaMobileApp.Resource.Attribute.progressColor;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.secondaryAnimationDuration = global::e_SpaMobileApp.Resource.Attribute.secondaryAnimationDuration;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.secondaryProgress = global::e_SpaMobileApp.Resource.Attribute.secondaryProgress;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.secondaryProgressColor = global::e_SpaMobileApp.Resource.Attribute.secondaryProgressColor;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.segmentCount = global::e_SpaMobileApp.Resource.Attribute.segmentCount;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.showProgressValue = global::e_SpaMobileApp.Resource.Attribute.showProgressValue;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.startAngle = global::e_SpaMobileApp.Resource.Attribute.startAngle;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.trackColor = global::e_SpaMobileApp.Resource.Attribute.trackColor;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.trackHeight = global::e_SpaMobileApp.Resource.Attribute.trackHeight;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.trackInnerRadius = global::e_SpaMobileApp.Resource.Attribute.trackInnerRadius;
+			global::Syncfusion.Android.ProgressBar.Resource.Attribute.trackOuterRadius = global::e_SpaMobileApp.Resource.Attribute.trackOuterRadius;
+			global::Syncfusion.Android.ProgressBar.Resource.Drawable.sfprogressbar_determinate_linear = global::e_SpaMobileApp.Resource.Drawable.sfprogressbar_determinate_linear;
+			global::Syncfusion.Android.ProgressBar.Resource.Drawable.sfprogressbar_indeterminate_circular = global::e_SpaMobileApp.Resource.Drawable.sfprogressbar_indeterminate_circular;
+			global::Syncfusion.Android.ProgressBar.Resource.Drawable.sfprogressbar_indeterminate_linear = global::e_SpaMobileApp.Resource.Drawable.sfprogressbar_indeterminate_linear;
+			global::Syncfusion.Android.ProgressBar.Resource.Id.sfprogressbar_progress = global::e_SpaMobileApp.Resource.Id.sfprogressbar_progress;
+			global::Syncfusion.Android.ProgressBar.Resource.Id.sfprogressbar_secondary_progress = global::e_SpaMobileApp.Resource.Id.sfprogressbar_secondary_progress;
+			global::Syncfusion.Android.ProgressBar.Resource.Id.sfprogressbar_track = global::e_SpaMobileApp.Resource.Id.sfprogressbar_track;
+			global::Syncfusion.Android.ProgressBar.Resource.String.library_name = global::e_SpaMobileApp.Resource.String.library_name;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_animationDuration = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_animationDuration;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_cornerRadius = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_cornerRadius;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_endAngle = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_endAngle;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_gapWidth = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_gapWidth;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_indeterminateAnimationDuration = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_indeterminateAnimationDuration;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_indicatorInnerRadius = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_indicatorInnerRadius;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_indicatorOuterRadius = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_indicatorOuterRadius;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_indicatorPaddingBottom = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_indicatorPaddingBottom;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_indicatorPaddingLeft = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_indicatorPaddingLeft;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_indicatorPaddingRight = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_indicatorPaddingRight;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_indicatorPaddingTop = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_indicatorPaddingTop;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_isIndeterminate = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_isIndeterminate;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_maximum = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_maximum;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_minimum = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_minimum;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_progress = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_progress;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_progressColor = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_progressColor;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_secondaryAnimationDuration = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_secondaryAnimationDuration;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_secondaryProgress = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_secondaryProgress;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_secondaryProgressColor = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_secondaryProgressColor;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_segmentCount = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_segmentCount;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_showProgressValue = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_showProgressValue;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_startAngle = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_startAngle;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_trackColor = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_trackColor;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_trackHeight = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_trackHeight;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_trackInnerRadius = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_trackInnerRadius;
+			global::Syncfusion.Android.ProgressBar.Resource.Styleable.SfProgressBar_trackOuterRadius = global::e_SpaMobileApp.Resource.Styleable.SfProgressBar_trackOuterRadius;
 		}
 		
 		public partial class Animation
@@ -553,6 +613,9 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0100d2
 			public const int alphabeticModifiers = 2130772178;
 			
+			// aapt resource value: 0x7f010173
+			public const int animationDuration = 2130772339;
+			
 			// aapt resource value: 0x7f0100cb
 			public const int arrowHeadLength = 2130772171;
 			
@@ -685,17 +748,17 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f010002
 			public const int circleCrop = 2130771970;
 			
-			// aapt resource value: 0x7f01016c
-			public const int civ_border_color = 2130772332;
+			// aapt resource value: 0x7f010186
+			public const int civ_border_color = 2130772358;
 			
-			// aapt resource value: 0x7f01016d
-			public const int civ_border_overlay = 2130772333;
+			// aapt resource value: 0x7f010187
+			public const int civ_border_overlay = 2130772359;
 			
-			// aapt resource value: 0x7f01016b
-			public const int civ_border_width = 2130772331;
+			// aapt resource value: 0x7f010185
+			public const int civ_border_width = 2130772357;
 			
-			// aapt resource value: 0x7f01016e
-			public const int civ_fill_color = 2130772334;
+			// aapt resource value: 0x7f010188
+			public const int civ_fill_color = 2130772360;
 			
 			// aapt resource value: 0x7f0100e6
 			public const int closeIcon = 2130772198;
@@ -796,6 +859,9 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0100a8
 			public const int controlBackground = 2130772136;
 			
+			// aapt resource value: 0x7f01017d
+			public const int cornerRadius = 2130772349;
+			
 			// aapt resource value: 0x7f010158
 			public const int counterEnabled = 2130772312;
 			
@@ -858,6 +924,9 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 0x7f010036
 			public const int elevation = 2130772022;
+			
+			// aapt resource value: 0x7f01017f
+			public const int endAngle = 2130772351;
 			
 			// aapt resource value: 0x7f010156
 			public const int errorEnabled = 2130772310;
@@ -946,6 +1015,9 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0100ca
 			public const int gapBetweenBars = 2130772170;
 			
+			// aapt resource value: 0x7f010179
+			public const int gapWidth = 2130772345;
+			
 			// aapt resource value: 0x7f0100e7
 			public const int goIcon = 2130772199;
 			
@@ -994,14 +1066,38 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f01008d
 			public const int imageButtonStyle = 2130772109;
 			
+			// aapt resource value: 0x7f010172
+			public const int indeterminateAnimationDuration = 2130772338;
+			
 			// aapt resource value: 0x7f01002c
 			public const int indeterminateProgressStyle = 2130772012;
+			
+			// aapt resource value: 0x7f010184
+			public const int indicatorInnerRadius = 2130772356;
+			
+			// aapt resource value: 0x7f010183
+			public const int indicatorOuterRadius = 2130772355;
+			
+			// aapt resource value: 0x7f010177
+			public const int indicatorPaddingBottom = 2130772343;
+			
+			// aapt resource value: 0x7f010174
+			public const int indicatorPaddingLeft = 2130772340;
+			
+			// aapt resource value: 0x7f010175
+			public const int indicatorPaddingRight = 2130772341;
+			
+			// aapt resource value: 0x7f010176
+			public const int indicatorPaddingTop = 2130772342;
 			
 			// aapt resource value: 0x7f010039
 			public const int initialActivityCount = 2130772025;
 			
 			// aapt resource value: 0x7f010141
 			public const int insetForeground = 2130772289;
+			
+			// aapt resource value: 0x7f010171
+			public const int isIndeterminate = 2130772337;
 			
 			// aapt resource value: 0x7f01001c
 			public const int isLightTheme = 2130771996;
@@ -1105,11 +1201,17 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f010102
 			public const int maxButtonHeight = 2130772226;
 			
+			// aapt resource value: 0x7f010170
+			public const int maximum = 2130772336;
+			
 			// aapt resource value: 0x7f0100cf
 			public const int measureWithLargestChild = 2130772175;
 			
 			// aapt resource value: 0x7f01013b
 			public const int menu = 2130772283;
+			
+			// aapt resource value: 0x7f01016f
+			public const int minimum = 2130772335;
 			
 			// aapt resource value: 0x7f01003d
 			public const int multiChoiceItemLayout = 2130772029;
@@ -1180,11 +1282,17 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f010136
 			public const int pressedTranslationZ = 2130772278;
 			
+			// aapt resource value: 0x7f01016b
+			public const int progress = 2130772331;
+			
 			// aapt resource value: 0x7f01002d
 			public const int progressBarPadding = 2130772013;
 			
 			// aapt resource value: 0x7f01002b
 			public const int progressBarStyle = 2130772011;
+			
+			// aapt resource value: 0x7f01016c
+			public const int progressColor = 2130772332;
 			
 			// aapt resource value: 0x7f0100ed
 			public const int queryBackground = 2130772205;
@@ -1228,8 +1336,20 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f010091
 			public const int searchViewStyle = 2130772113;
 			
+			// aapt resource value: 0x7f01017c
+			public const int secondaryAnimationDuration = 2130772348;
+			
+			// aapt resource value: 0x7f01017a
+			public const int secondaryProgress = 2130772346;
+			
+			// aapt resource value: 0x7f01017b
+			public const int secondaryProgressColor = 2130772347;
+			
 			// aapt resource value: 0x7f0100bc
 			public const int seekBarStyle = 2130772156;
+			
+			// aapt resource value: 0x7f010178
+			public const int segmentCount = 2130772344;
 			
 			// aapt resource value: 0x7f010081
 			public const int selectableItemBackground = 2130772097;
@@ -1242,6 +1362,9 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 0x7f0100d0
 			public const int showDividers = 2130772176;
+			
+			// aapt resource value: 0x7f010180
+			public const int showProgressValue = 2130772352;
 			
 			// aapt resource value: 0x7f0100f9
 			public const int showText = 2130772217;
@@ -1272,6 +1395,9 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 0x7f010009
 			public const int stackFromEnd = 2130771977;
+			
+			// aapt resource value: 0x7f01017e
+			public const int startAngle = 2130772350;
 			
 			// aapt resource value: 0x7f0100df
 			public const int state_above_anchor = 2130772191;
@@ -1488,6 +1614,18 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 0x7f0100f1
 			public const int track = 2130772209;
+			
+			// aapt resource value: 0x7f01016d
+			public const int trackColor = 2130772333;
+			
+			// aapt resource value: 0x7f01016e
+			public const int trackHeight = 2130772334;
+			
+			// aapt resource value: 0x7f010182
+			public const int trackInnerRadius = 2130772354;
+			
+			// aapt resource value: 0x7f010181
+			public const int trackOuterRadius = 2130772353;
 			
 			// aapt resource value: 0x7f0100f2
 			public const int trackTint = 2130772210;
@@ -2684,26 +2822,26 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020197
-			public const int avd_hide_password_1 = 2130837911;
+			// aapt resource value: 0x7f02019a
+			public const int avd_hide_password_1 = 2130837914;
 			
-			// aapt resource value: 0x7f020198
-			public const int avd_hide_password_2 = 2130837912;
+			// aapt resource value: 0x7f02019b
+			public const int avd_hide_password_2 = 2130837915;
 			
-			// aapt resource value: 0x7f020199
-			public const int avd_hide_password_3 = 2130837913;
+			// aapt resource value: 0x7f02019c
+			public const int avd_hide_password_3 = 2130837916;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02019a
-			public const int avd_show_password_1 = 2130837914;
+			// aapt resource value: 0x7f02019d
+			public const int avd_show_password_1 = 2130837917;
 			
-			// aapt resource value: 0x7f02019b
-			public const int avd_show_password_2 = 2130837915;
+			// aapt resource value: 0x7f02019e
+			public const int avd_show_password_2 = 2130837918;
 			
-			// aapt resource value: 0x7f02019c
-			public const int avd_show_password_3 = 2130837916;
+			// aapt resource value: 0x7f02019f
+			public const int avd_show_password_3 = 2130837919;
 			
 			// aapt resource value: 0x7f020055
 			public const int client_app_layout_background = 2130837589;
@@ -3620,11 +3758,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f020185
 			public const int notification_icon_background = 2130837893;
 			
-			// aapt resource value: 0x7f020195
-			public const int notification_template_icon_bg = 2130837909;
+			// aapt resource value: 0x7f020198
+			public const int notification_template_icon_bg = 2130837912;
 			
-			// aapt resource value: 0x7f020196
-			public const int notification_template_icon_low_bg = 2130837910;
+			// aapt resource value: 0x7f020199
+			public const int notification_template_icon_low_bg = 2130837913;
 			
 			// aapt resource value: 0x7f020186
 			public const int notification_tile_bg = 2130837894;
@@ -3657,19 +3795,28 @@ namespace e_SpaMobileApp
 			public const int rose = 2130837903;
 			
 			// aapt resource value: 0x7f020190
-			public const int splashImage = 2130837904;
+			public const int sfprogressbar_determinate_linear = 2130837904;
 			
 			// aapt resource value: 0x7f020191
-			public const int syncfusion_editText_style = 2130837905;
+			public const int sfprogressbar_indeterminate_circular = 2130837905;
 			
 			// aapt resource value: 0x7f020192
-			public const int title_trend_edittext_style = 2130837906;
+			public const int sfprogressbar_indeterminate_linear = 2130837906;
 			
 			// aapt resource value: 0x7f020193
-			public const int tooltip_frame_dark = 2130837907;
+			public const int splashImage = 2130837907;
 			
 			// aapt resource value: 0x7f020194
-			public const int tooltip_frame_light = 2130837908;
+			public const int syncfusion_editText_style = 2130837908;
+			
+			// aapt resource value: 0x7f020195
+			public const int title_trend_edittext_style = 2130837909;
+			
+			// aapt resource value: 0x7f020196
+			public const int tooltip_frame_dark = 2130837910;
+			
+			// aapt resource value: 0x7f020197
+			public const int tooltip_frame_light = 2130837911;
 			
 			static Drawable()
 			{
@@ -3978,6 +4125,9 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b005f
 			public const int forever = 2131427423;
 			
+			// aapt resource value: 0x7f0b00e4
+			public const int frameLayout1 = 2131427556;
+			
 			// aapt resource value: 0x7f0b00c4
 			public const int frequency2PercentTxtView = 2131427524;
 			
@@ -4074,20 +4224,20 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0b0030
 			public const int multiply = 2131427376;
 			
-			// aapt resource value: 0x7f0b0111
-			public const int navigation_appointments = 2131427601;
+			// aapt resource value: 0x7f0b0114
+			public const int navigation_appointments = 2131427604;
 			
 			// aapt resource value: 0x7f0b00ac
 			public const int navigation_header_container = 2131427500;
 			
-			// aapt resource value: 0x7f0b010e
-			public const int navigation_home = 2131427598;
+			// aapt resource value: 0x7f0b0111
+			public const int navigation_home = 2131427601;
 			
-			// aapt resource value: 0x7f0b0110
-			public const int navigation_salons = 2131427600;
+			// aapt resource value: 0x7f0b0113
+			public const int navigation_salons = 2131427603;
 			
-			// aapt resource value: 0x7f0b010f
-			public const int navigation_services = 2131427599;
+			// aapt resource value: 0x7f0b0112
+			public const int navigation_services = 2131427602;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int never = 2131427395;
@@ -4151,9 +4301,6 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 0x7f0b00bb
 			public const int refreshAppointmentFab = 2131427515;
-			
-			// aapt resource value: 0x7f0b00e4
-			public const int relativeLayout1 = 2131427556;
 			
 			// aapt resource value: 0x7f0b00e3
 			public const int resendCodeTxtView = 2131427555;
@@ -4307,6 +4454,15 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 0x7f0b00e6
 			public const int servicesRecyclerView = 2131427558;
+			
+			// aapt resource value: 0x7f0b0110
+			public const int sfprogressbar_progress = 2131427600;
+			
+			// aapt resource value: 0x7f0b010f
+			public const int sfprogressbar_secondary_progress = 2131427599;
+			
+			// aapt resource value: 0x7f0b010e
+			public const int sfprogressbar_track = 2131427598;
 			
 			// aapt resource value: 0x7f0b007b
 			public const int shortcut = 2131427451;
@@ -4850,11 +5006,11 @@ namespace e_SpaMobileApp
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f070042
-			public const int ApplicationName = 2131165250;
+			// aapt resource value: 0x7f070043
+			public const int ApplicationName = 2131165251;
 			
-			// aapt resource value: 0x7f070041
-			public const int Hello = 2131165249;
+			// aapt resource value: 0x7f070042
+			public const int Hello = 2131165250;
 			
 			// aapt resource value: 0x7f07001a
 			public const int abc_action_bar_home_description = 2131165210;
@@ -5087,8 +5243,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f070068
 			public const int lastName = 2131165288;
 			
-			// aapt resource value: 0x7f070043
-			public const int library_name = 2131165251;
+			// aapt resource value: 0x7f070041
+			public const int library_name = 2131165249;
 			
 			// aapt resource value: 0x7f070060
 			public const int log_in = 2131165280;
@@ -7306,10 +7462,10 @@ namespace e_SpaMobileApp
 			public const int CardView_contentPaddingTop = 11;
 			
 			public static int[] CircleImageView = new int[] {
-					2130772331,
-					2130772332,
-					2130772333,
-					2130772334};
+					2130772357,
+					2130772358,
+					2130772359,
+					2130772360};
 			
 			// aapt resource value: 1
 			public const int CircleImageView_civ_border_color = 1;
@@ -8058,6 +8214,112 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 12
 			public const int SearchView_voiceIcon = 12;
+			
+			public static int[] SfProgressBar = new int[] {
+					2130772331,
+					2130772332,
+					2130772333,
+					2130772334,
+					2130772335,
+					2130772336,
+					2130772337,
+					2130772338,
+					2130772339,
+					2130772340,
+					2130772341,
+					2130772342,
+					2130772343,
+					2130772344,
+					2130772345,
+					2130772346,
+					2130772347,
+					2130772348,
+					2130772349,
+					2130772350,
+					2130772351,
+					2130772352,
+					2130772353,
+					2130772354,
+					2130772355,
+					2130772356};
+			
+			// aapt resource value: 8
+			public const int SfProgressBar_animationDuration = 8;
+			
+			// aapt resource value: 18
+			public const int SfProgressBar_cornerRadius = 18;
+			
+			// aapt resource value: 20
+			public const int SfProgressBar_endAngle = 20;
+			
+			// aapt resource value: 14
+			public const int SfProgressBar_gapWidth = 14;
+			
+			// aapt resource value: 7
+			public const int SfProgressBar_indeterminateAnimationDuration = 7;
+			
+			// aapt resource value: 25
+			public const int SfProgressBar_indicatorInnerRadius = 25;
+			
+			// aapt resource value: 24
+			public const int SfProgressBar_indicatorOuterRadius = 24;
+			
+			// aapt resource value: 12
+			public const int SfProgressBar_indicatorPaddingBottom = 12;
+			
+			// aapt resource value: 9
+			public const int SfProgressBar_indicatorPaddingLeft = 9;
+			
+			// aapt resource value: 10
+			public const int SfProgressBar_indicatorPaddingRight = 10;
+			
+			// aapt resource value: 11
+			public const int SfProgressBar_indicatorPaddingTop = 11;
+			
+			// aapt resource value: 6
+			public const int SfProgressBar_isIndeterminate = 6;
+			
+			// aapt resource value: 5
+			public const int SfProgressBar_maximum = 5;
+			
+			// aapt resource value: 4
+			public const int SfProgressBar_minimum = 4;
+			
+			// aapt resource value: 0
+			public const int SfProgressBar_progress = 0;
+			
+			// aapt resource value: 1
+			public const int SfProgressBar_progressColor = 1;
+			
+			// aapt resource value: 17
+			public const int SfProgressBar_secondaryAnimationDuration = 17;
+			
+			// aapt resource value: 15
+			public const int SfProgressBar_secondaryProgress = 15;
+			
+			// aapt resource value: 16
+			public const int SfProgressBar_secondaryProgressColor = 16;
+			
+			// aapt resource value: 13
+			public const int SfProgressBar_segmentCount = 13;
+			
+			// aapt resource value: 21
+			public const int SfProgressBar_showProgressValue = 21;
+			
+			// aapt resource value: 19
+			public const int SfProgressBar_startAngle = 19;
+			
+			// aapt resource value: 2
+			public const int SfProgressBar_trackColor = 2;
+			
+			// aapt resource value: 3
+			public const int SfProgressBar_trackHeight = 3;
+			
+			// aapt resource value: 23
+			public const int SfProgressBar_trackInnerRadius = 23;
+			
+			// aapt resource value: 22
+			public const int SfProgressBar_trackOuterRadius = 22;
 			
 			public static int[] SignInButton = new int[] {
 					2130771971,
