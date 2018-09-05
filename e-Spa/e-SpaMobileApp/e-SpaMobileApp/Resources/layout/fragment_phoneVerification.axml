@@ -144,13 +144,27 @@
 		android:id="@+id/verifyCodeTxtView"
 		android:textSize="18sp"
 		android:textStyle="bold"
-		android:layout_centerHorizontal="true"
 		android:textColor="@android:color/white"
 		android:layout_marginTop="8dp"
+		android:layout_marginRight="24dp"
 		android:layout_marginBottom="8dp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="Verify"
+		android:clickable="true"
+		android:layout_below="@+id/textInputEditText1"/>
+	<TextView
+		android:id="@+id/resendCodeTxtView"
+		android:textSize="18sp"
+		android:textStyle="bold"
+		android:textColor="@android:color/white"
+		android:layout_marginTop="8dp"
+		android:layout_marginBottom="8dp"
+		android:layout_marginLeft="24dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Resend Code"
+		android:layout_toRightOf="@id/verifyCodeTxtView"
 		android:clickable="true"
 		android:layout_below="@+id/textInputEditText1"/>
 	<RelativeLayout

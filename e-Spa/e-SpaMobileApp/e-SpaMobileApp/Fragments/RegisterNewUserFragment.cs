@@ -40,12 +40,6 @@ namespace e_SpaMobileApp.Fragments
             var view=new RelativeLayout(Context.ApplicationContext);
             view.SetBackgroundColor(Color.ParseColor("#80000000"));
 
-            var txtViewLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
-            txtViewLayoutParams.AddRule(LayoutRules.AlignParentBottom);
-            txtViewLayoutParams.AddRule(LayoutRules.AlignParentRight);
-            txtViewLayoutParams.Width=ViewGroup.LayoutParams.WrapContent;
-            txtViewLayoutParams.Height = ViewGroup.LayoutParams.WrapContent;
-
             var dataFormParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             dataFormParams.AddRule(LayoutRules.CenterInParent);
             dataFormParams.Width = ViewGroup.LayoutParams.MatchParent;
@@ -93,6 +87,12 @@ namespace e_SpaMobileApp.Fragments
             dataForm2.ValidationMode = ValidationMode.LostFocus;
             dataForm2.CommitMode = CommitMode.LostFocus;
             view.AddView(dataForm2, dataForm2Params);
+
+            var txtViewLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
+            txtViewLayoutParams.AddRule(LayoutRules.AlignParentBottom);
+            txtViewLayoutParams.AddRule(LayoutRules.AlignParentRight);
+            txtViewLayoutParams.Width = ViewGroup.LayoutParams.WrapContent;
+            txtViewLayoutParams.Height = ViewGroup.LayoutParams.WrapContent;
 
             var txtView = new TextView(Context.ApplicationContext);
             txtView.Text = "Next";

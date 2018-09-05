@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading;
+using System.Threading.Tasks;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
@@ -17,6 +19,7 @@ using e_SpaMobileApp.Models;
 using Java.Lang;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Timer = System.Timers.Timer;
 
 namespace e_SpaMobileApp.Fragments
 {
@@ -34,9 +37,12 @@ namespace e_SpaMobileApp.Fragments
             _phoneInputEdtTxt;
 
         private Button _authorizeVerificationBtn;
-        private TextView _verifyTxtView;
+        private TextView _verifyTxtView, _resendCodeTxtView, _timerTxtView;
         private PhoneInfo _phoneInfo;
         private UserInfo _userInfo;
+        private Timer _timer;
+        private int _min=3;
+        private int _sec=59;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -62,9 +68,15 @@ namespace e_SpaMobileApp.Fragments
             _textInputEditText6 = view.FindViewById<TextInputEditText>(Resource.Id.textInputEditText6);
             _codeInputEdtTxt = view.FindViewById<TextInputEditText>(Resource.Id.countryCodeTxtInputEdtTxt);
             _phoneInputEdtTxt = view.FindViewById<TextInputEditText>(Resource.Id.phoneNumberTxtInputEdtTxt);
+            _resendCodeTxtView = view.FindViewById<TextView>(Resource.Id.resendCodeTxtView);
 
-            _codeInputEdtTxt.Text = _phoneInfo.CountryCode;
-            _phoneInputEdtTxt.Text = _phoneInfo.PhoneNumber;
+            EnableAndDisableViews(false);
+
+            if (_phoneInfo != null && _userInfo != null)
+            {
+                _codeInputEdtTxt.Text = _phoneInfo.CountryCode;
+                _phoneInputEdtTxt.Text = _phoneInfo.PhoneNumber;
+            }
 
             _textInputEditText1.AddTextChangedListener(this);
             _textInputEditText2.AddTextChangedListener(this);
@@ -75,7 +87,66 @@ namespace e_SpaMobileApp.Fragments
 
             _codeInputEdtTxt.Focusable = false;
             _codeInputEdtTxt.Click += (s, e) => { GetCountryCode(); };
+            _authorizeVerificationBtn.Click += (s, e) =>
+            {
+                EnableAndDisableViews(true);
+                LoadRelativeLayout();
+            };
             return view;
+        }
+
+        private  void LoadRelativeLayout()
+        {
+            var timerParams=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
+            timerParams.AddRule(LayoutRules.CenterInParent);
+            timerParams.Width = ViewGroup.LayoutParams.WrapContent;
+            timerParams.Height = ViewGroup.LayoutParams.WrapContent;
+
+            _timerTxtView =new TextView(Context.ApplicationContext);
+            _timerTxtView.Text = $"{_min} : {_sec}";
+            _timerTxtView.SetTextColor(Color.White);
+            _timerTxtView.TextSize = 16;
+
+            _relativeLayout.AddView(_timerTxtView, timerParams);
+            ThreadPool.QueueUserWorkItem(o => BeginTimer());
+        }
+
+        private void BeginTimer()
+        {
+            _timer = new Timer();
+            _timer.Interval = 1000;
+            _timer.Elapsed += _timer_Elapsed;
+            _timer.Enabled = true;
+        }
+
+        private void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            _sec--;
+            if (_sec == 0)
+            {
+                _min--;
+                _sec = 59;
+            }
+            Activity.RunOnUiThread(() => { _timerTxtView.Text = $"{_min} : {_sec}"; });
+            
+            if (_min==0&&_sec==0)
+                _timer.Stop();
+        }
+
+        private void EnableAndDisableViews(bool isEnabled)
+        {
+            _codeInputEdtTxt.Enabled = !isEnabled;
+            _phoneInputEdtTxt.Enabled = !isEnabled;
+            _authorizeVerificationBtn.Enabled = !isEnabled;
+            _textInputEditText1.Enabled = isEnabled;
+            _textInputEditText2.Enabled = isEnabled;
+            _textInputEditText3.Enabled = isEnabled;
+            _textInputEditText4.Enabled = isEnabled;
+            _textInputEditText5.Enabled = isEnabled;
+            _textInputEditText6.Enabled = isEnabled;
+            _verifyTxtView.Enabled = isEnabled;
+            _resendCodeTxtView.Enabled = isEnabled;
+            _relativeLayout.Enabled = isEnabled;
         }
 
         private void GetCountryCode()
