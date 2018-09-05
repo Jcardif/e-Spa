@@ -13,6 +13,7 @@ using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
+using Newtonsoft.Json;
 using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
 
@@ -22,6 +23,8 @@ namespace e_SpaMobileApp.Fragments
     {
         private SfDataForm dataForm;
         private SfDataForm dataForm2;
+        private UserInfo userInfo;
+        private PhoneInfo phoneInfo;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -47,7 +50,7 @@ namespace e_SpaMobileApp.Fragments
 
             dataForm=new SfDataForm(Context.ApplicationContext);
             dataForm.Id=View.GenerateViewId();
-            var userInfo = new UserInfo();
+            userInfo = new UserInfo();
             dataForm.DataObject=userInfo;
             dataForm.LabelPosition = LabelPosition.Top;
             dataForm.ValidationMode = ValidationMode.LostFocus;
@@ -60,7 +63,7 @@ namespace e_SpaMobileApp.Fragments
             dataForm2Params.Height = ViewGroup.LayoutParams.WrapContent;
 
             dataForm2 = new SfDataForm(Context.ApplicationContext);
-            var phoneInfo = new PhoneInfo();
+            phoneInfo = new PhoneInfo();
             dataForm2.DataObject = phoneInfo;
             dataForm2.LabelPosition = LabelPosition.Top;
             dataForm2.ColumnCount = 2;
@@ -91,6 +94,13 @@ namespace e_SpaMobileApp.Fragments
             dataForm2.Commit();
 
             var fragment = new PhoneNumberVerificationFragment();
+            var phInfo=JsonConvert.SerializeObject(phoneInfo);
+            var usInfo = JsonConvert.SerializeObject(userInfo);
+
+            var bundle = new Bundle();
+            bundle.PutString("phoneInfo",phInfo);
+            bundle.PutString("userInfo", usInfo);
+            fragment.Arguments = bundle;
 
             var transaction = FragmentManager.BeginTransaction();
             transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)

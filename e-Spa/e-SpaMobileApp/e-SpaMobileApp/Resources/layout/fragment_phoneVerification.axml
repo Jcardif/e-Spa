@@ -13,11 +13,14 @@
 		android:layout_width="wrap_content"
 		android:textColor="@android:color/white"
 		android:layout_height="wrap_content"
-		android:text="We shall be verifying your phone number. Confirm then authorise verification"/>
+		android:text="We shall be sending and sms to verify your phone number. Confirm then authorize verification"/>
 	<android.support.design.widget.TextInputEditText
 		android:layout_marginTop="8dp"
 		android:layout_marginBottom="8dp"
-		android:hint="Code"		
+		android:hint="Code"
+		android:textColorHint="@android:color/white"
+		android:textColor="@android:color/white"
+		android:textSize="24sp"
 		android:layout_below="@+id/textView1"
 		android:id="@+id/countryCodeTxtInputEdtTxt"
 		android:layout_width="wrap_content"
@@ -28,10 +31,14 @@
 		android:layout_marginBottom="8dp"
 		android:id="@+id/phoneNumberTxtInputEdtTxt"
 		android:hint="Phone Number"
+		android:textColorHint="@android:color/white"
+		android:textColor="@android:color/white"
+		android:layout_marginLeft="12dp"
+		android:textSize="24sp"
 		android:layout_below="@+id/textView1"
-		android:gravity="center"
+		android:gravity="Left"
 		android:layout_toRightOf="@+id/countryCodeTxtInputEdtTxt"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"/>
 	<Button
 		android:layout_marginTop="8dp"
@@ -57,6 +64,11 @@
 		android:layout_below="@+id/authorizeVerificationBtn"/>
 	<android.support.design.widget.TextInputEditText
 		android:hint="1"
+		android:maxLength="1"
+		android:textStyle="bold"
+		android:textColorHint="@android:color/white"
+		android:textColor="@android:color/white"
+		android:textSize="36sp"
 		android:layout_below="@+id/textView2"
 		android:id="@+id/textInputEditText1"
 		android:layout_width="wrap_content"
@@ -64,7 +76,12 @@
 		android:gravity="center"/>
 	<android.support.design.widget.TextInputEditText
 		android:id="@+id/textInputEditText2"
+		android:maxLength="1"
+		android:textStyle="bold"
 		android:hint="2"
+		android:textColorHint="@android:color/white"
+		android:textColor="@android:color/white"
+		android:textSize="36sp"
 		android:layout_below="@+id/textView2"
 		android:gravity="center"
 		android:layout_toRightOf="@+id/textInputEditText1"
@@ -72,7 +89,12 @@
 		android:layout_height="wrap_content"/>
 	<android.support.design.widget.TextInputEditText
 		android:id="@+id/textInputEditText3"
+		android:textStyle="bold"
 		android:hint="3"
+		android:textColorHint="@android:color/white"
+		android:textColor="@android:color/white"
+		android:textSize="36sp"
+		android:maxLength="1"		
 		android:layout_below="@+id/textView2"
 		android:gravity="center"
 		android:layout_toRightOf="@+id/textInputEditText2"
@@ -80,7 +102,13 @@
 		android:layout_height="wrap_content"/>
 	<android.support.design.widget.TextInputEditText
 		android:id="@+id/textInputEditText4"
+		android:maxLength="1"
+		android:textStyle="bold"
 		android:hint="4"
+		android:textColorHint="@android:color/white"
+		android:textColor="@android:color/white"
+		android:textStyle="bold"
+		android:textSize="36sp"
 		android:layout_below="@+id/textView2"
 		android:gravity="center"
 		android:layout_toRightOf="@+id/textInputEditText3"
@@ -88,14 +116,27 @@
 		android:layout_height="wrap_content"/>
 	<android.support.design.widget.TextInputEditText
 		android:id="@+id/textInputEditText5"
+		android:maxLength="1"
+		android:textStyle="bold"
 		android:hint="5"
+		android:textColorHint="@android:color/white"
+		android:textColor="@android:color/white"
+		android:textSize="36sp"
 		android:layout_below="@+id/textView2"
 		android:gravity="center"
+		android:textColorHint="@android:color/white"
+		android:textColor="@android:color/white"
+		android:textSize="36sp"
 		android:layout_toRightOf="@+id/textInputEditText4"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"/>
 	<android.support.design.widget.TextInputEditText
 		android:id="@+id/textInputEditText6"
+		android:textStyle="bold"
+		android:maxLength="1"
+		android:textColorHint="@android:color/white"
+		android:textColor="@android:color/white"
+		android:textSize="36sp"
 		android:hint="6"
 		android:layout_below="@+id/textView2"
 		android:gravity="center"
