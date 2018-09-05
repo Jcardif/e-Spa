@@ -58,6 +58,7 @@ namespace e_SpaMobileApp.Fragments
             dataForm.LabelPosition = LabelPosition.Top;
             dataForm.ValidationMode = ValidationMode.LostFocus;
             dataForm.CommitMode = CommitMode.LostFocus;
+            dataForm.RegisterEditor("Text", new CustomTextEditor(dataForm));
             view.AddView(dataForm,dataFormParams);
 
             var edtParams=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
@@ -73,7 +74,6 @@ namespace e_SpaMobileApp.Fragments
             edtTxt.Focusable = false;
             edtTxt.SetTextColor(Color.White);
             edtTxt.SetMaxLines(1);
-            edtTxt.SetMinHeight(48);
             edtTxt.Gravity = GravityFlags.Top;
             view.AddView(edtTxt, edtParams);
             
@@ -88,6 +88,7 @@ namespace e_SpaMobileApp.Fragments
             phoneInfo = new PhoneInfo();
             dataForm2.DataObject = phoneInfo;
             dataForm2.LabelPosition = LabelPosition.Top;
+            dataForm2.RegisterEditor("Text", new CustomTextEditor(dataForm2));
             dataForm2.RegisterEditor("PhoneNumber", "Text");
             dataForm2.ValidationMode = ValidationMode.LostFocus;
             dataForm2.CommitMode = CommitMode.LostFocus;

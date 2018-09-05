@@ -2684,26 +2684,26 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020196
-			public const int avd_hide_password_1 = 2130837910;
-			
 			// aapt resource value: 0x7f020197
-			public const int avd_hide_password_2 = 2130837911;
+			public const int avd_hide_password_1 = 2130837911;
 			
 			// aapt resource value: 0x7f020198
-			public const int avd_hide_password_3 = 2130837912;
+			public const int avd_hide_password_2 = 2130837912;
+			
+			// aapt resource value: 0x7f020199
+			public const int avd_hide_password_3 = 2130837913;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020199
-			public const int avd_show_password_1 = 2130837913;
-			
 			// aapt resource value: 0x7f02019a
-			public const int avd_show_password_2 = 2130837914;
+			public const int avd_show_password_1 = 2130837914;
 			
 			// aapt resource value: 0x7f02019b
-			public const int avd_show_password_3 = 2130837915;
+			public const int avd_show_password_2 = 2130837915;
+			
+			// aapt resource value: 0x7f02019c
+			public const int avd_show_password_3 = 2130837916;
 			
 			// aapt resource value: 0x7f020055
 			public const int client_app_layout_background = 2130837589;
@@ -3620,11 +3620,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f020185
 			public const int notification_icon_background = 2130837893;
 			
-			// aapt resource value: 0x7f020194
-			public const int notification_template_icon_bg = 2130837908;
-			
 			// aapt resource value: 0x7f020195
-			public const int notification_template_icon_low_bg = 2130837909;
+			public const int notification_template_icon_bg = 2130837909;
+			
+			// aapt resource value: 0x7f020196
+			public const int notification_template_icon_low_bg = 2130837910;
 			
 			// aapt resource value: 0x7f020186
 			public const int notification_tile_bg = 2130837894;
@@ -3660,13 +3660,16 @@ namespace e_SpaMobileApp
 			public const int splashImage = 2130837904;
 			
 			// aapt resource value: 0x7f020191
-			public const int title_trend_edittext_style = 2130837905;
+			public const int syncfusion_editText_style = 2130837905;
 			
 			// aapt resource value: 0x7f020192
-			public const int tooltip_frame_dark = 2130837906;
+			public const int title_trend_edittext_style = 2130837906;
 			
 			// aapt resource value: 0x7f020193
-			public const int tooltip_frame_light = 2130837907;
+			public const int tooltip_frame_dark = 2130837907;
+			
+			// aapt resource value: 0x7f020194
+			public const int tooltip_frame_light = 2130837908;
 			
 			static Drawable()
 			{
