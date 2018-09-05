@@ -42,6 +42,8 @@ namespace e_SpaMobileApp.Fragments
         private TextView _verifyTxtView, _resendCodeTxtView;
         private PhoneInfo _phoneInfo;
         private UserInfo _userInfo;
+        private FragmentTransaction _transaction;
+        private TimerFragment _fragment;
  
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -90,14 +92,26 @@ namespace e_SpaMobileApp.Fragments
             _authorizeVerificationBtn.Click += (s, e) =>
             {
                 EnableAndDisableViews(true);
-                LoadTimerFragment();
+
+                _fragment = new TimerFragment();
+                _transaction = ChildFragmentManager.BeginTransaction();
+                ManageTimerFragment(false);
             };
             return view;
         }
 
-        private void LoadTimerFragment()
+        private void ManageTimerFragment(bool toDismiss)
         {
-            
+            if (!toDismiss)
+            {
+                _transaction.Replace(Resource.Id.frameLayout1, _fragment)
+                    .SetCustomAnimations(Resource.Animation.fade_in)
+                    .Commit();
+            }
+            else
+            {
+                _transaction.Dispose();
+            }
         }
 
 
