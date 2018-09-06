@@ -79,6 +79,8 @@
     <Compile Include="Adapters\TabAdapter.cs" />
     <Compile Include="Adapters\TrendsTabAdapter.cs" />
     <Compile Include="ExtensionsAndHelpers\CustomTextEditorcs.cs" />
+    <Compile Include="ExtensionsAndHelpers\FirebaseHelpers.cs" />
+    <Compile Include="ExtensionsAndHelpers\LogInPath.cs" />
     <Compile Include="ExtensionsAndHelpers\NotificationObject.cs" />
     <Compile Include="ExtensionsAndHelpers\PhoneAuthCallBacks.cs" />
     <Compile Include="Fragments\AddTrendFragment.cs" />

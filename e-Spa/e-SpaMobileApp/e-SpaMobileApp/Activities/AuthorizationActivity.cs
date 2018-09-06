@@ -19,31 +19,25 @@ using Java.Util.Concurrent;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using static e_SpaMobileApp.ExtensionsAndHelpers.FirebaseHelpers;
 
 namespace e_SpaMobileApp.Activities
 {
     [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class AuthorizationActivity : AppCompatActivity
     {
-        public event EventHandler<string> CodeReceived;
-        private FirebaseAuth _auth;
-        private FirebaseApp _app;
+        public event EventHandler<LogInPath> LogInPathSentBackHome;
+ 
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             AppCenter.Start("a90aca45-91cc-4e4f-80fe-bc7fffde8d57", typeof(Analytics), typeof(Crashes));
-            InitFirebaseAuth();
+            InitFirebaseAuth(this);
             SetContentView(Resource.Layout.activity_authorization);
             LoadFragment();
         }
 
-        private void InitFirebaseAuth()
-        {
-            if (_app == null)
-                _app = FirebaseApp.InitializeApp(this);
-            _auth=new FirebaseAuth(_app);
-        }
 
         private void LoadFragment()
         {
@@ -53,24 +47,29 @@ namespace e_SpaMobileApp.Activities
                 .Commit();
         }
 
-        public  void OnVerificationAuthorized(object s, string phoneNo)
+        public  void OnVerificationAuthorized(object s, LogInPath logInPath)
         {
-            InitFirebaseAuth();
-            PhoneAuthCallBacks callBacks=new PhoneAuthCallBacks();
+            InitFirebaseAuth(this);
+            PhoneAuthCallBacks callBacks=new PhoneAuthCallBacks(this);
             PhoneAuthProvider.GetInstance(_auth).VerifyPhoneNumber(
-                phoneNo,
+                logInPath.PhoneNumber,
                 2,
                 TimeUnit.Minutes,
                 this,
                 callBacks);
-
-            OnCodeReceivedHandle("12qw4r47u7");
+            //
         }
 
-        protected virtual void OnCodeReceivedHandle(string code)
+        protected virtual void OnLogInPathSentBackHome(LogInPath logInPath)
         {
-            CodeReceived+=new PhoneNumberVerificationFragment().OnCodeReceivedHandle;
-            CodeReceived?.Invoke(this, code);
+            LogInPathSentBackHome+=new PhoneNumberVerificationFragment().OnLogInPathSentBackHome;
+            LogInPathSentBackHome?.Invoke(this, logInPath);
+        }
+
+        public void OnFirebaseSignInSuccessful(object sender, bool isSuccess)
+        {
+            var logInPath = new LogInPath {IsSuccess = isSuccess, PhoneNumber="+254742197114"};
+            OnLogInPathSentBackHome(logInPath);
         }
     }
 }

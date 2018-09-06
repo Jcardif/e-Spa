@@ -54,7 +54,7 @@ namespace e_SpaMobileApp.Fragments
         private TimerFragment _fragment;
  
 
-        public event EventHandler<string> VerificationAuthorized;
+        public event EventHandler<LogInPath> VerificationAuthorized;
         
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -118,13 +118,15 @@ namespace e_SpaMobileApp.Fragments
 
         protected virtual void OnVerificationAuthorized(string phoneNo)
         {
+            var logInPath = new LogInPath {PhoneNumber = phoneNo};
             VerificationAuthorized+=new AuthorizationActivity().OnVerificationAuthorized;
-            VerificationAuthorized?.Invoke(this, phoneNo);
+            VerificationAuthorized?.Invoke(this, logInPath);
         }
 
-        public void OnCodeReceivedHandle(object sender, string code)
+        public void OnLogInPathSentBackHome(object sender, LogInPath logInPath)
         {
-            Console.WriteLine($"code {code} received");
+            if(logInPath.IsSuccess)
+                StartActivity(new Intent(Context.ApplicationContext, typeof(MainActivity)));
         }
 
         private void ManageTimerFragment(bool toDismiss)
