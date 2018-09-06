@@ -53,6 +53,7 @@ namespace e_SpaMobileApp.Fragments
         private static FragmentTransaction _transaction;
         private TimerFragment _fragment;
         private static Context _context;
+        private bool isSuccess;
  
 
         public event EventHandler<LogInPath> VerificationAuthorized;
@@ -110,12 +111,11 @@ namespace e_SpaMobileApp.Fragments
             _authorizeVerificationBtn.Click += (s, e) =>
             {
                 EnableAndDisableViews(true);
-                StartActivity(new Intent(Application.Context, typeof(MainActivity)));
-
-                OnVerificationAuthorized(string.Concat(_codeInputEdtTxt.Text,_phoneInputEdtTxt.Text));
                 _fragment = new TimerFragment();
                 _transaction = ChildFragmentManager.BeginTransaction();
                 ManageTimerFragment(false);
+                
+                OnVerificationAuthorized(string.Concat(_codeInputEdtTxt.Text, _phoneInputEdtTxt.Text));
             };
             return view;
         }
@@ -132,13 +132,14 @@ namespace e_SpaMobileApp.Fragments
             if (logInPath.IsSuccess)
             {
                 ManageTimerFragment(true);
-                BeginNewActivity();
+                isSuccess = logInPath.IsSuccess;
             }
         }
 
         private void BeginNewActivity()
         {
-            StartActivity(new Intent(_context, typeof(MainActivity)));
+            if(isSuccess)
+                StartActivity(new Intent(_context, typeof(MainActivity)));
         }
 
         private void ManageTimerFragment(bool toDismiss)

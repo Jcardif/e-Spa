@@ -69,13 +69,7 @@ namespace e_SpaMobileApp.Activities
 
         public void OnFirebaseSignInSuccessful(object sender, LogInPath logInPath)
         {
-            if (!logInPath.IsSuccess)
-                OnLogInPathSentBackHome(logInPath);
-            else
-            {
-                transaction.Remove(fragment)
-                    .Dispose();
-            }
+            OnLogInPathSentBackHome(logInPath);
         }
     }
 }
