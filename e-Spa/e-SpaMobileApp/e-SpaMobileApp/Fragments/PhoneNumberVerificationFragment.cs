@@ -4,24 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
-using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Text;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Com.Mukesh.CountryPickerLib;
+using e_SpaMobileApp.Activities;
+using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using Java.Lang;
+using Java.Util.Concurrent;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Syncfusion.Android.ProgressBar;
 using Timer = System.Timers.Timer;
+using Fragment = Android.Support.V4.App.Fragment;
+using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace e_SpaMobileApp.Fragments
 {
@@ -45,16 +53,24 @@ namespace e_SpaMobileApp.Fragments
         private FragmentTransaction _transaction;
         private TimerFragment _fragment;
  
+
+        public event EventHandler<string> VerificationAuthorized;
+        
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
+
             if (Arguments == null) return;
             var phInfo = Arguments.GetString("phoneInfo");
             var usInfo = Arguments.GetString("userInfo");
 
              _phoneInfo = JsonConvert.DeserializeObject<PhoneInfo>(phInfo);
              _userInfo = JsonConvert.DeserializeObject<UserInfo>(usInfo);
+
         }
+
+   
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -92,12 +108,23 @@ namespace e_SpaMobileApp.Fragments
             _authorizeVerificationBtn.Click += (s, e) =>
             {
                 EnableAndDisableViews(true);
-
-                _fragment = new TimerFragment();
+                OnVerificationAuthorized(string.Concat(_codeInputEdtTxt.Text,_phoneInputEdtTxt.Text));
+               _fragment = new TimerFragment();
                 _transaction = ChildFragmentManager.BeginTransaction();
                 ManageTimerFragment(false);
             };
             return view;
+        }
+
+        protected virtual void OnVerificationAuthorized(string phoneNo)
+        {
+            VerificationAuthorized+=new AuthorizationActivity().OnVerificationAuthorized;
+            VerificationAuthorized?.Invoke(this, phoneNo);
+        }
+
+        public void OnCodeReceivedHandle(object sender, string code)
+        {
+            Console.WriteLine($"code {code} received");
         }
 
         private void ManageTimerFragment(bool toDismiss)
@@ -105,7 +132,7 @@ namespace e_SpaMobileApp.Fragments
             if (!toDismiss)
             {
                 _transaction.Replace(Resource.Id.frameLayout1, _fragment)
-                    .SetCustomAnimations(Resource.Animation.fade_in)
+                    .SetCustomAnimations(Resource.Animation.fade_in, Resource.Animation.fade_out)
                     .Commit();
             }
             else

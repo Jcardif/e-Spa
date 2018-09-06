@@ -20,7 +20,7 @@ namespace e_SpaMobileApp.Fragments
     public class TimerFragment : Fragment
     {
         private Timer _timer;
-        private double _min = 2;
+        private double _min = 1;
         private double _sec = 59;
         private SfCircularProgressBar _circularProgressBar;
         private TextView _timerTxtView;
@@ -63,12 +63,20 @@ namespace e_SpaMobileApp.Fragments
             _sec--;
             if (Convert.ToInt32(_sec) == 0)
             {
-                _min--;
-                _sec = 59;
+                if (Convert.ToInt32(_min) != 0)
+                {
+                    _min--;
+                    _sec = 59;
+                }
+                else
+                {
+                    _timer.Stop();
+                }
             }
 
             double x = ((_min * 60 + _sec + 1) / 180) * 100;
             int y = Convert.ToInt32(x);
+
             Activity.RunOnUiThread(() =>
             {
                 if (y != 100)
@@ -80,9 +88,6 @@ namespace e_SpaMobileApp.Fragments
                 _circularProgressBar.Progress = y;
                 _timerTxtView.Text = $"{_min:00} : {_sec:00}";
             });
-
-            if (Convert.ToInt32(_min) == 0 && Convert.ToInt32(_sec) == 0)
-                _timer.Stop();
         }
 
     }

@@ -441,25 +441,31 @@ namespace e_SpaMobileApp
 			public const int design_snackbar_out = 2131034127;
 			
 			// aapt resource value: 0x7f050010
-			public const int slide_in_right = 2131034128;
+			public const int fade_in = 2131034128;
 			
 			// aapt resource value: 0x7f050011
-			public const int slide_out_left = 2131034129;
+			public const int fade_out = 2131034129;
 			
 			// aapt resource value: 0x7f050012
-			public const int slide_up = 2131034130;
+			public const int slide_in_right = 2131034130;
 			
 			// aapt resource value: 0x7f050013
-			public const int SlideRight = 2131034131;
+			public const int slide_out_left = 2131034131;
 			
 			// aapt resource value: 0x7f050014
-			public const int SlideUp = 2131034132;
+			public const int slide_up = 2131034132;
 			
 			// aapt resource value: 0x7f050015
-			public const int tooltip_enter = 2131034133;
+			public const int SlideRight = 2131034133;
 			
 			// aapt resource value: 0x7f050016
-			public const int tooltip_exit = 2131034134;
+			public const int SlideUp = 2131034134;
+			
+			// aapt resource value: 0x7f050017
+			public const int tooltip_enter = 2131034135;
+			
+			// aapt resource value: 0x7f050018
+			public const int tooltip_exit = 2131034136;
 			
 			static Animation()
 			{

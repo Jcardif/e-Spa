@@ -12,6 +12,9 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.Fragments;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace e_SpaMobileApp.Activities
 {
@@ -19,9 +22,12 @@ namespace e_SpaMobileApp.Activities
     public class AuthorizationActivity : AppCompatActivity
     {
         private FrameLayout _authorisationFrameLayout;
+        public event EventHandler<string> CodeReceived; 
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            AppCenter.Start("a90aca45-91cc-4e4f-80fe-bc7fffde8d57", typeof(Analytics), typeof(Crashes));
             SetContentView(Resource.Layout.activity_authorization);
             _authorisationFrameLayout = FindViewById<FrameLayout>(Resource.Id.authorizationContainer);
             LoadFragment();
@@ -33,6 +39,18 @@ namespace e_SpaMobileApp.Activities
             SupportFragmentManager.BeginTransaction()
                 .Replace(Resource.Id.authorizationContainer, fragment)
                 .Commit();
+        }
+
+        public  void OnVerificationAuthorized(object s, string phoneNo)
+        {
+            Console.WriteLine($"verification authorised for {phoneNo}");
+            OnCodeReceivedHandle("12qw4r47u7");
+        }
+
+        protected virtual void OnCodeReceivedHandle(string code)
+        {
+            CodeReceived+=new PhoneNumberVerificationFragment().OnCodeReceivedHandle;
+            CodeReceived?.Invoke(this, code);
         }
     }
 }

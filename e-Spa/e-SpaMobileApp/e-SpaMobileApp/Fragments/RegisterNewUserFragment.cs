@@ -15,6 +15,9 @@ using Android.Widget;
 using Com.Mukesh.CountryPickerLib;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
@@ -31,6 +34,8 @@ namespace e_SpaMobileApp.Fragments
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
+
 
             // Create your fragment here
         }

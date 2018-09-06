@@ -13,7 +13,6 @@ using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
-using e_SpaMobileApp.Helpers;
 using Firebase.Auth;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -28,8 +27,8 @@ namespace e_SpaMobileApp.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            FirebaseHelper.InitFirebaseAuth(this);
-            auth = FirebaseAuth.GetInstance(FirebaseHelper.app);
+            //FirebaseHelper.InitFirebaseAuth(this);
+            //auth = FirebaseAuth.GetInstance(FirebaseHelper.app);
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
         }
 
