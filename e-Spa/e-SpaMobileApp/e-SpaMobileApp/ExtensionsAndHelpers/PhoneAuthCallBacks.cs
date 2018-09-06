@@ -21,7 +21,8 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
     {
         private Activity _activity;
         bool _isSuccessful;
-        public event EventHandler<bool> CompletedSignInSuccessfully;
+        private LogInPath logInPath=new LogInPath();
+        public event EventHandler<LogInPath> CompletedSignInSuccessfully;
         public PhoneAuthCallBacks(Activity activity)
         {
             _activity = activity;
@@ -40,7 +41,9 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
 
         public override void OnVerificationFailed(FirebaseException exception)
         {
-            throw new NotImplementedException();
+            logInPath.Exception = exception;
+            logInPath.IsSuccess = false;
+            OnFirebaseSignInSuccessful(logInPath);
         }
         public override void OnCodeSent(string verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken)
         {
@@ -49,14 +52,21 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
 
         public void OnComplete(Task task)
         {
-            _isSuccessful = task.IsSuccessful;
-            OnFirebaseSignInSuccessful(_isSuccessful);
+            if (task.IsSuccessful)
+                _isSuccessful = true;
+            else
+            {
+                logInPath.Exception = task.Exception as FirebaseException;
+                _isSuccessful = false;
+            }
+            logInPath.IsSuccess = _isSuccessful;
+            OnFirebaseSignInSuccessful(logInPath);
         }
 
-        protected virtual void OnFirebaseSignInSuccessful(bool isSuccessful)
+        protected virtual void OnFirebaseSignInSuccessful(LogInPath logInPth)
         {
             CompletedSignInSuccessfully += new AuthorizationActivity().OnFirebaseSignInSuccessful;
-            CompletedSignInSuccessfully?.Invoke(this, isSuccessful);
+            CompletedSignInSuccessfully?.Invoke(this, logInPth);
         }
     }
 }

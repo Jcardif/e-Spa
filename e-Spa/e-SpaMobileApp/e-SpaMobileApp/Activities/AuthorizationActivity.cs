@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -20,6 +19,8 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using static e_SpaMobileApp.ExtensionsAndHelpers.FirebaseHelpers;
+using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
+using Fragment=Android.Support.V4.App.Fragment;
 
 namespace e_SpaMobileApp.Activities
 {
@@ -27,7 +28,8 @@ namespace e_SpaMobileApp.Activities
     public class AuthorizationActivity : AppCompatActivity
     {
         public event EventHandler<LogInPath> LogInPathSentBackHome;
- 
+        private static Fragment fragment;
+        private static FragmentTransaction transaction;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,23 +43,22 @@ namespace e_SpaMobileApp.Activities
 
         private void LoadFragment()
         {
-            var fragment = new AuthorizationFragment();
-            SupportFragmentManager.BeginTransaction()
-                .Replace(Resource.Id.authorizationContainer, fragment)
+           fragment = new PhoneNumberVerificationFragment();
+           transaction= SupportFragmentManager.BeginTransaction();
+                transaction.Replace(Resource.Id.authorizationContainer, fragment)
                 .Commit();
         }
 
         public  void OnVerificationAuthorized(object s, LogInPath logInPath)
         {
             InitFirebaseAuth(this);
-            PhoneAuthCallBacks callBacks=new PhoneAuthCallBacks(this);
+            PhoneAuthCallBacks callBacks = new PhoneAuthCallBacks(this);
             PhoneAuthProvider.GetInstance(_auth).VerifyPhoneNumber(
                 logInPath.PhoneNumber,
                 2,
                 TimeUnit.Minutes,
                 this,
                 callBacks);
-            //
         }
 
         protected virtual void OnLogInPathSentBackHome(LogInPath logInPath)
@@ -66,10 +67,15 @@ namespace e_SpaMobileApp.Activities
             LogInPathSentBackHome?.Invoke(this, logInPath);
         }
 
-        public void OnFirebaseSignInSuccessful(object sender, bool isSuccess)
+        public void OnFirebaseSignInSuccessful(object sender, LogInPath logInPath)
         {
-            var logInPath = new LogInPath {IsSuccess = isSuccess, PhoneNumber="+254742197114"};
-            OnLogInPathSentBackHome(logInPath);
+            if (!logInPath.IsSuccess)
+                OnLogInPathSentBackHome(logInPath);
+            else
+            {
+                transaction.Remove(fragment)
+                    .Dispose();
+            }
         }
     }
 }

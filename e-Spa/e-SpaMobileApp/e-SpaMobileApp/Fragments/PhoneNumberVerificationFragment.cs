@@ -50,8 +50,9 @@ namespace e_SpaMobileApp.Fragments
         private TextView _verifyTxtView, _resendCodeTxtView;
         private PhoneInfo _phoneInfo;
         private UserInfo _userInfo;
-        private FragmentTransaction _transaction;
+        private static FragmentTransaction _transaction;
         private TimerFragment _fragment;
+        private static Context _context;
  
 
         public event EventHandler<LogInPath> VerificationAuthorized;
@@ -87,6 +88,7 @@ namespace e_SpaMobileApp.Fragments
             _codeInputEdtTxt = view.FindViewById<TextInputEditText>(Resource.Id.countryCodeTxtInputEdtTxt);
             _phoneInputEdtTxt = view.FindViewById<TextInputEditText>(Resource.Id.phoneNumberTxtInputEdtTxt);
             _resendCodeTxtView = view.FindViewById<TextView>(Resource.Id.resendCodeTxtView);
+            _context = Application.Context;
 
             EnableAndDisableViews(false);
 
@@ -108,8 +110,10 @@ namespace e_SpaMobileApp.Fragments
             _authorizeVerificationBtn.Click += (s, e) =>
             {
                 EnableAndDisableViews(true);
+                StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+
                 OnVerificationAuthorized(string.Concat(_codeInputEdtTxt.Text,_phoneInputEdtTxt.Text));
-               _fragment = new TimerFragment();
+                _fragment = new TimerFragment();
                 _transaction = ChildFragmentManager.BeginTransaction();
                 ManageTimerFragment(false);
             };
@@ -125,8 +129,16 @@ namespace e_SpaMobileApp.Fragments
 
         public void OnLogInPathSentBackHome(object sender, LogInPath logInPath)
         {
-            if(logInPath.IsSuccess)
-                StartActivity(new Intent(Context.ApplicationContext, typeof(MainActivity)));
+            if (logInPath.IsSuccess)
+            {
+                ManageTimerFragment(true);
+                BeginNewActivity();
+            }
+        }
+
+        private void BeginNewActivity()
+        {
+            StartActivity(new Intent(_context, typeof(MainActivity)));
         }
 
         private void ManageTimerFragment(bool toDismiss)
@@ -139,7 +151,9 @@ namespace e_SpaMobileApp.Fragments
             }
             else
             {
-                _transaction.Dispose();
+                _transaction
+                    .Remove(_fragment)
+                    .Dispose();
             }
         }
 
