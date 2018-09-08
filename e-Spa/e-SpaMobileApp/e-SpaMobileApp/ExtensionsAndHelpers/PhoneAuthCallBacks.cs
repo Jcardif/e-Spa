@@ -9,11 +9,14 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
 {
     public class PhoneAuthCallBacks : OnVerificationStateChangedCallbacks, IOnCompleteListener
     {
-        private IOnSingInCallbacks singInCallbacks;
+        private IOnSingInCallbacks _singInCallbacks;
+        private string _verificationId;
+        private ForceResendingToken _token;
+
 
         public PhoneAuthCallBacks(IOnSingInCallbacks singInCallbacks)
         {
-            this.singInCallbacks = singInCallbacks;
+            _singInCallbacks = singInCallbacks;
         }
 
         public override void OnVerificationCompleted(PhoneAuthCredential credential)
@@ -30,7 +33,15 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
         public void OnComplete(Task task)
         {
             if(task.IsSuccessful)
-                singInCallbacks.OnSignInSuccess(true);
+                _singInCallbacks.OnSignInSuccess(true);
+        }
+
+        public override void OnCodeSent(string verificationId, ForceResendingToken forceResendingToken)
+        {
+            base.OnCodeSent(verificationId, forceResendingToken);
+            _verificationId = verificationId;
+            _token = forceResendingToken;
+            _singInCallbacks.OnCodeSent();
         }
     }
 }

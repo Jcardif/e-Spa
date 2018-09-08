@@ -3,5 +3,6 @@
     public interface IOnSingInCallbacks
     {
         void OnSignInSuccess(bool isSuccess);
+        void OnCodeSent();
     }
 }

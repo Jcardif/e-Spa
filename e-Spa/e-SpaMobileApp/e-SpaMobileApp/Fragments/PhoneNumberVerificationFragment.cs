@@ -16,6 +16,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
+using Plugin.Connectivity;
 using Fragment = Android.Support.V4.App.Fragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
@@ -97,14 +98,24 @@ namespace e_SpaMobileApp.Fragments
             _codeInputEdtTxt.Click += (s, e) => { GetCountryCode(); };
             _authorizeVerificationBtn.Click += (s, e) =>
             {
-                EnableAndDisableViews(true);
-                _fragment = new TimerFragment();
-                _transaction = ChildFragmentManager.BeginTransaction();
-                ManageTimerFragment(false);
-                
-                OnVerificationAuthorized(string.Concat(_codeInputEdtTxt.Text, _phoneInputEdtTxt.Text));
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    EnableAndDisableViews(true);
+                    OnVerificationAuthorized(string.Concat(_codeInputEdtTxt.Text, _phoneInputEdtTxt.Text));
+                }
+                else
+                {
+                    Toast.MakeText(_context, "No internet connection", ToastLength.Long).Show();
+                }
             };
             return view;
+        }
+
+        private void LoadTimer()
+        {
+            _fragment = new TimerFragment();
+            _transaction = ChildFragmentManager.BeginTransaction();
+            ManageTimerFragment(false);
         }
 
         protected virtual void OnVerificationAuthorized(string phoneNo)
@@ -205,11 +216,14 @@ namespace e_SpaMobileApp.Fragments
 
         public void OnSignInSuccess(bool isSuccess)
         {
-            if (isSuccess)
-            {
-                ManageTimerFragment(true);
-                BeginNewActivity();
-            }
+            if (!isSuccess) return;
+            ManageTimerFragment(true);
+            BeginNewActivity();
+        }
+
+        public void OnCodeSent()
+        {
+            LoadTimer();
         }
     }
 }
