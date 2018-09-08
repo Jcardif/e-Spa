@@ -12,7 +12,6 @@ namespace e_SpaMobileApp.ServiceModels
         public string ProfilePhotoUrl { get; set; }
         public string Residence { get; set; }
         public string PhoneNumber { get; set; }
-        public string SocialPlatformID_Id { get; set; }
 
         [JsonIgnore]
         public bool IsLoggedIn { get; set; }
