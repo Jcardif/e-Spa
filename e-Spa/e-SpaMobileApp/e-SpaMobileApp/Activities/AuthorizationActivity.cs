@@ -27,7 +27,6 @@ namespace e_SpaMobileApp.Activities
     [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class AuthorizationActivity : AppCompatActivity
     {
-        public event EventHandler<LogInPath> LogInPathSentBackHome;
         private static Fragment fragment;
         private static FragmentTransaction transaction;
 
@@ -52,7 +51,7 @@ namespace e_SpaMobileApp.Activities
         public  void OnVerificationAuthorized(object s, LogInPath logInPath)
         {
             InitFirebaseAuth(this);
-            PhoneAuthCallBacks callBacks = new PhoneAuthCallBacks(this);
+            PhoneAuthCallBacks callBacks = new PhoneAuthCallBacks(s as PhoneNumberVerificationFragment);
             PhoneAuthProvider.GetInstance(_auth).VerifyPhoneNumber(
                 logInPath.PhoneNumber,
                 2,
@@ -60,16 +59,6 @@ namespace e_SpaMobileApp.Activities
                 this,
                 callBacks);
         }
-
-        protected virtual void OnLogInPathSentBackHome(LogInPath logInPath)
-        {
-            LogInPathSentBackHome+=new PhoneNumberVerificationFragment().OnLogInPathSentBackHome;
-            LogInPathSentBackHome?.Invoke(this, logInPath);
-        }
-
-        public void OnFirebaseSignInSuccessful(object sender, LogInPath logInPath)
-        {
-            OnLogInPathSentBackHome(logInPath);
-        }
+        
     }
 }

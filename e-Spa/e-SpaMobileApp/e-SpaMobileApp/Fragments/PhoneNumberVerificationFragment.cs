@@ -33,7 +33,7 @@ using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class PhoneNumberVerificationFragment : Fragment, ITextWatcher, IOnCountryPickerListener
+    public class PhoneNumberVerificationFragment : Fragment, ITextWatcher, IOnCountryPickerListener, IOnSingInCallbacks
     {
         private FrameLayout _frameLayout;
 
@@ -127,19 +127,10 @@ namespace e_SpaMobileApp.Fragments
             VerificationAuthorized?.Invoke(this, logInPath);
         }
 
-        public void OnLogInPathSentBackHome(object sender, LogInPath logInPath)
-        {
-            if (logInPath.IsSuccess)
-            {
-                ManageTimerFragment(true);
-                isSuccess = logInPath.IsSuccess;
-            }
-        }
 
         private void BeginNewActivity()
         {
-            if(isSuccess)
-                StartActivity(new Intent(_context, typeof(MainActivity)));
+            StartActivity(new Intent(_context, typeof(MainActivity)));
         }
 
         private void ManageTimerFragment(bool toDismiss)
@@ -223,6 +214,12 @@ namespace e_SpaMobileApp.Fragments
         public void OnSelectCountry(Country country)
         {
             _codeInputEdtTxt.Text = country.DialCode;
+        }
+
+        public void OnSignInSuccess(bool isSuccess)
+        {
+            if(isSuccess)
+                BeginNewActivity();
         }
     }
 }
