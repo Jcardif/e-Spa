@@ -52,7 +52,7 @@ namespace e_SpaMobileApp.Fragments
                     break;
                 case "register":
                     transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit);
-                    transaction.Replace(Resource.Id.authorizationContainer, new PhoneNumberVerificationFragment())
+                    transaction.Replace(Resource.Id.authorizationContainer, new RegisterNewUserFragment())
                         .AddToBackStack(null)
                         .Commit();
                     break;
