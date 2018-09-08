@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.V7.App;
-using Android.Views;
-using Android.Widget;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Fragments;
-using Firebase;
 using Firebase.Auth;
 using Java.Util.Concurrent;
 using Microsoft.AppCenter;
@@ -27,8 +18,8 @@ namespace e_SpaMobileApp.Activities
     [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class AuthorizationActivity : AppCompatActivity
     {
-        private static Fragment fragment;
-        private static FragmentTransaction transaction;
+        private  Fragment _fragment;
+        private  FragmentTransaction _transaction;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,9 +33,9 @@ namespace e_SpaMobileApp.Activities
 
         private void LoadFragment()
         {
-           fragment = new PhoneNumberVerificationFragment();
-           transaction= SupportFragmentManager.BeginTransaction();
-                transaction.Replace(Resource.Id.authorizationContainer, fragment)
+           _fragment = new PhoneNumberVerificationFragment();
+           _transaction= SupportFragmentManager.BeginTransaction();
+                _transaction.Replace(Resource.Id.authorizationContainer, _fragment)
                 .Commit();
         }
 

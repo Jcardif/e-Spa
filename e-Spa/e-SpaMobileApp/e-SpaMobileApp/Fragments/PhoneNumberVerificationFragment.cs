@@ -1,18 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Android.Graphics;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.Design.Widget;
-using Android.Support.V4.Content;
 using Android.Text;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Com.Mukesh.CountryPickerLib;
@@ -20,14 +12,10 @@ using e_SpaMobileApp.Activities;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using Java.Lang;
-using Java.Util.Concurrent;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using Syncfusion.Android.ProgressBar;
-using Timer = System.Timers.Timer;
 using Fragment = Android.Support.V4.App.Fragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
@@ -53,7 +41,6 @@ namespace e_SpaMobileApp.Fragments
         private static FragmentTransaction _transaction;
         private TimerFragment _fragment;
         private static Context _context;
-        private bool isSuccess;
  
 
         public event EventHandler<LogInPath> VerificationAuthorized;
@@ -218,8 +205,11 @@ namespace e_SpaMobileApp.Fragments
 
         public void OnSignInSuccess(bool isSuccess)
         {
-            if(isSuccess)
+            if (isSuccess)
+            {
+                ManageTimerFragment(true);
                 BeginNewActivity();
+            }
         }
     }
 }
