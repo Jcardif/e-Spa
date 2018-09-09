@@ -18,44 +18,56 @@ namespace FunctionApp
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
             var connectionString =
-                Environment.GetEnvironmentVariable("DataConnectionString", EnvironmentVariableTarget.Process);  
-            var conn = new SqlConnection(connectionString);
-            try
+                Environment.GetEnvironmentVariable("DataConnectionString", EnvironmentVariableTarget.Process);
+            using (var conn = new SqlConnection(connectionString))
             {
-                await conn.OpenAsync();
-                var client = new Client();
-                var phoneNo = req.Content.ReadAsStringAsync();
-                var query = "SELECT * FROM Client WHERE PhoneNumber = +254742197114";
-                var cmd = new SqlCommand(query, conn);
-                var reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    client.Id = reader.GetString(0);
-                    client.FirstName = reader.GetString(1);
-                    client.LastName = reader.GetString(2);
-                    client.Email = reader.GetString(3);
-                    client.PhoneNumber = reader.GetString(6);
-                    client.ProfilePhotoUrl = reader.GetString(4);
-                    client.Residence = reader.GetString(5);
+                // parse query parameter
+                string phoneNo = req.GetQueryNameValuePairs()
+                    .FirstOrDefault(q => String.Compare(q.Key, "phoneNo", StringComparison.OrdinalIgnoreCase) == 0)
+                    .Value;
 
-                    return req.CreateResponse<Client>(HttpStatusCode.OK,client);
-                }
-                else
+                if (phoneNo == null)
                 {
-                    return req.CreateResponse<Client>(HttpStatusCode.NotFound,null);
+                    // Get request body
+                    dynamic data = await req.Content.ReadAsAsync<object>();
+                    phoneNo = data?.phoneNo;
                 }
+                try
+                {
+                    await conn.OpenAsync();
+                    var client = new Client();
+                    var query = $"SELECT * FROM Client WHERE PhoneNumber = {phoneNo}";
+                    var cmd = new SqlCommand(query, conn);
+                    var reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        client.Id = reader.GetString(0);
+                        client.FirstName = reader.GetString(1);
+                        client.LastName = reader.GetString(2);
+                        client.Email = reader.GetString(3);
+                        client.PhoneNumber = reader.GetString(6);
+                        client.ProfilePhotoUrl = reader.GetString(4);
+                        client.Residence = reader.GetString(5);
 
+                        return req.CreateResponse<Client>(HttpStatusCode.OK, client);
+                    }
+                    else
+                    {
+                        return req.CreateResponse<Client>(HttpStatusCode.NotFound, null);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    return req.CreateResponse(HttpStatusCode.BadRequest,
+                        $"The following Exception happened: {ex.Message}");
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
-            catch (SqlException sqlex)
-            {
-                return req.CreateResponse(HttpStatusCode.BadRequest,
-                    $"The following SqlException happened: {sqlex.Message}");
-            }
-            catch (Exception ex)
-            {
-                return req.CreateResponse(HttpStatusCode.BadRequest,
-                    $"The following Exception happened: {ex.Message}");
-            }
+           
         }
     }
 }
