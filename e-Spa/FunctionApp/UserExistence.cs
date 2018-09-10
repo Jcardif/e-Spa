@@ -31,6 +31,10 @@ namespace FunctionApp
                     // Get request body
                     dynamic data = await req.Content.ReadAsAsync<object>();
                     phoneNo = data?.phoneNo;
+                    if (phoneNo==null)
+                    {
+                        return req.CreateResponse(HttpStatusCode.BadRequest, "Pass a valid phone number");
+                    }
                 }
                 try
                 {
