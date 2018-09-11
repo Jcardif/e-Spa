@@ -15,7 +15,7 @@ namespace FunctionApp
     public static class UserExistence
     {
         [FunctionName("UserExistence")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
             var connectionString =
                 Environment.GetEnvironmentVariable("DataConnectionString", EnvironmentVariableTarget.Process);
