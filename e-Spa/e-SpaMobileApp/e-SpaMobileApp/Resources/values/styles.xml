@@ -28,7 +28,7 @@
   <!--splashscreen theme-->
   <style name="SplashTheme" parent="splashScreen.Base"></style>
   <style name="splashScreen.Base" parent="Theme.AppCompat.Light">
-    <item name="android:windowBackground">@drawable/splashImage</item>
+    <item name="android:windowBackground">@drawable/SplashScreen</item>
     <item name="windowNoTitle">true</item>
   </style>
 
