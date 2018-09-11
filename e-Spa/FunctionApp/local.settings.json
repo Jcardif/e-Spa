@@ -1,0 +1,8 @@
+{
+    "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=mobilefunctionstorage;AccountKey=HSw9EnDr++tc436wma8abIm00TG9JWdgpG7tiZYFor78okbVO+Ffm1ic0XTfu4W7/7EUVdNTfsbmP8jMJp3LZA==;BlobEndpoint=https://mobilefunctionstorage.blob.core.windows.net/;TableEndpoint=https://mobilefunctionstorage.table.core.windows.net/;QueueEndpoint=https://mobilefunctionstorage.queue.core.windows.net/;FileEndpoint=https://mobilefunctionstorage.file.core.windows.net/",
+    "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=mobilefunctionstorage;AccountKey=HSw9EnDr++tc436wma8abIm00TG9JWdgpG7tiZYFor78okbVO+Ffm1ic0XTfu4W7/7EUVdNTfsbmP8jMJp3LZA==;BlobEndpoint=https://mobilefunctionstorage.blob.core.windows.net/;TableEndpoint=https://mobilefunctionstorage.table.core.windows.net/;QueueEndpoint=https://mobilefunctionstorage.queue.core.windows.net/;FileEndpoint=https://mobilefunctionstorage.file.core.windows.net/",
+    "DataConnectionString": "Server=tcp:e-spa.database.windows.net,1433;Initial Catalog=e-SpaDb;Persist Security Info=False;User ID=Josh;Password=JNScap1207@jc;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  }
+}
