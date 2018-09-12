@@ -9,8 +9,10 @@ using Android.Views;
 using Android.Widget;
 using Com.Mukesh.CountryPickerLib;
 using e_SpaMobileApp.Activities;
+using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
+using e_SpaMobileApp.ServiceModels;
 using Java.Lang;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -101,7 +103,9 @@ namespace e_SpaMobileApp.Fragments
                 if (CrossConnectivity.Current.IsConnected)
                 {
                     EnableAndDisableViews(true);
-                    OnVerificationAuthorized(string.Concat(_codeInputEdtTxt.Text, _phoneInputEdtTxt.Text));
+                    _phoneInfo.PhoneNumber = _phoneInputEdtTxt.Text;
+                    _phoneInfo.CountryCode = _codeInputEdtTxt.Text;
+                    OnVerificationAuthorized(string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber));
                 }
                 else
                 {
@@ -125,11 +129,6 @@ namespace e_SpaMobileApp.Fragments
             VerificationAuthorized?.Invoke(this, logInPath);
         }
 
-
-        private void BeginNewActivity()
-        {
-            StartActivity(new Intent(_context, typeof(MainActivity)));
-        }
 
         private void ManageTimerFragment(bool toDismiss)
         {
@@ -218,7 +217,30 @@ namespace e_SpaMobileApp.Fragments
         {
             if (!isSuccess) return;
             ManageTimerFragment(true);
-            BeginNewActivity();
+            CommitNewUserToDatabase();
+
+        }
+
+        private async void CommitNewUserToDatabase()
+        {
+            var client = new Client
+            {
+                Email = _userInfo.Email,
+                FirstName = _userInfo.FirstName,
+                LastName = _userInfo.LastName,
+                PhoneNumber = string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber),
+                Residence = _userInfo.Residence,
+                ProfilePhotoUrl = "some-url"
+            };
+            var userApiClient = new UserApiClient();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                await userApiClient.AddClientAsync(client);
+            }
+            else
+            {
+                Toast.MakeText(Context.ApplicationContext,"No Internet Connection", ToastLength.Long).Show();
+            }
         }
 
         public void OnCodeSent()
