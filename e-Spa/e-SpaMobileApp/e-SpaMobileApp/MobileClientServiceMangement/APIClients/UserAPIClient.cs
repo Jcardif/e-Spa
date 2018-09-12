@@ -37,7 +37,7 @@ namespace e_SpaMobileApp.APIClients
             await Initialise();
             await clientTable.InsertAsync(client);
             await SyncClient();
-            return null;
+            return client;
         }
     }
 }

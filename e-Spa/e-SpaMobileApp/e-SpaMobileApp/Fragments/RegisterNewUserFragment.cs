@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
 using Android.App;
 using Android.Content;
@@ -13,8 +15,11 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Com.Mukesh.CountryPickerLib;
+using Com.Syncfusion.Sfbusyindicator;
+using Com.Syncfusion.Sfbusyindicator.Enums;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
+using e_SpaMobileApp.ServiceModels;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
@@ -31,6 +36,7 @@ namespace e_SpaMobileApp.Fragments
         private UserInfo userInfo;
         private PhoneInfo phoneInfo;
         private EditText edtTxt;
+        private Client client;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -122,27 +128,40 @@ namespace e_SpaMobileApp.Fragments
         }
 
 
-        private void TxtView_Click(object sender, EventArgs e)
+        private async void TxtView_Click(object sender, EventArgs e)
         {
             var isValid = dataForm.Validate() && dataForm2.Validate();
             if (!isValid) return;
             dataForm.Commit();
             dataForm2.Commit();
 
-            var fragment = new PhoneNumberVerificationFragment();
-            var phInfo=JsonConvert.SerializeObject(phoneInfo);
-            var usInfo = JsonConvert.SerializeObject(userInfo);
+            var phoneNumber = string.Concat(phoneInfo.CountryCode, phoneInfo.PhoneNumber);
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync(
+                $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Toast.MakeText(Context.ApplicationContext, "An Account is already associated with that phoneNumber", ToastLength.Long).Show();
+                var str = await response.Content.ReadAsStringAsync();
+                client = JsonConvert.DeserializeObject<Client>(str);
+            }
+            else
+            {
+                var fragment = new PhoneNumberVerificationFragment();
+                var phInfo = JsonConvert.SerializeObject(phoneInfo);
+                var usInfo = JsonConvert.SerializeObject(userInfo);
 
-            var bundle = new Bundle();
-            bundle.PutString("phoneInfo",phInfo);
-            bundle.PutString("userInfo", usInfo);
-            fragment.Arguments = bundle;
+                var bundle = new Bundle();
+                bundle.PutString("phoneInfo", phInfo);
+                bundle.PutString("userInfo", usInfo);
+                fragment.Arguments = bundle;
 
-            var transaction = FragmentManager.BeginTransaction();
-            transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
-                .Replace(Resource.Id.authorizationContainer, fragment)
-                .AddToBackStack(null)
-                .Commit();
+                var transaction = FragmentManager.BeginTransaction();
+                transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
+                    .Replace(Resource.Id.authorizationContainer, fragment)
+                    .AddToBackStack(null)
+                    .Commit();
+            }
         }
 
         public void OnSelectCountry(Country country)

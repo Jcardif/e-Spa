@@ -235,7 +235,16 @@ namespace e_SpaMobileApp.Fragments
             var userApiClient = new UserApiClient();
             if (CrossConnectivity.Current.IsConnected)
             {
-                await userApiClient.AddClientAsync(client);
+                var newClient=await userApiClient.AddClientAsync(client);
+                var fragment=new CompleteRegistrationFragment();
+                var bundle = new Bundle();
+                bundle.PutString("client", JsonConvert.SerializeObject(newClient));
+                fragment.Arguments = bundle;
+
+                FragmentManager.BeginTransaction()
+                    .SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
+                    .Replace(Resource.Id.authorizationContainer, fragment)
+                    .Commit();
             }
             else
             {
