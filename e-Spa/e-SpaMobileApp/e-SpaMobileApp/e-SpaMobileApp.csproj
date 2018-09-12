@@ -79,6 +79,7 @@
     <Compile Include="Adapters\TabAdapter.cs" />
     <Compile Include="Adapters\TrendsTabAdapter.cs" />
     <Compile Include="ExtensionsAndHelpers\CustomTextEditorcs.cs" />
+    <Compile Include="ExtensionsAndHelpers\DataFormLayoutManagerExt.cs" />
     <Compile Include="ExtensionsAndHelpers\FirebaseHelpers.cs" />
     <Compile Include="ExtensionsAndHelpers\IOnSingInCallbacks.cs" />
     <Compile Include="ExtensionsAndHelpers\LogInPath.cs" />
