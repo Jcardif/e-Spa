@@ -11,9 +11,39 @@
 		android:layout_height="wrap_content"
 		android:background="@color/colorPrimary"
 		android:minHeight="?android:attr/actionBarSize"/>
-	<include
+	<android.support.design.widget.CoordinatorLayout
 		android:layout_below="@id/completeRegistrationToolbar"
-		layout="@layout/mlayout_editProfile"/>		
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="250dp"
+		android:layout_margin="8dp"
+		android:id="@+id/coordinator">
+		<Refractored.Controls.CircleImageView
+			android:id="@+id/profilePictureCircularImgView"
+			android:layout_width="150dp"
+			android:layout_height="150dp"
+			android:src="@drawable/account"
+			android:scaleType="centerCrop"
+			android:layout_gravity="center_horizontal"
+			android:clickable="true"
+			app:civ_fill_color="@android:color/white"/>
+		<android.support.design.widget.FloatingActionButton
+		android:id="@+id/selectProfileImageFab"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_anchor="@id/profilePictureCircularImgView"
+		app:layout_anchorGravity="center|end"
+		android:src="@drawable/camera_alt_24px"
+		app:backgroundTint="@color/colorPrimaryDark"
+		android:tint="@android:color/white"
+		app:elevation="6dp"/>
+	</android.support.design.widget.CoordinatorLayout>	
+	<RelativeLayout
+		android:layout_below="@id/coordinator"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@android:color/transparent"
+		android:id="@+id/relativeDataformContainer"/>
 	<Button
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -22,5 +52,8 @@
 		android:textColor="@android:color/white"
 		android:background="@drawable/login_button_style"
 		android:textAllCaps="false"
+		android:layout_marginRight="8dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginBottom="8dp"
 		android:layout_alignParentBottom="true"/>
 </RelativeLayout>

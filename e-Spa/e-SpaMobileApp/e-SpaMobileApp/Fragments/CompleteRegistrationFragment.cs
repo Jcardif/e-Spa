@@ -29,7 +29,6 @@ namespace e_SpaMobileApp.Fragments
         {
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_completeRegistration, container, false);
-            Toast.MakeText(Context.ApplicationContext,_client.Id,ToastLength.Short).Show();
             return view;
         }
     }
