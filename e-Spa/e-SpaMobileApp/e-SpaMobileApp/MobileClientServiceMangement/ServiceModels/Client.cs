@@ -13,13 +13,13 @@ namespace e_SpaMobileApp.ServiceModels
         public string FirstName { get; set; }
         [Display(AutoGenerateField = false)]
         public string LastName { get; set; }
-        [Display(Name = "Email"), Required(AllowEmptyStrings = false, ErrorMessage = "Email Cannot be Empty"), DisplayOptions(ImageSource = Resource.Drawable.baseline_email_24px)]
+        [Display(Name = "Email"), Required(AllowEmptyStrings = false, ErrorMessage = "Email Cannot be Empty"), DisplayOptions(ImageSource = Resource.Drawable.baseline_email_white_24dp)]
         public string Email { get; set; }
         [Display(AutoGenerateField = false)]
         public string ProfilePhotoUrl { get; set; }
-        [Display(Name = "Residence"), Required(AllowEmptyStrings = false, ErrorMessage = "Residence Cannot be Empty"), DisplayOptions(ImageSource = Resource.Drawable.baseline_location_city_24px)]
+        [Display(Name = "Residence"), Required(AllowEmptyStrings = false, ErrorMessage = "Residence Cannot be Empty"), DisplayOptions(ImageSource = Resource.Drawable.baseline_location_city_white_24dp)]
         public string Residence { get; set; }
-        [Display(Name = "Phone Number(eg 712345678)"), Required(AllowEmptyStrings = false, ErrorMessage = "Phone Number Cannot be Empty"), StringLength(10, ErrorMessage = "Enter a valid Phone Number"), DisplayOptions(ImageSource = Resource.Drawable.baseline_phone_24px)]
+        [Display(Name = "Phone Number(eg 712345678)"), Required(AllowEmptyStrings = false, ErrorMessage = "Phone Number Cannot be Empty"), StringLength(10, ErrorMessage = "Enter a valid Phone Number"), DisplayOptions(ImageSource = Resource.Drawable.baseline_local_phone_white_24dp)]
         public string PhoneNumber { get; set; }
 
         [Version, Display(AutoGenerateField = false)] public string AzureVersion { get; set; }

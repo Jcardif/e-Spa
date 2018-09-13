@@ -371,16 +371,16 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\baseline_phone_24px.xml" />
+    <AndroidResource Include="Resources\drawable\baseline_location_city_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\baseline_email_24px.xml" />
+    <AndroidResource Include="Resources\drawable\baseline_local_phone_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\baseline_location_city_24px.xml" />
+    <AndroidResource Include="Resources\drawable\baseline_email_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\baseline_perm_identity_24px.xml" />
+    <AndroidResource Include="Resources\drawable\baseline_perm_identity_white_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

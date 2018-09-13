@@ -33,6 +33,8 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
             ((EditText) editor).Typeface = Typeface.Default;
             ((EditText) editor).SetBackgroundResource(Resource.Drawable.syncfusion_editText_style);
             ((EditText) editor).SetTextColor(Color.White);
+            ((EditText) editor).Hint = "Hint";
+            ((EditText)editor).SetHintTextColor(Color.White);
         }
     }
 }

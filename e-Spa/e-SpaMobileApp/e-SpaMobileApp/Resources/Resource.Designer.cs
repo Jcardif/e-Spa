@@ -3022,16 +3022,16 @@ namespace e_SpaMobileApp
 			public const int avd_show_password_3 = 2130837935;
 			
 			// aapt resource value: 0x7f020056
-			public const int baseline_email_24px = 2130837590;
+			public const int baseline_email_white_24dp = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int baseline_location_city_24px = 2130837591;
+			public const int baseline_local_phone_white_24dp = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int baseline_perm_identity_24px = 2130837592;
+			public const int baseline_location_city_white_24dp = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int baseline_phone_24px = 2130837593;
+			public const int baseline_perm_identity_white_24dp = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
 			public const int btn_checkbox = 2130837594;
