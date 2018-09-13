@@ -26,6 +26,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
+using Plugin.CurrentActivity;
 using Syncfusion.Android.Buttons;
 using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
@@ -124,9 +125,10 @@ namespace e_SpaMobileApp.Fragments
 
             var sfCheckboxParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent,
                 ViewGroup.LayoutParams.WrapContent);
-            sfCheckboxParams.AddRule(LayoutRules.Below, edtTxt.Id);
+            sfCheckboxParams.AddRule(LayoutRules.Below, dataForm2.Id);
             sfCheckboxParams.Width = ViewGroup.LayoutParams.WrapContent;
             sfCheckboxParams.Height = ViewGroup.LayoutParams.WrapContent;
+            sfCheckboxParams.SetMargins(2,2,2,2);
 
 
             sfCheckbox = new SfCheckBox(Context.ApplicationContext);
@@ -138,6 +140,7 @@ namespace e_SpaMobileApp.Fragments
             sfCheckbox.SetTextColor(Color.White);
             sfCheckbox.ButtonTintList = new ColorStateList(states, colors);
             sfCheckbox.StateChanged += SfCheckbox_StateChanged;
+            view.AddView(sfCheckbox, sfCheckboxParams);
 
 
             edtTxt.Click += (s,e) => { GetCountryCode(); };
@@ -178,30 +181,32 @@ namespace e_SpaMobileApp.Fragments
                 var response =  httpClient.GetAsync(
                     $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
 
-                var builder = new AlertDialog.Builder(Context.ApplicationContext,Resource.Style.AlertDialogTheme);
-                while (response.Status == TaskStatus.Running)
-                {
-                    var sfBsyIndicator=new SfBusyIndicator(Context.ApplicationContext);
-                    sfBsyIndicator.AnimationType = AnimationTypes.Ball;
-                    sfBsyIndicator.Title = "Loading...";
-                    sfBsyIndicator.TextColor = Color.Purple;
-                    sfBsyIndicator.IsBusy = true;
-                    sfBsyIndicator.SecondaryColor = Color.Purple;
+                var sfBsyIndicator = new SfBusyIndicator(Context.ApplicationContext);
+                sfBsyIndicator.AnimationType = AnimationTypes.Ball;
+                sfBsyIndicator.TitlePlacement = TitlePlacement.Top;
+                sfBsyIndicator.TextColor = Color.Purple;
+                sfBsyIndicator.ViewBoxHeight = 100;
+                sfBsyIndicator.ViewBoxWidth = 100;
+                sfBsyIndicator.IsBusy = true;
+                sfBsyIndicator.SecondaryColor = Color.Purple;
 
-                    var alertDialog = builder.SetView(sfBsyIndicator).Create();
-                    alertDialog.SetCanceledOnTouchOutside(false);
-                    alertDialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-                    alertDialog.Show();
-                }
-                builder.Dispose();
+                var builder = new Android.App.AlertDialog.Builder(CrossCurrentActivity.Current.Activity, Resource.Style.AlertDialogTheme);
+                var alertDialog = builder.SetView(sfBsyIndicator).Create();
+                alertDialog.SetCanceledOnTouchOutside(false);
+                alertDialog.Show();
+                alertDialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, 300);
+
                 if (response.Result.StatusCode == HttpStatusCode.OK)
                 {
+                    builder.Dispose();
                     Toast.MakeText(Context.ApplicationContext, "An Account is already associated with that phoneNumber", ToastLength.Long).Show();
                     var str = await response.Result.Content.ReadAsStringAsync();
                     client = JsonConvert.DeserializeObject<Client>(str);
                 }
                 else
                 {
+                    builder.Dispose();
+
                     var fragment = new PhoneNumberVerificationFragment();
                     var phInfo = JsonConvert.SerializeObject(phoneInfo);
                     var usInfo = JsonConvert.SerializeObject(userInfo);

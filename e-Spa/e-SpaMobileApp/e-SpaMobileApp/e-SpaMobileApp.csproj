@@ -52,6 +52,9 @@
     <Reference Include="Syncfusion.Buttons.Android">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.Buttons.Android.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.Android">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfBusyIndicator.Android.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.SfDataForm.Android">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfDataForm.Android.dll</HintPath>
     </Reference>
@@ -184,11 +187,11 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore">
       <Version>4.0.2</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.CurrentActivity">
+      <Version>2.1.0.4</Version>
+    </PackageReference>
     <PackageReference Include="Refractored.Controls.CircleImageView">
       <Version>1.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator.Android">
-      <Version>16.2.0.50</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>4.0.0.190-beta</Version>

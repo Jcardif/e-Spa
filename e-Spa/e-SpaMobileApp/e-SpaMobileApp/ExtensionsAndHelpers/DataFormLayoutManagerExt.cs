@@ -15,13 +15,11 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
         protected override View GenerateViewForLabel(DataFormItem dataFormItem)
         {
             var label = base.GenerateViewForLabel(dataFormItem);
-            if (label is TextureView)
+            if (label is TextView view)
             {
-                (label as TextView).Typeface=Typeface.Monospace;
-                GradientDrawable drawable = new GradientDrawable();
-                drawable.SetStroke(5,Color.ForestGreen);
-                (label as TextView).Background = drawable;
-                (label as TextView).SetTextColor(Color.DarkRed);
+                view.Typeface=Typeface.DefaultBold;
+                view.TextSize = 16;
+                view.SetTextColor(Color.White);
             }
 
             return label;
@@ -29,14 +27,12 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
 
         protected override void OnEditorCreated(DataFormItem dataFormItem, View editor)
         {
-            if(editor is EditText)
-                (editor as EditText).SetTextColor(Color.White);
+            if(editor is EditText edtTxt)
+                edtTxt.SetTextColor(Color.White);
 
-            (editor as EditText).Typeface = Typeface.Monospace;
-            GradientDrawable drawable = new GradientDrawable();
-            drawable.SetStroke(5, Color.ForestGreen);
-            (editor as EditText).Background = drawable;
-            (editor as EditText).SetTextColor(Color.DarkRed);
+            ((EditText) editor).Typeface = Typeface.Default;
+            ((EditText) editor).SetBackgroundResource(Resource.Drawable.syncfusion_editText_style);
+            ((EditText) editor).SetTextColor(Color.White);
         }
     }
 }
