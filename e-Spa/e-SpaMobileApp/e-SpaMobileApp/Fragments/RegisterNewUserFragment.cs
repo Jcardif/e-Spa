@@ -174,13 +174,7 @@ namespace e_SpaMobileApp.Fragments
             {
                 dataForm.Commit();
                 dataForm2.Commit();
-
-                var phoneNumber = string.Concat(phoneInfo.CountryCode, phoneInfo.PhoneNumber);
-                var httpClient = new HttpClient();
-                
-                var response =  httpClient.GetAsync(
-                    $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
-
+      
                 var sfBsyIndicator = new SfBusyIndicator(Context.ApplicationContext);
                 sfBsyIndicator.AnimationType = AnimationTypes.Ball;
                 sfBsyIndicator.TitlePlacement = TitlePlacement.Top;
@@ -189,24 +183,30 @@ namespace e_SpaMobileApp.Fragments
                 sfBsyIndicator.ViewBoxWidth = 100;
                 sfBsyIndicator.IsBusy = true;
                 sfBsyIndicator.SecondaryColor = Color.Purple;
+                sfBsyIndicator.SetBackgroundResource(Color.Transparent);
 
-                var builder = new Android.App.AlertDialog.Builder(CrossCurrentActivity.Current.Activity, Resource.Style.AlertDialogTheme);
+                var builder = new AlertDialog.Builder(CrossCurrentActivity.Current.Activity, Resource.Style.AlertDialogTheme);
                 var alertDialog = builder.SetView(sfBsyIndicator).Create();
                 alertDialog.SetCanceledOnTouchOutside(false);
                 alertDialog.Show();
-                alertDialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, 300);
+                alertDialog.Window.SetLayout(1000, 300);
 
-                if (response.Result.StatusCode == HttpStatusCode.OK)
+                var phoneNumber = string.Concat(phoneInfo.CountryCode, phoneInfo.PhoneNumber);
+                var httpClient = new HttpClient();
+                var response = await httpClient.GetAsync(
+                    $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
+
+                alertDialog.Cancel();
+                
+
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    builder.Dispose();
                     Toast.MakeText(Context.ApplicationContext, "An Account is already associated with that phoneNumber", ToastLength.Long).Show();
-                    var str = await response.Result.Content.ReadAsStringAsync();
+                    var str = await response.Content.ReadAsStringAsync();
                     client = JsonConvert.DeserializeObject<Client>(str);
                 }
                 else
                 {
-                    builder.Dispose();
-
                     var fragment = new PhoneNumberVerificationFragment();
                     var phInfo = JsonConvert.SerializeObject(phoneInfo);
                     var usInfo = JsonConvert.SerializeObject(userInfo);
