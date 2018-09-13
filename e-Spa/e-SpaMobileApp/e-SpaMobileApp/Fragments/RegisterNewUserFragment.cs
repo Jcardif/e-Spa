@@ -4,8 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Content.Res;
 using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
@@ -24,6 +26,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
+using Syncfusion.Android.Buttons;
 using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
 
@@ -33,10 +36,12 @@ namespace e_SpaMobileApp.Fragments
     {
         private SfDataForm dataForm;
         private SfDataForm dataForm2;
+        private SfCheckBox sfCheckbox;
         private UserInfo userInfo;
         private PhoneInfo phoneInfo;
         private EditText edtTxt;
         private Client client;
+        private bool isChecked;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -60,6 +65,7 @@ namespace e_SpaMobileApp.Fragments
             dataForm.Id=View.GenerateViewId();
             userInfo = new UserInfo();
             dataForm.DataObject=userInfo;
+            dataForm.LayoutManager=new DataFormLayoutManagerExt(dataForm);
             dataForm.LabelPosition = LabelPosition.Top;
             dataForm.ValidationMode = ValidationMode.LostFocus;
             dataForm.CommitMode = CommitMode.LostFocus;
@@ -77,6 +83,7 @@ namespace e_SpaMobileApp.Fragments
             edtTxt.Hint = "Code";
             edtTxt.SetHintTextColor(Color.White);
             edtTxt.Focusable = false;
+            edtTxt.Id = View.GenerateViewId();
             edtTxt.SetTextColor(Color.White);
             edtTxt.SetMaxLines(1);
             edtTxt.Gravity = GravityFlags.Top;
@@ -92,7 +99,9 @@ namespace e_SpaMobileApp.Fragments
             dataForm2 = new SfDataForm(Context.ApplicationContext);
             phoneInfo = new PhoneInfo();
             dataForm2.DataObject = phoneInfo;
+            dataForm2.LayoutManager=new DataFormLayoutManagerExt(dataForm2);
             dataForm2.LabelPosition = LabelPosition.Top;
+            dataForm2.Id = View.GenerateViewId();
             dataForm2.RegisterEditor("Text", new CustomTextEditor(dataForm2));
             dataForm2.RegisterEditor("PhoneNumber", "Text");
             dataForm2.ValidationMode = ValidationMode.LostFocus;
@@ -113,9 +122,33 @@ namespace e_SpaMobileApp.Fragments
             txtView.SetTextColor(Color.White);
             view.AddView(txtView, txtViewLayoutParams);
 
+            var sfCheckboxParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent,
+                ViewGroup.LayoutParams.WrapContent);
+            sfCheckboxParams.AddRule(LayoutRules.Below, edtTxt.Id);
+            sfCheckboxParams.Width = ViewGroup.LayoutParams.WrapContent;
+            sfCheckboxParams.Height = ViewGroup.LayoutParams.WrapContent;
+
+
+            sfCheckbox = new SfCheckBox(Context.ApplicationContext);
+            int[][] states ={new[]{ Android.Resource.Attribute.StateChecked },new[]{-Android.Resource.Attribute.StateChecked }};
+            int[] colors = {Color.Purple, Color.White};
+            sfCheckbox.Checked = false;
+            sfCheckbox.Text = "I Accept the terms of use of the Application";
+            sfCheckbox.CornerRadius = 5.0f;
+            sfCheckbox.SetTextColor(Color.White);
+            sfCheckbox.ButtonTintList = new ColorStateList(states, colors);
+            sfCheckbox.StateChanged += SfCheckbox_StateChanged;
+
+
             edtTxt.Click += (s,e) => { GetCountryCode(); };
             txtView.Click += TxtView_Click;
             return view;
+        }
+
+        private void SfCheckbox_StateChanged(object sender, StateChangedEventArgs e)
+        {
+            if (e.IsChecked.HasValue && e.IsChecked.Value)
+                isChecked = true;
         }
 
         private void GetCountryCode()
@@ -132,35 +165,57 @@ namespace e_SpaMobileApp.Fragments
         {
             var isValid = dataForm.Validate() && dataForm2.Validate();
             if (!isValid) return;
-            dataForm.Commit();
-            dataForm2.Commit();
-
-            var phoneNumber = string.Concat(phoneInfo.CountryCode, phoneInfo.PhoneNumber);
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetAsync(
-                $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                Toast.MakeText(Context.ApplicationContext, "An Account is already associated with that phoneNumber", ToastLength.Long).Show();
-                var str = await response.Content.ReadAsStringAsync();
-                client = JsonConvert.DeserializeObject<Client>(str);
-            }
+            if(!isChecked)
+                Toast.MakeText(Context.ApplicationContext, "Accept the terms of use", ToastLength.Short).Show();
             else
             {
-                var fragment = new PhoneNumberVerificationFragment();
-                var phInfo = JsonConvert.SerializeObject(phoneInfo);
-                var usInfo = JsonConvert.SerializeObject(userInfo);
+                dataForm.Commit();
+                dataForm2.Commit();
 
-                var bundle = new Bundle();
-                bundle.PutString("phoneInfo", phInfo);
-                bundle.PutString("userInfo", usInfo);
-                fragment.Arguments = bundle;
+                var phoneNumber = string.Concat(phoneInfo.CountryCode, phoneInfo.PhoneNumber);
+                var httpClient = new HttpClient();
+                var response =  httpClient.GetAsync(
+                    $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
 
-                var transaction = FragmentManager.BeginTransaction();
-                transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
-                    .Replace(Resource.Id.authorizationContainer, fragment)
-                    .AddToBackStack(null)
-                    .Commit();
+                var builder = new AlertDialog.Builder(Context.ApplicationContext);
+                while (response.Status == TaskStatus.Running)
+                {
+                    var sfBsyIndicator=new SfBusyIndicator(Context.ApplicationContext);
+                    sfBsyIndicator.AnimationType = AnimationTypes.Ball;
+                    sfBsyIndicator.Title = "Loading...";
+                    sfBsyIndicator.TextColor = Color.Purple;
+                    sfBsyIndicator.IsBusy = true;
+                    sfBsyIndicator.SecondaryColor = Color.Purple;
+
+                    var alertDialog = builder.SetView(sfBsyIndicator).Create();
+                    alertDialog.SetCanceledOnTouchOutside(false);
+                    alertDialog.Window.SetLayout(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
+                    alertDialog.Show();
+                }
+                builder.Dispose();
+                if (response.Result.StatusCode == HttpStatusCode.OK)
+                {
+                    Toast.MakeText(Context.ApplicationContext, "An Account is already associated with that phoneNumber", ToastLength.Long).Show();
+                    var str = await response.Result.Content.ReadAsStringAsync();
+                    client = JsonConvert.DeserializeObject<Client>(str);
+                }
+                else
+                {
+                    var fragment = new PhoneNumberVerificationFragment();
+                    var phInfo = JsonConvert.SerializeObject(phoneInfo);
+                    var usInfo = JsonConvert.SerializeObject(userInfo);
+
+                    var bundle = new Bundle();
+                    bundle.PutString("phoneInfo", phInfo);
+                    bundle.PutString("userInfo", usInfo);
+                    fragment.Arguments = bundle;
+
+                    var transaction = FragmentManager.BeginTransaction();
+                    transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
+                        .Replace(Resource.Id.authorizationContainer, fragment)
+                        .AddToBackStack(null)
+                        .Commit();
+                }
             }
         }
 

@@ -229,7 +229,7 @@ namespace e_SpaMobileApp.Fragments
                 FirstName = _userInfo.FirstName,
                 LastName = _userInfo.LastName,
                 PhoneNumber = string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber),
-                Residence = _userInfo.Residence,
+                Residence ="empty",
                 ProfilePhotoUrl = "some-url"
             };
             var userApiClient = new UserApiClient();

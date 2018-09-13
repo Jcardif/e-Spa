@@ -49,6 +49,9 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Syncfusion.Buttons.Android">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.Buttons.Android.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.SfDataForm.Android">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfDataForm.Android.dll</HintPath>
     </Reference>

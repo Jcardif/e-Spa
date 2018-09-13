@@ -15,7 +15,6 @@ namespace e_SpaMobileApp.Models
        public string LastName { get; set; }
         [Display(Name ="Email"), Required(AllowEmptyStrings =false, ErrorMessage ="Email Cannot be Empty")]
         public string Email { get; set; }
-        public string Residence { get; set; }
         
     }
 
