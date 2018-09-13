@@ -245,6 +245,8 @@ namespace e_SpaMobileApp.Fragments
                     .SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
                     .Replace(Resource.Id.authorizationContainer, fragment)
                     .Commit();
+
+                //TODO Remove From Backstack
             }
             else
             {

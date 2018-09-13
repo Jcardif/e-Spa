@@ -174,10 +174,11 @@ namespace e_SpaMobileApp.Fragments
 
                 var phoneNumber = string.Concat(phoneInfo.CountryCode, phoneInfo.PhoneNumber);
                 var httpClient = new HttpClient();
+                
                 var response =  httpClient.GetAsync(
                     $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
 
-                var builder = new AlertDialog.Builder(Context.ApplicationContext);
+                var builder = new AlertDialog.Builder(Context.ApplicationContext,Resource.Style.AlertDialogTheme);
                 while (response.Status == TaskStatus.Running)
                 {
                     var sfBsyIndicator=new SfBusyIndicator(Context.ApplicationContext);

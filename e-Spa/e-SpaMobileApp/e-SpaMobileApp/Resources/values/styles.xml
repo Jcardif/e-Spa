@@ -28,6 +28,9 @@
   <!--splashscreen theme-->
   <style name="SplashTheme" parent="splashScreen.Base"></style>
   <style name="splashScreen.Base" parent="Theme.AppCompat.Light">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
     <item name="android:windowBackground">@drawable/SplashScreen</item>
     <item name="windowNoTitle">true</item>
   </style>
