@@ -56,6 +56,7 @@ namespace e_SpaMobileApp.Fragments
         {
             var view=new RelativeLayout(Context.ApplicationContext);
             view.SetBackgroundColor(Color.ParseColor("#80000000"));
+            view.SetPadding(8,8,8,8);
 
             var dataFormParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             dataFormParams.AddRule(LayoutRules.CenterInParent);
@@ -128,7 +129,7 @@ namespace e_SpaMobileApp.Fragments
             sfCheckboxParams.AddRule(LayoutRules.Below, dataForm2.Id);
             sfCheckboxParams.Width = ViewGroup.LayoutParams.WrapContent;
             sfCheckboxParams.Height = ViewGroup.LayoutParams.WrapContent;
-            sfCheckboxParams.SetMargins(2,2,2,2);
+            sfCheckboxParams.SetMargins(6,4,2,2);
 
 
             sfCheckbox = new SfCheckBox(Context.ApplicationContext);
@@ -136,6 +137,7 @@ namespace e_SpaMobileApp.Fragments
             int[] colors = {Color.Purple, Color.White};
             sfCheckbox.Checked = false;
             sfCheckbox.Text = "I Accept the terms of use of the Application";
+            sfCheckbox.TextSize = 10;
             sfCheckbox.CornerRadius = 5.0f;
             sfCheckbox.SetTextColor(Color.White);
             sfCheckbox.ButtonTintList = new ColorStateList(states, colors);

@@ -23,8 +23,8 @@
 		android:id="@+id/coordinator">
 		<Refractored.Controls.CircleImageView
 			android:id="@+id/profilePictureCircularImgView"
-			android:layout_width="150dp"
-			android:layout_height="150dp"
+			android:layout_width="180dp"
+			android:layout_height="180dp"
 			android:src="@drawable/account"
 			android:scaleType="centerCrop"
 			android:layout_gravity="center_horizontal"
