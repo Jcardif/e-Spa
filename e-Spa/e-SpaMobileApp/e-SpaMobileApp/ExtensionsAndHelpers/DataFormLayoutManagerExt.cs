@@ -33,8 +33,25 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
             ((EditText) editor).Typeface = Typeface.Default;
             ((EditText) editor).SetBackgroundResource(Resource.Drawable.syncfusion_editText_style);
             ((EditText) editor).SetTextColor(Color.White);
-            ((EditText) editor).Hint = "Hint";
             ((EditText)editor).SetHintTextColor(Color.White);
+            switch (dataFormItem.Name)
+            {
+                case "FirstName":
+                    ((EditText) editor).Hint = "First Name";
+                    break;
+                case "LastName":
+                    ((EditText) editor).Hint = "Last Name";
+                    break;
+                case "Email":
+                    ((EditText) editor).Hint = "Email";
+                    break;
+                case "Residence":
+                    ((EditText) editor).Hint = "Residence";
+                    break;
+                case "PhoneNumber":
+                    ((EditText) editor).Hint = "Phone Number";
+                    break;
+            }
         }
     }
 }

@@ -70,24 +70,8 @@ namespace e_SpaMobileApp.Fragments
                 StartActivityForResult(Intent.CreateChooser(intent,"Select Profile Image"), imagePicker);
             };
 
-            var dataFormParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
-            dataFormParams.AddRule(LayoutRules.CenterInParent);
-            dataFormParams.Width = ViewGroup.LayoutParams.MatchParent;
-            dataFormParams.Height = ViewGroup.LayoutParams.WrapContent;
-
-            sfDataForm=new SfDataForm(Context.ApplicationContext);
-            sfDataForm.DataObject = _client;
-            sfDataForm.LayoutManager=new DataFormLayoutManagerExt(sfDataForm);
-            sfDataForm.LabelPosition = LabelPosition.Top;
-            sfDataForm.Id = View.GenerateViewId();
-            sfDataForm.ValidationMode = ValidationMode.LostFocus;
-            sfDataForm.CommitMode = CommitMode.LostFocus;
-            sfDataForm.ColumnCount = 1;
-            dataContainerRelativeLayout.AddView(sfDataForm,dataFormParams);
-
             var dataFormParams2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
-            dataFormParams2.AddRule(LayoutRules.CenterInParent);
-            dataFormParams2.AddRule(LayoutRules.Below, sfDataForm.Id);
+            dataFormParams2.AddRule(LayoutRules.CenterHorizontal);
             dataFormParams2.Width = ViewGroup.LayoutParams.MatchParent;
             dataFormParams2.Height = ViewGroup.LayoutParams.WrapContent;
 
@@ -99,7 +83,23 @@ namespace e_SpaMobileApp.Fragments
             sfDataForm2.ValidationMode = ValidationMode.LostFocus;
             sfDataForm2.CommitMode = CommitMode.LostFocus;
             sfDataForm2.ColumnCount = 2;
-            dataContainerRelativeLayout.AddView(sfDataForm2, dataFormParams);
+            dataContainerRelativeLayout.AddView(sfDataForm2, dataFormParams2);
+
+            var dataFormParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
+            dataFormParams.AddRule(LayoutRules.Below, sfDataForm2.Id);
+            dataFormParams.AddRule(LayoutRules.CenterHorizontal);
+            dataFormParams.Width = ViewGroup.LayoutParams.MatchParent;
+            dataFormParams.Height = ViewGroup.LayoutParams.WrapContent;
+
+            sfDataForm = new SfDataForm(Context.ApplicationContext);
+            sfDataForm.DataObject = _client;
+            sfDataForm.LayoutManager = new DataFormLayoutManagerExt(sfDataForm);
+            sfDataForm.LabelPosition = LabelPosition.Top;
+            sfDataForm.Id = View.GenerateViewId();
+            sfDataForm.ValidationMode = ValidationMode.LostFocus;
+            sfDataForm.CommitMode = CommitMode.LostFocus;
+            sfDataForm.ColumnCount = 1;
+            dataContainerRelativeLayout.AddView(sfDataForm, dataFormParams);
 
             return view;
         }
