@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json;
+using Syncfusion.Android.DataForm;
 
 namespace e_SpaMobileApp.ServiceModels
 {
@@ -8,17 +9,17 @@ namespace e_SpaMobileApp.ServiceModels
     {
         [Display(AutoGenerateField = false)]
         public string Id { get; set; }
-        [Display(Name ="First Name"), Required(AllowEmptyStrings =false, ErrorMessage ="First Name Cannot be empty")]
+        [Display(AutoGenerateField = false)]
         public string FirstName { get; set; }
-        [Display(Name = "Last Name"), Required(AllowEmptyStrings = false, ErrorMessage = "Last Name Cannot be empty")]
+        [Display(AutoGenerateField = false)]
         public string LastName { get; set; }
-        [Display(Name = "Email"), Required(AllowEmptyStrings = false, ErrorMessage = "Email Cannot be Empty")]
+        [Display(Name = "Email"), Required(AllowEmptyStrings = false, ErrorMessage = "Email Cannot be Empty"), DisplayOptions(ImageSource = Resource.Drawable.baseline_email_24px)]
         public string Email { get; set; }
         [Display(AutoGenerateField = false)]
         public string ProfilePhotoUrl { get; set; }
-        [Display(Name = "Residence"), Required(AllowEmptyStrings = false, ErrorMessage = "Residence Cannot be Empty")]
+        [Display(Name = "Residence"), Required(AllowEmptyStrings = false, ErrorMessage = "Residence Cannot be Empty"), DisplayOptions(ImageSource = Resource.Drawable.baseline_location_city_24px)]
         public string Residence { get; set; }
-        [Display(Name = "Phone Number(eg 712345678)"), Required(AllowEmptyStrings = false, ErrorMessage = "Phone Number Cannot be Empty"), StringLength(10, ErrorMessage = "Enter a valid Phone Number")]
+        [Display(Name = "Phone Number(eg 712345678)"), Required(AllowEmptyStrings = false, ErrorMessage = "Phone Number Cannot be Empty"), StringLength(10, ErrorMessage = "Enter a valid Phone Number"), DisplayOptions(ImageSource = Resource.Drawable.baseline_phone_24px)]
         public string PhoneNumber { get; set; }
 
         [Version, Display(AutoGenerateField = false)] public string AzureVersion { get; set; }

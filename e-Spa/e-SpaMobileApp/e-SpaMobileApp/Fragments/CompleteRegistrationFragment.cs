@@ -11,10 +11,12 @@ using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.ServiceModels;
 using Newtonsoft.Json;
 using Plugin.CurrentActivity;
 using Refractored.Controls;
+using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
@@ -22,13 +24,14 @@ namespace e_SpaMobileApp.Fragments
 {
     public class CompleteRegistrationFragment : Fragment
     {
-        private Client _client;
+        private Client _client=new Client();
         private Toolbar _toolbar;
         private CircleImageView profilePicImgView;
         private FloatingActionButton _fab;
         private RelativeLayout dataContainerRelativeLayout;
         private Button completeRegBtn;
         private int imagePicker=9001;
+        private SfDataForm sfDataForm;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -52,6 +55,7 @@ namespace e_SpaMobileApp.Fragments
             activity.SupportActionBar.Title = "Edit Profile";
             activity.SupportActionBar.SetDisplayHomeAsUpEnabled(false);
 
+            //! select image an load into circle image view
             _fab.Click += (s, e) =>
             {
                 var intent = new Intent();
@@ -61,6 +65,19 @@ namespace e_SpaMobileApp.Fragments
                 StartActivityForResult(Intent.CreateChooser(intent,"Select Profile Image"), imagePicker);
             };
 
+            var dataFormParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
+            dataFormParams.AddRule(LayoutRules.CenterInParent);
+            dataFormParams.Width = ViewGroup.LayoutParams.MatchParent;
+            dataFormParams.Height = ViewGroup.LayoutParams.WrapContent;
+
+            sfDataForm=new SfDataForm(Context.ApplicationContext);
+            sfDataForm.DataObject = _client;
+            sfDataForm.LayoutManager=new DataFormLayoutManagerExt(sfDataForm);
+            sfDataForm.LabelPosition = LabelPosition.Top;
+            sfDataForm.ValidationMode = ValidationMode.LostFocus;
+            sfDataForm.CommitMode = CommitMode.LostFocus;
+            sfDataForm.ColumnCount = 1;
+            dataContainerRelativeLayout.AddView(sfDataForm,dataFormParams);
             return view;
         }
 
