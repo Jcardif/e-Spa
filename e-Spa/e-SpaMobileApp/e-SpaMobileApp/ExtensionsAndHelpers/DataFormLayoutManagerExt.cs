@@ -33,7 +33,7 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
             ((EditText) editor).Typeface = Typeface.Default;
             ((EditText) editor).SetBackgroundResource(Resource.Drawable.syncfusion_editText_style);
             ((EditText) editor).SetTextColor(Color.White);
-            ((EditText)editor).SetHintTextColor(Color.White);
+            ((EditText)editor).SetHintTextColor(Color.WhiteSmoke);
             switch (dataFormItem.Name)
             {
                 case "FirstName":
@@ -51,6 +51,8 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
                 case "PhoneNumber":
                     ((EditText) editor).Hint = "Phone Number";
                     break;
+                default:
+                    return;
             }
         }
     }

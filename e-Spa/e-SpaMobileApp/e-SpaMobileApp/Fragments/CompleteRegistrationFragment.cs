@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Android.AccessibilityServices;
 using Android.App;
 using Android.Content;
+using Android.Graphics;
+using Android.Hardware.Input;
+using Android.InputMethodServices;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
@@ -53,12 +58,16 @@ namespace e_SpaMobileApp.Fragments
             _fab = view.FindViewById<FloatingActionButton>(Resource.Id.selectProfileImageFab);
             dataContainerRelativeLayout = view.FindViewById<RelativeLayout>(Resource.Id.relativeDataformContainer);
             completeRegBtn = view.FindViewById<Button>(Resource.Id.completeRegistartionBtn);
-
+            
             //!  Init Toolbar
             var activity=(AppCompatActivity) CrossCurrentActivity.Current.Activity;
             activity.SetSupportActionBar(_toolbar);
             activity.SupportActionBar.Title = "Edit Profile";
             activity.SupportActionBar.SetDisplayHomeAsUpEnabled(false);
+
+            //!  Handle button visibility
+            // TODO: Find a more effective way to do this
+            activity.Window.SetSoftInputMode(SoftInput.AdjustNothing);
 
             //! select image an load into circle image view
             _fab.Click += (s, e) =>
@@ -78,7 +87,7 @@ namespace e_SpaMobileApp.Fragments
             sfDataForm2 = new SfDataForm(Context.ApplicationContext);
             sfDataForm2.DataObject = fullName;
             sfDataForm2.LayoutManager = new DataFormLayoutManagerExt(sfDataForm2);
-            sfDataForm2.LabelPosition = LabelPosition.Top;
+            sfDataForm2.LabelPosition = LabelPosition.Left;
             sfDataForm2.Id = View.GenerateViewId();
             sfDataForm2.ValidationMode = ValidationMode.LostFocus;
             sfDataForm2.CommitMode = CommitMode.LostFocus;
@@ -94,7 +103,7 @@ namespace e_SpaMobileApp.Fragments
             sfDataForm = new SfDataForm(Context.ApplicationContext);
             sfDataForm.DataObject = _client;
             sfDataForm.LayoutManager = new DataFormLayoutManagerExt(sfDataForm);
-            sfDataForm.LabelPosition = LabelPosition.Top;
+            sfDataForm.LabelPosition = LabelPosition.Left;
             sfDataForm.Id = View.GenerateViewId();
             sfDataForm.ValidationMode = ValidationMode.LostFocus;
             sfDataForm.CommitMode = CommitMode.LostFocus;
