@@ -33,27 +33,27 @@ using Fragment = Android.Support.V4.App.Fragment;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class RegisterNewUserFragment : Fragment, IOnCountryPickerListener
+    public class RegisterNewUserFragment : Fragment
     {
         private SfDataForm dataForm;
         private SfDataForm dataForm2;
+        private SfDataForm dataForm3;
         private SfCheckBox sfCheckbox;
         private UserInfo userInfo;
         private PhoneInfo phoneInfo;
-        private EditText edtTxt;
+        private CodeInfo codeInfo;
         private Client client;
         private bool isChecked;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
-
-
             // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            CrossCurrentActivity.Current.Activity.Window.SetSoftInputMode(SoftInput.AdjustPan);
             var view=new RelativeLayout(Context.ApplicationContext);
             view.SetBackgroundColor(Color.ParseColor("#80000000"));
             view.SetPadding(8,8,8,8);
@@ -67,45 +67,40 @@ namespace e_SpaMobileApp.Fragments
             dataForm.Id=View.GenerateViewId();
             userInfo = new UserInfo();
             dataForm.DataObject=userInfo;
-            dataForm.LayoutManager=new DataFormLayoutManagerExt(dataForm);
+            dataForm.LayoutManager=new DataFormLayoutManagerExt(dataForm,1);
             dataForm.LabelPosition = LabelPosition.Top;
             dataForm.ValidationMode = ValidationMode.LostFocus;
             dataForm.CommitMode = CommitMode.LostFocus;
-            dataForm.RegisterEditor("Text", new CustomTextEditor(dataForm));
             view.AddView(dataForm,dataFormParams);
 
-            var edtParams=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
-            edtParams.AddRule(LayoutRules.Below, dataForm.Id);
-            edtParams.Width=ViewGroup.LayoutParams.WrapContent;
-            edtParams.LeftMargin = 48;
-            edtParams.Height=ViewGroup.LayoutParams.WrapContent;
+            var dataForm3Params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
+            dataForm3Params.AddRule(LayoutRules.Below, dataForm.Id);
+            dataForm3Params.Width = 300;
+            dataForm3Params.Height = ViewGroup.LayoutParams.WrapContent;
 
-            edtTxt = new EditText(Context.ApplicationContext);
-            edtTxt.Id = View.GenerateViewId();
-            edtTxt.Hint = "Code";
-            edtTxt.SetHintTextColor(Color.White);
-            edtTxt.Focusable = false;
-            edtTxt.Id = View.GenerateViewId();
-            edtTxt.SetTextColor(Color.White);
-            edtTxt.SetMaxLines(1);
-            edtTxt.Gravity = GravityFlags.Top;
-            view.AddView(edtTxt, edtParams);
-            
+            dataForm3 = new SfDataForm(Context.ApplicationContext);
+            codeInfo = new CodeInfo();
+            dataForm3.DataObject = codeInfo;
+            dataForm3.LayoutManager = new DataFormLayoutManagerExt(dataForm3, 1, FragmentManager, Context.ApplicationContext);
+            dataForm3.LabelPosition = LabelPosition.Top;
+            dataForm3.Id = View.GenerateViewId();
+            dataForm3.ValidationMode = ValidationMode.LostFocus;
+            dataForm3.CommitMode = CommitMode.LostFocus;
+            view.AddView(dataForm3, dataForm3Params);
+
             var dataForm2Params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             dataForm2Params.AddRule(LayoutRules.Below, dataForm.Id);
-            dataForm2Params.AddRule(LayoutRules.RightOf, edtTxt.Id);
-            dataForm2Params.Width = ViewGroup.LayoutParams.MatchParent;
-            dataForm2Params.RightMargin = 48;
+            dataForm2Params.AddRule(LayoutRules.RightOf, dataForm3.Id);
+            dataForm2Params.LeftMargin=-150;
+            dataForm2Params.Width = ViewGroup.LayoutParams.WrapContent;
             dataForm2Params.Height = ViewGroup.LayoutParams.WrapContent;
 
             dataForm2 = new SfDataForm(Context.ApplicationContext);
             phoneInfo = new PhoneInfo();
             dataForm2.DataObject = phoneInfo;
-            dataForm2.LayoutManager=new DataFormLayoutManagerExt(dataForm2);
+            dataForm2.LayoutManager=new DataFormLayoutManagerExt(dataForm2,1);
             dataForm2.LabelPosition = LabelPosition.Top;
             dataForm2.Id = View.GenerateViewId();
-            dataForm2.RegisterEditor("Text", new CustomTextEditor(dataForm2));
-            dataForm2.RegisterEditor("PhoneNumber", "Text");
             dataForm2.ValidationMode = ValidationMode.LostFocus;
             dataForm2.CommitMode = CommitMode.LostFocus;
             view.AddView(dataForm2, dataForm2Params);
@@ -119,14 +114,14 @@ namespace e_SpaMobileApp.Fragments
             var txtView = new TextView(Context.ApplicationContext);
             txtView.Text = "Next";
             txtView.TextSize = 28;
-            txtView.SetPadding(2, 2, 2, 2);
+            txtView.SetPadding(2, 2, 4, 4);
             txtView.Clickable = true;
             txtView.SetTextColor(Color.White);
             view.AddView(txtView, txtViewLayoutParams);
 
             var sfCheckboxParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent,
                 ViewGroup.LayoutParams.WrapContent);
-            sfCheckboxParams.AddRule(LayoutRules.Below, dataForm2.Id);
+            sfCheckboxParams.AddRule(LayoutRules.Below, dataForm3.Id);
             sfCheckboxParams.Width = ViewGroup.LayoutParams.WrapContent;
             sfCheckboxParams.Height = ViewGroup.LayoutParams.WrapContent;
             sfCheckboxParams.SetMargins(6,4,2,2);
@@ -144,8 +139,6 @@ namespace e_SpaMobileApp.Fragments
             sfCheckbox.StateChanged += SfCheckbox_StateChanged;
             view.AddView(sfCheckbox, sfCheckboxParams);
 
-
-            edtTxt.Click += (s,e) => { GetCountryCode(); };
             txtView.Click += TxtView_Click;
             return view;
         }
@@ -154,15 +147,6 @@ namespace e_SpaMobileApp.Fragments
         {
             if (e.IsChecked.HasValue && e.IsChecked.Value)
                 isChecked = true;
-        }
-
-        private void GetCountryCode()
-        {
-            var builder = new CountryPicker.Builder()
-                .With(Context.ApplicationContext)
-                .Listener(this);
-            var picker = builder.Build();
-            picker.ShowDialog(FragmentManager);
         }
 
 
@@ -193,7 +177,7 @@ namespace e_SpaMobileApp.Fragments
                 alertDialog.Show();
                 alertDialog.Window.SetLayout(1000, 300);
 
-                var phoneNumber = string.Concat(phoneInfo.CountryCode, phoneInfo.PhoneNumber);
+                var phoneNumber = string.Concat(codeInfo.CountryCode, phoneInfo.PhoneNumber);
                 var httpClient = new HttpClient();
                 var response = await httpClient.GetAsync(
                     $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
@@ -225,12 +209,6 @@ namespace e_SpaMobileApp.Fragments
                         .Commit();
                 }
             }
-        }
-
-        public void OnSelectCountry(Country country)
-        {
-            phoneInfo.CountryCode = country.DialCode;
-            edtTxt.Text = phoneInfo.CountryCode;
         }
     }
 }

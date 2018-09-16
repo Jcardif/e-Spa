@@ -20,6 +20,7 @@ using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using e_SpaMobileApp.ServiceModels;
 using Newtonsoft.Json;
+using Plugin.Connectivity;
 using Plugin.CurrentActivity;
 using Refractored.Controls;
 using Syncfusion.Android.DataForm;
@@ -65,8 +66,9 @@ namespace e_SpaMobileApp.Fragments
             activity.SupportActionBar.Title = "Edit Profile";
             activity.SupportActionBar.SetDisplayHomeAsUpEnabled(false);
 
-            //!  Handle button visibility
+            //!  Handle button Soft Keyboard
             // TODO: Find a more effective way to do this
+            //! Already did
             activity.Window.SetSoftInputMode(SoftInput.AdjustNothing);
 
             //! select image an load into circle image view
@@ -86,7 +88,7 @@ namespace e_SpaMobileApp.Fragments
 
             sfDataForm2 = new SfDataForm(Context.ApplicationContext);
             sfDataForm2.DataObject = fullName;
-            sfDataForm2.LayoutManager = new DataFormLayoutManagerExt(sfDataForm2);
+            sfDataForm2.LayoutManager = new DataFormLayoutManagerExt(sfDataForm2,2);
             sfDataForm2.LabelPosition = LabelPosition.Left;
             sfDataForm2.Id = View.GenerateViewId();
             sfDataForm2.ValidationMode = ValidationMode.LostFocus;
@@ -102,7 +104,7 @@ namespace e_SpaMobileApp.Fragments
 
             sfDataForm = new SfDataForm(Context.ApplicationContext);
             sfDataForm.DataObject = _client;
-            sfDataForm.LayoutManager = new DataFormLayoutManagerExt(sfDataForm);
+            sfDataForm.LayoutManager = new DataFormLayoutManagerExt(sfDataForm,2);
             sfDataForm.LabelPosition = LabelPosition.Left;
             sfDataForm.Id = View.GenerateViewId();
             sfDataForm.ValidationMode = ValidationMode.LostFocus;
@@ -110,7 +112,26 @@ namespace e_SpaMobileApp.Fragments
             sfDataForm.ColumnCount = 1;
             dataContainerRelativeLayout.AddView(sfDataForm, dataFormParams);
 
+            completeRegBtn.Click += CompleteRegBtn_Click;
+
             return view;
+        }
+
+        private void CompleteRegBtn_Click(object sender, EventArgs e)
+        {
+            if (!(sfDataForm.Validate() && sfDataForm2.Validate())) return;
+            sfDataForm.Commit();
+            sfDataForm2.Commit();
+            _client.FirstName = fullName.FirstName;
+            _client.LastName = fullName.LastName;
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                //! Upload data to database and image to blob storage
+            }
+            else
+            {
+                Toast.MakeText(Context.ApplicationContext, "No Internet Connection", ToastLength.Short).Show();
+            }
         }
 
         public override void OnActivityResult(int requestCode, int resultCode, Intent data)

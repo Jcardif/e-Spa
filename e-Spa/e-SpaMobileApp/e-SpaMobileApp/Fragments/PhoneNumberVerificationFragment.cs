@@ -42,6 +42,7 @@ namespace e_SpaMobileApp.Fragments
         private TextView _verifyTxtView, _resendCodeTxtView;
         private PhoneInfo _phoneInfo;
         private UserInfo _userInfo;
+        private CodeInfo _codeInfo;
         private static FragmentTransaction _transaction;
         private TimerFragment _fragment;
         private static Context _context;
@@ -86,7 +87,7 @@ namespace e_SpaMobileApp.Fragments
 
             if (_phoneInfo != null && _userInfo != null)
             {
-                _codeInputEdtTxt.Text = _phoneInfo.CountryCode;
+                _codeInputEdtTxt.Text = _codeInfo.CountryCode;
                 _phoneInputEdtTxt.Text = _phoneInfo.PhoneNumber;
             }
 
@@ -105,8 +106,8 @@ namespace e_SpaMobileApp.Fragments
                 {
                     EnableAndDisableViews(true);
                     _phoneInfo.PhoneNumber = _phoneInputEdtTxt.Text;
-                    _phoneInfo.CountryCode = _codeInputEdtTxt.Text;
-                    OnVerificationAuthorized(string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber));
+                    _codeInfo.CountryCode = _codeInputEdtTxt.Text;
+                    OnVerificationAuthorized(string.Concat(_codeInfo.CountryCode, _phoneInfo.PhoneNumber));
                 }
                 else
                 {
@@ -229,7 +230,7 @@ namespace e_SpaMobileApp.Fragments
                 Email = _userInfo.Email,
                 FirstName = _userInfo.FirstName,
                 LastName = _userInfo.LastName,
-                PhoneNumber = string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber),
+                PhoneNumber = string.Concat(_codeInfo.CountryCode, _phoneInfo.PhoneNumber),
                 Residence ="empty",
                 ProfilePhotoUrl = "some-url"
             };

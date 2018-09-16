@@ -18,12 +18,15 @@ namespace e_SpaMobileApp.Models
         
     }
 
-    public class PhoneInfo : NotificationObject
+    public class PhoneInfo
     {
-        [Display(AutoGenerateField = false)]
-        public string CountryCode { get; set; }
         [Display(Name ="Phone Number(eg 712345678)"), Required(AllowEmptyStrings =false, ErrorMessage ="Phone Number Cannot be Empty"), StringLength(9, ErrorMessage ="Enter a valid Phone Number")]
          public string PhoneNumber { get; set; }
-        
+    }
+
+    public class CodeInfo
+    {
+        [Display(Name = "Code"), Required(AllowEmptyStrings = false, ErrorMessage = "Country Code Cannot be Empty"), StringLength(4, ErrorMessage = "Enter a valid Country Code")]
+        public string CountryCode { get; set; }
     }
 }
