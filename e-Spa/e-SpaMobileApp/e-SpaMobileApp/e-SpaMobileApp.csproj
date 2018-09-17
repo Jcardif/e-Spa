@@ -96,6 +96,7 @@
     <Compile Include="Fragments\ForumsFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\LoginUserFragment.cs" />
+    <Compile Include="Fragments\PhoneNoVerifiedFragment.cs" />
     <Compile Include="Fragments\PhoneNumberVerificationFragment.cs" />
     <Compile Include="Fragments\RegisterNewUserFragment.cs" />
     <Compile Include="Fragments\SalonsFragment.cs" />
@@ -442,6 +443,24 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\anim\zoom_in.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_verified_user_purple_dark_48dp.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
