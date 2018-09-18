@@ -46,6 +46,8 @@ namespace e_SpaMobileApp.Fragments
             base.OnCreate(savedInstanceState);
             if(Arguments==null) return; 
             _client = JsonConvert.DeserializeObject<Client>(Arguments.GetString("client"));
+            if (_client.Residence == "empty")
+                _client.Residence = null;
             fullName.FirstName = _client.FirstName;
             fullName.LastName = _client.LastName;
         }
@@ -69,7 +71,7 @@ namespace e_SpaMobileApp.Fragments
             //!  Handle button Soft Keyboard
             // TODO: Find a more effective way to do this
             //! Already did
-            activity.Window.SetSoftInputMode(SoftInput.AdjustNothing);
+            activity.Window.SetSoftInputMode(SoftInput.AdjustPan);
 
             //! select image an load into circle image view
             _fab.Click += (s, e) =>

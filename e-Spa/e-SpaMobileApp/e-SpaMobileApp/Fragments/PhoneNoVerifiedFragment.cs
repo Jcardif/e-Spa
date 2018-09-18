@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
+﻿using Android.Content;
 using Android.Graphics;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
+using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class PhoneNoVerifiedFrgment : Fragment
+    public class PhoneNoVerifiedFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,16 +33,28 @@ namespace e_SpaMobileApp.Fragments
 
             var textViewParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent,
                 ViewGroup.LayoutParams.WrapContent);
-            textViewParams.AddRule(LayoutRules.Below, imageView.Id);
+            textViewParams.AddRule(LayoutRules.RightOf, imageView.Id);
             textViewParams.AddRule(LayoutRules.CenterHorizontal);
 
             var textView=new TextView(Context.ApplicationContext);
             textView.SetTextColor(Color.White);
             textView.TextSize = 18;
             textView.Text = "Phone Number Verified";
-            textView.SetPadding(2,2,2,2);
+            textView.SetPadding(2,2,4,2);
             view.AddView(textView, textViewParams);
-            
+
+            var textViewParams2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent,
+                ViewGroup.LayoutParams.WrapContent);
+            textViewParams2.AddRule(LayoutRules.AlignParentBottom);
+            textViewParams2.AddRule(LayoutRules.CenterHorizontal);
+
+            var textView2 = new TextView(Context.ApplicationContext);
+            textView2.SetTextColor(Color.White);
+            textView2.TextSize = 14;
+            textView2.Text = "Finishing Registration...";
+            textView2.SetPadding(4, 4, 4, 4);
+            view.AddView(textView2, textViewParams2);
+
             return view;
         }
     }

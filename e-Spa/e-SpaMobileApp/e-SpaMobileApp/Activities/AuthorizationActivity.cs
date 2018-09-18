@@ -39,7 +39,7 @@ namespace e_SpaMobileApp.Activities
 
         private void LoadFragment()
         {
-            _fragment = new RegisterNewUserFragment();
+            _fragment = new AuthorizationFragment();
             _transaction = SupportFragmentManager.BeginTransaction();
             _transaction.Replace(Resource.Id.authorizationContainer, _fragment)
             .Commit();
