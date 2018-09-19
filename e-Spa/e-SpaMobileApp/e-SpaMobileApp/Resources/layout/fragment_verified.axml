@@ -10,7 +10,7 @@
 		android:layout_centerInParent="true"/>
 	<TextView
 		android:text="Verified"
-		android:textSize="28"
+		android:textSize="28sp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/imgView"
@@ -24,7 +24,7 @@
 		android:layout_below="@id/imgView"
 		android:layout_centerInParent="true"
 		android:textColor="@android:color/white"
-		android:textSize="16"
+		android:textSize="16sp"
 		android:layout_margin="16dp"
 		android:id="@+id/textView1"/>
 	<ProgressBar
@@ -33,6 +33,6 @@
 		android:layout_height="wrap_content"
 		android:layout_below="@id/imgView"
 		android:layout_toRightOf="@id/textView1"
-		android:layout_centerInParent="true" >
-	
+		android:layout_centerInParent="true"
+		android:indeterminate="true" />	
 </RelativeLayout>

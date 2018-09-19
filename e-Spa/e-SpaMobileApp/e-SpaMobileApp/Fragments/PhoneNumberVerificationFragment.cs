@@ -142,8 +142,12 @@ namespace e_SpaMobileApp.Fragments
             else
             {
                 var fragment=new PhoneNoVerifiedFragment();
-                _transaction.Replace(Resource.Id.frameLayout1, fragment)
-                    .SetCustomAnimations(Resource.Animation.zoom_in, Resource.Animation.fade_out);
+                    FragmentManager.BeginTransaction()
+                        .Remove(_fragment)
+                        .Replace(Resource.Id.frameLayout1,fragment)
+                        .SetCustomAnimations(Resource.Animation.zoom_in, Resource.Animation.fade_out)
+                        .Commit();
+
             }
         }
 
