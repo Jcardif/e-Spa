@@ -131,22 +131,29 @@ namespace e_SpaMobileApp.Fragments
             sfCheckboxParams.SetMargins(6, 4, 2, 2);
 
 
-            sfCheckbox = new SfCheckBox(Context.ApplicationContext);
+         //   sfCheckbox = new SfCheckBox(Context.ApplicationContext);
+            var sfCheckbox = new CheckBox(Context.ApplicationContext);
             int[][] states = { new[] { Android.Resource.Attribute.StateChecked }, new[] { -Android.Resource.Attribute.StateChecked } };
             int[] colors = { Color.Purple, Color.White };
             sfCheckbox.Checked = false;
             sfCheckbox.Text = "I Accept the terms of use of the Application";
             sfCheckbox.TextSize = 10;
-            sfCheckbox.CornerRadius = 5.0f;
+            //sfCheckbox.CornerRadius = 5.0f;
             sfCheckbox.SetTextColor(Color.White);
-            sfCheckbox.ButtonTintList = new ColorStateList(states, colors);
-            sfCheckbox.StateChanged += SfCheckbox_StateChanged;
+            // sfCheckbox.ButtonTintList = new ColorStateList(states, colors);
+            sfCheckbox.CheckedChange += SfCheckbox_CheckedChange;
             view.AddView(sfCheckbox, sfCheckboxParams);
 
 
             edtTxt.Click += (s, e) => { GetCountryCode(); };
             txtView.Click += TxtView_Click;
             return view;
+        }
+
+        private void SfCheckbox_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
+        {
+            if (e.IsChecked)
+                isChecked = true;
         }
 
         private void SfCheckbox_StateChanged(object sender, StateChangedEventArgs e)
