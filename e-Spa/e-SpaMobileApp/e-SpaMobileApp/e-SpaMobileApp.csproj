@@ -107,6 +107,7 @@
     <Compile Include="MobileClientServiceMangement\APIClients\APIClient.cs" />
     <Compile Include="MobileClientServiceMangement\APIClients\SalonsAPIClient.cs" />
     <Compile Include="MobileClientServiceMangement\APIClients\UserApiClient.cs" />
+    <Compile Include="MobileClientServiceMangement\BlobStorageService\BlobStorageService.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Appointment.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Client.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Review.cs" />
@@ -192,6 +193,9 @@
     </PackageReference>
     <PackageReference Include="Refractored.Controls.CircleImageView">
       <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="WindowsAzure.Storage">
+      <Version>9.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>4.0.0.190-beta</Version>
