@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/client_app_layout_background"
+    >
+
+    <TextView
+        android:layout_margin="8dp"
+        android:textColor="#ffffff"
+        android:id="@+id/salons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salons"
+         />
+
+        <android.support.v7.widget.CardView
+            android:layout_margin="8dp"
+            android:id="@+id/salonsCard_view"
+            android:layout_width="match_parent"
+            android:layout_height="177dp"
+            app:cardCornerRadius="10dp"
+            />
+
+    <TextView
+        android:layout_margin="8dp"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/salons_reccy"
+        android:id="@+id/styles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Styles"
+        />
+
+    <android.support.v7.widget.CardView
+            android:layout_margin="8dp"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/stylesCardview"
+            android:layout_width="match_parent"
+            android:layout_height="177dp"
+            />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:id="@+id/create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Create Account"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@+id/create_account"
+            android:text="Login"
+            android:textColor="#ffffff"
+            />
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@+id/login"
+            android:text="Cancel"
+            android:textColor="#ffffff"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>
