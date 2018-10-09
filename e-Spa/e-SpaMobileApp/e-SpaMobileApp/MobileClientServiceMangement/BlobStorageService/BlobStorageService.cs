@@ -27,7 +27,6 @@ namespace e_SpaMobileApp.BlobStorageService
 
         public static async Task PostToBlob()
         {
-            await _blockBlob. 
         }
     }
 }
