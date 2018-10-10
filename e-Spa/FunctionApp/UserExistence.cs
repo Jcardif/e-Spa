@@ -17,6 +17,7 @@ namespace FunctionApp
         [FunctionName("UserExistence")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
+            log.Info("C# HTTP trigger function processed a request.");
             var connectionString = ConfigurationManager.ConnectionStrings["DataConnectionString"].ConnectionString;
             using (var conn = new SqlConnection(connectionString))
             {
@@ -32,6 +33,7 @@ namespace FunctionApp
                     phoneNo = data?.phoneNo;
                     if (phoneNo==null)
                     {
+                        log.Info("Phone Number not valid");
                         return req.CreateResponse(HttpStatusCode.BadRequest, "Pass a valid phone number");
                     }
                 }
@@ -52,21 +54,25 @@ namespace FunctionApp
                         client.ProfilePhotoUrl = reader.GetString(4);
                         client.Residence = reader.GetString(5);
 
-                        return req.CreateResponse<Client>(HttpStatusCode.OK, client);
+                        log.Info($"User found as{client.FirstName} {client.LastName}");
+                        return req.CreateResponse(HttpStatusCode.OK, client);
                     }
                     else
                     {
+                        log.Info("User not Found");
                         return req.CreateResponse<Client>(HttpStatusCode.NotFound, null);
                     }
 
                 }
                 catch (Exception ex)
                 {
+                    log.Info("$The following Exception happened: {ex.Message}");
                     return req.CreateResponse(HttpStatusCode.BadRequest,
                         $"The following Exception happened: {ex.Message}");
                 }
                 finally
                 {
+                    log.Info("Completed");
                     conn.Close();
                 }
             }
