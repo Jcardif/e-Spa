@@ -17,8 +17,7 @@ namespace FunctionApp
         [FunctionName("UserExistence")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
-            var connectionString =
-                Environment.GetEnvironmentVariable("DataConnectionString", EnvironmentVariableTarget.Process);
+            var connectionString = ConfigurationManager.ConnectionStrings["DataConnectionString"].ConnectionString;
             using (var conn = new SqlConnection(connectionString))
             {
                 // parse query parameter
