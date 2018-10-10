@@ -50,6 +50,12 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Syncfusion.Buttons.Android">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.Buttons.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.Android">
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfBusyIndicator.Android.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.SfDataForm.Android">
       <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\Xamarin\16.2.0.41\Xamarin\lib\android\Syncfusion.SfDataForm.Android.dll</HintPath>
     </Reference>
@@ -79,18 +85,19 @@
     <Compile Include="Adapters\ServicesRecyclerViewAdapter.cs" />
     <Compile Include="Adapters\TabAdapter.cs" />
     <Compile Include="Adapters\TrendsTabAdapter.cs" />
-    <Compile Include="ExtensionsAndHelpers\CustomTextEditorcs.cs" />
+    <Compile Include="ExtensionsAndHelpers\DataFormLayoutManagerExt.cs" />
     <Compile Include="ExtensionsAndHelpers\FirebaseHelpers.cs" />
     <Compile Include="ExtensionsAndHelpers\IOnSingInCallbacks.cs" />
     <Compile Include="ExtensionsAndHelpers\LogInPath.cs" />
-    <Compile Include="ExtensionsAndHelpers\NotificationObject.cs" />
     <Compile Include="ExtensionsAndHelpers\PhoneAuthCallBacks.cs" />
     <Compile Include="Fragments\AddTrendFragment.cs" />
     <Compile Include="Fragments\AppointmentFragment.cs" />
     <Compile Include="Fragments\AuthorizationFragment.cs" />
+    <Compile Include="Fragments\CompleteRegistrationFragment.cs" />
     <Compile Include="Fragments\ForumsFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\LoginUserFragment.cs" />
+    <Compile Include="Fragments\PhoneNoVerifiedFragment.cs" />
     <Compile Include="Fragments\PhoneNumberVerificationFragment.cs" />
     <Compile Include="Fragments\RegisterNewUserFragment.cs" />
     <Compile Include="Fragments\SalonsFragment.cs" />
@@ -101,6 +108,7 @@
     <Compile Include="MobileClientServiceMangement\APIClients\APIClient.cs" />
     <Compile Include="MobileClientServiceMangement\APIClients\SalonsAPIClient.cs" />
     <Compile Include="MobileClientServiceMangement\APIClients\UserApiClient.cs" />
+    <Compile Include="MobileClientServiceMangement\BlobStorageService\BlobStorageService.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Appointment.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Client.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Review.cs" />
@@ -108,6 +116,7 @@
     <Compile Include="MobileClientServiceMangement\ServiceModels\SalonManager.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\SalonService.cs" />
     <Compile Include="MobileClientServiceMangement\ServiceModels\Service.cs" />
+    <Compile Include="Models\FullName.cs" />
     <Compile Include="Models\MySalon.cs" />
     <Compile Include="Models\MyService.cs" />
     <Compile Include="Models\MyTrend.cs" />
@@ -180,11 +189,14 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore">
       <Version>4.0.2</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.CurrentActivity">
+      <Version>2.1.0.4</Version>
+    </PackageReference>
     <PackageReference Include="Refractored.Controls.CircleImageView">
       <Version>1.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator.Android">
-      <Version>16.2.0.50</Version>
+    <PackageReference Include="WindowsAzure.Storage">
+      <Version>9.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>4.0.0.190-beta</Version>
@@ -316,9 +328,6 @@
     <AndroidResource Include="Resources\drawable\ic_google.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splashImage.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\fragment_authorisation.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -353,7 +362,116 @@
     <AndroidResource Include="Resources\anim\fade_out.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MobileClientServiceMangement\Helpers\" />
+    <AndroidResource Include="Resources\drawable\SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Camera_alt_24px.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fragment_completeRegistration.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_email_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_email_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_email_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_email_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_email_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_email_white_24dp.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_phone_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_phone_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_phone_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_phone_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_phone_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_phone_white_24dp.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_location_city_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_location_city_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_location_city_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_location_city_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_location_city_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_location_city_white_24dp.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_perm_identity_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_perm_identity_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_perm_identity_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_perm_identity_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_perm_identity_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_perm_identity_white_24dp.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\anim\zoom_in.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_verified_user_purple_dark_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_verified_user_purple_dark_48dp.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fragment_verified.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

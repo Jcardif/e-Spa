@@ -28,7 +28,7 @@
         android:maxLines="1"
         android:minHeight="150dp"
         android:hint="@string/trend_desc_edtTxt"
-        android:gravity="start|"
+        android:gravity="start"
         android:padding="12dp"
         android:textColorHint="@android:color/black"
         android:layout_marginTop="5dp"

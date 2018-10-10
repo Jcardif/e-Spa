@@ -9,13 +9,17 @@ using Android.Views;
 using Android.Widget;
 using Com.Mukesh.CountryPickerLib;
 using e_SpaMobileApp.Activities;
+using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
+using e_SpaMobileApp.ServiceModels;
 using Java.Lang;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
+using Plugin.Connectivity;
+using Plugin.CurrentActivity;
 using Fragment = Android.Support.V4.App.Fragment;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 
@@ -97,14 +101,26 @@ namespace e_SpaMobileApp.Fragments
             _codeInputEdtTxt.Click += (s, e) => { GetCountryCode(); };
             _authorizeVerificationBtn.Click += (s, e) =>
             {
-                EnableAndDisableViews(true);
-                _fragment = new TimerFragment();
-                _transaction = ChildFragmentManager.BeginTransaction();
-                ManageTimerFragment(false);
-                
-                OnVerificationAuthorized(string.Concat(_codeInputEdtTxt.Text, _phoneInputEdtTxt.Text));
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    EnableAndDisableViews(true);
+                    _phoneInfo.PhoneNumber = _phoneInputEdtTxt.Text;
+                    _phoneInfo.CountryCode = _codeInputEdtTxt.Text;
+                    OnVerificationAuthorized(string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber));
+                }
+                else
+                {
+                    Toast.MakeText(_context, "No internet connection", ToastLength.Long).Show();
+                }
             };
             return view;
+        }
+
+        private void LoadTimer()
+        {
+            _fragment = new TimerFragment();
+            _transaction = ChildFragmentManager.BeginTransaction();
+            ManageTimerFragment(false);
         }
 
         protected virtual void OnVerificationAuthorized(string phoneNo)
@@ -114,11 +130,6 @@ namespace e_SpaMobileApp.Fragments
             VerificationAuthorized?.Invoke(this, logInPath);
         }
 
-
-        private void BeginNewActivity()
-        {
-            StartActivity(new Intent(_context, typeof(MainActivity)));
-        }
 
         private void ManageTimerFragment(bool toDismiss)
         {
@@ -130,9 +141,13 @@ namespace e_SpaMobileApp.Fragments
             }
             else
             {
-                _transaction
-                    .Remove(_fragment)
-                    .Dispose();
+                var fragment=new PhoneNoVerifiedFragment();
+                    FragmentManager.BeginTransaction()
+                        .Remove(_fragment)
+                        .Replace(Resource.Id.frameLayout1,fragment)
+                        .SetCustomAnimations(Resource.Animation.zoom_in, Resource.Animation.fade_out)
+                        .Commit();
+
             }
         }
 
@@ -205,11 +220,48 @@ namespace e_SpaMobileApp.Fragments
 
         public void OnSignInSuccess(bool isSuccess)
         {
-            if (isSuccess)
+            if (!isSuccess) return;
+            ManageTimerFragment(true);
+            CommitNewUserToDatabase();
+
+        }
+
+        private async void CommitNewUserToDatabase()
+        {
+            var client = new Client
             {
-                ManageTimerFragment(true);
-                BeginNewActivity();
+                Email = _userInfo.Email,
+                FirstName = _userInfo.FirstName,
+                LastName = _userInfo.LastName,
+                PhoneNumber = string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber),
+                Residence ="empty",
+                ProfilePhotoUrl = "some-url"
+            };
+            var userApiClient = new UserApiClient();
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                var newClient=await userApiClient.AddClientAsync(client);
+                var fragment=new CompleteRegistrationFragment();
+                var bundle = new Bundle();
+                bundle.PutString("client", JsonConvert.SerializeObject(newClient));
+                fragment.Arguments = bundle;
+
+                FragmentManager.BeginTransaction()
+                    .SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
+                    .Replace(Resource.Id.authorizationContainer, fragment)
+                    .Commit();
+
+                //TODO Remove From Backstack
             }
+            else
+            {
+                Toast.MakeText(Context.ApplicationContext,"No Internet Connection", ToastLength.Long).Show();
+            }
+        }
+
+        public void OnCodeSent()
+        {
+            LoadTimer();
         }
     }
 }
