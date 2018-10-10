@@ -321,7 +321,6 @@ namespace e_SpaMobileApp
 			global::Xamarin.Auth._MobileServices.Resource.String.title_activity_webview = global::e_SpaMobileApp.Resource.String.title_activity_webview;
 			global::PCLCrypto.Resource.String.ApplicationName = global::e_SpaMobileApp.Resource.String.ApplicationName;
 			global::PCLCrypto.Resource.String.Hello = global::e_SpaMobileApp.Resource.String.Hello;
-			global::Com.Syncfusion.Sfbusyindicator.Resource.String.library_name = global::e_SpaMobileApp.Resource.String.library_name;
 			global::Syncfusion.Android.DataForm.Resource.Drawable.GroupCollapse = global::e_SpaMobileApp.Resource.Drawable.GroupCollapse;
 			global::Syncfusion.Android.DataForm.Resource.Drawable.GroupExpander = global::e_SpaMobileApp.Resource.Drawable.GroupExpander;
 			global::Syncfusion.Android.DataForm.Resource.Layout.Spinner_item = global::e_SpaMobileApp.Resource.Layout.Spinner_item;
