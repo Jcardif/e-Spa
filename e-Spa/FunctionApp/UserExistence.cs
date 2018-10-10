@@ -23,7 +23,7 @@ namespace FunctionApp
             {
                 // parse query parameter
                 string phoneNo = req.GetQueryNameValuePairs()
-                    .FirstOrDefault(q => String.Compare(q.Key, "phoneNo", StringComparison.OrdinalIgnoreCase) == 0)
+                    .FirstOrDefault(q => string.Compare(q.Key, "phoneNo", StringComparison.OrdinalIgnoreCase) == 0)
                     .Value;
 
                 if (phoneNo == null)
