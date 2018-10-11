@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Android.AccessibilityServices;
 using Android.App;
 using Android.Content;
-using Android.Graphics;
-using Android.Hardware.Input;
-using Android.InputMethodServices;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
-using Android.Util;
 using Android.Views;
-using Android.Views.InputMethods;
 using Android.Widget;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
@@ -34,13 +24,13 @@ namespace e_SpaMobileApp.Fragments
         private Client _client=new Client();
         FullName fullName=new FullName();
         private Toolbar _toolbar;
-        private CircleImageView profilePicImgView;
+        private CircleImageView _profilePicImgView;
         private FloatingActionButton _fab;
-        private RelativeLayout dataContainerRelativeLayout;
-        private Button completeRegBtn;
+        private RelativeLayout _dataContainerRelativeLayout;
+        private Button _completeRegBtn;
         private int imagePicker=9001;
-        private SfDataForm sfDataForm;
-        private SfDataForm sfDataForm2;
+        private SfDataForm _sfDataForm;
+        private SfDataForm _sfDataForm2;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -57,10 +47,10 @@ namespace e_SpaMobileApp.Fragments
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_completeRegistration, container, false);
             _toolbar = view.FindViewById<Toolbar>(Resource.Id.completeRegistrationToolbar);
-            profilePicImgView = view.FindViewById<CircleImageView>(Resource.Id.profilePictureCircularImgView);
+            _profilePicImgView = view.FindViewById<CircleImageView>(Resource.Id.profilePictureCircularImgView);
             _fab = view.FindViewById<FloatingActionButton>(Resource.Id.selectProfileImageFab);
-            dataContainerRelativeLayout = view.FindViewById<RelativeLayout>(Resource.Id.relativeDataformContainer);
-            completeRegBtn = view.FindViewById<Button>(Resource.Id.completeRegistartionBtn);
+            _dataContainerRelativeLayout = view.FindViewById<RelativeLayout>(Resource.Id.relativeDataformContainer);
+            _completeRegBtn = view.FindViewById<Button>(Resource.Id.completeRegistartionBtn);
             
             //!  Init Toolbar
             var activity=(AppCompatActivity) CrossCurrentActivity.Current.Activity;
@@ -88,42 +78,42 @@ namespace e_SpaMobileApp.Fragments
             dataFormParams2.Width = ViewGroup.LayoutParams.MatchParent;
             dataFormParams2.Height = ViewGroup.LayoutParams.WrapContent;
 
-            sfDataForm2 = new SfDataForm(Context.ApplicationContext);
-            sfDataForm2.DataObject = fullName;
-            sfDataForm2.LayoutManager = new DataFormLayoutManagerExt(sfDataForm2,2);
-            sfDataForm2.LabelPosition = LabelPosition.Left;
-            sfDataForm2.Id = View.GenerateViewId();
-            sfDataForm2.ValidationMode = ValidationMode.LostFocus;
-            sfDataForm2.CommitMode = CommitMode.LostFocus;
-            sfDataForm2.ColumnCount = 2;
-            dataContainerRelativeLayout.AddView(sfDataForm2, dataFormParams2);
+            _sfDataForm2 = new SfDataForm(Context.ApplicationContext);
+            _sfDataForm2.DataObject = fullName;
+            _sfDataForm2.LayoutManager = new DataFormLayoutManagerExt(_sfDataForm2,2);
+            _sfDataForm2.LabelPosition = LabelPosition.Left;
+            _sfDataForm2.Id = View.GenerateViewId();
+            _sfDataForm2.ValidationMode = ValidationMode.LostFocus;
+            _sfDataForm2.CommitMode = CommitMode.LostFocus;
+            _sfDataForm2.ColumnCount = 2;
+            _dataContainerRelativeLayout.AddView(_sfDataForm2, dataFormParams2);
 
             var dataFormParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
-            dataFormParams.AddRule(LayoutRules.Below, sfDataForm2.Id);
+            dataFormParams.AddRule(LayoutRules.Below, _sfDataForm2.Id);
             dataFormParams.AddRule(LayoutRules.CenterHorizontal);
             dataFormParams.Width = ViewGroup.LayoutParams.MatchParent;
             dataFormParams.Height = ViewGroup.LayoutParams.WrapContent;
 
-            sfDataForm = new SfDataForm(Context.ApplicationContext);
-            sfDataForm.DataObject = _client;
-            sfDataForm.LayoutManager = new DataFormLayoutManagerExt(sfDataForm,2);
-            sfDataForm.LabelPosition = LabelPosition.Left;
-            sfDataForm.Id = View.GenerateViewId();
-            sfDataForm.ValidationMode = ValidationMode.LostFocus;
-            sfDataForm.CommitMode = CommitMode.LostFocus;
-            sfDataForm.ColumnCount = 1;
-            dataContainerRelativeLayout.AddView(sfDataForm, dataFormParams);
+            _sfDataForm = new SfDataForm(Context.ApplicationContext);
+            _sfDataForm.DataObject = _client;
+            _sfDataForm.LayoutManager = new DataFormLayoutManagerExt(_sfDataForm,2);
+            _sfDataForm.LabelPosition = LabelPosition.Left;
+            _sfDataForm.Id = View.GenerateViewId();
+            _sfDataForm.ValidationMode = ValidationMode.LostFocus;
+            _sfDataForm.CommitMode = CommitMode.LostFocus;
+            _sfDataForm.ColumnCount = 1;
+            _dataContainerRelativeLayout.AddView(_sfDataForm, dataFormParams);
 
-            completeRegBtn.Click += CompleteRegBtn_Click;
+            _completeRegBtn.Click += CompleteRegBtn_Click;
 
             return view;
         }
 
         private void CompleteRegBtn_Click(object sender, EventArgs e)
         {
-            if (!(sfDataForm.Validate() && sfDataForm2.Validate())) return;
-            sfDataForm.Commit();
-            sfDataForm2.Commit();
+            if (!(_sfDataForm.Validate() && _sfDataForm2.Validate())) return;
+            _sfDataForm.Commit();
+            _sfDataForm2.Commit();
             _client.FirstName = fullName.FirstName;
             _client.LastName = fullName.LastName;
             if (CrossConnectivity.Current.IsConnected)
@@ -140,7 +130,7 @@ namespace e_SpaMobileApp.Fragments
         {
             if (requestCode != imagePicker || resultCode != (int) Result.Ok || data == null) return;
             var uri = data.Data;
-            profilePicImgView.SetImageURI(uri);
+            _profilePicImgView.SetImageURI(uri);
         }
     }
 }
