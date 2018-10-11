@@ -22,7 +22,7 @@ namespace FunctionApp
             using (var conn = new SqlConnection(connectionString))
             {
                 // parse query parameter
-                string phoneNo = req.GetQueryNameValuePairs()
+                var phoneNo = req.GetQueryNameValuePairs()
                     .FirstOrDefault(q => string.Compare(q.Key, "phoneNo", StringComparison.OrdinalIgnoreCase) == 0)
                     .Value;
 
