@@ -47,8 +47,10 @@ namespace FunctionApp
                 Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write
             });
             blobContainer.SetPermissions(containerPermissions);
-
             var sasToken =  blobContainer.GetSharedAccessSignature(null, key);
+            var client = new HttpClient();
+            var uri = "http://"+$"localhost:7071/api/RemoveSasPolicy?policyKey={key}&containerName={containerName}";
+            client.GetAsync(uri);
             return req.CreateResponse(HttpStatusCode.OK, sasToken);
         }
         
