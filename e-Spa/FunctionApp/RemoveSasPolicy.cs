@@ -5,25 +5,26 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Timer = System.Threading.Timer;
 
 namespace FunctionApp
 {
     public static class RemoveSasPolicy
     {
         [FunctionName("RemoveSasPolicy")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
            
-            var policyKey = req.GetQueryNameValuePairs()
-                .FirstOrDefault(q => string.Compare(q.Key, "policyKey", StringComparison.OrdinalIgnoreCase) == 0)
+            var keyValuePairs = req.GetQueryNameValuePairs().ToList();
+            var policyKey = keyValuePairs
+                .Find(q => string.Compare(q.Key, "policyKey", StringComparison.OrdinalIgnoreCase) == 0)
+                .Value;
+            var containerName = keyValuePairs
+                .Find(q => string.Compare(q.Key, "containerName", StringComparison.OrdinalIgnoreCase) == 0)
                 .Value;
 
             if (policyKey == null)
@@ -43,7 +44,7 @@ namespace FunctionApp
             log.Info("Time to remove");
             var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["BlobConnectionSstring"].ConnectionString);
             var blobClient = storageAccount.CreateCloudBlobClient();
-            var blobContainer = blobClient.GetContainerReference("espa-clients-profle-images");
+            var blobContainer = blobClient.GetContainerReference(containerName);
             if (!blobContainer.Exists())
                 return req.CreateResponse(HttpStatusCode.NotFound, "Requested Container not found");
             var permissions = blobContainer.GetPermissions();
@@ -56,6 +57,5 @@ namespace FunctionApp
             log.Info("policy Key  not found");
             return req.CreateResponse(HttpStatusCode.NotFound, "Policy Key Not Found");
         }
-        
     }
 }
