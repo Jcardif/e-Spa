@@ -43,14 +43,12 @@ namespace FunctionApp
             var key = "policy_"+Guid.NewGuid();
             containerPermissions.SharedAccessPolicies.Add(key, new SharedAccessBlobPolicy
             {
-                SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddMinutes(3),
+                SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddSeconds(105),
                 Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write
             });
             blobContainer.SetPermissions(containerPermissions);
 
-            var sasToken =  blobContainer.GetSharedAccessSignature(null, "policy_1");
-            containerPermissions.SharedAccessPolicies.Remove(key);
-            blobContainer.SetPermissions(containerPermissions);
+            var sasToken =  blobContainer.GetSharedAccessSignature(null, key);
             return req.CreateResponse(HttpStatusCode.OK, sasToken);
         }
         
