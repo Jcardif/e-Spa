@@ -17,7 +17,7 @@ namespace FunctionApp
         [FunctionName("GenerateBlobStorageSas")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.Info("GenerateBlobStorageSas function processed a request.");
             var containerName = req.GetQueryNameValuePairs()
                 .FirstOrDefault(q => string.Compare(q.Key, "containerName", StringComparison.OrdinalIgnoreCase) == 0)
                 .Value;
@@ -49,7 +49,7 @@ namespace FunctionApp
             blobContainer.SetPermissions(containerPermissions);
             var sasToken =  blobContainer.GetSharedAccessSignature(null, key);
             var client = new HttpClient();
-            var uri = "http://"+$"localhost:7071/api/RemoveSasPolicy?policyKey={key}&containerName={containerName}";
+            var uri = "https://"+$"e-spafunctions.azurewebsites.net/api/RemoveSasPolicy?code=KpIZUIRIk8BzGaqRhuCZfApB8x5x/wPHhgqOr7e0l2ActChUMljLaQ==&policyKey={key}&containerName={containerName}";
             client.GetAsync(uri);
             return req.CreateResponse(HttpStatusCode.OK, sasToken);
         }

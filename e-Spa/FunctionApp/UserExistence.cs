@@ -17,7 +17,7 @@ namespace FunctionApp
         [FunctionName("UserExistence")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.Info("UserExistence function processed a request.");
             var connectionString = ConfigurationManager.ConnectionStrings["DataConnectionString"].ConnectionString;
             using (var conn = new SqlConnection(connectionString))
             {

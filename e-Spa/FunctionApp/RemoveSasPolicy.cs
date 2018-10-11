@@ -17,7 +17,7 @@ namespace FunctionApp
         [FunctionName("RemoveSasPolicy")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.Info("RemoveSasPolicy trigger function processed a request.");
            
             var keyValuePairs = req.GetQueryNameValuePairs().ToList();
             var policyKey = keyValuePairs
@@ -26,7 +26,7 @@ namespace FunctionApp
             var containerName = keyValuePairs
                 .Find(q => string.Compare(q.Key, "containerName", StringComparison.OrdinalIgnoreCase) == 0)
                 .Value;
-
+            log.Info($"Received container name as {containerName} and policy key as {policyKey}");
             if (policyKey == null)
             {
                 // Get request body
