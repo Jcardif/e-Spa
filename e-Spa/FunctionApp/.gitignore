@@ -264,3 +264,4 @@ __pycache__/
 *.pyc
 
 Connection.config
+local.settings.json
