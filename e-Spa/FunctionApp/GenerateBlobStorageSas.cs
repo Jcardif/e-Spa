@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -15,9 +16,9 @@ namespace FunctionApp
     public static class GenerateBlobStorageSas
     {
         [FunctionName("GenerateBlobStorageSas")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, ILogger log)
         {
-            log.Info("GenerateBlobStorageSas function processed a request.");
+            log.LogInformation("GenerateBlobStorageSas function processed a request.");
             var containerName = req.GetQueryNameValuePairs()
                 .FirstOrDefault(q => string.Compare(q.Key, "containerName", StringComparison.OrdinalIgnoreCase) == 0)
                 .Value;
@@ -29,7 +30,7 @@ namespace FunctionApp
                 containerName = data?.containerName;
                 if (containerName == null)
                 {
-                    log.Info("Conatiner Name not valid");
+                    log.LogInformation("Conatiner Name not valid");
                     return req.CreateResponse(HttpStatusCode.BadRequest, "Pass a valid container name");
                 }
             }
@@ -50,7 +51,7 @@ namespace FunctionApp
             var sasToken =  blobContainer.GetSharedAccessSignature(null, key);
             var client = new HttpClient();
             var uri = "https://"+$"e-spafunctions.azurewebsites.net/api/RemoveSasPolicy?code=KpIZUIRIk8BzGaqRhuCZfApB8x5x/wPHhgqOr7e0l2ActChUMljLaQ==&policyKey={key}&containerName={containerName}";
-            client.GetAsync(uri);
+            await client.GetAsync(uri);
             return req.CreateResponse(HttpStatusCode.OK, sasToken);
         }
         

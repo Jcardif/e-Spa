@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage;
 
 namespace FunctionApp
@@ -15,9 +16,9 @@ namespace FunctionApp
     public static class RemoveSasPolicy
     {
         [FunctionName("RemoveSasPolicy")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, ILogger log)
         {
-            log.Info("RemoveSasPolicy trigger function processed a request.");
+            log.LogInformation("RemoveSasPolicy trigger function processed a request.");
            
             var keyValuePairs = req.GetQueryNameValuePairs().ToList();
             var policyKey = keyValuePairs
@@ -26,7 +27,7 @@ namespace FunctionApp
             var containerName = keyValuePairs
                 .Find(q => string.Compare(q.Key, "containerName", StringComparison.OrdinalIgnoreCase) == 0)
                 .Value;
-            log.Info($"Received container name as {containerName} and policy key as {policyKey}");
+            log.LogInformation($"Received container name as {containerName} and policy key as {policyKey}");
             if (policyKey == null)
             {
                 // Get request body
@@ -34,14 +35,14 @@ namespace FunctionApp
                 policyKey = data?.policyKey;
                 if (policyKey == null)
                 {
-                    log.Info("policy Key not valid");
+                    log.LogInformation("policy Key not valid");
                     return req.CreateResponse(HttpStatusCode.BadRequest, "Pass a valid policy Key");
                 }
             }
 
-            log.Info("Waiting to remove");
+            log.LogInformation("Waiting to remove");
             Thread.Sleep(105000);
-            log.Info("Time to remove");
+            log.LogInformation("Time to remove");
             var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["BlobConnectionSstring"].ConnectionString);
             var blobClient = storageAccount.CreateCloudBlobClient();
             var blobContainer = blobClient.GetContainerReference(containerName);
@@ -54,7 +55,7 @@ namespace FunctionApp
                 blobContainer.SetPermissions(permissions);
                 return req.CreateResponse(HttpStatusCode.OK, "Policy Key Removed");
             }
-            log.Info("policy Key  not found");
+            log.LogInformation("policy Key  not found");
             return req.CreateResponse(HttpStatusCode.NotFound, "Policy Key Not Found");
         }
     }
