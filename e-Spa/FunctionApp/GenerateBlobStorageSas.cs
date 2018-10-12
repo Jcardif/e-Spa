@@ -51,7 +51,7 @@ namespace FunctionApp
             var sasToken =  blobContainer.GetSharedAccessSignature(null, key);
             var client = new HttpClient();
             var uri = "https://"+$"e-spafunctions.azurewebsites.net/api/RemoveSasPolicy?code=KpIZUIRIk8BzGaqRhuCZfApB8x5x/wPHhgqOr7e0l2ActChUMljLaQ==&policyKey={key}&containerName={containerName}";
-            await client.GetAsync(uri);
+            client.GetAsync(uri);
             return req.CreateResponse(HttpStatusCode.OK, sasToken);
         }
         
