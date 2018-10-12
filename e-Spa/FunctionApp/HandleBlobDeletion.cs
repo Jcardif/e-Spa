@@ -23,6 +23,19 @@ namespace FunctionApp
 
             log.LogInformation($"HandleBlobDeletion Function processed  {eventGridModel.Data.Url} has been deleted");
 
+            if (eventGridModel.Data.Url.Contains("espa-clients-profle-images-md") ||
+                eventGridModel.Data.Url.Contains("espa-clients-profle-images-sm"))
+            {
+                var container = eventGridModel.Data.Url.Contains("espa-clients-profle-images-md")
+                    ?
+                    "Medium Resolution"
+                    : eventGridModel.Data.Url.Contains("espa-clients-profle-images-sm")
+                        ? "small resolution"
+                        : "null";
+
+                log.LogInformation($"Cannot delete from {container}");
+                return;
+            }
             var mediumBlobUri =
                 eventGridModel.Data.Url.Replace("espa-clients-profle-images", "espa-clients-profle-images-md");
             var smallBlobUri =
