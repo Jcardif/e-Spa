@@ -13,6 +13,7 @@ using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using e_SpaMobileApp.ServiceModels;
+using Firebase;
 using Java.Lang;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -262,6 +263,11 @@ namespace e_SpaMobileApp.Fragments
         public void OnCodeSent()
         {
             LoadTimer();
+        }
+
+        public void OnVerificationFailed(FirebaseException exception)
+        {
+            Toast.MakeText(Context.ApplicationContext,exception.Message,ToastLength.Long).Show();
         }
     }
 }

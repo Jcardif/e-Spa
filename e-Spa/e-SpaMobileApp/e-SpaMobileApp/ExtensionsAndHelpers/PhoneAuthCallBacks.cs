@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.Gms.Tasks;
+using Android.Widget;
 using Firebase;
 using Firebase.Auth;
 using static e_SpaMobileApp.ExtensionsAndHelpers.FirebaseHelpers;
@@ -27,7 +28,7 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
 
         public override void OnVerificationFailed(FirebaseException exception)
         {
-            throw new NotImplementedException();
+            _singInCallbacks.OnVerificationFailed(exception);
         }
 
         public void OnComplete(Task task)

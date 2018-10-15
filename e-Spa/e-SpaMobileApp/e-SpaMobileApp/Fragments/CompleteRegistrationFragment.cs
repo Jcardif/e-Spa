@@ -28,7 +28,6 @@ namespace e_SpaMobileApp.Fragments
         private FloatingActionButton _fab;
         private RelativeLayout _dataContainerRelativeLayout;
         private Button _completeRegBtn;
-        private int imagePicker=9001;
         private SfDataForm _sfDataForm;
         private SfDataForm _sfDataForm2;
         public override void OnCreate(Bundle savedInstanceState)
@@ -66,11 +65,7 @@ namespace e_SpaMobileApp.Fragments
             //! select image an load into circle image view
             _fab.Click += (s, e) =>
             {
-                var intent = new Intent();
-                intent.SetType("image/*");
-                intent.SetAction(Intent.ActionGetContent);
-                
-                StartActivityForResult(Intent.CreateChooser(intent,"Select Profile Image"), imagePicker);
+
             };
 
             var dataFormParams2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
@@ -124,13 +119,6 @@ namespace e_SpaMobileApp.Fragments
             {
                 Toast.MakeText(Context.ApplicationContext, "No Internet Connection", ToastLength.Short).Show();
             }
-        }
-
-        public override void OnActivityResult(int requestCode, int resultCode, Intent data)
-        {
-            if (requestCode != imagePicker || resultCode != (int) Result.Ok || data == null) return;
-            var uri = data.Data;
-            _profilePicImgView.SetImageURI(uri);
         }
     }
 }

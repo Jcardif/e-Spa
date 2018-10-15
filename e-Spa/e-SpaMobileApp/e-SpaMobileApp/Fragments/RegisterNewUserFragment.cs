@@ -206,8 +206,9 @@ namespace e_SpaMobileApp.Fragments
 
                     var phoneNumber = string.Concat(phoneInfo.CountryCode, phoneInfo.PhoneNumber);
                     var httpClient = new HttpClient();
-                    var response = await httpClient.GetAsync(
-                        $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
+                    var funcUri =
+                        $"https://e-spafunctions.azurewebsites.net/api/UserExistence?code=FvvkqYX9HQxJsr4AliXfv6jqZ3uttw8wzUNezzKiXHowx4EwUVdqdQ==&phoneNo={phoneNumber}";
+                    var response = await httpClient.GetAsync(funcUri);
 
                     alertDialog.Cancel();
 

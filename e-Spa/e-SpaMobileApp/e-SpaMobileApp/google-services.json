@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "115705939832-kjs7em182ulslsf23iu77hm9chou54mk.apps.googleusercontent.com",
+          "client_id": "115705939832-5g4tld7m7khsd8ejs82l094qtduuaa5j.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.StandwakTech.e_Spa",
-            "certificate_hash": "462e2f11fdff37276b71b4d3b7407901c710c3eb"
+            "certificate_hash": "2cd4573ea11904f865aaff1ab6a8f1addfabfc9d"
           }
         },
         {
