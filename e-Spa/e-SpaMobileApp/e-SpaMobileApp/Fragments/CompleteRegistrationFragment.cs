@@ -6,6 +6,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
+using Cocosw.BottomSheetActions;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using e_SpaMobileApp.ServiceModels;
@@ -19,7 +20,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class CompleteRegistrationFragment : Fragment
+    public class CompleteRegistrationFragment : Fragment, IDialogInterfaceOnClickListener
     {
         private Client _client=new Client();
         FullName fullName=new FullName();
@@ -64,9 +65,12 @@ namespace e_SpaMobileApp.Fragments
 
             //! select image an load into circle image view
             _fab.Click += (s, e) =>
-            {
-
-            };
+                {
+                    new BottomSheet.Builder(CrossCurrentActivity.Current.Activity)
+                        .Sheet(1)
+                        .Listener(this)
+                        .Show();
+                };
 
             var dataFormParams2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             dataFormParams2.AddRule(LayoutRules.CenterHorizontal);
@@ -119,6 +123,11 @@ namespace e_SpaMobileApp.Fragments
             {
                 Toast.MakeText(Context.ApplicationContext, "No Internet Connection", ToastLength.Short).Show();
             }
+        }
+
+        public void OnClick(IDialogInterface dialog, int which)
+        {
+            throw new NotImplementedException();
         }
     }
 }
