@@ -44,7 +44,7 @@ namespace FunctionApp
             var key = "policy_"+Guid.NewGuid();
             containerPermissions.SharedAccessPolicies.Add(key, new SharedAccessBlobPolicy
             {
-                SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddSeconds(105),
+                SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddMinutes(7),
                 Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write
             });
             blobContainer.SetPermissions(containerPermissions);
