@@ -20,6 +20,7 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
             _singInCallbacks = singInCallbacks;
         }
 
+        
         public override void OnVerificationCompleted(PhoneAuthCredential credential)
         {
             _auth.SignInWithCredential(credential)
@@ -43,6 +44,12 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
             _verificationId = verificationId;
             _token = forceResendingToken;
             _singInCallbacks.OnCodeSent();
+        }
+
+        public override void OnCodeAutoRetrievalTimeOut(string verificationId)
+        {
+            base.OnCodeAutoRetrievalTimeOut(verificationId);
+
         }
     }
 }

@@ -14,6 +14,7 @@ using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using e_SpaMobileApp.ServiceModels;
 using Firebase;
+using Firebase.Auth;
 using Java.Lang;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -267,7 +268,23 @@ namespace e_SpaMobileApp.Fragments
 
         public void OnVerificationFailed(FirebaseException exception)
         {
-            Toast.MakeText(Context.ApplicationContext,exception.Message,ToastLength.Long).Show();
+            switch (exception)
+            {
+                case FirebaseAuthInvalidCredentialsException _:
+                    Toast.MakeText(Context.ApplicationContext, "Invalid request", ToastLength.Long).Show();
+                    break;
+                case FirebaseTooManyRequestsException _:
+                    Toast.MakeText(Context.ApplicationContext, "Too Many Request", ToastLength.Long).Show();
+                    break;
+                default:
+                    Toast.MakeText(Context.ApplicationContext, exception.Message, ToastLength.Long).Show();
+                    break;
+            }
+        }
+
+        public void OnCodeAutoRetrivalTimeOut()
+        {
+            EnableAndDisableViews(true);
         }
     }
 }

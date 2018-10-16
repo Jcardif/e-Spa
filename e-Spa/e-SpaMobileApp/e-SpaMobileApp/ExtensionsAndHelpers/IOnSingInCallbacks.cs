@@ -7,5 +7,6 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
         void OnSignInSuccess(bool isSuccess);
         void OnCodeSent();
         void OnVerificationFailed(FirebaseException exception);
+        void OnCodeAutoRetrivalTimeOut();
     }
 }
