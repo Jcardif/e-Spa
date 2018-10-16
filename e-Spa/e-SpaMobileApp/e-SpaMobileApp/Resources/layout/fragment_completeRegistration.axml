@@ -30,6 +30,15 @@
 			android:layout_gravity="center_horizontal"
 			android:clickable="true"
 			app:civ_fill_color="@android:color/white"/>
+		<ProgressBar
+			android:id="@+id/progressBarInCircleImgView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			app:layout_anchor="@id/profilePictureCircularImgView"
+			app:layout_anchorGravity="center"
+			android:indeterminate="true"
+		    android:visibility="invisible"/>
 		<android.support.design.widget.FloatingActionButton
 		android:id="@+id/selectProfileImageFab"
 		android:layout_width="wrap_content"

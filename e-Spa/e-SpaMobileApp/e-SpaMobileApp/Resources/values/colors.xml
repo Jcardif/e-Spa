@@ -7,4 +7,5 @@
   <color name="gold">#FFDF00</color>
   <color name="lightGrey">#D3D3D3</color>
   <color name="semiTransparentWhite">#66ffffff</color>
+  <color name="primaryGrey">#fafafa</color>
 </resources>

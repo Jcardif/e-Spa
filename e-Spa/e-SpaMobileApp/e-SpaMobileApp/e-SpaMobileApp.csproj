@@ -129,7 +129,7 @@
   <ItemGroup>
     <None Include="Connected Services\e-SpaMobileApp\ConnectedService.json" />
     <GoogleServicesJson Include="google-services.json" />
-    <None Include="local.settings.json" />
+    <None Include="connection.settings.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
@@ -197,6 +197,9 @@
     </PackageReference>
     <PackageReference Include="Refractored.Controls.CircleImageView">
       <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Square.Picasso">
+      <Version>2.5.2.1</Version>
     </PackageReference>
     <PackageReference Include="System.Configuration.ConfigurationManager">
       <Version>4.5.0</Version>
