@@ -1,6 +1,8 @@
 ﻿using System;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
+using Android.Graphics;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
@@ -13,6 +15,8 @@ using e_SpaMobileApp.ServiceModels;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
 using Plugin.CurrentActivity;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Refractored.Controls;
 using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
@@ -139,13 +143,57 @@ namespace e_SpaMobileApp.Fragments
                     OpenCameraAndTakePhoto();
                     break;
                 case Resource.Id.action_gallery:
+                    PickAndLoadImage();
                     break;
             }
         }
 
-        private void OpenCameraAndTakePhoto()
+        private async void PickAndLoadImage()
         {
+            try
+            {
+                var file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
+                if(file==null) return;
+                var bitmap = BitmapFactory.DecodeFile(file.Path);
+                _profilePicImgView.SetImageBitmap(bitmap);
+                file.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(Context.ApplicationContext, ex.Message, ToastLength.Short).Show();
+            }
+        }
 
+        private async void OpenCameraAndTakePhoto()
+        {
+            try
+            {
+                await CrossMedia.Current.Initialize();
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                {
+                    Toast.MakeText(Context.ApplicationContext, "Camera Not Available", ToastLength.Short).Show();
+                    return;
+                }
+
+                var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+                {
+                    Directory = "images",
+                    Name = $"{_client.Id}.jpg"
+                });
+                if (file == null)
+                    return;
+                var bitmap = BitmapFactory.DecodeFile(file.Path);
+                _profilePicImgView.SetImageBitmap(bitmap);
+                file.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(Context.ApplicationContext,ex.Message,ToastLength.Short).Show();
+            }
+        }
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }
