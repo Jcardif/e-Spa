@@ -66,8 +66,11 @@ namespace e_SpaMobileApp.Fragments
             //! select image an load into circle image view
             _fab.Click += (s, e) =>
                 {
-                    new BottomSheet.Builder(CrossCurrentActivity.Current.Activity)
-                        .Sheet(1)
+                    new BottomSheet.Builder(CrossCurrentActivity.Current.Activity, Resource.Style.SoarcnBottomSheet)
+                        .Sheet(Resource.Menu.bottomsheetmedia)
+                        .Grid()
+                        .Title("Select Image From")
+                        .Icon(Resource.Drawable.Camera_alt_24px)
                         .Listener(this)
                         .Show();
                 };
@@ -127,7 +130,22 @@ namespace e_SpaMobileApp.Fragments
 
         public void OnClick(IDialogInterface dialog, int which)
         {
-            throw new NotImplementedException();
+            switch (which)
+            {
+                case Resource.Id.action_avatar:
+                    Toast.MakeText(Context.ApplicationContext, "Avatar will be available soon", ToastLength.Short).Show();
+                    break;
+                case Resource.Id.action_camera:
+                    OpenCameraAndTakePhoto();
+                    break;
+                case Resource.Id.action_gallery:
+                    break;
+            }
+        }
+
+        private void OpenCameraAndTakePhoto()
+        {
+
         }
     }
 }

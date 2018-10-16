@@ -1,11 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
-using Android.Graphics;
 using Android.OS;
 using Android.Support.V7.App;
-using Android.Views;
-using Com.Syncfusion.Sfbusyindicator;
-using Com.Syncfusion.Sfbusyindicator.Enums;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Fragments;
 using Firebase.Auth;
@@ -56,6 +52,10 @@ namespace e_SpaMobileApp.Activities
                 this,
                 callBacks);
         }
-        
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+        {
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
     }
 }

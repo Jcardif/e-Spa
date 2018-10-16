@@ -4,16 +4,17 @@
   
   <item android:id="@+id/action_camera"
         android:showAsAction="always"
-        android:text="Camera"
+        android:title="Camera"
         android:icon="@drawable/ic_camera_purple_light_48dp"/>
 
   <item android:id="@+id/action_gallery"
         android:showAsAction="always"
-        android:text="Select Image"
+        android:title="Select Image"
         android:icon="@drawable/ic_image_purple_light_48dp"/>
+
   <item android:id="@+id/action_avatar"
         android:showAsAction="always"
-        android:text="Select Image"
+        android:title="Select Image"
         android:icon="@drawable/ic_person_purple_light_48dp"/>
   
   

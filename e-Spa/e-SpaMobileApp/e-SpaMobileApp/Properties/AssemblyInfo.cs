@@ -32,3 +32,6 @@ using Android.App;
 
 [assembly: Permission(Name = Manifest.Permission.Internet)]
 [assembly: Permission(Name = Manifest.Permission.WriteExternalStorage)]
+
+[assembly: UsesFeature("android.hardware.camera", Required = false)]
+[assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]
