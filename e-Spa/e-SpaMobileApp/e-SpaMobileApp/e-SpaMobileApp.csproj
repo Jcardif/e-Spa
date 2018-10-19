@@ -358,11 +358,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\fragment_phoneVerification.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\syncfusion_editText_style.xml" />
   </ItemGroup>
   <ItemGroup>
