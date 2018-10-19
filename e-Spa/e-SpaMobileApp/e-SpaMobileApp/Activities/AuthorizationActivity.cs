@@ -40,18 +40,6 @@ namespace e_SpaMobileApp.Activities
             _transaction.Replace(Resource.Id.authorizationContainer, _fragment)
             .Commit();
         }
-
-        public  void OnVerificationAuthorized(object s, LogInPath logInPath)
-        {
-            InitFirebaseAuth(this);
-            PhoneAuthCallBacks callBacks = new PhoneAuthCallBacks(s as PhoneNumberVerificationFragment);
-            PhoneAuthProvider.GetInstance(_auth).VerifyPhoneNumber(
-                logInPath.PhoneNumber,
-                2,
-                TimeUnit.Minutes,
-                this,
-                callBacks);
-        }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {
             Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
