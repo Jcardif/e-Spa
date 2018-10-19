@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
-using Android.App;
 using Android.Content;
-using Android.Content.PM;
-using Android.Graphics;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Cocosw.BottomSheetActions;
+using Com.Bumptech.Glide;
+using Com.Bumptech.Glide.Load.Engine;
+using Com.Bumptech.Glide.Request;
 using e_SpaMobileApp.Activities;
 using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using e_SpaMobileApp.ServiceModels;
+using Java.Security;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
 using Plugin.CurrentActivity;
@@ -24,9 +25,9 @@ using Plugin.Media.Abstractions;
 using Refractored.Controls;
 using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
+using IKey = Com.Bumptech.Glide.Load.IKey;
+using Permission = Android.Content.PM.Permission;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
-using e_SpaMobileApp.BlobStorageService;
-using Square.Picasso;
 
 namespace e_SpaMobileApp.Fragments
 {
@@ -64,6 +65,7 @@ namespace e_SpaMobileApp.Fragments
             _completeRegBtn = view.FindViewById<Button>(Resource.Id.completeRegistartionBtn);
             _progressBar = view.FindViewById<ProgressBar>(Resource.Id.progressBarInCircleImgView);
             
+            
             //!  Init Toolbar
             var activity=(AppCompatActivity) CrossCurrentActivity.Current.Activity;
             activity.SetSupportActionBar(_toolbar);
@@ -94,7 +96,7 @@ namespace e_SpaMobileApp.Fragments
 
             _sfDataForm2 = new SfDataForm(Context.ApplicationContext);
             _sfDataForm2.DataObject = fullName;
-            _sfDataForm2.LayoutManager = new DataFormLayoutManagerExt(_sfDataForm2,2);
+            _sfDataForm2.LayoutManager = new DataFormLayoutManagerExt(_sfDataForm2);
             _sfDataForm2.LabelPosition = LabelPosition.Left;
             _sfDataForm2.Id = View.GenerateViewId();
             _sfDataForm2.ValidationMode = ValidationMode.LostFocus;
@@ -110,7 +112,7 @@ namespace e_SpaMobileApp.Fragments
 
             _sfDataForm = new SfDataForm(Context.ApplicationContext);
             _sfDataForm.DataObject = _client;
-            _sfDataForm.LayoutManager = new DataFormLayoutManagerExt(_sfDataForm,2);
+            _sfDataForm.LayoutManager = new DataFormLayoutManagerExt(_sfDataForm);
             _sfDataForm.LabelPosition = LabelPosition.Left;
             _sfDataForm.Id = View.GenerateViewId();
             _sfDataForm.ValidationMode = ValidationMode.LostFocus;
@@ -206,16 +208,17 @@ namespace e_SpaMobileApp.Fragments
             _progressBar.Visibility = ViewStates.Visible;
             var blobStorageService = new BlobStorageService.BlobStorageService();
             blobStorageService.Init("espa-clients-profle-images");
-            var uri=await blobStorageService.UploadToBlobStorage(file.Path, _client.Id);
+            _client.ProfilePhotoUrl=await blobStorageService.UploadToBlobStorage(file.Path, _client.Id);
+            var uri = _client.ProfilePhotoUrl.Replace("espa-clients-profle-images", "espa-clients-profle-images-sm");
             _client.ProfilePhotoUrl = uri;
             var token = "";
 
 
             var response = new HttpClient().GetAsync(
-                "https://e-spafunctions.azurewebsites.net/api/GenerateBlobStorageSas?code=AwY0HVt1H13fCEX3Qy4vIeIgFjHNjFE72FPqwAlRXQlVE0BrfeFgdg==&containerName=espa-clients-profle-images");
+                "https://e-spafunctions.azurewebsites.net/api/GenerateBlobStorageSas?code=AwY0HVt1H13fCEX3Qy4vIeIgFjHNjFE72FPqwAlRXQlVE0BrfeFgdg==&containerName=espa-clients-profle-images-sm");
             if (response.Result.StatusCode == HttpStatusCode.OK)
             {
-                 token = await response.Result.Content.ReadAsStringAsync();
+                token = response.Result.Content.ReadAsStringAsync().Result.Replace("\"", "");
             }
             else
             {
@@ -223,8 +226,8 @@ namespace e_SpaMobileApp.Fragments
             }
 
             var final = uri + token;
-            Picasso.With(Context.ApplicationContext)
-                .Load(uri)
+            Glide.With(Context.ApplicationContext)
+                .Load(final)
                 .Into(_profilePicImgView);
             _progressBar.Visibility = ViewStates.Invisible;
         }
@@ -233,5 +236,6 @@ namespace e_SpaMobileApp.Fragments
         {
             Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
     }
 }

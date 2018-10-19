@@ -1,19 +1,34 @@
-﻿using Android.Graphics;
+﻿using System;
+using Android.Graphics;
 using Android.Graphics.Drawables;
+using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
+using Com.Mukesh.CountryPickerLib;
+using Plugin.CurrentActivity;
 using Syncfusion.Android.DataForm;
 
 namespace e_SpaMobileApp.ExtensionsAndHelpers
 {
     public class DataFormLayoutManagerExt : DataFormLayoutManager
     {
-        private int _code;
-        public DataFormLayoutManagerExt(SfDataForm dataForm, int code) : base(dataForm)
+        
+        private EditText _editText;
+        private static EditText _myEdtTxt;
+
+        public delegate void LoadCountryDialog(EditText edtTxt);
+
+        private LoadCountryDialog loadCountryDialog;
+
+        public DataFormLayoutManagerExt(SfDataForm dataForm) : base(dataForm)
         {
-            _code = code;
         }
 
+        public DataFormLayoutManagerExt(SfDataForm dataForm, LoadCountryDialog loadCountryDialog):base(dataForm)
+        {
+            this.loadCountryDialog = loadCountryDialog;
+        }
         protected override View GenerateViewForLabel(DataFormItem dataFormItem)
         {
             var label = base.GenerateViewForLabel(dataFormItem);
@@ -23,40 +38,44 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
                 view.TextSize = 16;
                 view.SetTextColor(Color.White);
             }
-
             return label;
         }
+        
+       
 
         protected override void OnEditorCreated(DataFormItem dataFormItem, View editor)
         {
             if (editor is EditText edtTxt)
-                edtTxt.SetTextColor(Color.White);
-
-            ((EditText)editor).Typeface = Typeface.Default;
-            ((EditText)editor).SetBackgroundResource(Resource.Drawable.syncfusion_editText_style);
-            ((EditText)editor).SetTextColor(Color.White);
-            ((EditText)editor).SetHintTextColor(Color.WhiteSmoke);
-            if(_code==1) return;
-            switch (dataFormItem.Name)
             {
-                case "FirstName":
-                    ((EditText)editor).Hint = "First Name";
-                    break;
-                case "LastName":
-                    ((EditText)editor).Hint = "Last Name";
-                    break;
-                case "Email":
-                    ((EditText)editor).Hint = "Email";
-                    break;
-                case "Residence":
-                    ((EditText)editor).Hint = "Residence";
-                    break;
-                case "PhoneNumber":
-                    ((EditText)editor).Hint = "Phone Number";
-                    break;
-                default:
-                    return;
+                _editText = edtTxt;
+            }
+            
+
+            _editText.Typeface = Typeface.Default;
+            _editText.SetBackgroundResource(Resource.Drawable.syncfusion_editText_style);
+            _editText.SetTextColor(Color.White);
+            _editText.SetHintTextColor(Color.WhiteSmoke);
+            
+            _editText.FocusChange += EditText_FocusChange;
+
+            if (dataFormItem.Name == "CountryCode")
+            {
+                _editText.Focusable = true;
+                _editText.Id = 456342;
+                _myEdtTxt = _editText;
+            }
+
+        }
+
+        private void EditText_FocusChange(object sender, View.FocusChangeEventArgs e)
+        {
+            if(!e.HasFocus)return;
+            var id = ((EditText)sender).Id;
+            if (id == 456342)
+            {
+                loadCountryDialog.Invoke(_myEdtTxt);
             }
         }
+
     }
 }
