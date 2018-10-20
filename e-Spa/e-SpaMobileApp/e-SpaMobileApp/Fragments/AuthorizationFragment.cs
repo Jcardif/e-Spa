@@ -1,24 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Android.App;
-using Android.Content;
-using Android.Graphics;
-using Android.OS;
-using Android.Runtime;
-using Android.Support.V7.App;
+﻿using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Com.Syncfusion.Sfbusyindicator;
-using Com.Syncfusion.Sfbusyindicator.Enums;
-using e_SpaMobileApp.Activities;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Plugin.CurrentActivity;
 using Fragment = Android.Support.V4.App.Fragment;
-using FragmentTransaction = Android.App.FragmentTransaction;
 
 namespace e_SpaMobileApp.Fragments
 {

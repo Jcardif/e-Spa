@@ -217,11 +217,21 @@ namespace e_SpaMobileApp.Fragments
                         bundle.PutString("userInfo", usInfo);
                         fragment.Arguments = bundle;
 
-                        var transaction = FragmentManager.BeginTransaction();
-                        transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
-                            .Replace(Resource.Id.authorizationContainer, fragment)
-                            .AddToBackStack("RegisterNewUser")
-                            .Commit();
+
+                        var alertDialogBuilder = new AlertDialog.Builder(CrossCurrentActivity.Current.Activity)
+                            .SetTitle("Phone Number Verification")
+                            .SetMessage($"We shall be verifying the phone Number {string.Concat(phoneInfo.CountryCode,phoneInfo.PhoneNumber)} by sending an SMS with a verification Code. Press Yes to continue or No modify the Phone Number")
+                            .SetNegativeButton("No", (s, arg) => {Dispose();})
+                            .SetPositiveButton("Yes",((s, args) =>
+                            {
+                                var transaction = FragmentManager.BeginTransaction();
+                                transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
+                                    .Replace(Resource.Id.authorizationContainer, fragment)
+                                    .AddToBackStack("RegisterNewUser")
+                                    .Commit();
+                            }))
+                            .Create();
+                        alertDialogBuilder.Show();
                     }
                 }
             }
