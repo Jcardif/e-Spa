@@ -95,7 +95,6 @@
     <Compile Include="Fragments\CompleteRegistrationFragment.cs" />
     <Compile Include="Fragments\ForumsFragment.cs" />
     <Compile Include="Fragments\HomeFragment.cs" />
-    <Compile Include="Fragments\LoginUserFragment.cs" />
     <Compile Include="Fragments\PhoneNoVerifiedFragment.cs" />
     <Compile Include="Fragments\PhoneNumberVerificationFragment.cs" />
     <Compile Include="Fragments\RegisterNewUserFragment.cs" />
@@ -540,6 +539,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\fragment_verifyPhoneNumber.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\layout_login.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
