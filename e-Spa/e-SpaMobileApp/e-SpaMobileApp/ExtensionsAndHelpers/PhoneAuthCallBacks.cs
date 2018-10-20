@@ -8,7 +8,7 @@ using static  Firebase.Auth.PhoneAuthProvider;
 
 namespace e_SpaMobileApp.ExtensionsAndHelpers
 {
-    public class PhoneAuthCallBacks : OnVerificationStateChangedCallbacks, IOnCompleteListener
+    public class PhoneAuthCallBacks : OnVerificationStateChangedCallbacks
     {
         private IOnSingInCallbacks _singInCallbacks;
         private string _verificationId;
@@ -23,20 +23,14 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
         
         public override void OnVerificationCompleted(PhoneAuthCredential credential)
         {
-            _auth.SignInWithCredential(credential)
-                .AddOnCompleteListener(this);
+            
         }
 
         public override void OnVerificationFailed(FirebaseException exception)
         {
             _singInCallbacks.OnVerificationFailed(exception);
         }
-
-        public void OnComplete(Task task)
-        {
-            if(task.IsSuccessful)
-                _singInCallbacks.OnSignInSuccess(true);
-        }
+        
 
         public override void OnCodeSent(string verificationId, ForceResendingToken forceResendingToken)
         {
@@ -49,7 +43,8 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
         public override void OnCodeAutoRetrievalTimeOut(string verificationId)
         {
             base.OnCodeAutoRetrievalTimeOut(verificationId);
-
+            _singInCallbacks.OnCodeAutoRetrivalTimeOut();
         }
+        
     }
 }

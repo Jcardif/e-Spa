@@ -10,7 +10,6 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Plugin.CurrentActivity;
-using static e_SpaMobileApp.ExtensionsAndHelpers.FirebaseHelpers;
 using FragmentTransaction = Android.Support.V4.App.FragmentTransaction;
 using Fragment=Android.Support.V4.App.Fragment;
 
@@ -27,7 +26,6 @@ namespace e_SpaMobileApp.Activities
             base.OnCreate(savedInstanceState);
             AppCenter.Start("a90aca45-91cc-4e4f-80fe-bc7fffde8d57", typeof(Analytics), typeof(Crashes));
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
-            InitFirebaseAuth(this);
             SetContentView(Resource.Layout.activity_authorization);
             LoadFragment();
         }

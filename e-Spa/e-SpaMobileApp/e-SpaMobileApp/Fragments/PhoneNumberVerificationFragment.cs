@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Text;
@@ -14,8 +9,12 @@ using Android.Widget;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using Firebase;
+using Firebase.Auth;
 using Java.Lang;
+using Java.Util.Concurrent;
 using Newtonsoft.Json;
+using Plugin.CurrentActivity;
+using static e_SpaMobileApp.ExtensionsAndHelpers.FirebaseHelpers;
 
 namespace e_SpaMobileApp.Fragments
 {
@@ -31,8 +30,9 @@ namespace e_SpaMobileApp.Fragments
         private UserInfo _userInfo;
         private PhoneInfo _phoneInfo;
         private TextView _resendCodeTxtView, _verifyTitleTxtView, _waitingTxtView;
+        private string _phoneNo;
 
-        public override async void OnCreate(Bundle savedInstanceState)
+        public override  void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             var phInfo = Arguments.GetString("phoneInfo");
@@ -41,8 +41,11 @@ namespace e_SpaMobileApp.Fragments
                 return;
             _phoneInfo = JsonConvert.DeserializeObject<PhoneInfo>(phInfo);
             _userInfo = JsonConvert.DeserializeObject<UserInfo>(Arguments.GetString(usInfo));
+            _phoneNo = string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber);
 
-            await SendVerificationCode();
+
+            InitFirebaseAuth(CrossCurrentActivity.Current.Activity);
+            SendVerificationCode();
 
         }
 
@@ -60,28 +63,34 @@ namespace e_SpaMobileApp.Fragments
             _verifyTitleTxtView = view.FindViewById<TextView>(Resource.Id.verifyTitleTxtView);
             _waitingTxtView = view.FindViewById<TextView>(Resource.Id.waitingTxtView);
 
-            _verifyTitleTxtView.Text = $"Verify {string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber)}";
+            _verifyTitleTxtView.Text = $"Verify {_phoneNo}";
             _waitingTxtView.Text =
-                $"Waiting to automatically detect the verification code to sent to {string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber)}." +
+                $"Waiting to automatically detect the verification code to sent to {_phoneNo}." +
                 $"If the code is not automatically detected please input the six digit Code here.";
-
+            _resendCodeTxtView.Click += (s, e) => { SendVerificationCode(); };
             return view;
         }
 
-        private Task SendVerificationCode()
+        private  void SendVerificationCode()
         {
-            throw new NotImplementedException();
+            var callbacks=new PhoneAuthCallBacks(this);
+             PhoneAuthProvider.GetInstance(_auth).VerifyPhoneNumber(
+                _phoneNo,
+                3,
+                TimeUnit.Minutes, 
+                CrossCurrentActivity.Current.Activity,
+                callbacks);
         }
 
 
         public void AfterTextChanged(IEditable s)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void BeforeTextChanged(ICharSequence s, int start, int count, int after)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void OnTextChanged(ICharSequence s, int start, int before, int count)
@@ -125,14 +134,14 @@ namespace e_SpaMobileApp.Fragments
 
 
         
-        public void OnSignInSuccess(bool isSuccess)
+        public void OnVerificationCompleted(PhoneAuthCredential credential)
         {
             throw new NotImplementedException();
         }
 
         public void OnCodeSent()
         {
-            throw new NotImplementedException();
+            _resendCodeTxtView.Enabled = false;
         }
 
         public void OnVerificationFailed(FirebaseException exception)
@@ -142,7 +151,7 @@ namespace e_SpaMobileApp.Fragments
 
         public void OnCodeAutoRetrivalTimeOut()
         {
-            throw new NotImplementedException();
+            _resendCodeTxtView.Enabled = true;
         }
     }
 }
