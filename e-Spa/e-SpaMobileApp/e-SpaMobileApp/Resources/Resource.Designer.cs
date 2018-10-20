@@ -4189,11 +4189,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0044
 			public const int SYM = 2131558468;
 			
-			// aapt resource value: 0x7f0d0101
-			public const int action0 = 2131558657;
+			// aapt resource value: 0x7f0d0100
+			public const int action0 = 2131558656;
 			
-			// aapt resource value: 0x7f0d0127
-			public const int action_avatar = 2131558695;
+			// aapt resource value: 0x7f0d0126
+			public const int action_avatar = 2131558694;
 			
 			// aapt resource value: 0x7f0d008b
 			public const int action_bar = 2131558539;
@@ -4216,23 +4216,23 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0069
 			public const int action_bar_title = 2131558505;
 			
-			// aapt resource value: 0x7f0d0125
-			public const int action_camera = 2131558693;
+			// aapt resource value: 0x7f0d0124
+			public const int action_camera = 2131558692;
 			
-			// aapt resource value: 0x7f0d00fe
-			public const int action_container = 2131558654;
+			// aapt resource value: 0x7f0d00fd
+			public const int action_container = 2131558653;
 			
 			// aapt resource value: 0x7f0d008c
 			public const int action_context_bar = 2131558540;
 			
-			// aapt resource value: 0x7f0d0105
-			public const int action_divider = 2131558661;
+			// aapt resource value: 0x7f0d0104
+			public const int action_divider = 2131558660;
 			
-			// aapt resource value: 0x7f0d0126
-			public const int action_gallery = 2131558694;
+			// aapt resource value: 0x7f0d0125
+			public const int action_gallery = 2131558693;
 			
-			// aapt resource value: 0x7f0d00ff
-			public const int action_image = 2131558655;
+			// aapt resource value: 0x7f0d00fe
+			public const int action_image = 2131558654;
 			
 			// aapt resource value: 0x7f0d0003
 			public const int action_menu_divider = 2131558403;
@@ -4249,11 +4249,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d006b
 			public const int action_mode_close_button = 2131558507;
 			
-			// aapt resource value: 0x7f0d0100
-			public const int action_text = 2131558656;
+			// aapt resource value: 0x7f0d00ff
+			public const int action_text = 2131558655;
 			
-			// aapt resource value: 0x7f0d010e
-			public const int actions = 2131558670;
+			// aapt resource value: 0x7f0d010d
+			public const int actions = 2131558669;
 			
 			// aapt resource value: 0x7f0d006c
 			public const int activity_chooser_view_content = 2131558508;
@@ -4315,9 +4315,6 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d009a
 			public const int authorizationParentLayout = 2131558554;
 			
-			// aapt resource value: 0x7f0d00ec
-			public const int authorizeVerificationBtn = 2131558636;
-			
 			// aapt resource value: 0x7f0d0028
 			public const int auto = 2131558440;
 			
@@ -4354,8 +4351,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0072
 			public const int buttonPanel = 2131558514;
 			
-			// aapt resource value: 0x7f0d0102
-			public const int cancel_action = 2131558658;
+			// aapt resource value: 0x7f0d0101
+			public const int cancel_action = 2131558657;
 			
 			// aapt resource value: 0x7f0d0051
 			public const int center = 2131558481;
@@ -4372,8 +4369,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0066
 			public const int @checked = 2131558502;
 			
-			// aapt resource value: 0x7f0d010a
-			public const int chronometer = 2131558666;
+			// aapt resource value: 0x7f0d0109
+			public const int chronometer = 2131558665;
 			
 			// aapt resource value: 0x7f0d00e0
 			public const int clientHomeTrendsAppBar = 2131558624;
@@ -4414,17 +4411,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d00b0
 			public const int countries_recycler_view = 2131558576;
 			
-			// aapt resource value: 0x7f0d00ea
-			public const int countryCodeTxtInputEdtTxt = 2131558634;
-			
 			// aapt resource value: 0x7f0d00af
 			public const int country_code_picker_search = 2131558575;
 			
-			// aapt resource value: 0x7f0d00fc
-			public const int country_flag = 2131558652;
+			// aapt resource value: 0x7f0d00fb
+			public const int country_flag = 2131558651;
 			
-			// aapt resource value: 0x7f0d00fd
-			public const int country_title = 2131558653;
+			// aapt resource value: 0x7f0d00fc
+			public const int country_title = 2131558652;
 			
 			// aapt resource value: 0x7f0d007c
 			public const int custom = 2131558524;
@@ -4465,8 +4459,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d003d
 			public const int end = 2131558461;
 			
-			// aapt resource value: 0x7f0d0110
-			public const int end_padder = 2131558672;
+			// aapt resource value: 0x7f0d010f
+			public const int end_padder = 2131558671;
 			
 			// aapt resource value: 0x7f0d004c
 			public const int enterAlways = 2131558476;
@@ -4492,8 +4486,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0054
 			public const int fill_vertical = 2131558484;
 			
-			// aapt resource value: 0x7f0d00fa
-			public const int finalisingProgressBar = 2131558650;
+			// aapt resource value: 0x7f0d00ed
+			public const int finalisingProgressBar = 2131558637;
 			
 			// aapt resource value: 0x7f0d0060
 			public const int @fixed = 2131558496;
@@ -4501,8 +4495,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0064
 			public const int forever = 2131558500;
 			
-			// aapt resource value: 0x7f0d00f6
-			public const int frameLayout1 = 2131558646;
+			// aapt resource value: 0x7f0d00f9
+			public const int frameLayout1 = 2131558649;
 			
 			// aapt resource value: 0x7f0d00d0
 			public const int frequency2PercentTxtView = 2131558608;
@@ -4534,8 +4528,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0071
 			public const int icon = 2131558513;
 			
-			// aapt resource value: 0x7f0d010f
-			public const int icon_group = 2131558671;
+			// aapt resource value: 0x7f0d010e
+			public const int icon_group = 2131558670;
 			
 			// aapt resource value: 0x7f0d0025
 			public const int icon_only = 2131558437;
@@ -4546,14 +4540,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d006e
 			public const int image = 2131558510;
 			
-			// aapt resource value: 0x7f0d00f9
-			public const int imgView = 2131558649;
+			// aapt resource value: 0x7f0d00eb
+			public const int imgView = 2131558635;
 			
 			// aapt resource value: 0x7f0d0067
 			public const int indeterminate = 2131558503;
 			
-			// aapt resource value: 0x7f0d010b
-			public const int info = 2131558667;
+			// aapt resource value: 0x7f0d010a
+			public const int info = 2131558666;
 			
 			// aapt resource value: 0x7f0d0065
 			public const int italic = 2131558501;
@@ -4594,14 +4588,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d009d
 			public const int mainToolbar = 2131558557;
 			
-			// aapt resource value: 0x7f0d0121
-			public const int masked = 2131558689;
+			// aapt resource value: 0x7f0d0120
+			public const int masked = 2131558688;
 			
-			// aapt resource value: 0x7f0d0104
-			public const int media_actions = 2131558660;
+			// aapt resource value: 0x7f0d0103
+			public const int media_actions = 2131558659;
 			
-			// aapt resource value: 0x7f0d011f
-			public const int message = 2131558687;
+			// aapt resource value: 0x7f0d011e
+			public const int message = 2131558686;
 			
 			// aapt resource value: 0x7f0d003e
 			public const int middle = 2131558462;
@@ -4612,20 +4606,23 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0035
 			public const int multiply = 2131558453;
 			
-			// aapt resource value: 0x7f0d012b
-			public const int navigation_appointments = 2131558699;
+			// aapt resource value: 0x7f0d00f7
+			public const int myView = 2131558647;
+			
+			// aapt resource value: 0x7f0d012a
+			public const int navigation_appointments = 2131558698;
 			
 			// aapt resource value: 0x7f0d00b8
 			public const int navigation_header_container = 2131558584;
 			
-			// aapt resource value: 0x7f0d0128
-			public const int navigation_home = 2131558696;
-			
-			// aapt resource value: 0x7f0d012a
-			public const int navigation_salons = 2131558698;
+			// aapt resource value: 0x7f0d0127
+			public const int navigation_home = 2131558695;
 			
 			// aapt resource value: 0x7f0d0129
-			public const int navigation_services = 2131558697;
+			public const int navigation_salons = 2131558697;
+			
+			// aapt resource value: 0x7f0d0128
+			public const int navigation_services = 2131558696;
 			
 			// aapt resource value: 0x7f0d0048
 			public const int never = 2131558472;
@@ -4639,14 +4636,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d002c
 			public const int normal = 2131558444;
 			
-			// aapt resource value: 0x7f0d010d
-			public const int notification_background = 2131558669;
-			
-			// aapt resource value: 0x7f0d0107
-			public const int notification_main_column = 2131558663;
+			// aapt resource value: 0x7f0d010c
+			public const int notification_background = 2131558668;
 			
 			// aapt resource value: 0x7f0d0106
-			public const int notification_main_column_container = 2131558662;
+			public const int notification_main_column = 2131558662;
+			
+			// aapt resource value: 0x7f0d0105
+			public const int notification_main_column_container = 2131558661;
 			
 			// aapt resource value: 0x7f0d0058
 			public const int parallax = 2131558488;
@@ -4656,9 +4653,6 @@ namespace e_SpaMobileApp
 			
 			// aapt resource value: 0x7f0d000b
 			public const int parent_matrix = 2131558411;
-			
-			// aapt resource value: 0x7f0d00eb
-			public const int phoneNumberTxtInputEdtTxt = 2131558635;
 			
 			// aapt resource value: 0x7f0d0059
 			public const int pin = 2131558489;
@@ -4699,8 +4693,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d00e7
 			public const int relativeDataformContainer = 2131558631;
 			
-			// aapt resource value: 0x7f0d00f5
-			public const int resendCodeTxtView = 2131558645;
+			// aapt resource value: 0x7f0d00f8
+			public const int resendCodeTxtView = 2131558648;
 			
 			// aapt resource value: 0x7f0d00d7
 			public const int resgisterBtn = 2131558615;
@@ -4708,11 +4702,11 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0056
 			public const int right = 2131558486;
 			
-			// aapt resource value: 0x7f0d010c
-			public const int right_icon = 2131558668;
+			// aapt resource value: 0x7f0d010b
+			public const int right_icon = 2131558667;
 			
-			// aapt resource value: 0x7f0d0108
-			public const int right_side = 2131558664;
+			// aapt resource value: 0x7f0d0107
+			public const int right_side = 2131558663;
 			
 			// aapt resource value: 0x7f0d00ce
 			public const int ring2Contents = 2131558606;
@@ -4723,8 +4717,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d00ca
 			public const int ringContents = 2131558602;
 			
-			// aapt resource value: 0x7f0d00fb
-			public const int rootView = 2131558651;
+			// aapt resource value: 0x7f0d00fa
+			public const int rootView = 2131558650;
 			
 			// aapt resource value: 0x7f0d00d1
 			public const int salon12NameTxtView = 2131558609;
@@ -4735,35 +4729,35 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d00cd
 			public const int salon1NameTxtView = 2131558605;
 			
-			// aapt resource value: 0x7f0d0113
-			public const int salonCardLinearLayout1 = 2131558675;
-			
 			// aapt resource value: 0x7f0d0112
-			public const int salonCircleImageView = 2131558674;
+			public const int salonCardLinearLayout1 = 2131558674;
 			
-			// aapt resource value: 0x7f0d0115
-			public const int salonLocationTxtView = 2131558677;
+			// aapt resource value: 0x7f0d0111
+			public const int salonCircleImageView = 2131558673;
 			
-			// aapt resource value: 0x7f0d0117
-			public const int salonManagerTxtView = 2131558679;
+			// aapt resource value: 0x7f0d0114
+			public const int salonLocationTxtView = 2131558676;
+			
+			// aapt resource value: 0x7f0d0116
+			public const int salonManagerTxtView = 2131558678;
 			
 			// aapt resource value: 0x7f0d00c5
 			public const int salonName = 2131558597;
 			
-			// aapt resource value: 0x7f0d0114
-			public const int salonNameTxtView = 2131558676;
+			// aapt resource value: 0x7f0d0113
+			public const int salonNameTxtView = 2131558675;
 			
-			// aapt resource value: 0x7f0d0116
-			public const int salonPhoneTxtView = 2131558678;
+			// aapt resource value: 0x7f0d0115
+			public const int salonPhoneTxtView = 2131558677;
 			
-			// aapt resource value: 0x7f0d0111
-			public const int salonsCardView = 2131558673;
+			// aapt resource value: 0x7f0d0110
+			public const int salonsCardView = 2131558672;
 			
-			// aapt resource value: 0x7f0d011d
-			public const int salonsNumberTxtView = 2131558685;
+			// aapt resource value: 0x7f0d011c
+			public const int salonsNumberTxtView = 2131558684;
 			
-			// aapt resource value: 0x7f0d00f7
-			public const int salonsRecyclerView = 2131558647;
+			// aapt resource value: 0x7f0d00e9
+			public const int salonsRecyclerView = 2131558633;
 			
 			// aapt resource value: 0x7f0d000c
 			public const int save_image_matrix = 2131558412;
@@ -4828,41 +4822,41 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0099
 			public const int select_dialog_listview = 2131558553;
 			
-			// aapt resource value: 0x7f0d0119
-			public const int serviceCircleImageView = 2131558681;
+			// aapt resource value: 0x7f0d0118
+			public const int serviceCircleImageView = 2131558680;
 			
 			// aapt resource value: 0x7f0d00c2
 			public const int serviceCost = 2131558594;
 			
-			// aapt resource value: 0x7f0d011c
-			public const int serviceDescTxtView = 2131558684;
-			
 			// aapt resource value: 0x7f0d011b
-			public const int serviceNameIdTxtView = 2131558683;
+			public const int serviceDescTxtView = 2131558683;
+			
+			// aapt resource value: 0x7f0d011a
+			public const int serviceNameIdTxtView = 2131558682;
 			
 			// aapt resource value: 0x7f0d00c1
 			public const int serviceNameTxtView = 2131558593;
 			
-			// aapt resource value: 0x7f0d011e
-			public const int servicePopularityTxtView = 2131558686;
+			// aapt resource value: 0x7f0d011d
+			public const int servicePopularityTxtView = 2131558685;
 			
-			// aapt resource value: 0x7f0d011a
-			public const int servicesCardLinearLayout1 = 2131558682;
+			// aapt resource value: 0x7f0d0119
+			public const int servicesCardLinearLayout1 = 2131558681;
 			
-			// aapt resource value: 0x7f0d0118
-			public const int servicesCardView = 2131558680;
+			// aapt resource value: 0x7f0d0117
+			public const int servicesCardView = 2131558679;
 			
-			// aapt resource value: 0x7f0d00f8
-			public const int servicesRecyclerView = 2131558648;
-			
-			// aapt resource value: 0x7f0d0124
-			public const int sfprogressbar_progress = 2131558692;
+			// aapt resource value: 0x7f0d00ea
+			public const int servicesRecyclerView = 2131558634;
 			
 			// aapt resource value: 0x7f0d0123
-			public const int sfprogressbar_secondary_progress = 2131558691;
+			public const int sfprogressbar_progress = 2131558691;
 			
 			// aapt resource value: 0x7f0d0122
-			public const int sfprogressbar_track = 2131558690;
+			public const int sfprogressbar_secondary_progress = 2131558690;
+			
+			// aapt resource value: 0x7f0d0121
+			public const int sfprogressbar_track = 2131558689;
 			
 			// aapt resource value: 0x7f0d0083
 			public const int shortcut = 2131558531;
@@ -4891,6 +4885,9 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0073
 			public const int spacer = 2131558515;
 			
+			// aapt resource value: 0x7f0d00f0
+			public const int splitViewEdtTxtlayout = 2131558640;
+			
 			// aapt resource value: 0x7f0d0008
 			public const int split_action_bar = 2131558408;
 			
@@ -4909,8 +4906,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0057
 			public const int start = 2131558487;
 			
-			// aapt resource value: 0x7f0d0103
-			public const int status_bar_latest_event_content = 2131558659;
+			// aapt resource value: 0x7f0d0102
+			public const int status_bar_latest_event_content = 2131558658;
 			
 			// aapt resource value: 0x7f0d0085
 			public const int submenuarrow = 2131558533;
@@ -4933,23 +4930,23 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d001b
 			public const int text2 = 2131558427;
 			
-			// aapt resource value: 0x7f0d00ee
-			public const int textInputEditText1 = 2131558638;
-			
-			// aapt resource value: 0x7f0d00ef
-			public const int textInputEditText2 = 2131558639;
-			
-			// aapt resource value: 0x7f0d00f0
-			public const int textInputEditText3 = 2131558640;
-			
 			// aapt resource value: 0x7f0d00f1
-			public const int textInputEditText4 = 2131558641;
+			public const int textInputEditText1 = 2131558641;
 			
 			// aapt resource value: 0x7f0d00f2
-			public const int textInputEditText5 = 2131558642;
+			public const int textInputEditText2 = 2131558642;
 			
 			// aapt resource value: 0x7f0d00f3
-			public const int textInputEditText6 = 2131558643;
+			public const int textInputEditText3 = 2131558643;
+			
+			// aapt resource value: 0x7f0d00f4
+			public const int textInputEditText4 = 2131558644;
+			
+			// aapt resource value: 0x7f0d00f5
+			public const int textInputEditText5 = 2131558645;
+			
+			// aapt resource value: 0x7f0d00f6
+			public const int textInputEditText6 = 2131558646;
 			
 			// aapt resource value: 0x7f0d0079
 			public const int textSpacerNoButtons = 2131558521;
@@ -4957,11 +4954,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0078
 			public const int textSpacerNoTitle = 2131558520;
 			
-			// aapt resource value: 0x7f0d00e9
-			public const int textView1 = 2131558633;
-			
-			// aapt resource value: 0x7f0d00ed
-			public const int textView2 = 2131558637;
+			// aapt resource value: 0x7f0d00ec
+			public const int textView1 = 2131558636;
 			
 			// aapt resource value: 0x7f0d00bd
 			public const int text_input_password_toggle = 2131558589;
@@ -4972,8 +4966,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0015
 			public const int textinput_error = 2131558421;
 			
-			// aapt resource value: 0x7f0d0109
-			public const int time = 2131558665;
+			// aapt resource value: 0x7f0d0108
+			public const int time = 2131558664;
 			
 			// aapt resource value: 0x7f0d001c
 			public const int title = 2131558428;
@@ -5044,14 +5038,17 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f0d0033
 			public const int useLogo = 2131558451;
 			
-			// aapt resource value: 0x7f0d00f4
-			public const int verifyCodeTxtView = 2131558644;
+			// aapt resource value: 0x7f0d00ee
+			public const int verifyTitleTxtView = 2131558638;
 			
 			// aapt resource value: 0x7f0d0016
 			public const int view_offset_helper = 2131558422;
 			
-			// aapt resource value: 0x7f0d0120
-			public const int visible = 2131558688;
+			// aapt resource value: 0x7f0d011f
+			public const int visible = 2131558687;
+			
+			// aapt resource value: 0x7f0d00ef
+			public const int waitingTxtView = 2131558639;
 			
 			// aapt resource value: 0x7f0d00a0
 			public const int webview = 2131558560;
@@ -5336,16 +5333,16 @@ namespace e_SpaMobileApp
 			public const int fragment_completeRegistration = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int fragment_phoneVerification = 2130968633;
+			public const int fragment_salons = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int fragment_salons = 2130968634;
+			public const int fragment_services = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int fragment_services = 2130968635;
+			public const int fragment_verified = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int fragment_verified = 2130968636;
+			public const int fragment_verifyPhoneNumber = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
 			public const int item_country = 2130968637;
@@ -5641,8 +5638,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f090019
 			public const int common_signin_button_text_long = 2131296281;
 			
-			// aapt resource value: 0x7f09006f
-			public const int complete_registration = 2131296367;
+			// aapt resource value: 0x7f09006b
+			public const int complete_registration = 2131296363;
 			
 			// aapt resource value: 0x7f090054
 			public const int continue_To_forums = 2131296340;
@@ -5653,8 +5650,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f090062
 			public const int create_account = 2131296354;
 			
-			// aapt resource value: 0x7f09006e
-			public const int create_salon_profile = 2131296366;
+			// aapt resource value: 0x7f09006a
+			public const int create_salon_profile = 2131296362;
 			
 			// aapt resource value: 0x7f090058
 			public const int custom_reminders = 2131296344;
@@ -5665,17 +5662,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f09005c
 			public const int e_spa_welcome = 2131296348;
 			
-			// aapt resource value: 0x7f090067
-			public const int email = 2131296359;
+			// aapt resource value: 0x7f090063
+			public const int email = 2131296355;
 			
 			// aapt resource value: 0x7f090048
 			public const int error_listener_not_set = 2131296328;
 			
 			// aapt resource value: 0x7f090049
 			public const int error_no_countries_found = 2131296329;
-			
-			// aapt resource value: 0x7f090065
-			public const int facebook = 2131296357;
 			
 			// aapt resource value: 0x7f09004c
 			public const int facebook_app_id = 2131296332;
@@ -5686,20 +5680,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f090003
 			public const int firebase_database_url = 2131296259;
 			
-			// aapt resource value: 0x7f090068
-			public const int firstName = 2131296360;
-			
-			// aapt resource value: 0x7f090063
-			public const int forgot_password = 2131296355;
+			// aapt resource value: 0x7f090064
+			public const int firstName = 2131296356;
 			
 			// aapt resource value: 0x7f090053
 			public const int forums_desc = 2131296339;
 			
 			// aapt resource value: 0x7f090000
 			public const int gcm_defaultSenderId = 2131296256;
-			
-			// aapt resource value: 0x7f090064
-			public const int google = 2131296356;
 			
 			// aapt resource value: 0x7f090004
 			public const int google_api_key = 2131296260;
@@ -5716,8 +5704,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f090056
 			public const int grooming_reminders = 2131296342;
 			
-			// aapt resource value: 0x7f090069
-			public const int lastName = 2131296361;
+			// aapt resource value: 0x7f090065
+			public const int lastName = 2131296357;
 			
 			// aapt resource value: 0x7f090041
 			public const int library_name = 2131296321;
@@ -5749,14 +5737,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f09003f
 			public const int path_password_strike_through = 2131296319;
 			
-			// aapt resource value: 0x7f09006a
-			public const int phoneNo = 2131296362;
+			// aapt resource value: 0x7f090066
+			public const int phoneNo = 2131296358;
 			
 			// aapt resource value: 0x7f09005a
 			public const int popularity = 2131296346;
 			
-			// aapt resource value: 0x7f09006d
-			public const int privacy_policy = 2131296365;
+			// aapt resource value: 0x7f090069
+			public const int privacy_policy = 2131296361;
 			
 			// aapt resource value: 0x7f090007
 			public const int project_id = 2131296263;
@@ -5764,14 +5752,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f090057
 			public const int purchase_reminders = 2131296343;
 			
-			// aapt resource value: 0x7f09006b
-			public const int register = 2131296363;
-			
-			// aapt resource value: 0x7f090066
-			public const int register_with_social_networks = 2131296358;
+			// aapt resource value: 0x7f090067
+			public const int register = 2131296359;
 			
 			// aapt resource value: 0x7f090055
 			public const int reminders = 2131296341;
+			
+			// aapt resource value: 0x7f09006c
+			public const int resend_code = 2131296364;
 			
 			// aapt resource value: 0x7f090059
 			public const int salons = 2131296345;
@@ -5791,8 +5779,8 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f090040
 			public const int status_bar_notification_info_overflow = 2131296320;
 			
-			// aapt resource value: 0x7f09006c
-			public const int terms_of_use = 2131296364;
+			// aapt resource value: 0x7f090068
+			public const int terms_of_use = 2131296360;
 			
 			// aapt resource value: 0x7f090044
 			public const int title_activity_webview = 2131296324;
@@ -5803,14 +5791,14 @@ namespace e_SpaMobileApp
 			// aapt resource value: 0x7f090050
 			public const int trend_desc_edtTxt = 2131296336;
 			
-			// aapt resource value: 0x7f090071
-			public const int trend_description = 2131296369;
+			// aapt resource value: 0x7f09006e
+			public const int trend_description = 2131296366;
 			
-			// aapt resource value: 0x7f090072
-			public const int trend_profile_name = 2131296370;
+			// aapt resource value: 0x7f09006f
+			public const int trend_profile_name = 2131296367;
 			
-			// aapt resource value: 0x7f090070
-			public const int trends_title = 2131296368;
+			// aapt resource value: 0x7f09006d
+			public const int trends_title = 2131296365;
 			
 			// aapt resource value: 0x7f090051
 			public const int trends_title_edtTxt = 2131296337;

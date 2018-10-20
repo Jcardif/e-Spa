@@ -34,6 +34,7 @@
     <string name="register">Register</string>
     <string name="terms_of_use">Terms of use</string>
     <string name="verify_details">Verify Details</string>
+    <string name="resend">Resend Code</string>
     <string name="privacy_policy">Privacy Policy</string>
 
 </resources>
