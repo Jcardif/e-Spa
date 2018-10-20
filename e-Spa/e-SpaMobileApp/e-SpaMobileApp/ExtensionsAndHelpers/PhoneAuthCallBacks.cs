@@ -23,7 +23,7 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
         
         public override void OnVerificationCompleted(PhoneAuthCredential credential)
         {
-            
+            _singInCallbacks.OnVerificationCompleted(credential);
         }
 
         public override void OnVerificationFailed(FirebaseException exception)

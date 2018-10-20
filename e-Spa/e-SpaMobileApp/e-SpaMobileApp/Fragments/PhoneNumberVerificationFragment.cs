@@ -1,24 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using Android.Content;
+using Android.Gms.Tasks;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
+using e_SpaMobileApp.Activities;
+using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
+using e_SpaMobileApp.ServiceModels;
 using Firebase;
 using Firebase.Auth;
 using Java.Lang;
 using Java.Util.Concurrent;
 using Newtonsoft.Json;
+using Plugin.Connectivity;
 using Plugin.CurrentActivity;
 using static e_SpaMobileApp.ExtensionsAndHelpers.FirebaseHelpers;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class PhoneNumberVerificationFragment : Fragment, IOnSingInCallbacks, ITextWatcher
+    public class PhoneNumberVerificationFragment : Fragment, IOnSingInCallbacks, ITextWatcher, IOnCompleteListener
     {
         private TextInputEditText _textInputEditText1,
             _textInputEditText2,
@@ -136,7 +142,34 @@ namespace e_SpaMobileApp.Fragments
         
         public void OnVerificationCompleted(PhoneAuthCredential credential)
         {
-            throw new NotImplementedException();
+            var smsCode = credential.SmsCode;
+            _textInputEditText1.Focusable = false;
+            _textInputEditText2.Focusable = false;
+            _textInputEditText3.Focusable = false;
+            _textInputEditText4.Focusable = false;
+            _textInputEditText5.Focusable = false;
+            _textInputEditText6.Focusable = false;
+
+            _textInputEditText1.Text = smsCode[0].ToString();
+            _textInputEditText2.Text = smsCode[1].ToString();
+            _textInputEditText3.Text = smsCode[2].ToString();
+            _textInputEditText4.Text = smsCode[3].ToString();
+            _textInputEditText5.Text = smsCode[4].ToString();
+            _textInputEditText6.Text = smsCode[5].ToString();
+
+            DisplayVerificationSuccess();
+
+            _auth.SignInWithCredential(credential)
+                .AddOnCompleteListener(this);
+        }
+
+        private void DisplayVerificationSuccess()
+        {
+            var fragment = new PhoneNoVerifiedFragment();
+            FragmentManager.BeginTransaction()
+                .Replace(Resource.Id.frameLayout1, fragment)
+                .SetCustomAnimations(Resource.Animation.zoom_in, Resource.Animation.fade_out)
+                .Commit();
         }
 
         public void OnCodeSent()
@@ -146,12 +179,55 @@ namespace e_SpaMobileApp.Fragments
 
         public void OnVerificationFailed(FirebaseException exception)
         {
-            throw new NotImplementedException();
+            switch (exception)
+            {
+                case FirebaseAuthInvalidCredentialsException _:
+                    Toast.MakeText(Context.ApplicationContext, "Invalid request", ToastLength.Long).Show();
+                    break;
+                case FirebaseTooManyRequestsException _:
+                    Toast.MakeText(Context.ApplicationContext, "Too Many Request", ToastLength.Long).Show();
+                    break;
+                default:
+                    Toast.MakeText(Context.ApplicationContext, exception.Message, ToastLength.Long).Show();
+                    break;
+            }
         }
 
         public void OnCodeAutoRetrivalTimeOut()
         {
             _resendCodeTxtView.Enabled = true;
+        }
+
+        public async void OnComplete(Task p0)
+        {
+            if (_userInfo == null)
+                StartActivity(new Intent(Context.ApplicationContext, typeof(MainActivity)));
+            else
+            {
+                var client = new Client
+                {
+                    Email = _userInfo.Email,
+                    FirstName = _userInfo.FirstName,
+                    LastName = _userInfo.LastName,
+                    PhoneNumber = string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber),
+                    Residence = null,
+                    ProfilePhotoUrl = null
+                };
+                var userApiClient = new UserApiClient();
+                    var newClient = await userApiClient.AddClientAsync(client);
+                    var fragment = new CompleteRegistrationFragment();
+                    var bundle = new Bundle();
+                    bundle.PutString("client", JsonConvert.SerializeObject(newClient));
+                    fragment.Arguments = bundle;
+
+                    FragmentManager.BeginTransaction()
+                        .SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
+                        .Replace(Resource.Id.authorizationContainer, fragment)
+                        .Commit();
+
+                    //TODO Remove From Backstack
+                
+            }
         }
     }
 }
