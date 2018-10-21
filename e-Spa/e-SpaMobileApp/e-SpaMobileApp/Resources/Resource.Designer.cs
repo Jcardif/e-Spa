@@ -5348,76 +5348,73 @@ namespace e_SpaMobileApp
 			public const int item_country = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int layout_login = 2130968638;
+			public const int notification_action = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int notification_action = 2130968639;
+			public const int notification_action_tombstone = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int notification_action_tombstone = 2130968640;
+			public const int notification_media_action = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int notification_media_action = 2130968641;
+			public const int notification_media_cancel_action = 2130968641;
 			
 			// aapt resource value: 0x7f040042
-			public const int notification_media_cancel_action = 2130968642;
+			public const int notification_template_big_media = 2130968642;
 			
 			// aapt resource value: 0x7f040043
-			public const int notification_template_big_media = 2130968643;
+			public const int notification_template_big_media_custom = 2130968643;
 			
 			// aapt resource value: 0x7f040044
-			public const int notification_template_big_media_custom = 2130968644;
+			public const int notification_template_big_media_narrow = 2130968644;
 			
 			// aapt resource value: 0x7f040045
-			public const int notification_template_big_media_narrow = 2130968645;
+			public const int notification_template_big_media_narrow_custom = 2130968645;
 			
 			// aapt resource value: 0x7f040046
-			public const int notification_template_big_media_narrow_custom = 2130968646;
+			public const int notification_template_custom_big = 2130968646;
 			
 			// aapt resource value: 0x7f040047
-			public const int notification_template_custom_big = 2130968647;
+			public const int notification_template_icon_group = 2130968647;
 			
 			// aapt resource value: 0x7f040048
-			public const int notification_template_icon_group = 2130968648;
+			public const int notification_template_lines_media = 2130968648;
 			
 			// aapt resource value: 0x7f040049
-			public const int notification_template_lines_media = 2130968649;
+			public const int notification_template_media = 2130968649;
 			
 			// aapt resource value: 0x7f04004a
-			public const int notification_template_media = 2130968650;
+			public const int notification_template_media_custom = 2130968650;
 			
 			// aapt resource value: 0x7f04004b
-			public const int notification_template_media_custom = 2130968651;
+			public const int notification_template_part_chronometer = 2130968651;
 			
 			// aapt resource value: 0x7f04004c
-			public const int notification_template_part_chronometer = 2130968652;
+			public const int notification_template_part_time = 2130968652;
 			
 			// aapt resource value: 0x7f04004d
-			public const int notification_template_part_time = 2130968653;
+			public const int salon_item = 2130968653;
 			
 			// aapt resource value: 0x7f04004e
-			public const int salon_item = 2130968654;
+			public const int select_dialog_item_material = 2130968654;
 			
 			// aapt resource value: 0x7f04004f
-			public const int select_dialog_item_material = 2130968655;
+			public const int select_dialog_multichoice_material = 2130968655;
 			
 			// aapt resource value: 0x7f040050
-			public const int select_dialog_multichoice_material = 2130968656;
+			public const int select_dialog_singlechoice_material = 2130968656;
 			
 			// aapt resource value: 0x7f040051
-			public const int select_dialog_singlechoice_material = 2130968657;
+			public const int services_item = 2130968657;
 			
 			// aapt resource value: 0x7f040052
-			public const int services_item = 2130968658;
+			public const int Spinner_item = 2130968658;
 			
 			// aapt resource value: 0x7f040053
-			public const int Spinner_item = 2130968659;
+			public const int support_simple_spinner_dropdown_item = 2130968659;
 			
 			// aapt resource value: 0x7f040054
-			public const int support_simple_spinner_dropdown_item = 2130968660;
-			
-			// aapt resource value: 0x7f040055
-			public const int tooltip = 2130968661;
+			public const int tooltip = 2130968660;
 			
 			static Layout()
 			{

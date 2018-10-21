@@ -218,7 +218,7 @@ namespace e_SpaMobileApp.Fragments
                         fragment.Arguments = bundle;
 
 
-                        var alertDialogBuilder = new AlertDialog.Builder(CrossCurrentActivity.Current.Activity)
+                        var alertDialogBuilder = new AlertDialog.Builder(CrossCurrentActivity.Current.Activity,Resource.Style.AppTheme)
                             .SetTitle("Phone Number Verification")
                             .SetMessage($"We shall be verifying the phone Number {string.Concat(phoneInfo.CountryCode,phoneInfo.PhoneNumber)} by sending an SMS with a verification Code. Press Yes to continue or No modify the Phone Number")
                             .SetNegativeButton("No", (s, arg) => {Dispose();})
@@ -231,6 +231,7 @@ namespace e_SpaMobileApp.Fragments
                                     .Commit();
                             }))
                             .Create();
+                        alertDialogBuilder.Window.SetLayout(1000,750);
                         alertDialogBuilder.Show();
                     }
                 }

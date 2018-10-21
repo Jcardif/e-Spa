@@ -57,6 +57,7 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
             _editText.SetHintTextColor(Color.WhiteSmoke);
             
             _editText.FocusChange += EditText_FocusChange;
+           
 
             if (dataFormItem.Name == "CountryCode")
             {
@@ -67,6 +68,7 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
 
         }
 
+        
         private void EditText_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             if(!e.HasFocus)return;

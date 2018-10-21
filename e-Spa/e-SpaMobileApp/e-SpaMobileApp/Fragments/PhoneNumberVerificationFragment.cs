@@ -24,7 +24,7 @@ using static e_SpaMobileApp.ExtensionsAndHelpers.FirebaseHelpers;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class PhoneNumberVerificationFragment : Fragment, IOnSingInCallbacks, ITextWatcher, IOnCompleteListener
+    public class PhoneNumberVerificationFragment : Fragment, IOnSingInCallbacks, IOnCompleteListener
     {
         private TextInputEditText _textInputEditText1,
             _textInputEditText2,
@@ -41,12 +41,14 @@ namespace e_SpaMobileApp.Fragments
         public override  void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            if (Arguments==null)
+                return;
             var phInfo = Arguments.GetString("phoneInfo");
             var usInfo = Arguments.GetString("userInfo");
-            if(phInfo==null)
+            if(phInfo==null & _userInfo==null)
                 return;
             _phoneInfo = JsonConvert.DeserializeObject<PhoneInfo>(phInfo);
-            _userInfo = JsonConvert.DeserializeObject<UserInfo>(Arguments.GetString(usInfo));
+            _userInfo = JsonConvert.DeserializeObject<UserInfo>(usInfo);
             _phoneNo = string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber);
 
 
@@ -73,8 +75,68 @@ namespace e_SpaMobileApp.Fragments
             _waitingTxtView.Text =
                 $"Waiting to automatically detect the verification code to sent to {_phoneNo}." +
                 $"If the code is not automatically detected please input the six digit Code here.";
+            _textInputEditText1.TextChanged += _textInputEditText_TextChanged;
+            _textInputEditText2.TextChanged += _textInputEditText_TextChanged;
+            _textInputEditText3.TextChanged += _textInputEditText_TextChanged;
+            _textInputEditText4.TextChanged += _textInputEditText_TextChanged;
+            _textInputEditText5.TextChanged += _textInputEditText_TextChanged;
+            _textInputEditText6.TextChanged += _textInputEditText_TextChanged;
+
             _resendCodeTxtView.Click += (s, e) => { SendVerificationCode(); };
             return view;
+        }
+
+        private void _textInputEditText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var edtTxt = (EditText) sender;
+            if (e.AfterCount==0)
+            {
+                switch (edtTxt.Id)
+                {
+                    case Resource.Id.textInputEditText1:
+                        return;
+                    case Resource.Id.textInputEditText2:
+                        _textInputEditText1.RequestFocus();
+                        break;
+                    case Resource.Id.textInputEditText3:
+                        _textInputEditText2.RequestFocus();
+                        break;
+                    case Resource.Id.textInputEditText4:
+                        _textInputEditText3.RequestFocus();
+                        break;
+                    case Resource.Id.textInputEditText5:
+                        _textInputEditText4.RequestFocus();
+                        break;
+                    case Resource.Id.textInputEditText6:
+                        _textInputEditText5.RequestFocus();
+                        break;
+                }
+            }
+            else
+            {
+
+                switch (edtTxt.Id)
+                {
+                    case Resource.Id.textInputEditText1 when !string.IsNullOrEmpty(edtTxt.Text):
+                        _textInputEditText2.RequestFocus();
+                        break;
+                    case Resource.Id.textInputEditText2 when !string.IsNullOrEmpty(edtTxt.Text):
+                        _textInputEditText3.RequestFocus();
+                        break;
+                    case Resource.Id.textInputEditText3 when !string.IsNullOrEmpty(edtTxt.Text):
+                        _textInputEditText4.RequestFocus();
+                        break;
+                    case Resource.Id.textInputEditText4 when !string.IsNullOrEmpty(edtTxt.Text):
+                        _textInputEditText5.RequestFocus();
+                        break;
+                    case Resource.Id.textInputEditText5 when !string.IsNullOrEmpty(edtTxt.Text):
+                        _textInputEditText6.RequestFocus();
+                        break;
+                    case Resource.Id.textInputEditText6 when !string.IsNullOrEmpty(edtTxt.Text):
+                        VerifySentCode();
+                        break;
+                }
+            }
         }
 
         private  void SendVerificationCode()
@@ -82,35 +144,10 @@ namespace e_SpaMobileApp.Fragments
             var callbacks=new PhoneAuthCallBacks(this);
              PhoneAuthProvider.GetInstance(_auth).VerifyPhoneNumber(
                 _phoneNo,
-                3,
-                TimeUnit.Minutes, 
+                120,
+                TimeUnit.Seconds, 
                 CrossCurrentActivity.Current.Activity,
                 callbacks);
-        }
-
-
-        public void AfterTextChanged(IEditable s)
-        {
-            
-        }
-
-        public void BeforeTextChanged(ICharSequence s, int start, int count, int after)
-        {
-            
-        }
-
-        public void OnTextChanged(ICharSequence s, int start, int before, int count)
-        {
-
-            var edtTxt = GetCurrentTextInputEditText();
-            if (string.IsNullOrEmpty(edtTxt.Text) || edtTxt.Text.Length != 1) return;
-            if (edtTxt.Id == Resource.Id.textInputEditText6)
-                VerifySentCode();
-            else
-            {
-                var nextView = edtTxt.FocusSearch(FocusSearchDirection.Forward);
-                nextView?.RequestFocus();
-            }
         }
 
         private void VerifySentCode()
@@ -118,25 +155,6 @@ namespace e_SpaMobileApp.Fragments
             throw new NotImplementedException();
         }
 
-        private TextInputEditText GetCurrentTextInputEditText()
-        {
-            var lst = new List<TextInputEditText>
-            {
-                _textInputEditText1,
-                _textInputEditText2,
-                _textInputEditText3,
-                _textInputEditText4,
-                _textInputEditText5,
-                _textInputEditText6
-            };
-            for (var i = 0; i <= 5; i++)
-            {
-                if (lst[i].HasFocus)
-                    return lst[i];
-            }
-
-            return null;
-        }
 
 
         
@@ -210,8 +228,8 @@ namespace e_SpaMobileApp.Fragments
                     FirstName = _userInfo.FirstName,
                     LastName = _userInfo.LastName,
                     PhoneNumber = string.Concat(_phoneInfo.CountryCode, _phoneInfo.PhoneNumber),
-                    Residence = null,
-                    ProfilePhotoUrl = null
+                    Residence = "Residence",
+                    ProfilePhotoUrl = "my-url"
                 };
                 var userApiClient = new UserApiClient();
                     var newClient = await userApiClient.AddClientAsync(client);

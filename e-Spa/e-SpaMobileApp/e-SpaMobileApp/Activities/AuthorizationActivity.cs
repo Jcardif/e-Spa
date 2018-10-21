@@ -33,7 +33,7 @@ namespace e_SpaMobileApp.Activities
 
         private void LoadFragment()
         {
-            _fragment = new AuthorizationFragment();
+            _fragment = new PhoneNumberVerificationFragment();
             _transaction = SupportFragmentManager.BeginTransaction();
             _transaction.Replace(Resource.Id.authorizationContainer, _fragment)
             .Commit();

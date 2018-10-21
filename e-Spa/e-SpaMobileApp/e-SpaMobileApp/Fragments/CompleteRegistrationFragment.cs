@@ -48,8 +48,10 @@ namespace e_SpaMobileApp.Fragments
             base.OnCreate(savedInstanceState);
             if(Arguments==null) return; 
             _client = JsonConvert.DeserializeObject<Client>(Arguments.GetString("client"));
-            if (_client.Residence == "empty")
+            if (_client.Residence == "Residence")
                 _client.Residence = null;
+            if (_client.ProfilePhotoUrl == "my-url")
+                _client.ProfilePhotoUrl = null;
             fullName.FirstName = _client.FirstName;
             fullName.LastName = _client.LastName;
         }

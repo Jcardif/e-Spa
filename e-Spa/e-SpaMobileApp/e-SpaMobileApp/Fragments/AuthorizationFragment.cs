@@ -9,6 +9,7 @@ using e_SpaMobileApp.Models;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Newtonsoft.Json;
 using Plugin.CurrentActivity;
 using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
@@ -62,10 +63,13 @@ namespace e_SpaMobileApp.Fragments
         private void ShowDialog()
         {
             var relativeLayout=new RelativeLayout(Context.ApplicationContext);
+            relativeLayout.SetMinimumHeight(450);
+            relativeLayout.Background=CrossCurrentActivity.Current.Activity.GetDrawable(Resource.Drawable.client_app_layout_background);
 
             var dataFormParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             dataFormParams.Width = ViewGroup.LayoutParams.MatchParent;
             dataFormParams.RightMargin = 48;
+            dataFormParams.TopMargin = 12;
             dataFormParams.Height = ViewGroup.LayoutParams.WrapContent;
 
             dataForm = new SfDataForm(Context.ApplicationContext);
@@ -81,37 +85,47 @@ namespace e_SpaMobileApp.Fragments
 
             var loginTxtParams=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
             loginTxtParams.AddRule(LayoutRules.Below, dataForm.Id);
+            loginTxtParams.SetMargins(12,12,12,8);
             loginTxtParams.AddRule(LayoutRules.CenterHorizontal);
+            loginTxtParams.AddRule(LayoutRules.AlignBottom);
             loginTxtParams.Height = ViewGroup.LayoutParams.WrapContent;
             loginTxtParams.Width = ViewGroup.LayoutParams.WrapContent;
 
             var loginTxtView=new TextView(Context.ApplicationContext);
             loginTxtView.Id = View.GenerateViewId();
             loginTxtView.Text = Resources.GetString(Resource.String.log_in);
-            loginTxtView.SetTextColor(CrossCurrentActivity.Current.Activity.GetColorStateList(Resource.Color.colorPrimaryDark));
+            loginTxtView.SetTextColor(Color.White);
             loginTxtView.Id = View.GenerateViewId();
-            loginTxtView.TextSize = 16;
+            loginTxtView.TextSize = 20;
             loginTxtView.Typeface=Typeface.DefaultBold;
             loginTxtView.Clickable = true;
             relativeLayout.AddView(loginTxtView,loginTxtParams);
 
-            var createAccTxtViewParams=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.WrapContent);
-            createAccTxtViewParams.AddRule(LayoutRules.Below, loginTxtView.Id);
-            createAccTxtViewParams.AddRule(LayoutRules.CenterHorizontal);
-            createAccTxtViewParams.Width = ViewGroup.LayoutParams.WrapContent; 
-            createAccTxtViewParams.Height = ViewGroup.LayoutParams.WrapContent;
-
-            var createAccTxtView=new TextView(Context.ApplicationContext);
-            createAccTxtView.Id = View.GenerateViewId();
-            createAccTxtView.Text = Resources.GetString(Resource.String.create_account);
-            createAccTxtView.SetTextColor(CrossCurrentActivity.Current.Activity.GetColorStateList(Resource.Color.colorPrimary));
-            createAccTxtView.Clickable = true;
-            relativeLayout.AddView(createAccTxtView, createAccTxtViewParams);
+            loginTxtView.Click += LoginTxtView_Click;
 
             var builder = new AlertDialog.Builder(CrossCurrentActivity.Current.Activity, Resource.Style.LogInTheme)
                 .SetView(relativeLayout)
                 .Show();
+                
+            builder.Window.SetLayout(1000, 450);
+
         }
+
+        private void LoginTxtView_Click(object sender, System.EventArgs e)
+        {
+            var phInfo = JsonConvert.SerializeObject(phoneInfo);
+            var fragment=new PhoneNumberVerificationFragment();
+            var bundle=new Bundle();
+            bundle.PutString("phoneInfo", phInfo);
+            fragment.Arguments = bundle;
+
+            var transaction = FragmentManager.BeginTransaction();
+            transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
+                .Replace(Resource.Id.authorizationContainer, fragment)
+                .AddToBackStack(null)
+                .Commit();
+        }
+
         private void ShowCountryListDialog(EditText editText)
         {
             codeEditText = editText;
