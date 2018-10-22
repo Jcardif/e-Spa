@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Android.Content;
+﻿using Android.Content;
 using Android.Gms.Tasks;
 using Android.OS;
 using Android.Support.Design.Widget;
@@ -15,10 +13,8 @@ using e_SpaMobileApp.Models;
 using e_SpaMobileApp.ServiceModels;
 using Firebase;
 using Firebase.Auth;
-using Java.Lang;
 using Java.Util.Concurrent;
 using Newtonsoft.Json;
-using Plugin.Connectivity;
 using Plugin.CurrentActivity;
 using static e_SpaMobileApp.ExtensionsAndHelpers.FirebaseHelpers;
 
