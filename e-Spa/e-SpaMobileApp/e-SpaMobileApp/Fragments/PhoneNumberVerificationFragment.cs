@@ -26,6 +26,7 @@ namespace e_SpaMobileApp.Fragments
 {
     public class PhoneNumberVerificationFragment : Fragment, IOnSingInCallbacks, IOnCompleteListener
     {
+        private string _verificationId;
         private TextInputEditText _textInputEditText1,
             _textInputEditText2,
             _textInputEditText3,
@@ -110,6 +111,8 @@ namespace e_SpaMobileApp.Fragments
                     case Resource.Id.textInputEditText6:
                         _textInputEditText5.RequestFocus();
                         break;
+                    default:
+                        return;
                 }
             }
             else
@@ -133,7 +136,10 @@ namespace e_SpaMobileApp.Fragments
                         _textInputEditText6.RequestFocus();
                         break;
                     case Resource.Id.textInputEditText6 when !string.IsNullOrEmpty(edtTxt.Text):
-                        VerifySentCode();
+                        var verificationCode = string.Concat(_textInputEditText1.Text, _textInputEditText2.Text,
+                            _textInputEditText3.Text, _textInputEditText4.Text, _textInputEditText5.Text,
+                            _textInputEditText6.Text);
+                        VerifySentCode(verificationCode);
                         break;
                 }
             }
@@ -150,9 +156,10 @@ namespace e_SpaMobileApp.Fragments
                 callbacks);
         }
 
-        private void VerifySentCode()
+        private void VerifySentCode(string verificationCode)
         {
-            throw new NotImplementedException();
+            var credential = PhoneAuthProvider.GetCredential(_verificationId, verificationCode);
+            OnVerificationCompleted(credential);
         }
 
 
@@ -190,8 +197,10 @@ namespace e_SpaMobileApp.Fragments
                 .Commit();
         }
 
-        public void OnCodeSent()
+        public void OnCodeSent(string verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken)
         {
+            Toast.MakeText(Context.ApplicationContext,"Sent",ToastLength.Long).Show();
+            _verificationId = verificationId;
             _resendCodeTxtView.Enabled = false;
         }
 
@@ -216,9 +225,11 @@ namespace e_SpaMobileApp.Fragments
             _resendCodeTxtView.Enabled = true;
         }
 
-        public async void OnComplete(Task p0)
+        public async void OnComplete(Task task)
         {
-            if (_userInfo == null)
+            if(task.IsSuccessful)
+            {
+                if (_userInfo == null)
                 StartActivity(new Intent(Context.ApplicationContext, typeof(MainActivity)));
             else
             {
@@ -245,6 +256,19 @@ namespace e_SpaMobileApp.Fragments
 
                     //TODO Remove From Backstack
                 
+            }}
+            else
+            {
+                var exception = task.Exception;
+                switch (exception)
+                {
+                    case FirebaseAuthInvalidCredentialsException _:
+                        Toast.MakeText(Context.ApplicationContext, "The verification code entered was invalid", ToastLength.Long).Show();
+                        break;
+                    default:
+                        Toast.MakeText(Context.ApplicationContext,exception.Message,ToastLength.Long).Show();
+                        break;
+                }
             }
         }
     }

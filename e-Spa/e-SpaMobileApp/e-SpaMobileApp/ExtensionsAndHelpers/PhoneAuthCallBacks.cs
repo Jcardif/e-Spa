@@ -37,7 +37,7 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
             base.OnCodeSent(verificationId, forceResendingToken);
             _verificationId = verificationId;
             _token = forceResendingToken;
-            _singInCallbacks.OnCodeSent();
+            _singInCallbacks.OnCodeSent(verificationId,forceResendingToken);
         }
 
         public override void OnCodeAutoRetrievalTimeOut(string verificationId)
