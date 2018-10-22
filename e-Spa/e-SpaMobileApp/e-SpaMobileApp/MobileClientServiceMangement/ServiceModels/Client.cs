@@ -19,7 +19,7 @@ namespace e_SpaMobileApp.ServiceModels
         public string ProfilePhotoUrl { get; set; }
         [Display(Name = "Residence"), Required(AllowEmptyStrings = false, ErrorMessage = "Residence Cannot be Empty"), DisplayOptions(ImageSource = Resource.Drawable.ic_location_city_white_24dp)]
         public string Residence { get; set; }
-        [Display(Name = "Phone Number(eg 712345678)"), Required(AllowEmptyStrings = false, ErrorMessage = "Phone Number Cannot be Empty"), StringLength(10, ErrorMessage = "Enter a valid Phone Number"), DisplayOptions(ImageSource = Resource.Drawable.ic_phone_white_24dp)]
+        [Display(Name = "Phone Number(eg 712345678)"), Required(AllowEmptyStrings = false, ErrorMessage = "Phone Number Cannot be Empty"), StringLength(13, ErrorMessage = "Enter a valid Phone Number"), DisplayOptions(ImageSource = Resource.Drawable.ic_phone_white_24dp)]
         public string PhoneNumber { get; set; }
 
         [Version, Display(AutoGenerateField = false)] public string AzureVersion { get; set; }

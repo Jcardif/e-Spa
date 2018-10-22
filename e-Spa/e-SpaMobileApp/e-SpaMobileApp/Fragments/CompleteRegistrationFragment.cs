@@ -78,7 +78,7 @@ namespace e_SpaMobileApp.Fragments
             //!  Handle button Soft Keyboard
             // TODO: Find a more effective way to do this
             //! Already did
-            activity.Window.SetSoftInputMode(SoftInput.AdjustPan);
+            activity.Window.SetSoftInputMode(SoftInput.MaskAdjust);
 
             //! select image an load into circle image view
             _fab.Click += (s, e) =>
