@@ -142,14 +142,11 @@ namespace e_SpaMobileApp.Fragments
         private void ShowCountryListDialog(EditText editText)
         {
             codeEditText = editText;
-            Activity.RunOnUiThread(() =>
-            {
                 var builder = new CountryPicker.Builder()
                     .With(CrossCurrentActivity.Current.Activity)
                     .Listener(this);
                 var picker = builder.Build();
                 picker.ShowDialog(FragmentManager);
-            });
            
         }
         private void SfCheckbox_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
@@ -231,7 +228,7 @@ namespace e_SpaMobileApp.Fragments
                                     .Commit();
                             }))
                             .Create();
-                        alertDialogBuilder.Window.SetLayout(1000,750);
+                        alertDialogBuilder.Window.SetLayout(1000,450);
                         alertDialogBuilder.Show();
                     }
                 }
