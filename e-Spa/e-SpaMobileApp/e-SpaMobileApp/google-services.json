@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "115705939832",
-    "firebase_url": "https://e-spa18.firebaseio.com",
-    "project_id": "e-spa18",
-    "storage_bucket": "e-spa18.appspot.com"
+    "project_number": "832243837740",
+    "firebase_url": "https://e-spa001.firebaseio.com",
+    "project_id": "e-spa001",
+    "storage_bucket": "e-spa001.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:115705939832:android:27a1d64e2e62dc66",
+        "mobilesdk_app_id": "1:832243837740:android:a03bf1eaae417d17",
         "android_client_info": {
-          "package_name": "com.StandwakTech.e_Spa"
+          "package_name": "com.StandwakTech.e_spa"
         }
       },
       "oauth_client": [
         {
-          "client_id": "115705939832-kjs7em182ulslsf23iu77hm9chou54mk.apps.googleusercontent.com",
+          "client_id": "832243837740-ige9ntglhiprae5f20mbdlmkeln38bl5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.StandwakTech.e_Spa",
-            "certificate_hash": "462e2f11fdff37276b71b4d3b7407901c710c3eb"
+            "package_name": "com.StandwakTech.e_spa",
+            "certificate_hash": "2cd4573ea11904f865aaff1ab6a8f1addfabfc9d"
           }
         },
         {
-          "client_id": "115705939832-07og6q3tec9fft5ndj2i5i1mkb7tmqk5.apps.googleusercontent.com",
+          "client_id": "832243837740-iklne9smv2cus7qpf082c0koc6b9f2ca.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCD_x5XSutZ1QRquCNKKA9O5oUCBn7n52M"
+          "current_key": "AIzaSyCMPWmDJ0P1LTM5PbK3M0R3V4_ZXtNNc-w"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "115705939832-07og6q3tec9fft5ndj2i5i1mkb7tmqk5.apps.googleusercontent.com",
+              "client_id": "832243837740-iklne9smv2cus7qpf082c0koc6b9f2ca.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

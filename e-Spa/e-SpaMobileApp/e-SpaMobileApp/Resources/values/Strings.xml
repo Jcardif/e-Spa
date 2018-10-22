@@ -24,10 +24,6 @@
   <string name="password">Password</string>
   <string name="log_in">Log In</string>
   <string name="create_account">Create Account</string>
-  <string name="forgot_password">Forgot Password?</string>
-  <string name="google">Google</string>
-  <string name="facebook">Facebook</string>
-  <string name="register_with_social_networks">Register with Social Networks</string>
   <string name="email">E-Mail</string>
   <string name="firstName">First Name</string>
   <string name="lastName">LastName</string>
@@ -37,6 +33,7 @@
   <string name="privacy_policy">Privacy Policy</string>
   <string name="create_salon_profile">Create salon Profile</string>
   <string name="complete_registration">Complete Registration</string>
+  <string name="resend_code">Resend Code</string>
 
   <string name="trends_title">Title Goes Here</string>
   <string name="trend_description">This is what you share, sth new sth trendy sth others may want to know about. Pin it here get up votes and get featured on the app </string>

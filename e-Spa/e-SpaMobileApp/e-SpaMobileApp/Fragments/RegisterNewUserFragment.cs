@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -40,11 +41,11 @@ namespace e_SpaMobileApp.Fragments
         private SfDataForm dataForm2;
         private SfDataForm dataForm3;
         private SfCheckBox sfCheckbox;
-        private EditText edtTxt;
         private UserInfo userInfo;
         private PhoneInfo phoneInfo;
         private Client client;
         private bool isChecked;
+        private static EditText codeEditText;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -68,7 +69,7 @@ namespace e_SpaMobileApp.Fragments
             dataForm.Id = View.GenerateViewId();
             userInfo = new UserInfo();
             dataForm.DataObject = userInfo;
-            dataForm.LayoutManager = new DataFormLayoutManagerExt(dataForm,1);
+            dataForm.LayoutManager = new DataFormLayoutManagerExt(dataForm);
             dataForm.LabelPosition = LabelPosition.Top;
             dataForm.ValidationMode = ValidationMode.LostFocus;
             dataForm.CommitMode = CommitMode.LostFocus;
@@ -80,20 +81,10 @@ namespace e_SpaMobileApp.Fragments
             edtParams.LeftMargin = 48;
             edtParams.Height = ViewGroup.LayoutParams.WrapContent;
 
-            edtTxt = new EditText(Context.ApplicationContext);
-            edtTxt.Id = View.GenerateViewId();
-            edtTxt.Hint = "Code";
-            edtTxt.SetHintTextColor(Color.White);
-            edtTxt.Focusable = false;
-            edtTxt.Id = View.GenerateViewId();
-            edtTxt.SetTextColor(Color.White);
-            edtTxt.SetMaxLines(1);
-            edtTxt.Gravity = GravityFlags.Top;
-            view.AddView(edtTxt, edtParams);
+            
 
             var dataForm2Params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
             dataForm2Params.AddRule(LayoutRules.Below, dataForm.Id);
-            dataForm2Params.AddRule(LayoutRules.RightOf, edtTxt.Id);
             dataForm2Params.Width = ViewGroup.LayoutParams.MatchParent;
             dataForm2Params.RightMargin = 48;
             dataForm2Params.Height = ViewGroup.LayoutParams.WrapContent;
@@ -101,10 +92,10 @@ namespace e_SpaMobileApp.Fragments
             dataForm2 = new SfDataForm(Context.ApplicationContext);
             phoneInfo = new PhoneInfo();
             dataForm2.DataObject = phoneInfo;
-            dataForm2.LayoutManager = new DataFormLayoutManagerExt(dataForm2,1);
+            dataForm2.ColumnCount = 4;
+            dataForm2.LayoutManager = new DataFormLayoutManagerExt(dataForm2, ShowCountryListDialog);
             dataForm2.LabelPosition = LabelPosition.Top;
             dataForm2.Id = View.GenerateViewId();
-            dataForm2.RegisterEditor("PhoneNumber", "Text");
             dataForm2.ValidationMode = ValidationMode.LostFocus;
             dataForm2.CommitMode = CommitMode.LostFocus;
             view.AddView(dataForm2, dataForm2Params);
@@ -131,44 +122,36 @@ namespace e_SpaMobileApp.Fragments
             sfCheckboxParams.SetMargins(6, 4, 2, 2);
 
 
-         //   sfCheckbox = new SfCheckBox(Context.ApplicationContext);
-            var sfCheckbox = new CheckBox(Context.ApplicationContext);
+            sfCheckbox = new SfCheckBox(Context.ApplicationContext);
             int[][] states = { new[] { Android.Resource.Attribute.StateChecked }, new[] { -Android.Resource.Attribute.StateChecked } };
             int[] colors = { Color.Purple, Color.White };
             sfCheckbox.Checked = false;
             sfCheckbox.Text = "I Accept the terms of use of the Application";
             sfCheckbox.TextSize = 10;
-            //sfCheckbox.CornerRadius = 5.0f;
+            sfCheckbox.CornerRadius = 5.0f;
             sfCheckbox.SetTextColor(Color.White);
-            // sfCheckbox.ButtonTintList = new ColorStateList(states, colors);
+            sfCheckbox.ButtonTintList = new ColorStateList(states, colors);
             sfCheckbox.CheckedChange += SfCheckbox_CheckedChange;
             view.AddView(sfCheckbox, sfCheckboxParams);
 
-
-            edtTxt.Click += (s, e) => { GetCountryCode(); };
+            
             txtView.Click += TxtView_Click;
             return view;
         }
 
+        private void ShowCountryListDialog(EditText editText)
+        {
+            codeEditText = editText;
+                var builder = new CountryPicker.Builder()
+                    .With(CrossCurrentActivity.Current.Activity)
+                    .Listener(this);
+                var picker = builder.Build();
+                picker.ShowDialog(FragmentManager);
+           
+        }
         private void SfCheckbox_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)
         {
-            if (e.IsChecked)
-                isChecked = true;
-        }
-
-        private void SfCheckbox_StateChanged(object sender, StateChangedEventArgs e)
-        {
-            if (e.IsChecked.HasValue && e.IsChecked.Value)
-                isChecked = true;
-        }
-
-        private void GetCountryCode()
-        {
-            var builder = new CountryPicker.Builder()
-                .With(Context.ApplicationContext)
-                .Listener(this);
-            var picker = builder.Build();
-            picker.ShowDialog(FragmentManager);
+            isChecked = e.IsChecked;
         }
 
 
@@ -206,8 +189,9 @@ namespace e_SpaMobileApp.Fragments
 
                     var phoneNumber = string.Concat(phoneInfo.CountryCode, phoneInfo.PhoneNumber);
                     var httpClient = new HttpClient();
-                    var response = await httpClient.GetAsync(
-                        $"https://e-spafunc.azurewebsites.net/api/UserExistence?code=nmiRKDPhdRQRteTlJTy97pyr213nx8KWgKxqCxq6CYINniEpg0RsSg==&phoneNo={phoneNumber}");
+                    var funcUri =
+                        $"https://e-spafunctions.azurewebsites.net/api/UserExistence?code=FvvkqYX9HQxJsr4AliXfv6jqZ3uttw8wzUNezzKiXHowx4EwUVdqdQ==&phoneNo={phoneNumber}";
+                    var response = await httpClient.GetAsync(funcUri);
 
                     alertDialog.Cancel();
 
@@ -230,19 +214,31 @@ namespace e_SpaMobileApp.Fragments
                         bundle.PutString("userInfo", usInfo);
                         fragment.Arguments = bundle;
 
-                        var transaction = FragmentManager.BeginTransaction();
-                        transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
-                            .Replace(Resource.Id.authorizationContainer, fragment)
-                            .AddToBackStack(null)
-                            .Commit();
+
+                        var alertDialogBuilder = new AlertDialog.Builder(CrossCurrentActivity.Current.Activity,Resource.Style.AppTheme)
+                            .SetTitle("Phone Number Verification")
+                            .SetMessage($"We shall be verifying the phone Number {string.Concat(phoneInfo.CountryCode,phoneInfo.PhoneNumber)} by sending an SMS with a verification Code. Press Yes to continue or No modify the Phone Number")
+                            .SetNegativeButton("No", (s, arg) => {Dispose();})
+                            .SetPositiveButton("Yes",((s, args) =>
+                            {
+                                var transaction = FragmentManager.BeginTransaction();
+                                transaction.SetCustomAnimations(Resource.Animation.anim_enter, Resource.Animation.anim_exit)
+                                    .Replace(Resource.Id.authorizationContainer, fragment)
+                                    .AddToBackStack("RegisterNewUser")
+                                    .Commit();
+                            }))
+                            .Create();
+                        alertDialogBuilder.Window.SetLayout(1000,450);
+                        alertDialogBuilder.Show();
                     }
                 }
             }
         }
+
         public void OnSelectCountry(Country country)
         {
-            phoneInfo.CountryCode = country.DialCode;
-            edtTxt.Text = phoneInfo.CountryCode;
+            codeEditText.Text = country.DialCode;
+            codeEditText.ClearFocus();
         }
     }
 }

@@ -35,5 +35,19 @@
     <item name="android:windowBackground">@drawable/SplashScreen</item>
     <item name="windowNoTitle">true</item>
   </style>
+  
+  <!--Bottom sheet style-->
+  <style name="SoarcnBottomSheet" parent="BottomSheet.StyleDialog"></style>
+  <style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">
+    <item name="android:backgroundDimAmount">0.5</item>
+    <item name="android:windowAnimationStyle">@style/BottomSheet.Animation</item>
+    <item name="android:textColorPrimary">#DD000000</item>
+    <item name="android:textColorSecondary">#8A000000</item>
+    <item name="android:textColorHint">#42000000</item>
+    <item name="bs_dialogBackground">@color/primaryGrey</item>
+    <item name="bs_dividerColor">#ffffff</item>
+    <item name="bs_numColumns">3</item>
+    <!--<item name="bs_listStyle">@style/BottomSheet.StyleList</item>-->
+  </style>
 
 </resources>

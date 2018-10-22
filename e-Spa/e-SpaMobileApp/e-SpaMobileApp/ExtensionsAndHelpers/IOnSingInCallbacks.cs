@@ -1,8 +1,13 @@
-﻿namespace e_SpaMobileApp.ExtensionsAndHelpers
+﻿using Firebase;
+using Firebase.Auth;
+
+namespace e_SpaMobileApp.ExtensionsAndHelpers
 {
     public interface IOnSingInCallbacks
     {
-        void OnSignInSuccess(bool isSuccess);
-        void OnCodeSent();
+        void OnVerificationCompleted(PhoneAuthCredential credential);
+        void OnCodeSent(string verificationId, PhoneAuthProvider.ForceResendingToken forceResendingToken);
+        void OnVerificationFailed(FirebaseException exception);
+        void OnCodeAutoRetrivalTimeOut();
     }
 }

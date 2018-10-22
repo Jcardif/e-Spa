@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.Gms.Tasks;
+using Android.Widget;
 using Firebase;
 using Firebase.Auth;
 using static e_SpaMobileApp.ExtensionsAndHelpers.FirebaseHelpers;
@@ -7,7 +8,7 @@ using static  Firebase.Auth.PhoneAuthProvider;
 
 namespace e_SpaMobileApp.ExtensionsAndHelpers
 {
-    public class PhoneAuthCallBacks : OnVerificationStateChangedCallbacks, IOnCompleteListener
+    public class PhoneAuthCallBacks : OnVerificationStateChangedCallbacks
     {
         private IOnSingInCallbacks _singInCallbacks;
         private string _verificationId;
@@ -19,29 +20,31 @@ namespace e_SpaMobileApp.ExtensionsAndHelpers
             _singInCallbacks = singInCallbacks;
         }
 
+        
         public override void OnVerificationCompleted(PhoneAuthCredential credential)
         {
-            _auth.SignInWithCredential(credential)
-                .AddOnCompleteListener(this);
+            _singInCallbacks.OnVerificationCompleted(credential);
         }
 
         public override void OnVerificationFailed(FirebaseException exception)
         {
-            throw new NotImplementedException();
+            _singInCallbacks.OnVerificationFailed(exception);
         }
-
-        public void OnComplete(Task task)
-        {
-            if(task.IsSuccessful)
-                _singInCallbacks.OnSignInSuccess(true);
-        }
+        
 
         public override void OnCodeSent(string verificationId, ForceResendingToken forceResendingToken)
         {
             base.OnCodeSent(verificationId, forceResendingToken);
             _verificationId = verificationId;
             _token = forceResendingToken;
-            _singInCallbacks.OnCodeSent();
+            _singInCallbacks.OnCodeSent(verificationId,forceResendingToken);
         }
+
+        public override void OnCodeAutoRetrievalTimeOut(string verificationId)
+        {
+            base.OnCodeAutoRetrievalTimeOut(verificationId);
+            _singInCallbacks.OnCodeAutoRetrivalTimeOut();
+        }
+        
     }
 }

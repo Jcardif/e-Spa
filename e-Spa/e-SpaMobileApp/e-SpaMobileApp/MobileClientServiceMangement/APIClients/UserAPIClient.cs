@@ -26,18 +26,19 @@ namespace e_SpaMobileApp.APIClients
             }
         }
 
-        public async Task<List<Client>> GetClientsAsync()
-        {
-            await Initialise();
-            return await clientTable.OrderBy(c => c.FirstName).ToListAsync();
-        }
-
         public async Task<Client> AddClientAsync(Client client)
         {
             await Initialise();
             await clientTable.InsertAsync(client);
             await SyncClient();
             return client;
+        }
+
+        public async Task UpdateClient(Client client)
+        {
+            await Initialise();
+            await clientTable.UpdateAsync(client);
+            await SyncClient();
         }
     }
 }
