@@ -9,15 +9,16 @@ using FunctionApp.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace FunctionApp
 {
     public static class UserExistence
     {
         [FunctionName("UserExistence")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequestMessage req, ILogger log)
         {
-            log.Info("UserExistence function processed a request.");
+            log.LogInformation("UserExistence function processed a request.");
             var connectionString = ConfigurationManager.ConnectionStrings["DataConnectionString"].ConnectionString;
             using (var conn = new SqlConnection(connectionString))
             {
@@ -33,7 +34,7 @@ namespace FunctionApp
                     phoneNo = data?.phoneNo;
                     if (phoneNo==null)
                     {
-                        log.Info("Phone Number not valid");
+                        log.LogInformation("Phone Number not valid");
                         return req.CreateResponse(HttpStatusCode.BadRequest, "Pass a valid phone number");
                     }
                 }
@@ -54,25 +55,25 @@ namespace FunctionApp
                         client.ProfilePhotoUrl = reader.GetString(4);
                         client.Residence = reader.GetString(5);
 
-                        log.Info($"User found as{client.FirstName} {client.LastName}");
+                        log.LogInformation($"User found as{client.FirstName} {client.LastName}");
                         return req.CreateResponse(HttpStatusCode.OK, client);
                     }
                     else
                     {
-                        log.Info("User not Found");
+                        log.LogInformation("User not Found");
                         return req.CreateResponse<Client>(HttpStatusCode.NotFound, null);
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    log.Info("$The following Exception happened: {ex.Message}");
+                    log.LogInformation("$The following Exception happened: {ex.Message}");
                     return req.CreateResponse(HttpStatusCode.BadRequest,
                         $"The following Exception happened: {ex.Message}");
                 }
                 finally
                 {
-                    log.Info("Completed");
+                    log.LogInformation("Completed");
                     conn.Close();
                 }
             }

@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "DataConnectionString": "Data Source=tcp:e-spa.database.windows.net,1433;Initial Catalog=e-SpaDb;User ID=Josh;Password=JNScap1207@jc",
+    "BlobConnectionSstring": "DefaultEndpointsProtocol=https;AccountName=espa18storage;AccountKey=ig9TWpb2nIM6YExoHwxXD0qHmbFSRPETxsdE6uJEdm8pYMWLmFQvjbFh3HNdex5BppPGNsixe+oIaBfqUS2XBg==;EndpointSuffix=core.windows.net"
+  }
+}
