@@ -175,9 +175,6 @@
     <PackageReference Include="Cocosw.BottomSheet.Xamarin.Android">
       <Version>1.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Glide.Xamarin">
-      <Version>4.1.1</Version>
-    </PackageReference>
     <PackageReference Include="Karamunting.Android.MukeshSolanki.CountryPickerAndroid">
       <Version>1.2.4</Version>
     </PackageReference>
@@ -198,6 +195,9 @@
     </PackageReference>
     <PackageReference Include="Refractored.Controls.CircleImageView">
       <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Square.Picasso">
+      <Version>2.5.2.1</Version>
     </PackageReference>
     <PackageReference Include="System.Configuration.ConfigurationManager">
       <Version>4.5.0</Version>
