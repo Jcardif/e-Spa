@@ -216,7 +216,7 @@ namespace e_SpaMobileApp.Fragments
             _client.ProfilePhotoUrl = uri;
             var token = "";
 
-
+            
             var response = new HttpClient().GetAsync(
                 "https://e-spafunctions.azurewebsites.net/api/GenerateBlobStorageSas?code=AwY0HVt1H13fCEX3Qy4vIeIgFjHNjFE72FPqwAlRXQlVE0BrfeFgdg==&containerName=espa-clients-profle-images-sm");
             if (response.Result.StatusCode == HttpStatusCode.OK)

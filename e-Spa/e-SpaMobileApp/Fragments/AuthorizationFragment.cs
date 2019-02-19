@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using Com.Mukesh.CountryPickerLib;
+using Com.Mukesh.CountryPickerLib.Listeners;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Models;
 using Microsoft.AppCenter;
@@ -146,7 +147,7 @@ namespace e_SpaMobileApp.Fragments
                     .With(CrossCurrentActivity.Current.Activity)
                     .Listener(this);
                 var picker = builder.Build();
-                picker.ShowDialog(FragmentManager);
+                picker.ShowDialog(CrossCurrentActivity.Current.Activity);
             });
 
         }

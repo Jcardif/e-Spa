@@ -48,6 +48,11 @@ namespace e_SpaMobileApp.Activities
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            // This MobileServiceClient has been configured to communicate with the Azure Mobile App and
+            // Azure Gateway using the application url. You're all set to start working with your Mobile App!
+            Microsoft.WindowsAzure.MobileServices.MobileServiceClient e_SpaClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+            "https://e-spa.azurewebsites.net");
             AppCenter.Start("721391dd-e2f0-40be-b57a-55581909179b", typeof(Analytics), typeof(Crashes));
             SetContentView(Resource.Layout.activity_main);
 
