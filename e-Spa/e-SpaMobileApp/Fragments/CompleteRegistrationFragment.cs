@@ -54,7 +54,7 @@ namespace e_SpaMobileApp.Fragments
             fullName.LastName = _client.LastName;
 
             Picasso.With(Context.ApplicationContext)
-                .IndicatorsEnabled = true;
+                .SetIndicatorsEnabled(true);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
