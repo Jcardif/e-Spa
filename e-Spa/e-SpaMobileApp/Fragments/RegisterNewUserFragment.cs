@@ -18,6 +18,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Com.Mukesh.CountryPickerLib;
+using Com.Mukesh.CountryPickerLib.Listeners;
 using Com.Syncfusion.Sfbusyindicator;
 using Com.Syncfusion.Sfbusyindicator.Enums;
 using e_SpaMobileApp.ExtensionsAndHelpers;
@@ -146,7 +147,7 @@ namespace e_SpaMobileApp.Fragments
                     .With(CrossCurrentActivity.Current.Activity)
                     .Listener(this);
                 var picker = builder.Build();
-                picker.ShowDialog(FragmentManager);
+                picker.ShowDialog(CrossCurrentActivity.Current.Activity);
            
         }
         private void SfCheckbox_CheckedChange(object sender, CompoundButton.CheckedChangeEventArgs e)

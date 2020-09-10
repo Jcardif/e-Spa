@@ -5,14 +5,18 @@ using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.Models;
 using e_SpaMobileApp.ViewHolders;
+using Java.Lang;
 using Refractored.Controls;
+using Square.Picasso;
 
 namespace e_SpaMobileApp.Adapters
 {
-    public class SalonsRecyclerViewAdapter : RecyclerView.Adapter
+    public class SalonsRecyclerViewAdapter : RecyclerView.Adapter, ICallback
     {
         private Context _context;
         private readonly List<MySalon> _salons;
+        private RecyclerView.ViewHolder _holder;
+        private int _position;
 
         public SalonsRecyclerViewAdapter(Context context, List<MySalon> salons)
         {
@@ -24,12 +28,24 @@ namespace e_SpaMobileApp.Adapters
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
+            _holder = holder;
+            _position = position;
+            CustomBindViewHolder(holder, position);
+        }
+
+        private void CustomBindViewHolder(RecyclerView.ViewHolder holder, int position)
+        {
             if (holder is SalonsRecyclerViewHolder vh)
             {
                 vh.SalonName.Text = _salons[position].SalonName;
                 vh.SalonManager.Text = _salons[position].SalonManager;
                 vh.Location.Text = _salons[position].Location;
                 vh.PhoneNo.Text = _salons[position].PhoneNumber;
+
+                Picasso.With(_context)
+                    .Load(_salons[position].SalonProfilePicUrl)
+                    .NetworkPolicy(NetworkPolicy.Offline)
+                    .Into(vh.SalonProfilePic, this);
             }
         }
 
@@ -51,6 +67,24 @@ namespace e_SpaMobileApp.Adapters
                 SalonName = salonNameTxtView
             };
             return viewHolder;
+        }
+
+        public void OnError()
+        {
+            Picasso.With(_context)
+                    .Load(_salons[_position].SalonProfilePicUrl)
+                    .Fetch();
+            OnBindViewHolder(_holder,_position);
+        }
+
+        public void OnError(Exception p0)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OnSuccess()
+        {
+            
         }
     }
 }

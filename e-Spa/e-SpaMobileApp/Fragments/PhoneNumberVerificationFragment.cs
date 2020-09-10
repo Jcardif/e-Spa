@@ -86,6 +86,7 @@ namespace e_SpaMobileApp.Fragments
         private void _textInputEditText_TextChanged(object sender, TextChangedEventArgs e)
         {
             var edtTxt = (EditText) sender;
+            if(!edtTxt.HasFocus)return;
             if (e.AfterCount==0)
             {
                 switch (edtTxt.Id)

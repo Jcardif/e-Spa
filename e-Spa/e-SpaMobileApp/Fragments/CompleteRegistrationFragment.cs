@@ -8,9 +8,6 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Cocosw.BottomSheetActions;
-using Com.Bumptech.Glide;
-using Com.Bumptech.Glide.Load.Engine;
-using Com.Bumptech.Glide.Request;
 using e_SpaMobileApp.Activities;
 using e_SpaMobileApp.APIClients;
 using e_SpaMobileApp.ExtensionsAndHelpers;
@@ -23,15 +20,15 @@ using Plugin.CurrentActivity;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Refractored.Controls;
+using Square.Picasso;
 using Syncfusion.Android.DataForm;
 using Fragment = Android.Support.V4.App.Fragment;
-using IKey = Com.Bumptech.Glide.Load.IKey;
 using Permission = Android.Content.PM.Permission;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace e_SpaMobileApp.Fragments
 {
-    public class CompleteRegistrationFragment : Fragment, IDialogInterfaceOnClickListener
+    public class CompleteRegistrationFragment : Fragment, IDialogInterfaceOnClickListener, ICallback
     {
         private Client _client=new Client();
         FullName fullName=new FullName();
@@ -43,6 +40,7 @@ namespace e_SpaMobileApp.Fragments
         private SfDataForm _sfDataForm;
         private SfDataForm _sfDataForm2;
         private ProgressBar _progressBar;
+        private string _final;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -54,6 +52,9 @@ namespace e_SpaMobileApp.Fragments
                 _client.ProfilePhotoUrl = null;
             fullName.FirstName = _client.FirstName;
             fullName.LastName = _client.LastName;
+
+            Picasso.With(Context.ApplicationContext)
+                .SetIndicatorsEnabled(true);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -77,7 +78,7 @@ namespace e_SpaMobileApp.Fragments
             //!  Handle button Soft Keyboard
             // TODO: Find a more effective way to do this
             //! Already did
-            activity.Window.SetSoftInputMode(SoftInput.AdjustPan);
+            activity.Window.SetSoftInputMode(SoftInput.MaskAdjust);
 
             //! select image an load into circle image view
             _fab.Click += (s, e) =>
@@ -215,7 +216,7 @@ namespace e_SpaMobileApp.Fragments
             _client.ProfilePhotoUrl = uri;
             var token = "";
 
-
+            
             var response = new HttpClient().GetAsync(
                 "https://e-spafunctions.azurewebsites.net/api/GenerateBlobStorageSas?code=AwY0HVt1H13fCEX3Qy4vIeIgFjHNjFE72FPqwAlRXQlVE0BrfeFgdg==&containerName=espa-clients-profle-images-sm");
             if (response.Result.StatusCode == HttpStatusCode.OK)
@@ -227,17 +228,34 @@ namespace e_SpaMobileApp.Fragments
                 Toast.MakeText(Context.ApplicationContext, "An Error Occured", ToastLength.Short).Show();
             }
 
-            var final = uri + token;
-            Glide.With(Context.ApplicationContext)
-                .Load(final)
-                .Into(_profilePicImgView);
-            _progressBar.Visibility = ViewStates.Invisible;
+            _final = uri + token;
+
+            Picasso.With(Context.ApplicationContext)
+                .Load(_final)
+                .Fetch(this);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
-            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+          //  Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
+        public void OnError()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(Java.Lang.Exception p0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnSuccess()
+        {
+            Picasso.With(Context.ApplicationContext)
+                .Load(_final)
+                .Into(_profilePicImgView);
+            _progressBar.Visibility = ViewStates.Invisible;
+        }
     }
 }

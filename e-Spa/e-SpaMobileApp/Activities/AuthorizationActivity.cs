@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
+using Android.Views;
 using e_SpaMobileApp.ExtensionsAndHelpers;
 using e_SpaMobileApp.Fragments;
 using Firebase.Auth;
@@ -15,7 +16,7 @@ using Fragment=Android.Support.V4.App.Fragment;
 
 namespace e_SpaMobileApp.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/app_name", Theme = "@style/LogInTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait, WindowSoftInputMode = SoftInput.StateHidden)]
     public class AuthorizationActivity : AppCompatActivity
     {
         private  Fragment _fragment;
@@ -33,15 +34,18 @@ namespace e_SpaMobileApp.Activities
 
         private void LoadFragment()
         {
-            _fragment = new PhoneNumberVerificationFragment();
+            _fragment = new CompleteRegistrationFragment();
             _transaction = SupportFragmentManager.BeginTransaction();
             _transaction.Replace(Resource.Id.authorizationContainer, _fragment)
             .Commit();
         }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+        //public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+        //{
+        //    Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        //}
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
-            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-
     }
 }
