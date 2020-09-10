@@ -237,10 +237,15 @@ namespace e_SpaMobileApp.Fragments
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
-            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+          //  Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         public void OnError()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(Java.Lang.Exception p0)
         {
             throw new NotImplementedException();
         }

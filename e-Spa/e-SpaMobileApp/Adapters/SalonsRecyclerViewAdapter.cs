@@ -5,6 +5,7 @@ using Android.Views;
 using Android.Widget;
 using e_SpaMobileApp.Models;
 using e_SpaMobileApp.ViewHolders;
+using Java.Lang;
 using Refractored.Controls;
 using Square.Picasso;
 
@@ -74,6 +75,11 @@ namespace e_SpaMobileApp.Adapters
                     .Load(_salons[_position].SalonProfilePicUrl)
                     .Fetch();
             OnBindViewHolder(_holder,_position);
+        }
+
+        public void OnError(Exception p0)
+        {
+            throw new System.NotImplementedException();
         }
 
         public void OnSuccess()
