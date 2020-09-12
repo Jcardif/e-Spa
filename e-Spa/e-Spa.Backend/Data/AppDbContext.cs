@@ -9,21 +9,46 @@ using Microsoft.EntityFrameworkCore;
 
 namespace e_Spa.Backend.Data
 {
+    /// <inheritdoc />
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, int>
     {
+        /// <inheritdoc />
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             
         }
 
+        /// <summary>
+        /// Represents Appointments Table in the Database
+        /// </summary>
         public DbSet<Appointment> Appointments { get; set; }
-        public DbSet<Review> Reviews { get; set; }
-        public DbSet<Salon> Salons { get; set; }
-        public DbSet<SalonClient> SalonClients { get; set; }
-        public DbSet<SalonManager> SalonManagers { get; set; }
-        public DbSet<SalonService> SalonServices { get; set; }
-        public DbSet<Service> Services { get; set; }
 
+        /// <summary>
+        /// Represents Reviews Table in the Database
+        /// </summary>
+        public DbSet<Review> Reviews { get; set; }
+
+        /// <summary>
+        /// Represents Salons Table in the Database
+        /// </summary>
+        public DbSet<Salon> Salons { get; set; }
+
+        /// <summary>
+        /// Represents SalonClients Table in the Database
+        /// </summary>
+        public DbSet<SalonClient> SalonClients { get; set; }
+
+        /// <summary>
+        /// Represents SalonManagers Table in the Database
+        /// </summary>
+        public DbSet<SalonManager> SalonManagers { get; set; }
+
+        /// <summary>
+        /// Represents SalonServices Table in the Database
+        /// </summary>
+        public DbSet<SalonService> SalonServices { get; set; }
+        
+        /// <inheritdoc />
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
