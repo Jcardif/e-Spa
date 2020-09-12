@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-SpaBackend", "e-SpaBackend\e-SpaBackend.csproj", "{BFD0C047-36F0-4111-B941-109E3F69407A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-Spa.Backend", "e-Spa.Backend\e-Spa.Backend.csproj", "{A98E4F9D-FB56-4E36-A1C4-BBF51BB5DD85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BFD0C047-36F0-4111-B941-109E3F69407A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFD0C047-36F0-4111-B941-109E3F69407A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFD0C047-36F0-4111-B941-109E3F69407A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFD0C047-36F0-4111-B941-109E3F69407A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A98E4F9D-FB56-4E36-A1C4-BBF51BB5DD85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A98E4F9D-FB56-4E36-A1C4-BBF51BB5DD85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A98E4F9D-FB56-4E36-A1C4-BBF51BB5DD85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A98E4F9D-FB56-4E36-A1C4-BBF51BB5DD85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
