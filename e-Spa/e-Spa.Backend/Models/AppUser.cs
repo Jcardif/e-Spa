@@ -12,31 +12,25 @@ namespace e_Spa.Backend.Models
         /// <summary>
         /// First Name of the User
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Last Name of the user
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string LastName { get; set; }
 
         /// <summary>
         /// Url of the Profile photo
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string ProfilePhotoUrl { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [JsonIgnore]
-        public virtual ICollection<SalonClient> SalonClients { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [JsonIgnore]
-        public virtual ICollection<SalonManager> SalonManagers { get; set; }
+        public virtual ICollection<Salon> Salons { get; set; }
     }
 }

@@ -18,20 +18,20 @@ namespace e_Spa.Backend.Models
         /// <summary>
         /// Review Info
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string Info { get; set; }
 
         /// <summary>
         /// Date review was updated or created
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string Date { get; set; }
 
         /// <summary>
-        /// Foreign Key for Table SalonClient
+        /// Name of the User that submitted the review
         /// </summary>
-        [ForeignKey(nameof(SalonClient))]
-        public int SalonClientId { get; set; }
+        [Required, Column(TypeName = "VARCHAR(64)")]
+        public string ReviewerName { get; set; }
 
         /// <summary>
         /// Foreign Key for Table Salon
@@ -44,12 +44,6 @@ namespace e_Spa.Backend.Models
         /// </summary>
         [JsonIgnore]
         public virtual Salon Salon { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [JsonIgnore]
-        public virtual SalonClient SalonClient { get; set; }
-
+        
     }
 }

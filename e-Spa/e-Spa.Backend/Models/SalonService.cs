@@ -19,13 +19,13 @@ namespace e_Spa.Backend.Models
         /// <summary>
         /// Image Url for the Salon Service
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string ImageUrl { get; set; }
 
         /// <summary>
         /// Description of the Service
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string Description { get; set; }
 
         /// <summary>

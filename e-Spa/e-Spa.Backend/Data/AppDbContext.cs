@@ -32,17 +32,7 @@ namespace e_Spa.Backend.Data
         /// Represents Salons Table in the Database
         /// </summary>
         public DbSet<Salon> Salons { get; set; }
-
-        /// <summary>
-        /// Represents SalonClients Table in the Database
-        /// </summary>
-        public DbSet<SalonClient> SalonClients { get; set; }
-
-        /// <summary>
-        /// Represents SalonManagers Table in the Database
-        /// </summary>
-        public DbSet<SalonManager> SalonManagers { get; set; }
-
+        
         /// <summary>
         /// Represents SalonServices Table in the Database
         /// </summary>

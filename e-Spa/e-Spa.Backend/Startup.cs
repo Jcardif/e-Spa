@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text.Json.Serialization;
+using e_Spa.Backend.Data;
+using e_Spa.Backend.Interfaces;
+using e_Spa.Backend.Models;
+using e_Spa.Backend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -39,6 +45,16 @@ namespace e_Spa.Backend
         public void ConfigureServices(IServiceCollection services)
         {
             var firebaseProjectId = Configuration["FirebaseProjectId"];
+
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration["ConnectionString"]);
+            });
+
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+
             services
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer("Firebase", options =>
@@ -71,6 +87,9 @@ namespace e_Spa.Backend
             services.AddControllers()
                 .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
             services.AddRazorPages();
+
+            services.AddScoped<IAppUserService, AppUserService>();
+            services.AddScoped<IAppRoleService, AppRoleService>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(options =>
@@ -121,6 +140,7 @@ namespace e_Spa.Backend
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 options.IncludeXmlComments(xmlPath);
             });
+
         }
 
 
@@ -129,7 +149,8 @@ namespace e_Spa.Backend
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        /// <param name="dbContext"></param>
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppDbContext dbContext)
         {
             if (env.IsDevelopment())
             {
@@ -147,6 +168,15 @@ namespace e_Spa.Backend
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
+
+            dbContext.Database.EnsureCreatedAsync();
+
+            var runMigration = Configuration["run"] ?? "false";
+
+            // Apply Migrations if true
+            if (runMigration == "true")
+                dbContext.Database.Migrate();
+
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

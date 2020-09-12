@@ -18,7 +18,7 @@ namespace e_Spa.Backend.Models
         /// <summary>
         /// Appointment Date
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string Date { get; set; }
 
         /// <summary>
@@ -28,10 +28,10 @@ namespace e_Spa.Backend.Models
         public int SalonServiceId { get; set; }
 
         /// <summary>
-        /// Foreign Key for Table SalonClient
+        /// Foreign Key for Table AppUser
         /// </summary>
-        [ForeignKey(nameof(SalonClient))]
-        public int SalonClientId { get; set; }
+        [ForeignKey(nameof(AppUser))]
+        public int AppUserId { get; set; }
 
         /// <summary>
         /// Foreign Key for Table Salon
@@ -55,6 +55,6 @@ namespace e_Spa.Backend.Models
         /// 
         /// </summary>
         [JsonIgnore]
-        public virtual SalonClient SalonClient { get; set; }
+        public virtual AppUser AppUser { get; set; }
     }
 }

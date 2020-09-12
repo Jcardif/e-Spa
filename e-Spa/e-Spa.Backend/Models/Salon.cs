@@ -19,49 +19,54 @@ namespace e_Spa.Backend.Models
         /// <summary>
         /// Info about the salon
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string Info { get; set; }
 
         /// <summary>
         /// Location of the salon in Longitude and Latitude e.g "45.9, 32.9"
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string Location{ get; set; }
 
         /// <summary>
         /// Url that point to an image of the salon
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string ImageUrl { get; set; }
 
         /// <summary>
         /// Name of the Salon
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string Name { get; set; }
 
         /// <summary>
         /// Rating of the Salon
         /// </summary>
         [Required, Column(TypeName = "INT")]
-        public int Rating { get; set; }
+        public double Rating { get; set; }
+
+        /// <summary>
+        /// Number of users that have rated the Salon
+        /// </summary>
+        public int RatingCount { get; set; }
 
         /// <summary>
         /// Time the salon opens
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string OpenTime { get; set; }
 
         /// <summary>
         /// Time the salon opens
         /// </summary>
-        [Required, Column(TypeName = "VARCHAR")]
+        [Required, Column(TypeName = "VARCHAR(64)")]
         public string CloseTime { get; set; }
 
         /// <summary>
         /// Foreign Key for Table SalonManager
         /// </summary>
-        [ForeignKey(nameof(SalonManager))]
+        [ForeignKey(nameof(AppUser))]
         public int SalonManagerId { get; set; }
 
         /// <summary>
@@ -80,7 +85,7 @@ namespace e_Spa.Backend.Models
         /// 
         /// </summary>
         [JsonIgnore]
-        public virtual SalonManager SalonManager { get; set; }
+        public virtual AppUser AppUser { get; set; }
 
         /// <summary>
         /// 
