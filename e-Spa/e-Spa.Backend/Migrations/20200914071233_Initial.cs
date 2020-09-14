@@ -3,8 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace e_Spa.Backend.Migrations
 {
+    /// <inheritdoc />
     public partial class Initial : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
@@ -80,27 +82,39 @@ namespace e_Spa.Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Salons",
+                name: "SalonClients",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Info = table.Column<string>(type: "VARCHAR(64)", nullable: false),
-                    Location = table.Column<string>(type: "VARCHAR(64)", nullable: false),
-                    ImageUrl = table.Column<string>(type: "VARCHAR(64)", nullable: false),
-                    Name = table.Column<string>(type: "VARCHAR(64)", nullable: false),
-                    Rating = table.Column<int>(type: "INT", nullable: false),
-                    RatingCount = table.Column<int>(nullable: false),
-                    OpenTime = table.Column<string>(type: "VARCHAR(64)", nullable: false),
-                    CloseTime = table.Column<string>(type: "VARCHAR(64)", nullable: false),
-                    SalonManagerId = table.Column<int>(nullable: false)
+                    AppUserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Salons", x => x.Id);
+                    table.PrimaryKey("PK_SalonClients", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Salons_AppUsers_SalonManagerId",
-                        column: x => x.SalonManagerId,
+                        name: "FK_SalonClients_AppUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalSchema: "Security",
+                        principalTable: "AppUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SalonManagers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AppUserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SalonManagers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SalonManagers_AppUsers_AppUserId",
+                        column: x => x.AppUserId,
                         principalSchema: "Security",
                         principalTable: "AppUsers",
                         principalColumn: "Id",
@@ -202,6 +216,33 @@ namespace e_Spa.Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Salons",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Info = table.Column<string>(type: "VARCHAR(64)", nullable: false),
+                    Location = table.Column<string>(type: "VARCHAR(64)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "VARCHAR(64)", nullable: false),
+                    Name = table.Column<string>(type: "VARCHAR(64)", nullable: false),
+                    Rating = table.Column<int>(type: "INT", nullable: false),
+                    RatingCount = table.Column<int>(nullable: false),
+                    OpenTime = table.Column<string>(type: "VARCHAR(64)", nullable: false),
+                    CloseTime = table.Column<string>(type: "VARCHAR(64)", nullable: false),
+                    SalonManagerId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Salons", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Salons_SalonManagers_SalonManagerId",
+                        column: x => x.SalonManagerId,
+                        principalTable: "SalonManagers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Reviews",
                 columns: table => new
                 {
@@ -209,14 +250,46 @@ namespace e_Spa.Backend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Info = table.Column<string>(type: "VARCHAR(64)", nullable: false),
                     Date = table.Column<string>(type: "VARCHAR(64)", nullable: false),
-                    ReviewerName = table.Column<string>(type: "VARCHAR(64)", nullable: false),
+                    SalonClientId = table.Column<int>(nullable: true),
                     SalonId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reviews", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Reviews_SalonClients_SalonClientId",
+                        column: x => x.SalonClientId,
+                        principalTable: "SalonClients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Reviews_Salons_SalonId",
+                        column: x => x.SalonId,
+                        principalTable: "Salons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SalonRating",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SalonClientId = table.Column<int>(nullable: true),
+                    SalonId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SalonRating", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SalonRating_SalonClients_SalonClientId",
+                        column: x => x.SalonClientId,
+                        principalTable: "SalonClients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_SalonRating_Salons_SalonId",
                         column: x => x.SalonId,
                         principalTable: "Salons",
                         principalColumn: "Id",
@@ -229,6 +302,7 @@ namespace e_Spa.Backend.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(type: "VARCHAR(64)", nullable: false),
                     Description = table.Column<string>(type: "VARCHAR(64)", nullable: false),
                     Price = table.Column<double>(type: "FLOAT", nullable: false),
@@ -253,18 +327,17 @@ namespace e_Spa.Backend.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<string>(type: "VARCHAR(64)", nullable: false),
-                    SalonServiceId = table.Column<int>(nullable: false),
-                    AppUserId = table.Column<int>(nullable: false),
-                    SalonId = table.Column<int>(nullable: false)
+                    SalonServiceId = table.Column<int>(nullable: true),
+                    SalonClientId = table.Column<int>(nullable: false),
+                    SalonId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Appointments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Appointments_AppUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalSchema: "Security",
-                        principalTable: "AppUsers",
+                        name: "FK_Appointments_SalonClients_SalonClientId",
+                        column: x => x.SalonClientId,
+                        principalTable: "SalonClients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -272,19 +345,19 @@ namespace e_Spa.Backend.Migrations
                         column: x => x.SalonId,
                         principalTable: "Salons",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Appointments_SalonServices_SalonServiceId",
                         column: x => x.SalonServiceId,
                         principalTable: "SalonServices",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Appointments_AppUserId",
+                name: "IX_Appointments_SalonClientId",
                 table: "Appointments",
-                column: "AppUserId");
+                column: "SalonClientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_SalonId",
@@ -297,8 +370,33 @@ namespace e_Spa.Backend.Migrations
                 column: "SalonServiceId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Reviews_SalonClientId",
+                table: "Reviews",
+                column: "SalonClientId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Reviews_SalonId",
                 table: "Reviews",
+                column: "SalonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SalonClients_AppUserId",
+                table: "SalonClients",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SalonManagers_AppUserId",
+                table: "SalonManagers",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SalonRating_SalonClientId",
+                table: "SalonRating",
+                column: "SalonClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SalonRating_SalonId",
+                table: "SalonRating",
                 column: "SalonId");
 
             migrationBuilder.CreateIndex(
@@ -358,6 +456,7 @@ namespace e_Spa.Backend.Migrations
                 column: "RoleId");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
@@ -365,6 +464,9 @@ namespace e_Spa.Backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Reviews");
+
+            migrationBuilder.DropTable(
+                name: "SalonRating");
 
             migrationBuilder.DropTable(
                 name: "RoleClaims",
@@ -390,11 +492,17 @@ namespace e_Spa.Backend.Migrations
                 name: "SalonServices");
 
             migrationBuilder.DropTable(
+                name: "SalonClients");
+
+            migrationBuilder.DropTable(
                 name: "AppRoles",
                 schema: "Security");
 
             migrationBuilder.DropTable(
                 name: "Salons");
+
+            migrationBuilder.DropTable(
+                name: "SalonManagers");
 
             migrationBuilder.DropTable(
                 name: "AppUsers",

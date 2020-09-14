@@ -25,36 +25,25 @@ namespace e_Spa.Backend.Models
         /// Foreign Key for Table SalonService
         /// </summary>
         [ForeignKey(nameof(SalonService))]
-        public int SalonServiceId { get; set; }
+        public int? SalonServiceId { get; set; }
 
         /// <summary>
         /// Foreign Key for Table AppUser
         /// </summary>
-        [ForeignKey(nameof(AppUser))]
-        public int AppUserId { get; set; }
-
-        /// <summary>
-        /// Foreign Key for Table Salon
-        /// </summary>
-        [ForeignKey(nameof(Salon))]
-        public int SalonId { get; set; }
-
+        [ForeignKey(nameof(SalonClient))]
+        public int SalonClientId { get; set; }
+        
         /// <summary>
         /// 
         /// </summary>
         [JsonIgnore]
         public virtual SalonService SalonService { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        [JsonIgnore]
-        public virtual Salon Salon { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [JsonIgnore]
-        public virtual AppUser AppUser { get; set; }
+        public virtual SalonClient SalonClient { get; set; }
     }
 }

@@ -26,11 +26,5 @@ namespace e_Spa.Backend.Models
         /// </summary>
         [Required, Column(TypeName = "VARCHAR(64)")]
         public string ProfilePhotoUrl { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [JsonIgnore]
-        public virtual ICollection<Salon> Salons { get; set; }
     }
 }

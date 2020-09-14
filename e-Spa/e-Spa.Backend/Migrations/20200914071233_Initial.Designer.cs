@@ -10,7 +10,7 @@ using e_Spa.Backend.Data;
 namespace e_Spa.Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200912154934_Initial")]
+    [Migration("20200914071233_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -237,22 +237,22 @@ namespace e_Spa.Backend.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Date")
                         .IsRequired()
                         .HasColumnType("VARCHAR(64)");
 
-                    b.Property<int>("SalonId")
+                    b.Property<int>("SalonClientId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SalonServiceId")
+                    b.Property<int?>("SalonId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SalonServiceId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("SalonClientId");
 
                     b.HasIndex("SalonId");
 
@@ -276,14 +276,15 @@ namespace e_Spa.Backend.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(64)");
 
-                    b.Property<string>("ReviewerName")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(64)");
+                    b.Property<int?>("SalonClientId")
+                        .HasColumnType("int");
 
                     b.Property<int>("SalonId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SalonClientId");
 
                     b.HasIndex("SalonId");
 
@@ -337,6 +338,62 @@ namespace e_Spa.Backend.Migrations
                     b.ToTable("Salons");
                 });
 
+            modelBuilder.Entity("e_Spa.Backend.Models.SalonClient", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("SalonClients");
+                });
+
+            modelBuilder.Entity("e_Spa.Backend.Models.SalonManager", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("SalonManagers");
+                });
+
+            modelBuilder.Entity("e_Spa.Backend.Models.SalonRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("SalonClientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SalonId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SalonClientId");
+
+                    b.HasIndex("SalonId");
+
+                    b.ToTable("SalonRating");
+                });
+
             modelBuilder.Entity("e_Spa.Backend.Models.SalonService", b =>
                 {
                     b.Property<int>("Id")
@@ -354,6 +411,9 @@ namespace e_Spa.Backend.Migrations
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("VARCHAR(64)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
                         .HasColumnType("FLOAT");
@@ -421,27 +481,27 @@ namespace e_Spa.Backend.Migrations
 
             modelBuilder.Entity("e_Spa.Backend.Models.Appointment", b =>
                 {
-                    b.HasOne("e_Spa.Backend.Models.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId")
+                    b.HasOne("e_Spa.Backend.Models.SalonClient", "SalonClient")
+                        .WithMany("Appointments")
+                        .HasForeignKey("SalonClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("e_Spa.Backend.Models.Salon", "Salon")
+                    b.HasOne("e_Spa.Backend.Models.Salon", null)
                         .WithMany("Appointments")
-                        .HasForeignKey("SalonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SalonId");
 
                     b.HasOne("e_Spa.Backend.Models.SalonService", "SalonService")
                         .WithMany("Appointments")
-                        .HasForeignKey("SalonServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SalonServiceId");
                 });
 
             modelBuilder.Entity("e_Spa.Backend.Models.Review", b =>
                 {
+                    b.HasOne("e_Spa.Backend.Models.SalonClient", "SalonClient")
+                        .WithMany("Reviews")
+                        .HasForeignKey("SalonClientId");
+
                     b.HasOne("e_Spa.Backend.Models.Salon", "Salon")
                         .WithMany("Reviews")
                         .HasForeignKey("SalonId")
@@ -451,9 +511,40 @@ namespace e_Spa.Backend.Migrations
 
             modelBuilder.Entity("e_Spa.Backend.Models.Salon", b =>
                 {
-                    b.HasOne("e_Spa.Backend.Models.AppUser", "AppUser")
+                    b.HasOne("e_Spa.Backend.Models.SalonManager", "SalonManager")
                         .WithMany("Salons")
                         .HasForeignKey("SalonManagerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("e_Spa.Backend.Models.SalonClient", b =>
+                {
+                    b.HasOne("e_Spa.Backend.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("e_Spa.Backend.Models.SalonManager", b =>
+                {
+                    b.HasOne("e_Spa.Backend.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("e_Spa.Backend.Models.SalonRating", b =>
+                {
+                    b.HasOne("e_Spa.Backend.Models.SalonClient", "SalonClient")
+                        .WithMany("SalonRatings")
+                        .HasForeignKey("SalonClientId");
+
+                    b.HasOne("e_Spa.Backend.Models.Salon", "Salon")
+                        .WithMany("SalonRatings")
+                        .HasForeignKey("SalonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

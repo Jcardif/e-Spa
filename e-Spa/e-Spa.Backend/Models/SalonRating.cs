@@ -1,31 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace e_Spa.Backend.Models
 {
+
     /// <summary>
-    /// Represents the Review table on the Database with the defined properties as Table columns
+    /// Represents the SalonRating table on the Database with the defined properties as Table columns
     /// </summary>
-    public class Review
+    public class SalonRating
     {
         /// <summary>
         /// Primary Key on the Database
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        /// <summary>
-        /// Review Info
-        /// </summary>
-        [Required, Column(TypeName = "VARCHAR(64)")]
-        public string Info { get; set; }
-
-        /// <summary>
-        /// Date review was updated or created
-        /// </summary>
-        [Required, Column(TypeName = "VARCHAR(64)")]
-        public string Date { get; set; }
 
         /// <summary>
         /// Foreign Key for Table SalonClient
@@ -50,6 +38,6 @@ namespace e_Spa.Backend.Models
         /// </summary>
         [JsonIgnore]
         public virtual SalonClient SalonClient { get; set; }
-        
+
     }
 }

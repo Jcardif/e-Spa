@@ -66,7 +66,7 @@ namespace e_Spa.Backend.Models
         /// <summary>
         /// Foreign Key for Table SalonManager
         /// </summary>
-        [ForeignKey(nameof(AppUser))]
+        [ForeignKey(nameof(SalonManager))]
         public int SalonManagerId { get; set; }
 
         /// <summary>
@@ -85,12 +85,18 @@ namespace e_Spa.Backend.Models
         /// 
         /// </summary>
         [JsonIgnore]
-        public virtual AppUser AppUser { get; set; }
+        public virtual SalonManager SalonManager { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [JsonIgnore]
         public virtual ICollection<SalonService> SalonServices { get; set; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonIgnore]
+        public virtual ICollection<SalonRating> SalonRatings { get; set; }
     }
 }

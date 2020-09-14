@@ -37,6 +37,17 @@ namespace e_Spa.Backend.Data
         /// Represents SalonServices Table in the Database
         /// </summary>
         public DbSet<SalonService> SalonServices { get; set; }
+
+        /// <summary>
+        /// Represents SalonManager Table in the Database
+        /// </summary>
+        public DbSet<SalonManager> SalonManagers { get; set; }
+
+
+        /// <summary>
+        /// Represents SalonClient Table in the Database
+        /// </summary>
+        public DbSet<SalonClient> SalonClients { get; set; }
         
         /// <inheritdoc />
         protected override void OnModelCreating(ModelBuilder builder)

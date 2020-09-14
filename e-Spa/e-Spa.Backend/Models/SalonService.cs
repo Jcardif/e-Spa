@@ -17,6 +17,11 @@ namespace e_Spa.Backend.Models
         public int Id { get; set; }
 
         /// <summary>
+        /// Name of the Salon Service
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
         /// Image Url for the Salon Service
         /// </summary>
         [Required, Column(TypeName = "VARCHAR(64)")]
@@ -57,5 +62,8 @@ namespace e_Spa.Backend.Models
         /// </summary>
         [JsonIgnore]
         public virtual ICollection<Appointment> Appointments { get; set; }
+
+
+
     }
 }
